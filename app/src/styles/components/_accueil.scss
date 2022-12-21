@@ -1,0 +1,47 @@
+.boutons{
+    display: flex;
+    justify-content: row;
+    padding-left: 150px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    color : orange;
+}
+
+.Button1{
+    padding: 5px;
+    background-color: orange;
+    border-radius:5px;
+    margin-right: 50px;
+    color:white;
+    cursor: pointer;
+}
+.Button2{
+    padding: 5px;
+    background-color: orange;
+    color:white;
+    border-radius:5px;
+    cursor: pointer;
+}
+.AccueilListe{
+    padding-left: 150px;
+    padding-right: 300px;
+}
+.Rowliste{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.firstLine{
+
+    display: flex;
+    justify-content: space-between;
+    margin-left: 150px;
+    margin-right: 300px;
+    padding-bottom: 10px;
+    background-color: grey;
+}
+   
+.firstLine-li{
+    margin-right: 50px;
+}

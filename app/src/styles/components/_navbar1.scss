@@ -1,0 +1,47 @@
+.navbar1{
+    background-color: black;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.leftpart{
+    display: flex;
+    align-items: center;
+    color:white;
+    justify-content: row;
+    font-size: 30px;
+}
+.logoorange{
+    height:50px;
+    width: 50px;
+    margin-left: 25px;
+    margin-right: 30px;
+}
+.leftpart-btnhome{
+    height: 40px;
+    width: 40px;
+    color:white;
+}
+
+
+
+.rightpart{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color:white; 
+}
+h3{
+    margin-right: 5px;
+}
+
+.chevron{
+    margin-right: 100px;
+    margin-top: 5px;
+}
+
+.profil{
+    margin-right: 30px;
+    font-size:30px;
+}
