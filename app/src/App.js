@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
 
 
 function App() {
@@ -14,9 +15,12 @@ function App() {
   //render
   
   return (
+    <div>
+      <Navbar/>
     <div className="App">
       <h1>{compteur}</h1>
       <button onClick={handleClick}>Incrémenter</button>
+    </div>
     </div>
   );
 }
