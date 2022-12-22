@@ -9,7 +9,7 @@ function App() {
   const [Compteur,setCompteur] =useState(1);
   //comportements
   const handclick = () => {
-    setCompteur(compteur+1)
+    setCompteur(Compteur+1)
   };
   //render
   
