@@ -6,18 +6,17 @@ import './App.css';
 function App() {
 
   //state 
-  const [Compteur,setCompteur] =useState(1);
+  const [compteur,setCompteur] =useState(1);
   //comportements
-  const handclick = () => {
-    setCompteur(Compteur+1)
+  const handleClick = () => {
+    setCompteur(compteur+1)
   };
   //render
   
   return (
     <div className="App">
-      <h1>Salut Orange</h1>
-      <button onClick={handclick()}>Incrémenter</button>
-      <h2>{Compteur}</h2>
+      <h1>{compteur}</h1>
+      <button onClick={handleClick}>Incrémenter</button>
     </div>
   );
 }
