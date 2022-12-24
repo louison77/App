@@ -1,0 +1,25 @@
+.boutons{
+    display: flex;
+    justify-content: row;
+    padding-left: 150px;
+    padding-top: 30px;
+    color : orange;
+}
+
+.Button1{
+    padding: 5px;
+    background-color: orange;
+    border-color: orange;
+    border-radius:5px;
+    margin-right: 50px;
+    color:white;
+    cursor: pointer;
+}
+.Button2{
+    padding: 5px;
+    background-color: orange;
+    border-color: orange;
+    color:white;
+    border-radius:5px;
+    cursor: pointer;
+}
