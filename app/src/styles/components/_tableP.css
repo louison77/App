@@ -28,11 +28,12 @@
     border-collapse: collapse;
     min-width: 1000px;
     width: auto;
-    cursor:pointer;
     margin: 100px auto;
 
 }
-
+.ButtonProjectName{
+    cursor: pointer;
+}
 thead tr{
     background-color: grey;
     color: black;
