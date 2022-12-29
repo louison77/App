@@ -1,12 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import { Outlet } from 'react-router-dom';
+import Nav2 from '../components/Nav2';
+
+import '../styles/components/_gestion.css'
 
 const Gestion = () => {
     return (
         <div>
-            <Navbar/> 
-            <Link to="/"><button><ion-icon classname='btnhome' name="home-outline"></ion-icon></button></Link>
+            <Nav2/>
+            
+            <Outlet/>
+                
+            
         </div>
     );
 };

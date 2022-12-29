@@ -1,0 +1,20 @@
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.menu-liste{
+    list-style-type: none;
+    display: flex;
+ 
+}
+.menu-liste li{
+   
+    padding-right: 30px;
+}
+.Menu-link{
+    text-decoration: none;
+    color:black;
+    cursor: pointer;
+}
