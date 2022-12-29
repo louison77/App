@@ -1,20 +1,36 @@
 
 
+import { Routes, Route  } from 'react-router-dom';
 import './App.css';
-import Navbar from './components/Navbar';
-import TableP from './components/TableP';
+import Accueil from './pages/Accueil';
+import Gestion from './pages/Gestion';
+
 
 function App() {
 
   
   
   return (
-    <div>
-      <Navbar/>
-      
-      <TableP/>
+      <div>
 
-    </div>
+      <Routes>
+
+        <Route path="/" element={<Accueil/>}/>
+        <Route path="/Gestion" element={<Gestion/>}/>
+       
+      </Routes>
+      
+      
+     
+        
+        
+        
+
+      
+      
+      </div>
+
+    
   );
 }
 

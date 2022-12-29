@@ -1,8 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import '../styles/components/_tableP.css'
-
-
+import { Link } from 'react-router-dom';
+import '../styles/components/_tableP.css';
 
 
 
@@ -66,7 +65,7 @@ function TableP()  {
                 <tbody>
                     {projets.map((project) =>(
                         <tr>
-                            <button className='ButtonProjectName'><td>{project.Nom}</td></button>
+                            <Link to="/Gestion"><button className='ButtonProjectName'><td >{project.Nom}</td></button></Link>
                             <td>{project.Id}</td>
                             <td>{project.StatutAudit}</td>
                             <td>{project.StatutPA}</td>
@@ -80,3 +79,4 @@ function TableP()  {
 };
 
 export default TableP;
+//<Link to="/../pages/Gestion.jsx"></Link>
