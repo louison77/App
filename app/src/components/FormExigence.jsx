@@ -1,43 +1,38 @@
 import React from 'react';
+import '../styles/components/_FormExigences.css';
 import { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom'
-import '../styles/components/_exigences.css';
 
-const Exigences = () => {
-
+function FormExigence  (ID) {
     const [exigences,setExigences] =useState([
         {Id : "ORG 5.08", Nom:"Sécurité de l'information", Exigence : "Assure blabla", GuideComplet : "ggggg", GuideAbrege:"Doit inclure\n​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb) évaluation et traitement des risques de sécurité de l'information lors du projet\n​c) évaluation et traitement des risques de sécurité de l'information une fois le projet mis en place​d) tests des mesures de sécurité en pace​e) intégration de la sécurité de l'information au sein de toutes les phases de la méthodologie projet​",Obj:"Objectif 5.08"},
         {Id : "ORG 5.09",Nom: "Sécurité Gestion", Exigence : "Réalise machin", GuideComplet : "fhqhhf",GuideAbrege:"guide abreegeee", Obj:"Objectif 5.09"}
     ]);
-    const handleChange = (event) =>{
-        console.log(event.target.value)
+    let exi ;
+    for(let i=0;i<exigences.length;i++)
+    {
+        if(exigences[i].Id=ID){
+            exi={Id: exigences[i].Id, Nom:exigences[i].Nom, Exigence:exigences[i].Exigence,GuideComplet: exigences[i].GuideComplet,GuideAbrege:exigences[i].GuideAbrege, Obj:exigences[i].Obj}
+        }
     }
+    console.log(exi)
     return (
-        <div >
-            <h1 className='TITLE'>Exigences</h1>
-            <div className='page'>
-            <div className='BarreDéroulé'>
-                {exigences.map((exige)=>(
-                    <h4 className='IdExigences' >{exige.Id}</h4>
-                ))}
-            </div>
-                   
+        <div>
             <div className='ExigenceDescription'>
             
             
-            {exigences.map((exige)=>(
+            
                 <div>
-                <h3>{exige.Id} | {exige.Nom}</h3>
+                <h3>{exi.Id} | {exi.Nom}</h3>
                 <div className='Exigences_parties'>
                    
                    <div className='Part1'>
                    
                     <h4 className='NamePart'>Exigences<br/></h4>
-                    <span className='TexteParties'>{exige.Exigence}<br/></span>
+                    <span className='TexteParties'>{exi.Exigence}<br/></span>
                     <h4 className='NamePart'>Guide Complet<br/></h4>
                     <h4 className='NamePart'>Guide Abrégé<br/></h4>
                     <div className='TexteGuideAbregee'>
-                    <span >{exige.GuideAbrege}</span>
+                    <span >{exi.GuideAbrege}</span>
                     </div>
                     </div>
 
@@ -45,7 +40,7 @@ const Exigences = () => {
                     
                         <div>
                             <h4 className='NamePart'>Objectif<br/></h4>
-                            <span className='TexteParties'>{exige.Obj}<br/></span>
+                            <span className='TexteParties'>{exi.Obj}<br/></span>
 
                             <h4 className='NamePart'>Observations de l'auditeur</h4>
 
@@ -105,11 +100,12 @@ const Exigences = () => {
                 </div>
 
                 
-))}
+
 
 </div></div>
-        </div>
+        
+        
     );
 };
 
-export default Exigences;
+export default FormExigence;

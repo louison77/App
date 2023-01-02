@@ -23,8 +23,9 @@
 }
 .NameProject{
     font-size: 15px;
+    color:orange
 }
-.NameProject:hover{
+.menu-liste li:hover{
     color:orange
 }
 

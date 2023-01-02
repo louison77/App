@@ -1,0 +1,75 @@
+.ChoixNiveaux{
+    width:80%;
+}
+.CaseTable{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.Case{
+    
+    width: 20%;
+    height:20%; 
+    
+}
+.Basique{
+    background-color: crimson;
+}
+.Moyenne{
+    background-color:orange;
+}
+.Elevee{
+    background-color: yellow;
+}
+.Televee{
+    background-color: greenyellow;
+}
+.TexteParties{
+    background-color: lightgrey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    margin-top: 5px;
+    font-size: 15px;
+}
+.TexteGuideAbregee{
+    background-color: lightgrey;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    
+}
+
+.ExigenceDescription{
+    display:flex;
+    flex-direction: column;
+    margin-left: 100px;
+    
+    
+    
+}
+.Exigences_parties{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.Part2{
+    display: flex;
+    justify-content: right;
+    margin-right: 100px;
+    
+    
+}
+.Part1{
+    width:50%;
+}
+.TextArea{
+    width:400px;
+    height:100px;
+    color:rgb(9, 118, 161);
+
+}
