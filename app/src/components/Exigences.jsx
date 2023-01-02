@@ -1,17 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom'
 import '../styles/components/_exigences.css';
 
 const Exigences = () => {
 
-    const [exigences,setExigences] =useState([
+    const [exigences] =useState([
         {Id : "ORG 5.08", Nom:"Sécurité de l'information", Exigence : "Assure blabla", GuideComplet : "ggggg", GuideAbrege:"Doit inclure\n​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb) évaluation et traitement des risques de sécurité de l'information lors du projet\n​c) évaluation et traitement des risques de sécurité de l'information une fois le projet mis en place​d) tests des mesures de sécurité en pace​e) intégration de la sécurité de l'information au sein de toutes les phases de la méthodologie projet​",Obj:"Objectif 5.08"},
         {Id : "ORG 5.09",Nom: "Sécurité Gestion", Exigence : "Réalise machin", GuideComplet : "fhqhhf",GuideAbrege:"guide abreegeee", Obj:"Objectif 5.09"}
     ]);
-    const handleChange = (event) =>{
-        console.log(event.target.value)
-    }
+  
     return (
         <div >
             <h1 className='TITLE'>Exigences</h1>

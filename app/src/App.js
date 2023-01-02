@@ -22,9 +22,8 @@ function App() {
 
         <Route path="/" element={<Accueil/>}/>
         <Route path="/Gestion" element={<Gestion/>}>
-          <Route path="/Gestion/Exigences" element={<Exigences/>}>
-              <Route path="Gestion/Exigences/FormExigences" element={<FormExigence/>}/>
-              </Route>
+          <Route path="/Gestion/Exigences" element={<Exigences/>}/>
+              
           <Route path="/Gestion/Mesures" element={<Mesures/>}/>
           <Route path="/Gestion/Suivi" element={<Suivi/>}/>
           <Route path="/Gestion/Export" element={<Export/>}/>
