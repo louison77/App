@@ -2,27 +2,56 @@ import React from 'react';
 import { useState } from 'react';
 import '../styles/components/_exigences.css';
 
-const Exigences = () => {
-
+const Exigences = (props) => {
+ 
+   
+    //States
     const [exigences] =useState([
         {Id : "ORG 5.08", Nom:"Sécurité de l'information", Exigence : "Assure blabla", GuideComplet : "ggggg", GuideAbrege:"Doit inclure\n​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb) évaluation et traitement des risques de sécurité de l'information lors du projet\n​c) évaluation et traitement des risques de sécurité de l'information une fois le projet mis en place​d) tests des mesures de sécurité en pace​e) intégration de la sécurité de l'information au sein de toutes les phases de la méthodologie projet​",Obj:"Objectif 5.08"},
-        {Id : "ORG 5.09",Nom: "Sécurité Gestion", Exigence : "Réalise machin", GuideComplet : "fhqhhf",GuideAbrege:"guide abreegeee", Obj:"Objectif 5.09"}
+        {Id : "ORG 5.09",Nom: "Sécurité Gestion", Exigence : "Réalise machin", GuideComplet : "fhqhhf",GuideAbrege:"guide abreegeee", Obj:"Objectif 5.09"},
+        {Id : "ORG 5.10",Nom: "Sécurité réseau", Exigence : "Gère le réseau de l'entreprise", GuideComplet : "fffff",GuideAbrege:"guide abreegeee", Obj:"Objectif 5.10"}
+    
     ]);
+    const [UneExigence,setUneExigence]=useState("");
+    const [isSeen, setisSeen]=useState(false);
+  //comportements
+  
+
+   const toggleVisibility =(event,ID) => {
+    console.log(ID);
+    const Copy=[]
+    for(let i=0 ;i<exigences.length;i++){
+        if(exigences[i].Id===ID)
+        {
+            Copy.push({Id: exigences[i].Id, Nom:exigences[i].Nom, Exigence:exigences[i].Exigence,GuideComplet: exigences[i].GuideComplet,GuideAbrege:exigences[i].GuideAbrege, Obj:exigences[i].Obj});
+        }
+    }
+    setUneExigence(Copy);
+    console.log(Copy)
+    
+    const value = true;
+    setisSeen(value)
+        ;
+
+  }
+  if(isSeen){
+            
   
     return (
+        
         <div >
             <h1 className='TITLE'>Exigences</h1>
             <div className='page'>
             <div className='BarreDéroulé'>
                 {exigences.map((exige)=>(
-                    <h4 className='IdExigences' >{exige.Id}</h4>
+                    <h4 className='IdExigences' onClick={(e)=>toggleVisibility(e,exige.Id)}>{exige.Id}</h4>
                 ))}
             </div>
                    
             <div className='ExigenceDescription'>
             
             
-            {exigences.map((exige)=>(
+            {UneExigence.map((exige)=>(
                 <div>
                 <h3>{exige.Id} | {exige.Nom}</h3>
                 <div className='Exigences_parties'>
@@ -47,7 +76,7 @@ const Exigences = () => {
                             <h4 className='NamePart'>Observations de l'auditeur</h4>
 
                             <form action="submit"  >
-                            <textarea className='TextArea'>Observations</textarea>
+                            <textarea className='TextArea' defaultValue="Observations"></textarea>
                             </form>
                 
                        </div>
@@ -73,25 +102,25 @@ const Exigences = () => {
                                 <td className='Case'>
                                     <div className='CaseTable'>
                                         < input type="checkbox" />
-                                        <text>Texte Basique niveau  </text>
+                                        <p>Texte Basique niveau  </p>
                                     </div>
                                 </td>
                                 <td className='Case' >
                                     <div className='CaseTable'>
                                         < input type="checkbox" />
-                                        <text>Texte Moyen niveau  </text>
+                                        <p>Texte Moyen niveau  </p>
                                     </div>
                                 </td>
                                 <td className='Case'>
                                     <div className='CaseTable'>
                                         < input type="checkbox" />
-                                        <text>Texte Elevee niveau  </text>
+                                        <p>Texte Elevee niveau  </p>
                                     </div>
                                 </td>
                                 <td className='Case'>
                                     <div className='CaseTable'>
                                         < input type="checkbox" />
-                                        <text>Texte Très Elevée niveau  </text>
+                                        <p>Texte Très Elevée niveau  </p>
                                     </div>
                                     </td>
                             </tr>
@@ -106,7 +135,22 @@ const Exigences = () => {
 
 </div></div>
         </div>
-    );
+    );}
+    else{
+        return (
+            <div >
+            <h1 className='TITLE'>Exigences</h1>
+            <div className='page'>
+            <div className='BarreDéroulé'>
+                {exigences.map((exige)=>(
+                    <h4 className='IdExigences' onClick={toggleVisibility}>{exige.Id}</h4>
+                ))}
+            </div>
+            </div>
+            </div>
+
+        );
+    }
 };
 
 export default Exigences;

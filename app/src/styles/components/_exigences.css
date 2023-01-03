@@ -7,11 +7,8 @@
 }
 
 .ExigenceDescription{
-    display:flex;
-    flex-direction: column;
+    
     margin-left: 100px;
-    
-    
     
 }
 .Exigences_parties{
@@ -40,6 +37,8 @@
 .BarreDéroulé{
     width: 250px;
     margin-left: 50px;
+    
+    
 }
 .IdExigences{
     cursor: pointer;
@@ -51,7 +50,7 @@
     
 }
 .ChoixNiveaux{
-    width:80%;
+    width:1000px;
 }
 .CaseTable{
     display: flex;
