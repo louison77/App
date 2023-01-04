@@ -22,8 +22,6 @@
     display: flex;
     justify-content: right;
     margin-right: 100px;
-    
-    
 }
 .Part1{
     width:50%;
@@ -37,8 +35,6 @@
 .BarreDéroulé{
     width: 250px;
     margin-left: 50px;
-    
-    
 }
 .IdExigences{
     cursor: pointer;
@@ -90,5 +86,4 @@
     padding-right: 10px;
     padding-bottom: 5px;
     padding-top: 5px;
-    
 }
