@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import '../styles/components/_exigences.css';
+import '../styles/components/GestionStyle/_exigences.css';
 
 const Exigences = (props) => {
  

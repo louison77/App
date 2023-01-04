@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
-import TableP from '../components/TableP';
+import Navbar from '../components/Navbars/Navbar';
+import TableP from '../components/AccueilPage/TableP';
 
 const Accueil = () => {
     return (
