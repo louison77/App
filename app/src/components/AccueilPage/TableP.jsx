@@ -28,7 +28,7 @@ function TableP()  {
         const id= new Date().getTime()
         const nom =newProjet;
         const StatutAudit="En cours";
-        const StatutPA="En cours";
+        const StatutPA="Pas démarré";
         ProjetCopy.push({Nom : nom, Id: id ,StatutAudit:StatutAudit,StatutPA:StatutPA});
         //modifier state setter
         setprojets(ProjetCopy);

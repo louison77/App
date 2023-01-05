@@ -19,7 +19,7 @@ const Exigences = (props) => {
     //Ajouter une constante
     const [Observ,setObserv]=useState(exigences[0].Observation)
    const toggleVisibility =(event,ID) => {
-    console.log(ID);
+    
     const Copy=[]
     for(let i=0 ;i<exigences.length;i++){
         if(exigences[i].Id===ID)
@@ -28,11 +28,9 @@ const Exigences = (props) => {
         }
     }
     setUneExigence(Copy);
-    console.log(Copy)
-    
     const value = true;
-    setisSeen(value)
-        ;
+    setisSeen(value);
+    
 
   }
   const handleChange = (event) =>{
@@ -68,6 +66,11 @@ const Exigences = (props) => {
             <h1 className='TITLE'>Exigences</h1>
             <div className='page'>
 
+            <div className='BarreDéroulé'>
+                {exigences.map((exige)=>(
+                    <h4 className='IdExigences' onClick={(e)=>toggleVisibility(e,exige.Id)}>{exige.Id}</h4>
+                ))}
+            </div>
                    
             <div className='ExigenceDescription'>
             
@@ -125,7 +128,7 @@ const Exigences = (props) => {
             <div className='page'>
             <div className='BarreDéroulé'>
                 {exigences.map((exige)=>(
-                    <h4 className='IdExigences' onClick={toggleVisibility}>{exige.Id}</h4>
+                    <h4 className='IdExigences' onClick={(e)=>toggleVisibility(e,exige.Id)}>{exige.Id}</h4>
                 ))}
             </div>
             </div>

@@ -17,7 +17,7 @@ const Mesures = () => {
 
     return (
         <div>
-            <h1 className='TITLE'>Mesures</h1>
+            <h1 className='TITLE1'>Mesures</h1>
 
             <div className='pageMesure'>
                 <table className='ListeMesures'>
