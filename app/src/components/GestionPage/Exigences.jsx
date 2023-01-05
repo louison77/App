@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import '../../styles/components/GestionStyle/_exigences.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TableauNiveau from './TableauNiveau';
+import '../../styles/components/GestionStyle/_exigences.css';
 
 const Exigences = (props) => {
  
@@ -71,7 +71,7 @@ const Exigences = (props) => {
 
             <div className='BarreDéroulé'>
 
-            <DropdownButton id="dropdown-basic-button" title="Exigences">
+            <DropdownButton className="dropbtn" title="Exigences">
             {exigences.map((exige)=>(
             <Dropdown.Item onClick={(e)=>toggleVisibility(e,exige.Id)}>{exige.Id}</Dropdown.Item>))}
             </DropdownButton>
