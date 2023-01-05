@@ -67,11 +67,7 @@ const Exigences = (props) => {
         <div >
             <h1 className='TITLE'>Exigences</h1>
             <div className='page'>
-            <div className='BarreDéroulé'>
-                {exigences.map((exige)=>(
-                    <h4 className='IdExigences' onClick={(e)=>toggleVisibility(e,exige.Id)}>{exige.Id}</h4>
-                ))}
-            </div>
+
                    
             <div className='ExigenceDescription'>
             
@@ -104,13 +100,8 @@ const Exigences = (props) => {
                             <input className='TextArea' value={Observ}type="text" placeholder={exige.Observation} onChange={handleChange}/>
                             <button Classname="BoutonObserv">Ajouter Observations</button>
                             </form>
-                
                        </div>
-
-    
-    </div>
-             
-
+                    </div>
                 </div>
                 
                 <div className='SelectionMesures'>
