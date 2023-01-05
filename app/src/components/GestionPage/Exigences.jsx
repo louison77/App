@@ -1,6 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import '../../styles/components/GestionStyle/_exigences.css';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Exigences = (props) => {
  
@@ -43,12 +46,17 @@ const Exigences = (props) => {
             <h1 className='TITLE'>Exigences</h1>
             <div className='page'>
             <div className='BarreDéroulé'>
-                {exigences.map((exige)=>(
-                    <h4 className='IdExigences' onClick={(e)=>toggleVisibility(e,exige.Id)}>{exige.Id}</h4>
-                ))}
+
+            <DropdownButton id="dropdown-basic-button" title="Exigences">
+            {exigences.map((exige)=>(
+            <Dropdown.Item onClick={(e)=>toggleVisibility(e,exige.Id)}>{exige.Id}</Dropdown.Item>))}
+            </DropdownButton>
+
+                
             </div>
                    
             <div className='ExigenceDescription'>
+            
             
             
             {UneExigence.map((exige)=>(
@@ -131,7 +139,7 @@ const Exigences = (props) => {
                 </div>
 
                 
-))}
+))} 
 
 </div></div>
         </div>

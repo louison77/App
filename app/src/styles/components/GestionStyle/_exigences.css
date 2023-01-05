@@ -1,5 +1,5 @@
 .TITLE{
-    margin-left: 320px;
+    margin-left: 260px;
 }
 .page{
     display: flex;
@@ -21,12 +21,16 @@
 .Part2{
     display: flex;
     justify-content: right;
-    margin-right: 100px;
+    margin-right: 50px;
+    width:50%;
+
+
     
     
 }
 .Part1{
     width:50%;
+    margin-left: 0px;
 }
 .TextArea{
     width:400px;
@@ -35,9 +39,8 @@
 
 }
 .BarreDéroulé{
-    width: 250px;
     margin-left: 50px;
-    
+    width: 250px;
     
 }
 .IdExigences{
@@ -50,7 +53,7 @@
     
 }
 .ChoixNiveaux{
-    width:1000px;
+    width: 1000px;
 }
 .CaseTable{
     display: flex;
