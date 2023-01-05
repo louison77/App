@@ -28,7 +28,7 @@ function TableP()  {
         const id= new Date().getTime()
         const nom =newProjet;
         const StatutAudit="En cours";
-        const StatutPA="En cours";
+        const StatutPA="Pas démarré";
         ProjetCopy.push({Nom : nom, Id: id ,StatutAudit:StatutAudit,StatutPA:StatutPA});
         //modifier state setter
         setprojets(ProjetCopy);
@@ -45,7 +45,7 @@ function TableP()  {
         <div>
             <div className='boutons'>
             <form action="submit" onSubmit={handleSubmit} >
-                <input value={newProjet}type="text" placeholder='Ajouter un projet' onChange={handleChange}/>
+                <input value={newProjet} type="text" placeholder='Ajouter un projet' onChange={handleChange}/>
                 <button className='Button1'>Nouveau projet</button>
             </form>
             

@@ -1,5 +1,5 @@
 .TITLE{
-    margin-left: 260px;
+    margin-left: 400px;
 }
 .page{
     display: flex;
@@ -21,10 +21,7 @@
 .Part2{
     display: flex;
     justify-content: right;
-    margin-right: 50px;
-    width:50%;
-
-
+    margin-right: 100px;
     
     
 }
@@ -40,7 +37,7 @@
 }
 .BarreDéroulé{
     margin-left: 50px;
-    width: 250px;
+    
     
 }
 .IdExigences{
@@ -93,5 +90,4 @@
     padding-right: 10px;
     padding-bottom: 5px;
     padding-top: 5px;
-    
 }

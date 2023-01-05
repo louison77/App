@@ -1,0 +1,110 @@
+.TITLE1{
+    margin-left: 20px;
+}
+
+.pageMesure{
+    display: flex;
+}
+
+.ListeMesures{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.ListeMesures th{
+    border: 2px solid black;
+}
+table.ListeMesures td{
+    border: 2px solid black;
+}
+
+
+
+/*Id interne*/
+thead th:nth-child(1) {
+    width: 80px;
+  }
+tbody td:nth-child(1) {
+    text-align: center;
+}
+
+/*Libellé*/
+thead th:nth-child(2) {
+    width: 140px;
+  }
+
+/*Action détaillée*/
+  thead th:nth-child(3) {
+    width: 180px;
+  }
+
+/*Maturité*/
+  thead th:nth-child(4) {
+    width: 70px;
+  }
+  tbody td:nth-child(4) {
+    text-align: center;
+}
+/*Priorité*/
+  thead th:nth-child(5) {
+    width: 65px;
+  }
+  tbody td:nth-child(5) {
+    text-align: center;
+}
+/*Complexité*/
+  thead th:nth-child(6) {
+    width: 95px;
+  }
+  tbody td:nth-child(6) {
+    text-align: center;
+}
+/*Coût Projet (k€)*/
+  thead th:nth-child(7) {
+    width: 95px;
+  }
+  tbody td:nth-child(7) {
+    text-align: center;
+}
+/*Coût Run (k€/an)*/
+  thead th:nth-child(8) {
+    width: 75px;
+  }
+  tbody td:nth-child(8) {
+    text-align: center;
+}
+/*Aide au chiffrage*/
+  thead th:nth-child(9) {
+    width: 170px;
+  }
+
+/*Porteur*/
+  thead th:nth-child(10) {
+    width: 70px;
+  }
+
+/*Date début*/
+  thead th:nth-child(11) {
+    width: 65px;
+  }
+  tbody td:nth-child(11) {
+    text-align: center;
+}
+
+  /*Date fin */
+  thead th:nth-child(12) {
+    width: 65px;
+  }
+  tbody td:nth-child(12) {
+    text-align: center;
+}
+
+/*Statut*/
+  thead th:nth-child(13) {
+    width: 65px;
+  }
+
+/*Macro Projet*/
+  thead th:nth-child(14) {
+    width: 95px;
+  }

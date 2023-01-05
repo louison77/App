@@ -4,38 +4,61 @@ import '../../styles/components/GestionStyle/_exigences.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import TableauNiveau from './TableauNiveau';
 
 const Exigences = (props) => {
  
    
     //States
-    const [exigences] =useState([
-        {Id : "ORG 5.08", Nom:"Sécurité de l'information", Exigence : "Assure blabla", GuideComplet : "ggggg", GuideAbrege:"Doit inclure\n​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb) évaluation et traitement des risques de sécurité de l'information lors du projet\n​c) évaluation et traitement des risques de sécurité de l'information une fois le projet mis en place​d) tests des mesures de sécurité en pace​e) intégration de la sécurité de l'information au sein de toutes les phases de la méthodologie projet​",Obj:"Objectif 5.08"},
-        {Id : "ORG 5.09",Nom: "Sécurité Gestion", Exigence : "Réalise machin", GuideComplet : "fhqhhf",GuideAbrege:"guide abreegeee", Obj:"Objectif 5.09"},
-        {Id : "ORG 5.10",Nom: "Sécurité réseau", Exigence : "Gère le réseau de l'entreprise", GuideComplet : "fffff",GuideAbrege:"guide abreegeee", Obj:"Objectif 5.10"}
+    const [exigences,setExigences] =useState([
+        {Id : "ORG 5.08", Nom:"Sécurité de l'information", Exigence : "Assure blabla", GuideComplet : "ggggg", GuideAbrege:"Doit inclure <br/> ​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb) évaluation et traitement des risques de sécurité de l'information lors du projet\n​c) évaluation et traitement des risques de sécurité de l'information une fois le projet mis en place​d) tests des mesures de sécurité en pace​e) intégration de la sécurité de l'information au sein de toutes les phases de la méthodologie projet​",Obj:"Objectif 5.08",Observation:"Observations"},
+        {Id : "ORG 5.09",Nom: "Sécurité Gestion", Exigence : "Réalise machin", GuideComplet : "fhqhhf",GuideAbrege:"Doit inclure\n​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb)", Obj:"Objectif 5.09",Observation:"Observations"},
+        {Id : "ORG 5.10",Nom: "Sécurité réseau", Exigence : "Gère le réseau de l'entreprise", GuideComplet : "fffff",GuideAbrege:"Doit inclure\n​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb)", Obj:"Objectif 5.10",Observation:"Observations"}
     
     ]);
     const [UneExigence,setUneExigence]=useState("");
     const [isSeen, setisSeen]=useState(false);
   //comportements
-  
-
+    //Ajouter une constante
+    const [Observ,setObserv]=useState(exigences[0].Observation)
    const toggleVisibility =(event,ID) => {
-    console.log(ID);
+    
     const Copy=[]
     for(let i=0 ;i<exigences.length;i++){
         if(exigences[i].Id===ID)
         {
-            Copy.push({Id: exigences[i].Id, Nom:exigences[i].Nom, Exigence:exigences[i].Exigence,GuideComplet: exigences[i].GuideComplet,GuideAbrege:exigences[i].GuideAbrege, Obj:exigences[i].Obj});
+            Copy.push({Id: exigences[i].Id, Nom:exigences[i].Nom, Exigence:exigences[i].Exigence,GuideComplet: exigences[i].GuideComplet,GuideAbrege:exigences[i].GuideAbrege, Obj:exigences[i].Obj,Observation:exigences[i].Observation});
         }
     }
     setUneExigence(Copy);
-    console.log(Copy)
-    
     const value = true;
-    setisSeen(value)
-        ;
+    setisSeen(value);
+    
 
+  }
+  const handleChange = (event) =>{
+    
+    setObserv(event.target.value)
+}
+  const ModifyObserv=(event) => {
+    event.preventDefault();
+    const Copy=[]
+    const Copy2=[]
+    for(let i=0 ;i<exigences.length;i++){
+        if(exigences[i].Id===UneExigence[0].Id)
+        {
+            Copy.push({Id: exigences[i].Id, Nom:exigences[i].Nom, Exigence:exigences[i].Exigence,GuideComplet: exigences[i].GuideComplet,GuideAbrege:exigences[i].GuideAbrege, Obj:exigences[i].Obj,Observation:Observ});
+        
+        }
+        else{
+            Copy.push(exigences[i]);
+        }        
+    }
+    Copy2.push({Id: UneExigence[0].Id, Nom:UneExigence[0].Nom, Exigence:UneExigence[0].Exigence,GuideComplet: UneExigence[0].GuideComplet,GuideAbrege:UneExigence[0].GuideAbrege, Obj:UneExigence[0].Obj,Observation:Observ});
+    setUneExigence(Copy2);
+    setExigences(Copy);
+    console.log(UneExigence);
+    console.log(exigences);
   }
   if(isSeen){
             
@@ -45,6 +68,7 @@ const Exigences = (props) => {
         <div >
             <h1 className='TITLE'>Exigences</h1>
             <div className='page'>
+
             <div className='BarreDéroulé'>
 
             <DropdownButton id="dropdown-basic-button" title="Exigences">
@@ -71,7 +95,7 @@ const Exigences = (props) => {
                     <h4 className='NamePart'>Guide Complet<br/></h4>
                     <h4 className='NamePart'>Guide Abrégé<br/></h4>
                     <div className='TexteGuideAbregee'>
-                    <span >{exige.GuideAbrege}</span>
+                    <span >{(exige.GuideAbrege)}</span>
                     </div>
                     </div>
 
@@ -83,59 +107,20 @@ const Exigences = (props) => {
 
                             <h4 className='NamePart'>Observations de l'auditeur</h4>
 
-                            <form action="submit"  >
-                            <textarea className='TextArea' defaultValue="Observations"></textarea>
+                            <form action="submit" onSubmit={ModifyObserv}  >
+                            <input className='TextArea' value={Observ}type="text" placeholder={exige.Observation} onChange={handleChange}/>
+                            <button Classname="BoutonObserv">Ajouter Observations</button>
                             </form>
-                
                        </div>
-
-    
-    </div>
-             
-
+                    </div>
                 </div>
+                
                 <div className='SelectionMesures'>
                     <h4 className='NamePart'>Evaluation de la maturité </h4>
-                    <table className='ChoixNiveaux'>
-                        <thead>
-                        <tr>
-                            <th className='Basique'>Basique</th>
-                            <th className='Moyenne'>Moyenne</th>
-                            <th className='Elevee'>Elevée</th>
-                            <th className='Televee'>Très élevée</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td className='Case'>
-                                    <div className='CaseTable'>
-                                        < input type="checkbox" />
-                                        <p>Texte Basique niveau  </p>
-                                    </div>
-                                </td>
-                                <td className='Case' >
-                                    <div className='CaseTable'>
-                                        < input type="checkbox" />
-                                        <p>Texte Moyen niveau  </p>
-                                    </div>
-                                </td>
-                                <td className='Case'>
-                                    <div className='CaseTable'>
-                                        < input type="checkbox" />
-                                        <p>Texte Elevee niveau  </p>
-                                    </div>
-                                </td>
-                                <td className='Case'>
-                                    <div className='CaseTable'>
-                                        < input type="checkbox" />
-                                        <p>Texte Très Elevée niveau  </p>
-                                    </div>
-                                    </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <TableauNiveau />
                     <h4 className='NamePart'>Aide à la sélection de mesures</h4>
                 </div>
+                
                 </div>
 
                 
@@ -151,7 +136,7 @@ const Exigences = (props) => {
             <div className='page'>
             <div className='BarreDéroulé'>
                 {exigences.map((exige)=>(
-                    <h4 className='IdExigences' onClick={toggleVisibility}>{exige.Id}</h4>
+                    <h4 className='IdExigences' onClick={(e)=>toggleVisibility(e,exige.Id)}>{exige.Id}</h4>
                 ))}
             </div>
             </div>
