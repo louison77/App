@@ -45,7 +45,7 @@ function TableP()  {
         <div>
             <div className='boutons'>
             <form action="submit" onSubmit={handleSubmit} >
-                <input value={newProjet}type="text" placeholder='Ajouter un projet' onChange={handleChange}/>
+                <input value={newProjet} type="text" placeholder='Ajouter un projet' onChange={handleChange}/>
                 <button className='Button1'>Nouveau projet</button>
             </form>
             
