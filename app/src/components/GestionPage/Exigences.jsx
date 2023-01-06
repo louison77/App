@@ -66,7 +66,6 @@ const Exigences = (props) => {
     return (
         
         <div >
-            <h1 className='TITLE'>Exigences</h1>
             <div className='page'>
 
             <div className='BarreDéroulé'>
@@ -78,9 +77,10 @@ const Exigences = (props) => {
 
                 
             </div>
-                   
+
             <div className='ExigenceDescription'>
-            
+            <h1 className='TITLE'>Exigences</h1>
+
             
             
             {UneExigence.map((exige)=>(
