@@ -62,14 +62,19 @@ function TableP()  {
                 
 
                 </thead>
+                
                 <tbody>
                     {projets.map((project) =>(
+                        
                         <tr>
                             <Link to="/Gestion"><button className='ButtonProjectName'><td >{project.Nom}</td></button></Link>
                             <td>{project.Id}</td>
                             <td>{project.StatutAudit}</td>
                             <td>{project.StatutPA}</td>
                         </tr>
+                        
+                        
+                        
                     ))}
                 </tbody>
 

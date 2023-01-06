@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import '../../styles/components/NavbarsStyle/_nav2.css'
+import { Link } from 'react-router-dom';
+import  Button  from 'react-bootstrap/Button';
+import '../../styles/components/NavbarsStyle/_nav2.css';
 
 const Nav2 = () => {
     return (
@@ -9,9 +10,9 @@ const Nav2 = () => {
                 <div className='leftpart'>
                 <img src="./logoorange.jpg" className='logoorange' alt="logo orange" />
 
-                <div> 
-                    <Link to="/"><button className='ButtonHome'><ion-icon classname='btnhome' name="home-outline"></ion-icon></button></Link>
-                </div>
+            
+                    <Link to="/"><Button ><ion-icon classname='btnhome' name="home-outline"></ion-icon></Button></Link>
+                
                 <span className='NameProject'> Project Name</span>
                 </div>
                 

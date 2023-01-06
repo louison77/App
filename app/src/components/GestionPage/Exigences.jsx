@@ -38,7 +38,8 @@ const Exigences = (props) => {
     setObserv(event.target.value)
 }
   const ModifyObserv=(event) => {
-    event.preventDefault();
+    console.log(Observ);
+    
     const Copy=[]
     const Copy2=[]
     for(let i=0 ;i<exigences.length;i++){
@@ -54,8 +55,7 @@ const Exigences = (props) => {
     Copy2.push({Id: UneExigence[0].Id, Nom:UneExigence[0].Nom, Exigence:UneExigence[0].Exigence,GuideComplet: UneExigence[0].GuideComplet,GuideAbrege:UneExigence[0].GuideAbrege, Obj:UneExigence[0].Obj,Observation:Observ});
     setUneExigence(Copy2);
     setExigences(Copy);
-    console.log(UneExigence);
-    console.log(exigences);
+    
   }
   if(isSeen){
             

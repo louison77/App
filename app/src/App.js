@@ -1,5 +1,6 @@
 import { Routes, Route  } from 'react-router-dom';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import Exigences from './components/GestionPage/Exigences';
 import Export from './components/GestionPage/Export';
 import Mesures from './components/GestionPage/Mesures';
@@ -8,12 +9,14 @@ import Accueil from './pages/Accueil';
 import Gestion from './pages/Gestion';
 
 
+
 function App() {
 
   
   
   return (
       <div>
+        
 
       <Routes>
 
