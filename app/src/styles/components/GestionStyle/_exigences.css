@@ -22,8 +22,10 @@
     justify-content: right;
     margin-right: 100px;
 }
+
 .Part1{
     width:50%;
+    margin-left: 0px;
 }
 .TextArea{
     width:400px;
@@ -32,8 +34,9 @@
 
 }
 .BarreDéroulé{
-    width: 250px;
     margin-left: 50px;
+    
+    
 }
 .IdExigences{
     cursor: pointer;
@@ -45,7 +48,7 @@
     
 }
 .ChoixNiveaux{
-    width:1000px;
+    width: 1000px;
 }
 .CaseTable{
     display: flex;
@@ -85,4 +88,19 @@
     padding-right: 10px;
     padding-bottom: 5px;
     padding-top: 5px;
+}
+
+.dropbtn > button {
+    --bs-btn-bg: orange;
+    --bs-btn-border-color: #D68910;
+}
+
+.dropbtn > button:hover {
+    --bs-btn-hover-bg: orange;
+    --bs-btn-hover-border-color: #D68910;
+}
+
+.dropbtn > button:active {
+    --bs-btn-active-bg: orange;
+    --bs-btn-active-border-color: #D68910;
 }
