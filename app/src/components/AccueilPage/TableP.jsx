@@ -22,17 +22,21 @@ function TableP()  {
     const handleSubmit = (event) =>{
         //pour ne pas que la page se réactualise quand on appuie sur le bouton
         event.preventDefault();
-        //copie du state
-        const ProjetCopy=[...projets]
-        //manipulation copie du state, on génère un id aléatoire
-        const id= new Date().getTime()
-        const nom =newProjet;
-        const StatutAudit="En cours";
-        const StatutPA="Pas démarré";
-        ProjetCopy.push({Nom : nom, Id: id ,StatutAudit:StatutAudit,StatutPA:StatutPA});
-        //modifier state setter
-        setprojets(ProjetCopy);
-        setNewProjet("")
+        if(newProjet!=="")
+        {
+            //copie du state
+            const ProjetCopy=[...projets]
+            //manipulation copie du state, on génère un id aléatoire
+            const id= new Date().getTime()
+            const nom =newProjet;
+            const StatutAudit="En cours";
+            const StatutPA="Pas démarré";
+            ProjetCopy.push({Nom : nom, Id: id ,StatutAudit:StatutAudit,StatutPA:StatutPA});
+            //modifier state setter
+            setprojets(ProjetCopy);
+            setNewProjet("")
+        }
+        
     };
     //permet de taper dans la zone de texte
     const handleChange = (event) =>{
