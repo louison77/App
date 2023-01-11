@@ -192,7 +192,6 @@ const Exigences = () => {
     //On utilise le seter pour modifie l'etat des deux variables
     setUneExigence(Copy2);
     setExigences(Copy);
-    setclickedButton(UneExigence[0].SousExigences[Index].sousId);
 
     console.log(UneExigence[0]);
   };
