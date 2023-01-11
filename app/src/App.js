@@ -1,11 +1,15 @@
 import { Routes, Route  } from 'react-router-dom';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import Exigences from './components/GestionPage/Exigences';
 import Export from './components/GestionPage/Export';
 import Mesures from './components/GestionPage/Mesures';
 import Suivi from './components/GestionPage/Suivi';
 import Accueil from './pages/Accueil';
 import Gestion from './pages/Gestion';
+import Resume from './components/GestionPage/Resume';
+
+
 
 
 function App() {
@@ -14,11 +18,13 @@ function App() {
   
   return (
       <div>
+        
 
       <Routes>
 
         <Route path="/" element={<Accueil/>}/>
         <Route path="/Gestion" element={<Gestion/>}>
+        <Route path="/Gestion/Resume" element={<Resume/>}/>
           <Route path="/Gestion/Exigences" element={<Exigences/>}/>
               
           <Route path="/Gestion/Mesures" element={<Mesures/>}/>

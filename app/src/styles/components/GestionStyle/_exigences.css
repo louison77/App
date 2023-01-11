@@ -1,5 +1,6 @@
 .TITLE{
-    margin-left: 320px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .page{
     display: flex;
@@ -7,10 +8,10 @@
 }
 
 .ExigenceDescription{
-    
     margin-left: 100px;
-    
+    width: 100%; 
 }
+
 .Exigences_parties{
     display:flex;
     flex-direction: row;
@@ -23,9 +24,14 @@
     justify-content: right;
     margin-right: 100px;
 }
+
 .Part1{
     width:50%;
+    margin-left: 0px;
+    margin-right: 50px;
+
 }
+
 .TextArea{
     width:400px;
     height:100px;
@@ -33,9 +39,9 @@
 
 }
 .BarreDéroulé{
-    width: 250px;
     margin-left: 50px;
 }
+
 .IdExigences{
     cursor: pointer;
 }
@@ -46,7 +52,7 @@
     
 }
 .ChoixNiveaux{
-    width:1000px;
+    width: 1000px;
 }
 .CaseTable{
     display: flex;
@@ -86,4 +92,51 @@
     padding-right: 10px;
     padding-bottom: 5px;
     padding-top: 5px;
+}
+
+.dropbtn > button {
+    margin-top: 25px;
+    --bs-btn-bg: orange;
+    --bs-btn-border-color: #F79F00;
+}
+
+.dropbtn > button:hover {
+    --bs-btn-hover-bg: orange;
+    --bs-btn-hover-border-color: #F79F00;
+}
+
+.dropbtn > button:active {
+    --bs-btn-active-bg: #E89600;
+    --bs-btn-active-border-color: #DB8D00;
+}
+
+.dropbtn > button:focus {
+    --bs-btn-focus-bg: orange;
+    --bs-btn-focus-border-color: #F79F00;
+}
+
+.dropbtn.show > button {
+    --bs-btn-active-bg: #E89600;
+    --bs-btn-active-border-color: #DB8D00;
+}
+.GuidePart{
+    display: flex;
+    flex-direction: row;
+    margin-top:20px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.GuideBtn{
+    color:black;
+    background-color: white;
+    border-color: black;
+    margin-right: 10px;
+}
+.GuideBtn:hover{
+    color:black;
+    background-color: white;
+    border-color: black;
+}
+.CollapseText{
+    background-color: lightgrey;
 }

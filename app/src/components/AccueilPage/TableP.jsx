@@ -22,17 +22,21 @@ function TableP()  {
     const handleSubmit = (event) =>{
         //pour ne pas que la page se réactualise quand on appuie sur le bouton
         event.preventDefault();
-        //copie du state
-        const ProjetCopy=[...projets]
-        //manipulation copie du state, on génère un id aléatoire
-        const id= new Date().getTime()
-        const nom =newProjet;
-        const StatutAudit="En cours";
-        const StatutPA="En cours";
-        ProjetCopy.push({Nom : nom, Id: id ,StatutAudit:StatutAudit,StatutPA:StatutPA});
-        //modifier state setter
-        setprojets(ProjetCopy);
-        setNewProjet("")
+        if(newProjet!=="")
+        {
+            //copie du state
+            const ProjetCopy=[...projets]
+            //manipulation copie du state, on génère un id aléatoire
+            const id= new Date().getTime()
+            const nom =newProjet;
+            const StatutAudit="En cours";
+            const StatutPA="Pas démarré";
+            ProjetCopy.push({Nom : nom, Id: id ,StatutAudit:StatutAudit,StatutPA:StatutPA});
+            //modifier state setter
+            setprojets(ProjetCopy);
+            setNewProjet("")
+        }
+        
     };
     //permet de taper dans la zone de texte
     const handleChange = (event) =>{
@@ -45,7 +49,7 @@ function TableP()  {
         <div>
             <div className='boutons'>
             <form action="submit" onSubmit={handleSubmit} >
-                <input value={newProjet}type="text" placeholder='Ajouter un projet' onChange={handleChange}/>
+                <input value={newProjet} type="text" placeholder='Ajouter un projet' onChange={handleChange}/>
                 <button className='Button1'>Nouveau projet</button>
             </form>
             
@@ -62,14 +66,19 @@ function TableP()  {
                 
 
                 </thead>
+                
                 <tbody>
                     {projets.map((project) =>(
+                        
                         <tr>
                             <Link to="/Gestion"><button className='ButtonProjectName'><td >{project.Nom}</td></button></Link>
                             <td>{project.Id}</td>
                             <td>{project.StatutAudit}</td>
                             <td>{project.StatutPA}</td>
                         </tr>
+                        
+                        
+                        
                     ))}
                 </tbody>
 
