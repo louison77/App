@@ -33,6 +33,8 @@
 }
 .ButtonProjectName{
     cursor: pointer;
+    border: 3px black;
+    border-radius: 2px;
 }
 thead tr{
     background-color: grey;

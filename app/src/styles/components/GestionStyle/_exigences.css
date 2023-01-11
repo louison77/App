@@ -9,6 +9,7 @@
 
 .ExigenceDescription{
     margin-left: 100px;
+    width: 100%; 
 }
 
 .Exigences_parties{
@@ -117,4 +118,25 @@
 .dropbtn.show > button {
     --bs-btn-active-bg: #E89600;
     --bs-btn-active-border-color: #DB8D00;
+}
+.GuidePart{
+    display: flex;
+    flex-direction: row;
+    margin-top:20px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.GuideBtn{
+    color:black;
+    background-color: white;
+    border-color: black;
+    margin-right: 10px;
+}
+.GuideBtn:hover{
+    color:black;
+    background-color: white;
+    border-color: black;
+}
+.CollapseText{
+    background-color: lightgrey;
 }
