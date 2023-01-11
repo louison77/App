@@ -195,170 +195,162 @@ const Exigences = (props) => {
   };
   if (isSeen) {
     return (
-      <div>
-        <h1 className="TITLE">Exigences</h1>
-        <div className="page">
-          <div className="BarreDéroulé">
-            <DropdownButton className="dropbtn" title="Exigences">
-              {exigences.map((exige) => (
-                <Dropdown.Item onClick={(e) => toggleVisibility(e, exige.Id)}>
-                  {exige.Id}
-                </Dropdown.Item>
-              ))}
-            </DropdownButton>
-          </div>
+      <div className="page">
+        <div className="BarreDéroulé">
+          <DropdownButton className="dropbtn" title="Exigences">
+            {exigences.map((exige) => (
+              <Dropdown.Item onClick={(e) => toggleVisibility(e, exige.Id)}>
+                {exige.Id}
+              </Dropdown.Item>
+            ))}
+          </DropdownButton>
+        </div>
 
-          <div className="ExigenceDescription">
-            {UneExigence.map((exige) => (
-              <div>
-                <h3>
-                  {exige.Id} | {exige.Nom}
-                </h3>
-                <div className="Exigences_parties">
-                  <div className="Part1">
+        <div className="ExigenceDescription">
+          <h1 className="TITLE">Exigences</h1>
+
+          {UneExigence.map((exige) => (
+            <div>
+              <h3>
+                {exige.Id} | {exige.Nom}
+              </h3>
+              <div className="Exigences_parties">
+                <div className="Part1">
+                  <h4 className="NamePart">
+                    Exigences
+                    <br />
+                  </h4>
+                  <span className="TexteParties">
+                    {exige.Exigence}
+                    <br />
+                  </span>
+                  <div className="GuidePart">
+                    <Button
+                      className="GuideBtn"
+                      onClick={() => setOpen(!open)}
+                      aria-controls="example-collapse-text"
+                      aria-expanded={open}
+                    >
+                      +
+                    </Button>
                     <h4 className="NamePart">
-                      Exigences
+                      Guide Complet
                       <br />
                     </h4>
-                    <span className="TexteParties">
-                      {exige.Exigence}
-                      <br />
-                    </span>
-                    <div className="GuidePart">
-                      <Button
-                        className="GuideBtn"
-                        onClick={() => setOpen(!open)}
-                        aria-controls="example-collapse-text"
-                        aria-expanded={open}
-                      >
-                        +
-                      </Button>
-                      <h4 className="NamePart">
-                        Guide Complet
-                        <br />
-                      </h4>
-                    </div>
-                    <Collapse in={open}>
-                      <div className="CollapseText" id="example-collapse-text">
-                        {exige.GuideComplet}
-                      </div>
-                    </Collapse>
-
-                    <h4 className="NamePart">
-                      Guide Abrégé
-                      <br />
-                    </h4>
-                    <div className="TexteGuideAbregee">
-                      <span>{exige.GuideAbrege}</span>
-                    </div>
                   </div>
-
-                  <div className="Part2">
-                    <div>
-                      <h4 className="NamePart">
-                        Objectif
-                        <br />
-                      </h4>
-                      <span className="TexteParties">
-                        {exige.Obj}
-                        <br />
-                      </span>
-
-                      <h4 className="NamePart">Observations de l'auditeur</h4>
-                      <div className="FormObserv">
-                        <form action="" accept="sentences">
-                          <input
-                            className="TextArea"
-                            bords="arrondis"
-                            value={Observ}
-                            type="textarea"
-                            placeholder={exige.Observation}
-                            onChange={handleChange}
-                          ></input>
-                          <button
-                            Classname="BoutonObserv"
-                            onClick={ModifyObserv}
-                          >
-                            Ajouter Observations
-                          </button>
-                        </form>
-                      </div>
+                  <Collapse in={open}>
+                    <div className="CollapseText" id="example-collapse-text">
+                      {exige.GuideComplet}
                     </div>
+                  </Collapse>
+
+                  <h4 className="NamePart">
+                    Guide Abrégé
+                    <br />
+                  </h4>
+                  <div className="TexteGuideAbregee">
+                    <span>{exige.GuideAbrege}</span>
                   </div>
                 </div>
 
-                <div className="SelectionMesures">
-                  <h4 className="NamePart">Evaluation de la maturité </h4>
-                  <TableauNiveau />
-                  <h4 className="NamePart">Aide à la sélection de mesures</h4>
-                  <div className="AffectationMesures">
-                    <div className="ChoixSousExigences">
-                      {exige.SousExigences.map((sentence) => (
-                        <div key={sentence.sousId} className="SousExigenceRow">
-                          <text
-                            className="CategorieSousId"
-                            style={{
-                              color:
-                                sentence.categorie === 1
-                                  ? "red"
-                                  : sentence.categorie === 2
-                                  ? "gold"
-                                  : sentence.categorie === 3
-                                  ? "pink"
-                                  : "lightgreen",
-                            }}
-                          >
-                            ({sentence.categorie})
-                          </text>
-                          <text className="DescriptifSE">
-                            {" "}
-                            Descriptif {sentence.sousId}{" "}
-                          </text>
-                          <button
-                            className="BoutonOk"
-                            onClick={(e) =>
-                              ChangeColor(e, zero, sentence.index)
-                            }
-                            style={{
-                              backgroundColor: sentence.color[0]
-                                ? "Green"
-                                : "lightgray",
-                            }}
-                          >
-                            OK
-                          </button>
-                          <button
-                            className="BoutonNok"
-                            onClick={(e) => ChangeColor(e, un, sentence.index)}
-                            style={{
-                              backgroundColor: sentence.color[1]
-                                ? "Red"
-                                : "lightgray",
-                            }}
-                          >
-                            NOk
-                          </button>
-                          <button
-                            className="BoutonNA"
-                            onClick={(e) =>
-                              ChangeColor(e, deux, sentence.index)
-                            }
-                            style={{
-                              backgroundColor: sentence.color[2]
-                                ? "Gray"
-                                : "lightgray",
-                            }}
-                          >
-                            N/A
-                          </button>
-                        </div>
-                      ))}
+                <div className="Part2">
+                  <div>
+                    <h4 className="NamePart">
+                      Objectif
+                      <br />
+                    </h4>
+                    <span className="TexteParties">
+                      {exige.Obj}
+                      <br />
+                    </span>
+
+                    <h4 className="NamePart">Observations de l'auditeur</h4>
+                    <div className="FormObserv">
+                      <form action="" accept="sentences">
+                        <input
+                          className="TextArea"
+                          bords="arrondis"
+                          value={Observ}
+                          type="textarea"
+                          placeholder={exige.Observation}
+                          onChange={handleChange}
+                        ></input>
+                        <button Classname="BoutonObserv" onClick={ModifyObserv}>
+                          Ajouter Observations
+                        </button>
+                      </form>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+
+              <div className="SelectionMesures">
+                <h4 className="NamePart">Evaluation de la maturité </h4>
+                <TableauNiveau />
+                <h4 className="NamePart">Aide à la sélection de mesures</h4>
+                <div className="AffectationMesures">
+                  <div className="ChoixSousExigences">
+                    {exige.SousExigences.map((sentence) => (
+                      <div key={sentence.sousId} className="SousExigenceRow">
+                        <text
+                          className="CategorieSousId"
+                          style={{
+                            color:
+                              sentence.categorie === 1
+                                ? "red"
+                                : sentence.categorie === 2
+                                ? "gold"
+                                : sentence.categorie === 3
+                                ? "pink"
+                                : "lightgreen",
+                          }}
+                        >
+                          ({sentence.categorie})
+                        </text>
+                        <text className="DescriptifSE">
+                          {" "}
+                          Descriptif {sentence.sousId}{" "}
+                        </text>
+                        <button
+                          className="BoutonOk"
+                          onClick={(e) => ChangeColor(e, zero, sentence.index)}
+                          style={{
+                            backgroundColor: sentence.color[0]
+                              ? "Green"
+                              : "lightgray",
+                          }}
+                        >
+                          OK
+                        </button>
+                        <button
+                          className="BoutonNok"
+                          onClick={(e) => ChangeColor(e, un, sentence.index)}
+                          style={{
+                            backgroundColor: sentence.color[1]
+                              ? "Red"
+                              : "lightgray",
+                          }}
+                        >
+                          NOk
+                        </button>
+                        <button
+                          className="BoutonNA"
+                          onClick={(e) => ChangeColor(e, deux, sentence.index)}
+                          style={{
+                            backgroundColor: sentence.color[2]
+                              ? "Gray"
+                              : "lightgray",
+                          }}
+                        >
+                          N/A
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     );
