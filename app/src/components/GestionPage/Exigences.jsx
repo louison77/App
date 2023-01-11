@@ -357,7 +357,6 @@ const Exigences = (props) => {
   } else {
     return (
       <div>
-        <h1 className="TITLE">Exigences</h1>
         <div className="page">
           <div className="BarreDéroulé">
             <DropdownButton className="dropbtn" title="Exigences">
