@@ -113,31 +113,7 @@
     padding-top: 5px;
 }
 
-.dropbtn > button {
-    margin-top: 25px;
-    --bs-btn-bg: orange;
-    --bs-btn-border-color: #F79F00;
-}
 
-.dropbtn > button:hover {
-    --bs-btn-hover-bg: orange;
-    --bs-btn-hover-border-color: #F79F00;
-}
-
-.dropbtn > button:active {
-    --bs-btn-active-bg: #E89600;
-    --bs-btn-active-border-color: #DB8D00;
-}
-
-.dropbtn > button:focus {
-    --bs-btn-focus-bg: orange;
-    --bs-btn-focus-border-color: #F79F00;
-}
-
-.dropbtn.show > button {
-    --bs-btn-active-bg: #E89600;
-    --bs-btn-active-border-color: #DB8D00;
-}
 
 .GuidePart{
     display: flex;

@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import Dropdown from "react-bootstrap/Dropdown";
+
 import Button from "react-bootstrap/Button";
-import DropdownButton from "react-bootstrap/DropdownButton";
+
 import Collapse from "react-bootstrap/Collapse";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TableauNiveau from "./TableauNiveau";
@@ -407,13 +407,16 @@ const Exigences = () => {
       <div>
         <div className="page">
           <div className="BarreDéroulé">
-            <DropdownButton className="dropbtn" title="Exigences">
-              {exigences.map((exige) => (
-                <Dropdown.Item onClick={(e) => toggleVisibility(e, exige.Id)}>
-                  {exige.Id}
-                </Dropdown.Item>
-              ))}
-            </DropdownButton>
+            {exigences.map((exige) => (
+              <h5
+                className={
+                  activeID === exige.Id ? "OrangeExigence" : "BlackExigences"
+                }
+                onClick={(e) => toggleVisibility(e, exige.Id)}
+              >
+                {exige.Id}
+              </h5>
+            ))}
           </div>
         </div>
       </div>
