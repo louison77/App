@@ -8,16 +8,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import TableauNiveau from "./TableauNiveau";
 import "../../styles/components/GestionStyle/_exigences.css";
 
-const Exigences = (props) => {
-  const zero = 0;
-  const un = 1;
-  const deux = 2;
-  const boolarray = [];
-  for (let i = 0; i < 3; i++) {
-    boolarray.push(false);
-  }
+const Exigences = () => {
+  //Savoir quel bouton est cliqué
+  const [clickedButon, setclickedButton] = useState("");
 
-  //States
+  //Tableau général de toutes les exigences
   const [exigences, setExigences] = useState([
     {
       Id: "ORG 5.08",
@@ -30,11 +25,11 @@ const Exigences = (props) => {
       Obj: "Objectif 5.08",
       Observation: "Observations",
       SousExigences: [
-        { categorie: 1, sousId: "5.08.1.1", index: 0, color: boolarray },
-        { categorie: 1, sousId: "5.08.1.2", index: 1, color: boolarray },
-        { categorie: 2, sousId: "5.08.2.1", index: 2, color: boolarray },
+        { categorie: 1, sousId: "5.08.1.1", index: 0, color: 0 },
+        { categorie: 1, sousId: "5.08.1.2", index: 1, color: 0 },
+        { categorie: 2, sousId: "5.08.2.1", index: 2, color: 0 },
       ],
-      color: boolarray,
+      Note: "0",
     },
     {
       Id: "ORG 5.09",
@@ -46,11 +41,12 @@ const Exigences = (props) => {
       Obj: "Objectif 5.09",
       Observation: "Observations",
       SousExigences: [
-        { categorie: 1, sousId: "5.08.1.1", index: 0, color: boolarray },
-        { categorie: 1, sousId: "5.08.1.2", index: 1, color: boolarray },
-        { categorie: 2, sousId: "5.08.2.1", index: 2, color: boolarray },
-        { categorie: 3, sousId: "5.08.3.1", index: 3, color: boolarray },
+        { categorie: 1, sousId: "5.08.1.1", index: 0, color: 0 },
+        { categorie: 1, sousId: "5.08.1.2", index: 1, color: 0 },
+        { categorie: 2, sousId: "5.08.2.1", index: 2, color: 0 },
+        { categorie: 3, sousId: "5.08.3.1", index: 3, color: 0 },
       ],
+      Note: "0",
     },
     {
       Id: "ORG 5.10",
@@ -66,29 +62,33 @@ const Exigences = (props) => {
           categorie: 1,
           sousId: "5.08.1.1",
           index: 0,
-          color: boolarray,
+          color: 0,
         },
         {
           categorie: 1,
           sousId: "5.08.1.2",
           index: 1,
-          color: boolarray,
+          color: 0,
         },
         {
           categorie: 2,
           sousId: "5.08.2.1",
           index: 2,
-          color: boolarray,
+          color: 0,
         },
       ],
+      Note: "0",
     },
   ]);
+  //valeur tampon de l'exigence
   const [UneExigence, setUneExigence] = useState("");
+  //booléen pour afficher la partie de droite
   const [isSeen, setisSeen] = useState(false);
+  //open le bouton guide complet
   const [open, setOpen] = useState(false);
+  //Id représentant l'exigence active
+  const [activeID, setactiveID] = useState("");
   //comportements
-  //Ajouter une constante
-  const [Observ, setObserv] = useState("Observations");
   const toggleVisibility = (event, ID) => {
     const Copy = [];
     for (let i = 0; i < exigences.length; i++) {
@@ -102,6 +102,7 @@ const Exigences = (props) => {
           Obj: exigences[i].Obj,
           Observation: exigences[i].Observation,
           SousExigences: exigences[i].SousExigences,
+          Note: exigences[i].Note,
         });
       }
       console.log(UneExigence);
@@ -109,13 +110,11 @@ const Exigences = (props) => {
     setUneExigence(Copy);
     const value = true;
     setisSeen(value);
+    setactiveID(ID);
+    setOpen(false);
   };
-  const handleChange = (event) => {
-    setObserv(event.target.value);
-  };
+  //Changer valeur Observation
   const ModifyObserv = (event) => {
-    console.log(Observ);
-    event.preventDefault();
     const Copy = [];
     const Copy2 = [];
     for (let i = 0; i < exigences.length; i++) {
@@ -127,8 +126,9 @@ const Exigences = (props) => {
           GuideComplet: exigences[i].GuideComplet,
           GuideAbrege: exigences[i].GuideAbrege,
           Obj: exigences[i].Obj,
-          Observation: Observ,
+          Observation: event.target.value,
           SousExigences: exigences[i].SousExigences,
+          Note: exigences[i].Note,
         });
       } else {
         Copy.push(exigences[i]);
@@ -141,28 +141,30 @@ const Exigences = (props) => {
       GuideComplet: UneExigence[0].GuideComplet,
       GuideAbrege: UneExigence[0].GuideAbrege,
       Obj: UneExigence[0].Obj,
-      Observation: Observ,
+      Observation: event.target.value,
       SousExigences: UneExigence[0].SousExigences,
+      Note: UneExigence[0].Note,
     });
     setUneExigence(Copy2);
     setExigences(Copy);
-    setObserv("");
-  };
-  const ChangeColor = (event, count, Index) => {
-    console.log("Coucou");
     event.preventDefault();
+  };
+
+  const ChangeColor = (count, Index) => {
+    console.log(Index);
+    console.log(count);
+    console.log(UneExigence[0].SousExigences);
     //On créer deux variable tampon pour les futures UneExigence et exigences
     const Copy = [];
     const Copy2 = [];
     //Tabcol prend la valeur de Sousexigences
     let Tabcol = UneExigence[0].SousExigences;
 
+    Tabcol[Index].color = count;
     console.log(Tabcol);
     //Pour chaque valeur de exigences on la push dans Copy et on modifie seulement le bon color
     for (let i = 0; i < exigences.length; i++) {
       if (exigences[i].Id === UneExigence[0].Id) {
-        Tabcol[Index].color[count] = !Tabcol[Index].color[count];
-
         Copy.push({
           Id: exigences[i].Id,
           Nom: exigences[i].Nom,
@@ -172,6 +174,7 @@ const Exigences = (props) => {
           Obj: exigences[i].Obj,
           Observation: exigences[i].Observation,
           SousExigences: Tabcol,
+          Note: exigences[i].Note,
         });
       } else {
         Copy.push(exigences[i]);
@@ -187,23 +190,64 @@ const Exigences = (props) => {
       Obj: UneExigence[0].Obj,
       Observation: UneExigence[0].Observation,
       SousExigences: Tabcol,
+      Note: UneExigence[0].Note,
     });
     //On utilise le seter pour modifie l'etat des deux variables
     setUneExigence(Copy2);
     setExigences(Copy);
-    alert(UneExigence.SousExigences[Index].color);
+    setclickedButton(UneExigence[0].SousExigences[Index].sousId);
+
+    console.log(UneExigence[0]);
+  };
+  const SubmitNote = (event) => {
+    const Copy = [];
+    const Copy2 = [];
+    for (let i = 0; i < exigences.length; i++) {
+      if (exigences[i].Id === UneExigence[0].Id) {
+        Copy.push({
+          Id: exigences[i].Id,
+          Nom: exigences[i].Nom,
+          Exigence: exigences[i].Exigence,
+          GuideComplet: exigences[i].GuideComplet,
+          GuideAbrege: exigences[i].GuideAbrege,
+          Obj: exigences[i].Obj,
+          Observation: exigences[i].Observation,
+          SousExigences: exigences[i].SousExigences,
+          Note: event.target.value,
+        });
+      } else {
+        Copy.push(exigences[i]);
+      }
+    }
+    Copy2.push({
+      Id: UneExigence[0].Id,
+      Nom: UneExigence[0].Nom,
+      Exigence: UneExigence[0].Exigence,
+      GuideComplet: UneExigence[0].GuideComplet,
+      GuideAbrege: UneExigence[0].GuideAbrege,
+      Obj: UneExigence[0].Obj,
+      Observation: UneExigence[0].Observation,
+      SousExigences: UneExigence[0].SousExigences,
+      Note: event.target.value,
+    });
+    setUneExigence(Copy2);
+    setExigences(Copy);
+    event.preventDefault();
   };
   if (isSeen) {
     return (
       <div className="page">
         <div className="BarreDéroulé">
-          <DropdownButton className="dropbtn" title="Exigences">
-            {exigences.map((exige) => (
-              <Dropdown.Item onClick={(e) => toggleVisibility(e, exige.Id)}>
-                {exige.Id}
-              </Dropdown.Item>
-            ))}
-          </DropdownButton>
+          {exigences.map((exige) => (
+            <h5
+              className={
+                activeID === exige.Id ? "OrangeExigence" : "BlackExigences"
+              }
+              onClick={(e) => toggleVisibility(e, exige.Id)}
+            >
+              {exige.Id}
+            </h5>
+          ))}
         </div>
 
         <div className="ExigenceDescription">
@@ -267,18 +311,28 @@ const Exigences = (props) => {
                     <h4 className="NamePart">Observations de l'auditeur</h4>
                     <div className="FormObserv">
                       <form action="" accept="sentences">
-                        <input
+                        <textarea
                           className="TextArea"
                           bords="arrondis"
-                          value={Observ}
+                          value={exige.Observation}
                           type="textarea"
-                          placeholder={exige.Observation}
-                          onChange={handleChange}
-                        ></input>
+                          onChange={ModifyObserv}
+                        ></textarea>
                         <button Classname="BoutonObserv" onClick={ModifyObserv}>
                           Ajouter Observations
                         </button>
                       </form>
+                    </div>
+                    <h4 className="NamePart">Note de conformité</h4>
+                    <div>
+                      <form>
+                        <select value={exige.Note} onChange={SubmitNote}>
+                          <option value="0">0</option>
+                          <option value="0.5">0.5</option>
+                          <option value="1">1</option>
+                        </select>
+                      </form>
+                      <h5>La note actuelle est {exige.Note}</h5>
                     </div>
                   </div>
                 </div>
@@ -291,7 +345,7 @@ const Exigences = (props) => {
                 <div className="AffectationMesures">
                   <div className="ChoixSousExigences">
                     {exige.SousExigences.map((sentence) => (
-                      <div key={sentence.sousId} className="SousExigenceRow">
+                      <div className="SousExigenceRow">
                         <text
                           className="CategorieSousId"
                           style={{
@@ -313,33 +367,31 @@ const Exigences = (props) => {
                         </text>
                         <button
                           className="BoutonOk"
-                          onClick={(e) => ChangeColor(e, zero, sentence.index)}
+                          onClick={() => ChangeColor(1, sentence.index)}
                           style={{
-                            backgroundColor: sentence.color[0]
-                              ? "Green"
-                              : "lightgray",
+                            backgroundColor:
+                              sentence.color === 1 ? "Green" : "lightgray",
                           }}
                         >
                           OK
                         </button>
                         <button
                           className="BoutonNok"
-                          onClick={(e) => ChangeColor(e, un, sentence.index)}
+                          onClick={() => ChangeColor(2, sentence.index)}
+                          value={sentence.color}
                           style={{
-                            backgroundColor: sentence.color[1]
-                              ? "Red"
-                              : "lightgray",
+                            backgroundColor:
+                              sentence.color === 2 ? "Red" : "lightgray",
                           }}
                         >
                           NOk
                         </button>
                         <button
                           className="BoutonNA"
-                          onClick={(e) => ChangeColor(e, deux, sentence.index)}
+                          onClick={() => ChangeColor(3, sentence.index)}
                           style={{
-                            backgroundColor: sentence.color[2]
-                              ? "Gray"
-                              : "lightgray",
+                            backgroundColor:
+                              sentence.color === 3 ? "Gray" : "lightgray",
                           }}
                         >
                           N/A

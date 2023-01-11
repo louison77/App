@@ -52,14 +52,20 @@
 }
     
 .BarreDéroulé{
+    margin-top: 50px;
     margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
 }
 
-.IdExigences{
+.BlackExigences{
     cursor: pointer;
+
 }
-.IdExigences:hover{
+.OrangeExigence{
     color:orange;
+    cursor: pointer;
 }
 .SelectionMesures{
     margin-top: 50px;
@@ -132,6 +138,7 @@
     --bs-btn-active-bg: #E89600;
     --bs-btn-active-border-color: #DB8D00;
 }
+
 .GuidePart{
     display: flex;
     flex-direction: row;
