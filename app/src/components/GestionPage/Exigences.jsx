@@ -9,9 +9,6 @@ import TableauNiveau from "./TableauNiveau";
 import "../../styles/components/GestionStyle/_exigences.css";
 
 const Exigences = () => {
-  //Savoir quel bouton est cliqué
-  const [clickedButon, setclickedButton] = useState("");
-
   //Tableau général de toutes les exigences
   const [exigences, setExigences] = useState([
     {
