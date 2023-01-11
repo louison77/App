@@ -3,6 +3,9 @@
     "node-sass": "^8.0.0"
   },
   "dependencies": {
+    "bootstrap": "^5.2.3",
+    "mdb-react-ui-kit": "^5.1.0",
+    "react-bootstrap": "^2.7.0",
     "sass": "^1.57.1"
   }
 }

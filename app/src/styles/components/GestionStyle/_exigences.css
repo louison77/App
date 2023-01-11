@@ -20,7 +20,8 @@
 .Part2{
     display: flex;
     justify-content: right;
-    margin-right: 100px;
+    margin-right: 10px;
+    width:40%;
 }
 
 .Part1{
@@ -28,11 +29,23 @@
     margin-left: 0px;
 }
 .TextArea{
+    
     width:400px;
     height:100px;
+    margin-bottom: 10px;
     color:rgb(9, 118, 161);
 
 }
+.FormObserv{
+    display: flex;
+    flex-direction: column;
+    width:50%;
+    
+}
+.BoutonObserv{
+    color: #D68910;
+}
+    
 .BarreDéroulé{
     margin-left: 50px;
     
@@ -45,7 +58,7 @@
     color:orange;
 }
 .SelectionMesures{
-    
+    margin-top: 50px;
 }
 .ChoixNiveaux{
     width: 1000px;
@@ -113,15 +126,60 @@
 }
 .GuideBtn{
     color:black;
-    background-color: white;
+    background-color: white !important;
     border-color: black;
     margin-right: 10px;
 }
 .GuideBtn:hover{
     color:black;
-    background-color: white;
+    background-color: white !important;
+    border-color: black;
+}
+.GuideBtn.show  {
+    background-color: white  !important;
+    border-color: black;
+}
+.GuideBtn:active {
+    background-color: white !important;
+    border-color: black;
+}
+.GuideBtn:focus {
+    background-color: white !important;
     border-color: black;
 }
 .CollapseText{
     background-color: lightgrey;
 }
+.SousExigenceRow{
+    margin-bottom: 5px;
+}
+.BoutonOk{
+    background-color:lightgrey;
+    margin-right: 10px;
+    margin-left: 5px;
+    border-color: lightgrey;
+    border-radius: 10px;
+    height: 30px;
+    
+}
+.BoutonNok{
+    background-color:lightgrey;
+    border-color: lightgrey;
+    margin-right: 10px;
+    border-radius: 10px;
+    height: 30px;   
+}
+.BoutonNA{
+    background-color:lightgrey;
+    border-color: lightgrey;
+    border-radius: 10px;
+    height: 30px;   
+}
+.AffectationMesures{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    width:50%;
+    height: 50%;
+}
+

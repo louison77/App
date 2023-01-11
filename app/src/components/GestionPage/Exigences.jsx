@@ -1,169 +1,385 @@
-import React from 'react';
-import { useState } from 'react';
-import Dropdown from 'react-bootstrap/Dropdown';
-import Button from 'react-bootstrap/Button';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Collapse from 'react-bootstrap/Collapse';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import TableauNiveau from './TableauNiveau';
-import '../../styles/components/GestionStyle/_exigences.css';
+import React from "react";
+import { useState } from "react";
+import Dropdown from "react-bootstrap/Dropdown";
+import Button from "react-bootstrap/Button";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Collapse from "react-bootstrap/Collapse";
+import "bootstrap/dist/css/bootstrap.min.css";
+import TableauNiveau from "./TableauNiveau";
+import "../../styles/components/GestionStyle/_exigences.css";
 
 const Exigences = (props) => {
- 
-   
-    //States
-    const [exigences,setExigences] =useState([
-        {Id : "ORG 5.08", Nom:"Sécurité de l'information", Exigence : "Assure blabla", GuideComplet : "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamusterry richardson ad squid. Nihil anim keffiyeh helvetica, craft beerlabore wes anderson cred nesciunt sapiente ea proident. ", GuideAbrege:"Doit inclure <br/> ​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb) évaluation et traitement des risques de sécurité de l'information lors du projet\n​c) évaluation et traitement des risques de sécurité de l'information une fois le projet mis en place​d) tests des mesures de sécurité en pace​e) intégration de la sécurité de l'information au sein de toutes les phases de la méthodologie projet​",Obj:"Objectif 5.08",Observation:"Observations"},
-        {Id : "ORG 5.09",Nom: "Sécurité Gestion", Exigence : "Réalise machin", GuideComplet : "fhqhhf",GuideAbrege:"Doit inclure\n​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb)", Obj:"Objectif 5.09",Observation:"Observations"},
-        {Id : "ORG 5.10",Nom: "Sécurité réseau", Exigence : "Gère le réseau de l'entreprise", GuideComplet : "fffff",GuideAbrege:"Doit inclure\n​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb)", Obj:"Objectif 5.10",Observation:"Observations"}
-    
-    ]);
-    const [UneExigence,setUneExigence]=useState("");
-    const [isSeen, setisSeen]=useState(false);
-    const [open, setOpen] = useState(false);
-  //comportements
-    //Ajouter une constante
-    const [Observ,setObserv]=useState(exigences[0].Observation)
-   const toggleVisibility =(event,ID) => {
-    
-    const Copy=[]
-    for(let i=0 ;i<exigences.length;i++){
-        if(exigences[i].Id===ID)
+  const zero = 0;
+  const un = 1;
+  const deux = 2;
+  const boolarray = [];
+  for (let i = 0; i < 3; i++) {
+    boolarray.push(false);
+  }
+
+  //States
+  const [exigences, setExigences] = useState([
+    {
+      Id: "ORG 5.08",
+      Nom: "Sécurité de l'information",
+      Exigence: "Assure blabla",
+      GuideComplet:
+        "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamusterry richardson ad squid. Nihil anim keffiyeh helvetica, craft beerlabore wes anderson cred nesciunt sapiente ea proident. ",
+      GuideAbrege:
+        "Doit inclure <br/> ​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb) évaluation et traitement des risques de sécurité de l'information lors du projet\n​c) évaluation et traitement des risques de sécurité de l'information une fois le projet mis en place​d) tests des mesures de sécurité en pace​e) intégration de la sécurité de l'information au sein de toutes les phases de la méthodologie projet​",
+      Obj: "Objectif 5.08",
+      Observation: "Observations",
+      SousExigences: [
+        { categorie: 1, sousId: "5.08.1.1", index: 0, color: boolarray },
+        { categorie: 1, sousId: "5.08.1.2", index: 1, color: boolarray },
+        { categorie: 2, sousId: "5.08.2.1", index: 2, color: boolarray },
+      ],
+      color: boolarray,
+    },
+    {
+      Id: "ORG 5.09",
+      Nom: "Sécurité Gestion",
+      Exigence: "Réalise machin",
+      GuideComplet: "fhqhhf",
+      GuideAbrege:
+        "Doit inclure\n​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb)",
+      Obj: "Objectif 5.09",
+      Observation: "Observations",
+      SousExigences: [
+        { categorie: 1, sousId: "5.08.1.1", index: 0, color: boolarray },
+        { categorie: 1, sousId: "5.08.1.2", index: 1, color: boolarray },
+        { categorie: 2, sousId: "5.08.2.1", index: 2, color: boolarray },
+        { categorie: 3, sousId: "5.08.3.1", index: 3, color: boolarray },
+      ],
+    },
+    {
+      Id: "ORG 5.10",
+      Nom: "Sécurité réseau",
+      Exigence: "Gère le réseau de l'entreprise",
+      GuideComplet: "fffff",
+      GuideAbrege:
+        "Doit inclure\n​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb)",
+      Obj: "Objectif 5.10",
+      Observation: "Observations",
+      SousExigences: [
         {
-            Copy.push({Id: exigences[i].Id, Nom:exigences[i].Nom, Exigence:exigences[i].Exigence,GuideComplet: exigences[i].GuideComplet,GuideAbrege:exigences[i].GuideAbrege, Obj:exigences[i].Obj,Observation:exigences[i].Observation});
-        }
+          categorie: 1,
+          sousId: "5.08.1.1",
+          index: 0,
+          color: boolarray,
+        },
+        {
+          categorie: 1,
+          sousId: "5.08.1.2",
+          index: 1,
+          color: boolarray,
+        },
+        {
+          categorie: 2,
+          sousId: "5.08.2.1",
+          index: 2,
+          color: boolarray,
+        },
+      ],
+    },
+  ]);
+  const [UneExigence, setUneExigence] = useState("");
+  const [isSeen, setisSeen] = useState(false);
+  const [open, setOpen] = useState(false);
+  //comportements
+  //Ajouter une constante
+  const [Observ, setObserv] = useState("Observations");
+  const toggleVisibility = (event, ID) => {
+    const Copy = [];
+    for (let i = 0; i < exigences.length; i++) {
+      if (exigences[i].Id === ID) {
+        Copy.push({
+          Id: exigences[i].Id,
+          Nom: exigences[i].Nom,
+          Exigence: exigences[i].Exigence,
+          GuideComplet: exigences[i].GuideComplet,
+          GuideAbrege: exigences[i].GuideAbrege,
+          Obj: exigences[i].Obj,
+          Observation: exigences[i].Observation,
+          SousExigences: exigences[i].SousExigences,
+        });
+      }
+      console.log(UneExigence);
     }
     setUneExigence(Copy);
     const value = true;
     setisSeen(value);
-    
-
-  }
-  const handleChange = (event) =>{
-    
-    setObserv(event.target.value)
-}
-  const ModifyObserv=(event) => {
+  };
+  const handleChange = (event) => {
+    setObserv(event.target.value);
+  };
+  const ModifyObserv = (event) => {
     console.log(Observ);
-    
-    const Copy=[]
-    const Copy2=[]
-    for(let i=0 ;i<exigences.length;i++){
-        if(exigences[i].Id===UneExigence[0].Id)
-        {
-            Copy.push({Id: exigences[i].Id, Nom:exigences[i].Nom, Exigence:exigences[i].Exigence,GuideComplet: exigences[i].GuideComplet,GuideAbrege:exigences[i].GuideAbrege, Obj:exigences[i].Obj,Observation:Observ});
-        
-        }
-        else{
-            Copy.push(exigences[i]);
-        }        
+    event.preventDefault();
+    const Copy = [];
+    const Copy2 = [];
+    for (let i = 0; i < exigences.length; i++) {
+      if (exigences[i].Id === UneExigence[0].Id) {
+        Copy.push({
+          Id: exigences[i].Id,
+          Nom: exigences[i].Nom,
+          Exigence: exigences[i].Exigence,
+          GuideComplet: exigences[i].GuideComplet,
+          GuideAbrege: exigences[i].GuideAbrege,
+          Obj: exigences[i].Obj,
+          Observation: Observ,
+          SousExigences: exigences[i].SousExigences,
+        });
+      } else {
+        Copy.push(exigences[i]);
+      }
     }
-    Copy2.push({Id: UneExigence[0].Id, Nom:UneExigence[0].Nom, Exigence:UneExigence[0].Exigence,GuideComplet: UneExigence[0].GuideComplet,GuideAbrege:UneExigence[0].GuideAbrege, Obj:UneExigence[0].Obj,Observation:Observ});
+    Copy2.push({
+      Id: UneExigence[0].Id,
+      Nom: UneExigence[0].Nom,
+      Exigence: UneExigence[0].Exigence,
+      GuideComplet: UneExigence[0].GuideComplet,
+      GuideAbrege: UneExigence[0].GuideAbrege,
+      Obj: UneExigence[0].Obj,
+      Observation: Observ,
+      SousExigences: UneExigence[0].SousExigences,
+    });
     setUneExigence(Copy2);
     setExigences(Copy);
-    
-  }
-  if(isSeen){
-            
-  
+    setObserv("");
+  };
+  const ChangeColor = (event, count, Index) => {
+    console.log("Coucou");
+    event.preventDefault();
+    //On créer deux variable tampon pour les futures UneExigence et exigences
+    const Copy = [];
+    const Copy2 = [];
+    //Tabcol prend la valeur de Sousexigences
+    let Tabcol = UneExigence[0].SousExigences;
+
+    console.log(Tabcol);
+    //Pour chaque valeur de exigences on la push dans Copy et on modifie seulement le bon color
+    for (let i = 0; i < exigences.length; i++) {
+      if (exigences[i].Id === UneExigence[0].Id) {
+        Tabcol[Index].color[count] = !Tabcol[Index].color[count];
+
+        Copy.push({
+          Id: exigences[i].Id,
+          Nom: exigences[i].Nom,
+          Exigence: exigences[i].Exigence,
+          GuideComplet: exigences[i].GuideComplet,
+          GuideAbrege: exigences[i].GuideAbrege,
+          Obj: exigences[i].Obj,
+          Observation: exigences[i].Observation,
+          SousExigences: Tabcol,
+        });
+      } else {
+        Copy.push(exigences[i]);
+      }
+    }
+    //On fait pareil pour UneExigence dans Copy2
+    Copy2.push({
+      Id: UneExigence[0].Id,
+      Nom: UneExigence[0].Nom,
+      Exigence: UneExigence[0].Exigence,
+      GuideComplet: UneExigence[0].GuideComplet,
+      GuideAbrege: UneExigence[0].GuideAbrege,
+      Obj: UneExigence[0].Obj,
+      Observation: UneExigence[0].Observation,
+      SousExigences: Tabcol,
+    });
+    //On utilise le seter pour modifie l'etat des deux variables
+    setUneExigence(Copy2);
+    setExigences(Copy);
+    alert(UneExigence.SousExigences[Index].color);
+  };
+  if (isSeen) {
     return (
-        
-        <div >
-            <h1 className='TITLE'>Exigences</h1>
-            <div className='page'>
-
-            <div className='BarreDéroulé'>
-
+      <div>
+        <h1 className="TITLE">Exigences</h1>
+        <div className="page">
+          <div className="BarreDéroulé">
             <DropdownButton className="dropbtn" title="Exigences">
-            {exigences.map((exige)=>(
-            <Dropdown.Item onClick={(e)=>toggleVisibility(e,exige.Id)}>{exige.Id}</Dropdown.Item>))}
+              {exigences.map((exige) => (
+                <Dropdown.Item onClick={(e) => toggleVisibility(e, exige.Id)}>
+                  {exige.Id}
+                </Dropdown.Item>
+              ))}
             </DropdownButton>
+          </div>
 
-                
-            </div>
-                   
-            <div className='ExigenceDescription'>
-            
-            
-            
-            {UneExigence.map((exige)=>(
-                <div>
-                <h3>{exige.Id} | {exige.Nom}</h3>
-                <div className='Exigences_parties'>
-                   
-                   <div className='Part1'>
-                   
-                    <h4 className='NamePart'>Exigences<br/></h4>
-                    <span className='TexteParties'>{exige.Exigence}<br/></span>
-                    <div className='GuidePart'>
-                        <Button className='GuideBtn' onClick={() => setOpen(!open)}
+          <div className="ExigenceDescription">
+            {UneExigence.map((exige) => (
+              <div>
+                <h3>
+                  {exige.Id} | {exige.Nom}
+                </h3>
+                <div className="Exigences_parties">
+                  <div className="Part1">
+                    <h4 className="NamePart">
+                      Exigences
+                      <br />
+                    </h4>
+                    <span className="TexteParties">
+                      {exige.Exigence}
+                      <br />
+                    </span>
+                    <div className="GuidePart">
+                      <Button
+                        className="GuideBtn"
+                        onClick={() => setOpen(!open)}
                         aria-controls="example-collapse-text"
-                        aria-expanded={open} >
-                            +
-                        </Button>
-                        <h4 className='NamePart'>Guide Complet<br/></h4>
-    
+                        aria-expanded={open}
+                      >
+                        +
+                      </Button>
+                      <h4 className="NamePart">
+                        Guide Complet
+                        <br />
+                      </h4>
                     </div>
                     <Collapse in={open}>
-                            <div className='CollapseText'id="example-collapse-text">
-                            {
-                                exige.GuideComplet
+                      <div className="CollapseText" id="example-collapse-text">
+                        {exige.GuideComplet}
+                      </div>
+                    </Collapse>
+
+                    <h4 className="NamePart">
+                      Guide Abrégé
+                      <br />
+                    </h4>
+                    <div className="TexteGuideAbregee">
+                      <span>{exige.GuideAbrege}</span>
+                    </div>
+                  </div>
+
+                  <div className="Part2">
+                    <div>
+                      <h4 className="NamePart">
+                        Objectif
+                        <br />
+                      </h4>
+                      <span className="TexteParties">
+                        {exige.Obj}
+                        <br />
+                      </span>
+
+                      <h4 className="NamePart">Observations de l'auditeur</h4>
+                      <div className="FormObserv">
+                        <form action="" accept="sentences">
+                          <input
+                            className="TextArea"
+                            bords="arrondis"
+                            value={Observ}
+                            type="textarea"
+                            placeholder={exige.Observation}
+                            onChange={handleChange}
+                          ></input>
+                          <button
+                            Classname="BoutonObserv"
+                            onClick={ModifyObserv}
+                          >
+                            Ajouter Observations
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="SelectionMesures">
+                  <h4 className="NamePart">Evaluation de la maturité </h4>
+                  <TableauNiveau />
+                  <h4 className="NamePart">Aide à la sélection de mesures</h4>
+                  <div className="AffectationMesures">
+                    <div className="ChoixSousExigences">
+                      {exige.SousExigences.map((sentence) => (
+                        <div key={sentence.sousId} className="SousExigenceRow">
+                          <text
+                            className="CategorieSousId"
+                            style={{
+                              color:
+                                sentence.categorie === 1
+                                  ? "red"
+                                  : sentence.categorie === 2
+                                  ? "gold"
+                                  : sentence.categorie === 3
+                                  ? "pink"
+                                  : "lightgreen",
+                            }}
+                          >
+                            ({sentence.categorie})
+                          </text>
+                          <text className="DescriptifSE">
+                            {" "}
+                            Descriptif {sentence.sousId}{" "}
+                          </text>
+                          <button
+                            className="BoutonOk"
+                            onClick={(e) =>
+                              ChangeColor(e, zero, sentence.index)
                             }
-                            </div>
-                        </Collapse>
-                    
-                    <h4 className='NamePart'>Guide Abrégé<br/></h4>
-                    <div className='TexteGuideAbregee'>
-                    <span >{(exige.GuideAbrege)}</span>
+                            style={{
+                              backgroundColor: sentence.color[0]
+                                ? "Green"
+                                : "lightgray",
+                            }}
+                          >
+                            OK
+                          </button>
+                          <button
+                            className="BoutonNok"
+                            onClick={(e) => ChangeColor(e, un, sentence.index)}
+                            style={{
+                              backgroundColor: sentence.color[1]
+                                ? "Red"
+                                : "lightgray",
+                            }}
+                          >
+                            NOk
+                          </button>
+                          <button
+                            className="BoutonNA"
+                            onClick={(e) =>
+                              ChangeColor(e, deux, sentence.index)
+                            }
+                            style={{
+                              backgroundColor: sentence.color[2]
+                                ? "Gray"
+                                : "lightgray",
+                            }}
+                          >
+                            N/A
+                          </button>
+                        </div>
+                      ))}
                     </div>
-                    </div>
-
-                    <div className='Part2'>
-                    
-                        <div>
-                            <h4 className='NamePart'>Objectif<br/></h4>
-                            <span className='TexteParties'>{exige.Obj}<br/></span>
-
-                            <h4 className='NamePart'>Observations de l'auditeur</h4>
-
-                            <form action="submit" onSubmit={ModifyObserv}  >
-                            <input className='TextArea' value={Observ}type="text" placeholder={exige.Observation} onChange={handleChange}/>
-                            <button Classname="BoutonObserv">Ajouter Observations</button>
-                            </form>
-                       </div>
-                    </div>
+                  </div>
                 </div>
-                
-                <div className='SelectionMesures'>
-                    <h4 className='NamePart'>Evaluation de la maturité </h4>
-                    <TableauNiveau />
-                    <h4 className='NamePart'>Aide à la sélection de mesures</h4>
-                </div>
-                
-                </div>
-
-                
-))} 
-
-</div></div>
+              </div>
+            ))}
+          </div>
         </div>
-    );}
-    else{
-        return (
-            <div >
-            <h1 className='TITLE'>Exigences</h1>
-            <div className='page'>
-            <div className='BarreDéroulé'>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h1 className="TITLE">Exigences</h1>
+        <div className="page">
+          <div className="BarreDéroulé">
             <DropdownButton className="dropbtn" title="Exigences">
-            {exigences.map((exige)=>(
-            <Dropdown.Item onClick={(e)=>toggleVisibility(e,exige.Id)}>{exige.Id}</Dropdown.Item>))}
+              {exigences.map((exige) => (
+                <Dropdown.Item onClick={(e) => toggleVisibility(e, exige.Id)}>
+                  {exige.Id}
+                </Dropdown.Item>
+              ))}
             </DropdownButton>
-            </div>
-            </div>
-            </div>
-
-        );
-    }
+          </div>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default Exigences;
