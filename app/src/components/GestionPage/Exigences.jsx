@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 
 import Collapse from "react-bootstrap/Collapse";
 import "bootstrap/dist/css/bootstrap.min.css";
-import TableauNiveau from "./TableauNiveau";
+
 import "../../styles/components/GestionStyle/_exigences.css";
 
 const Exigences = () => {
