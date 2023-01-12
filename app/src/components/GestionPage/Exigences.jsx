@@ -27,6 +27,7 @@ const Exigences = () => {
         { categorie: 2, sousId: "5.08.2.1", index: 2, color: 0 },
       ],
       Note: "0",
+      Maturite: "0",
     },
     {
       Id: "ORG 5.09",
@@ -44,6 +45,7 @@ const Exigences = () => {
         { categorie: 3, sousId: "5.08.3.1", index: 3, color: 0 },
       ],
       Note: "0",
+      Maturite: "0",
     },
     {
       Id: "ORG 5.10",
@@ -75,6 +77,7 @@ const Exigences = () => {
         },
       ],
       Note: "0",
+      Maturite: "0",
     },
   ]);
   //valeur tampon de l'exigence
@@ -100,9 +103,9 @@ const Exigences = () => {
           Observation: exigences[i].Observation,
           SousExigences: exigences[i].SousExigences,
           Note: exigences[i].Note,
+          Maturite: exigences[i].Maturite,
         });
       }
-      console.log(UneExigence);
     }
     setUneExigence(Copy);
     const value = true;
@@ -126,6 +129,7 @@ const Exigences = () => {
           Observation: event.target.value,
           SousExigences: exigences[i].SousExigences,
           Note: exigences[i].Note,
+          Maturite: exigences[i].Maturite,
         });
       } else {
         Copy.push(exigences[i]);
@@ -141,6 +145,7 @@ const Exigences = () => {
       Observation: event.target.value,
       SousExigences: UneExigence[0].SousExigences,
       Note: UneExigence[0].Note,
+      Maturite: UneExigence[0].Maturite,
     });
     setUneExigence(Copy2);
     setExigences(Copy);
@@ -148,9 +153,6 @@ const Exigences = () => {
   };
 
   const ChangeColor = (count, Index) => {
-    console.log(Index);
-    console.log(count);
-    console.log(UneExigence[0].SousExigences);
     //On créer deux variable tampon pour les futures UneExigence et exigences
     const Copy = [];
     const Copy2 = [];
@@ -158,7 +160,7 @@ const Exigences = () => {
     let Tabcol = UneExigence[0].SousExigences;
 
     Tabcol[Index].color = count;
-    console.log(Tabcol);
+
     //Pour chaque valeur de exigences on la push dans Copy et on modifie seulement le bon color
     for (let i = 0; i < exigences.length; i++) {
       if (exigences[i].Id === UneExigence[0].Id) {
@@ -172,6 +174,7 @@ const Exigences = () => {
           Observation: exigences[i].Observation,
           SousExigences: Tabcol,
           Note: exigences[i].Note,
+          Maturite: exigences[i].Maturite,
         });
       } else {
         Copy.push(exigences[i]);
@@ -188,12 +191,11 @@ const Exigences = () => {
       Observation: UneExigence[0].Observation,
       SousExigences: Tabcol,
       Note: UneExigence[0].Note,
+      Maturite: UneExigence[0].Maturite,
     });
     //On utilise le seter pour modifie l'etat des deux variables
     setUneExigence(Copy2);
     setExigences(Copy);
-
-    console.log(UneExigence[0]);
   };
   const SubmitNote = (event) => {
     const Copy = [];
@@ -210,6 +212,7 @@ const Exigences = () => {
           Observation: exigences[i].Observation,
           SousExigences: exigences[i].SousExigences,
           Note: event.target.value,
+          Maturite: exigences[i].Maturite,
         });
       } else {
         Copy.push(exigences[i]);
@@ -225,10 +228,47 @@ const Exigences = () => {
       Observation: UneExigence[0].Observation,
       SousExigences: UneExigence[0].SousExigences,
       Note: event.target.value,
+      Maturite: UneExigence[0].Maturite,
     });
     setUneExigence(Copy2);
     setExigences(Copy);
     event.preventDefault();
+  };
+  const ChangeMaturity = (value) => {
+    const Copy = [];
+    const Copy2 = [];
+    for (let i = 0; i < exigences.length; i++) {
+      if (exigences[i].Id === UneExigence[0].Id) {
+        Copy.push({
+          Id: exigences[i].Id,
+          Nom: exigences[i].Nom,
+          Exigence: exigences[i].Exigence,
+          GuideComplet: exigences[i].GuideComplet,
+          GuideAbrege: exigences[i].GuideAbrege,
+          Obj: exigences[i].Obj,
+          Observation: exigences[i].Observation,
+          SousExigences: exigences[i].SousExigences,
+          Note: exigences[i].Note,
+          Maturite: value,
+        });
+      } else {
+        Copy.push(exigences[i]);
+      }
+    }
+    Copy2.push({
+      Id: UneExigence[0].Id,
+      Nom: UneExigence[0].Nom,
+      Exigence: UneExigence[0].Exigence,
+      GuideComplet: UneExigence[0].GuideComplet,
+      GuideAbrege: UneExigence[0].GuideAbrege,
+      Obj: UneExigence[0].Obj,
+      Observation: UneExigence[0].Observation,
+      SousExigences: UneExigence[0].SousExigences,
+      Note: UneExigence[0].Note,
+      Maturite: value,
+    });
+    setUneExigence(Copy2);
+    setExigences(Copy);
   };
   if (isSeen) {
     return (
@@ -336,7 +376,60 @@ const Exigences = () => {
 
               <div className="SelectionMesures">
                 <h4 className="NamePart">Evaluation de la maturité </h4>
-                <TableauNiveau />
+                <table className="ChoixNiveaux">
+                  <thead>
+                    <tr>
+                      <th className="Basique">Basique</th>
+                      <th className="Moyenne">Moyenne</th>
+                      <th className="Elevee">Elevée</th>
+                      <th className="Televee">Très élevée</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="Case">
+                        <div className="CaseTable">
+                          <input
+                            type="checkbox"
+                            onClick={() => ChangeMaturity("1")}
+                            checked={exige.Maturite === "1" ? true : false}
+                          />
+                          <p>Texte Basique niveau </p>
+                        </div>
+                      </td>
+                      <td className="Case">
+                        <div className="CaseTable">
+                          <input
+                            type="checkbox"
+                            onClick={() => ChangeMaturity("2")}
+                            checked={exige.Maturite === "2" ? true : false}
+                          />
+                          <p>Texte Moyen niveau </p>
+                        </div>
+                      </td>
+                      <td className="Case">
+                        <div className="CaseTable">
+                          <input
+                            type="checkbox"
+                            onClick={() => ChangeMaturity("3")}
+                            checked={exige.Maturite === "3" ? true : false}
+                          />
+                          <p>Texte Elevee niveau </p>
+                        </div>
+                      </td>
+                      <td className="Case">
+                        <div className="CaseTable">
+                          <input
+                            type="checkbox"
+                            onClick={() => ChangeMaturity("4")}
+                            checked={exige.Maturite === "4" ? true : false}
+                          />
+                          <p>Texte Très Elevée niveau </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
                 <h4 className="NamePart">Aide à la sélection de mesures</h4>
                 <div className="AffectationMesures">
                   <div className="ChoixSousExigences">
