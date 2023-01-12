@@ -39,16 +39,6 @@ a:hover{
   outline: none;
 }
 
-/*Quand la case est laissée intacte*/
-[contenteditableXX="true"] {
-  color: black;
-}
-
-/*Quand on modifie la case*/
-[contenteditableXX="true"]:focus {
-  color: blue;
-  font-weight: normal;
-  }
 
 
 /*Id interne*/

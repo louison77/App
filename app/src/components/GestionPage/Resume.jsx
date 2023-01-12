@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const Resume = () => {
-    return (
-        <div>
-            <h1>Résumé</h1>
-        </div>
-    );
+  return (
+    <div>
+      <h1>Synthèse</h1>
+    </div>
+  );
 };
 
 export default Resume;

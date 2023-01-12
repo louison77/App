@@ -22,7 +22,8 @@
 .Part2{
     display: flex;
     justify-content: right;
-    margin-right: 100px;
+    margin-right: 10px;
+    width:40%;
 }
 
 .Part1{
@@ -33,23 +34,41 @@
 }
 
 .TextArea{
+    
     width:400px;
     height:100px;
+    margin-bottom: 10px;
     color:rgb(9, 118, 161);
 
 }
+.FormObserv{
+    display: flex;
+    flex-direction: column;
+    width:50%;
+    
+}
+.BoutonObserv{
+    color: #D68910;
+}
+    
 .BarreDéroulé{
+    margin-top: 50px;
     margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
 }
 
-.IdExigences{
+.BlackExigences{
+    cursor: pointer;
+
+}
+.OrangeExigence{
+    color:orange;
     cursor: pointer;
 }
-.IdExigences:hover{
-    color:orange;
-}
 .SelectionMesures{
-    
+    margin-top: 50px;
 }
 .ChoixNiveaux{
     width: 1000px;
@@ -94,31 +113,8 @@
     padding-top: 5px;
 }
 
-.dropbtn > button {
-    margin-top: 25px;
-    --bs-btn-bg: orange;
-    --bs-btn-border-color: #F79F00;
-}
 
-.dropbtn > button:hover {
-    --bs-btn-hover-bg: orange;
-    --bs-btn-hover-border-color: #F79F00;
-}
 
-.dropbtn > button:active {
-    --bs-btn-active-bg: #E89600;
-    --bs-btn-active-border-color: #DB8D00;
-}
-
-.dropbtn > button:focus {
-    --bs-btn-focus-bg: orange;
-    --bs-btn-focus-border-color: #F79F00;
-}
-
-.dropbtn.show > button {
-    --bs-btn-active-bg: #E89600;
-    --bs-btn-active-border-color: #DB8D00;
-}
 .GuidePart{
     display: flex;
     flex-direction: row;
@@ -128,15 +124,60 @@
 }
 .GuideBtn{
     color:black;
-    background-color: white;
+    background-color: white !important;
     border-color: black;
     margin-right: 10px;
 }
 .GuideBtn:hover{
     color:black;
-    background-color: white;
+    background-color: white !important;
+    border-color: black;
+}
+.GuideBtn.show  {
+    background-color: white  !important;
+    border-color: black;
+}
+.GuideBtn:active {
+    background-color: white !important;
+    border-color: black;
+}
+.GuideBtn:focus {
+    background-color: white !important;
     border-color: black;
 }
 .CollapseText{
     background-color: lightgrey;
 }
+.SousExigenceRow{
+    margin-bottom: 5px;
+}
+.BoutonOk{
+    background-color:lightgrey;
+    margin-right: 10px;
+    margin-left: 5px;
+    border-color: lightgrey;
+    border-radius: 10px;
+    height: 30px;
+    
+}
+.BoutonNok{
+    background-color:lightgrey;
+    border-color: lightgrey;
+    margin-right: 10px;
+    border-radius: 10px;
+    height: 30px;   
+}
+.BoutonNA{
+    background-color:lightgrey;
+    border-color: lightgrey;
+    border-radius: 10px;
+    height: 30px;   
+}
+.AffectationMesures{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    width:50%;
+    height: 50%;
+}
+
