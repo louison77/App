@@ -39,52 +39,36 @@ a:hover{
   outline: none;
 }
 
-
+/*Changement visuel quand on passe la souris dessus*/
+#CelluleMesure:hover {
+  background-color: peachpuff;  
+}
+/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
+#CelluleMesure:focus-within {
+  background-color: orange;  
+}
 
 /*Id interne*/
 /*Header ou titre*/
-thead th:nth-child(1) {
+thead th.IdMesure:nth-child(1) {
     width: 80px;
   }
 /*Cellules*/
 tbody td:nth-child(1) {
     text-align: center;
 }
-/*Changement visuel quand on passe la souris dessus*/
-tbody td:nth-child(1):hover {
-  background-color: peachpuff;  
-}
-/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
-tbody td:nth-child(1):focus-within {
-  background-color: orange;  
-}
+
 
 /*Libellé*/
 thead th:nth-child(2) {
     width: 140px;
   }
-/*Changement visuel quand on passe la souris dessus*/
-tbody td:nth-child(2):hover {
-  background-color: peachpuff;  
-}
-/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
-tbody td:nth-child(2):focus-within {
-  background-color: orange;  
-}
 
 /*Action détaillée*/
   thead th:nth-child(3) {
     width: 180px;
     height: auto;
   }
-  /*Changement visuel quand on passe la souris dessus*/
-tbody td:nth-child(3):hover {
-  background-color: peachpuff;  
-}
-/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
-tbody td:nth-child(3):focus-within {
-  background-color: orange;  
-}
 
 /*Maturité*/
   thead th:nth-child(4) {
@@ -92,14 +76,6 @@ tbody td:nth-child(3):focus-within {
   }
   tbody td:nth-child(4) {
     text-align: center;
-}
-/*Changement visuel quand on passe la souris dessus*/
-tbody td:nth-child(4):hover {
-  background-color: peachpuff;  
-}
-/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
-tbody td:nth-child(4):focus-within {
-  background-color: orange;  
 }
 
 /*Priorité*/
@@ -109,14 +85,6 @@ tbody td:nth-child(4):focus-within {
   tbody td:nth-child(5) {
     text-align: center;
 }
-/*Changement visuel quand on passe la souris dessus*/
-tbody td:nth-child(5):hover {
-  background-color: peachpuff;  
-}
-/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
-tbody td:nth-child(5):focus-within {
-  background-color: orange;  
-}
 
 /*Complexité*/
   thead th:nth-child(6) {
@@ -124,14 +92,6 @@ tbody td:nth-child(5):focus-within {
   }
   tbody td:nth-child(6) {
     text-align: center;
-}
-/*Changement visuel quand on passe la souris dessus*/
-tbody td:nth-child(6):hover {
-  background-color: peachpuff;  
-}
-/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
-tbody td:nth-child(6):focus-within {
-  background-color: orange;  
 }
 
 /*Coût Projet (k€)*/
@@ -141,14 +101,6 @@ tbody td:nth-child(6):focus-within {
   tbody td:nth-child(7) {
     text-align: center;
 }
-/*Changement visuel quand on passe la souris dessus*/
-tbody td:nth-child(7):hover {
-  background-color: peachpuff;  
-}
-/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
-tbody td:nth-child(7):focus-within {
-  background-color: orange;  
-}
 
 /*Coût Run (k€/an)*/
   thead th:nth-child(8) {
@@ -157,40 +109,16 @@ tbody td:nth-child(7):focus-within {
   tbody td:nth-child(8) {
     text-align: center;
 }
-/*Changement visuel quand on passe la souris dessus*/
-tbody td:nth-child(8):hover {
-  background-color: peachpuff;  
-}
-/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
-tbody td:nth-child(8):focus-within {
-  background-color: orange;  
-}
 
 /*Aide au chiffrage*/
   thead th:nth-child(9) {
     width: 170px;
   }
-/*Changement visuel quand on passe la souris dessus*/
-tbody td:nth-child(9):hover {
-  background-color: peachpuff;  
-}
-/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
-tbody td:nth-child(9):focus-within {
-  background-color: orange;  
-}
 
 /*Porteur*/
   thead th:nth-child(10) {
     width: 70px;
   }
-/*Changement visuel quand on passe la souris dessus*/
-tbody td:nth-child(10):hover {
-  background-color: peachpuff;  
-}
-/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
-tbody td:nth-child(10):focus-within {
-  background-color: orange;  
-}
 
 /*Date début*/
   thead th:nth-child(11) {
@@ -198,14 +126,6 @@ tbody td:nth-child(10):focus-within {
   }
   tbody td:nth-child(11) {
     text-align: center;
-}
-/*Changement visuel quand on passe la souris dessus*/
-tbody td:nth-child(11):hover {
-  background-color: peachpuff;  
-}
-/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
-tbody td:nth-child(11):focus-within {
-  background-color: orange;  
 }
 
   /*Date fin */
@@ -215,37 +135,13 @@ tbody td:nth-child(11):focus-within {
   tbody td:nth-child(12) {
     text-align: center;
 }
-/*Changement visuel quand on passe la souris dessus*/
-tbody td:nth-child(12):hover {
-  background-color: peachpuff;  
-}
-/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
-tbody td:nth-child(12):focus-within {
-  background-color: orange;  
-}
 
 /*Statut*/
   thead th:nth-child(13) {
     width: 65px;
   }
-/*Changement visuel quand on passe la souris dessus*/
-tbody td:nth-child(13):hover {
-  background-color: peachpuff;  
-}
-/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
-tbody td:nth-child(13):focus-within {
-  background-color: orange;  
-}
 
 /*Macro Projet*/
   thead th:nth-child(14) {
     width: 95px;
   }
-/*Changement visuel quand on passe la souris dessus*/
-tbody td:nth-child(14):hover {
-  background-color: peachpuff;  
-}
-/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
-tbody td:nth-child(14):focus-within {
-  background-color: orange;  
-}

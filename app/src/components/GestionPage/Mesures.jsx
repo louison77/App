@@ -264,47 +264,47 @@ const Mesures = () => {
                     </thead>
                     <tbody>
                     {mesures.map((mesure) =>(
-                        <tr>
-                            <td>
+                        <tr className="Cellule">
+                            <td id="CelluleMesure">
                                 <div contentEditable="true" className='TextId' id='Case'>{mesure.Id}</div>
                             </td>
-                            <td>
+                            <td id="CelluleMesure">
                                 <div contentEditable="true" className='TextNom' id='Case'>{mesure.Nom}</div>
                             </td>
-                            <td>
+                            <td id="CelluleMesure">
                                 <div contentEditable="true" className='TextAction' id='Case'>{mesure.Action}</div>
                             </td>
-                            <td>
+                            <td id="CelluleMesure">
                                 <div contentEditable="true" className='TextMaturite' id='Case'>{mesure.Maturite}</div>
                             </td>
-                            <td>
+                            <td id="CelluleMesure">
                                 <div contentEditable="true" className='TextPriorite' id='Case'>{mesure.Priorite}</div>
                             </td>
-                            <td>
+                            <td id="CelluleMesure">
                                 <div contentEditable="true" className='TextComplexite' id='Case'>{mesure.Complexite}</div>
                             </td>
-                            <td>
+                            <td id="CelluleMesure">
                                 <div contentEditable="true" className='TextCoutProjet' id='Case'>{mesure.CoutProjet}</div>
                             </td>
-                            <td>
+                            <td id="CelluleMesure">
                                 <div contentEditable="true" className='TextCoutRun' id='Case'>{mesure.CoutRun}</div>
                             </td>
-                            <td>
+                            <td id="CelluleMesure">
                                 <div contentEditable="true" className='TextAideChiffrafe' id='Case'>{mesure.AideChiffrage}</div>
                             </td>
-                            <td>
+                            <td id="CelluleMesure">
                                 <div contentEditable="true" className='TextPorteur' id='Case'>{mesure.Porteur}</div>
                             </td>
-                            <td>
+                            <td id="CelluleMesure">
                                 <div contentEditable="true" className='TextDateDebut' id='Case'>{mesure.DateDebut}</div>
                             </td>
-                            <td>
+                            <td id="CelluleMesure">
                                 <div contentEditable="true" className='TextDateFin' id='Case'>{mesure.DateFin}</div>
                             </td>
-                            <td>
+                            <td id="CelluleMesure">
                                 <div contentEditable="true" className='TextStatut' id='Case'>{mesure.Statut}</div>
                             </td>
-                            <td>
+                            <td id="CelluleMesure">
                                 <div contentEditable="true" className='TextMacro' id='Case'>{mesure.Macro}</div>
                             </td>
                         </tr>
