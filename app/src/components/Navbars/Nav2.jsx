@@ -22,7 +22,7 @@ const Nav2 = () => {
                     <ul className='menu-liste'>
                             <Link to="/Gestion/Resume" className='Menu-link'><li>Résumé</li></Link>
                             <Link to="/Gestion/Exigences" className='Menu-link'><li>Exigences</li></Link>
-                            <Link to="/Gestion/Mesures" className='Menu-link'><li>Mesures</li></Link>
+                            <Link to="/Gestion/Mesures" className='Menu-link'><li>Plan d'actions</li></Link>
                             <Link to="/Gestion/Suivi" className='Menu-link'><li>Suivi</li></Link>
                             <Link to="/Gestion/Export" className='Menu-link'><li>Exportation</li></Link>
                     </ul>

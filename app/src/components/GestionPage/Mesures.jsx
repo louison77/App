@@ -21,53 +21,80 @@ const Mesures = () => {
         {Id : "5.08.x.y.z", Nom:"Lorem ipsum dolor sit amet", Action : "Consectetur adipiscing elit. In justo nulla, placerat eleifend mi non, scelerisque mattis velit. Aliquam bibendum ac odio non molestie. Nunc viverra aliquam tincidunt.​", Maturite : "0", Priorite : "P3", Complexite : "+++", CoutProjet : "1", CoutRun : "1", AideChiffrage : "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In dolor nunc, vulputate sit amet rhoncus ut, faucibus ut mi.", Porteur : "Service Généraux", DateDebut : "T1 2000", DateFin : "T2 2000", Statut : "En cours", Macro : "Lorem Ipsum"},
 
         {Id : "5.08.x.y.z", Nom:"", Action : "​", Maturite : "", Priorite : "", Complexite : "", CoutProjet : "", CoutRun : "", AideChiffrage : "", Porteur : "", DateDebut : "", DateFin : "", Statut : "", Macro : ""}
-    
     ])
+    
 
 
 
     return (
         <div>
-            <h1 className='TITLE1'>Mesures</h1>
+            <h1 className='TITLE1'>Plan d'actions</h1>
 
             <div className='pageMesure'>
                 <table className='ListeMesures'>
                     <thead>
                     <tr>
-                        <th className='IdMesure'>ID interne</th>
-                        <th className='NomMesure'>Libellé</th>
-                        <th className='ActionMesure'>Action détaillée</th>
-                        <th className='MaturiteMEsure'>Maturité</th>
-                        <th className='PrioriteMesure'>Priorité</th>
-                        <th className='ComplexiteMesure'>Compléxité</th>
-                        <th className='CoutProjetMesure'>Coût Projet (k€)</th>
-                        <th className='CoutRunMesure'>Coût Run (k€/an)</th>
-                        <th className='AideChiffrageMesure'>Aide au chiffrage</th>
-                        <th className='PorteurMesure'>Porteur</th>
-                        <th className='DateDebutMesure'>Date début</th>
-                        <th className='DateFinMesure'>Date fin</th>
-                        <th className='StatutMesure'>Statut</th>
-                        <th className='MacroMesure'>Macro projet</th>
+                        <th className='IdMesure'><a href="#link">ID interne</a></th>
+                        <th className='NomMesure'><a href="#link">Libellé</a></th>
+                        <th className='ActionMesure'><a href="#link">Action détaillée</a></th>
+                        <th className='MaturiteMEsure'><a href="#link">Maturité</a></th>
+                        <th className='PrioriteMesure'><a href="#link">Priorité</a></th>
+                        <th className='ComplexiteMesure'><a href="#link">Compléxité</a></th>
+                        <th className='CoutProjetMesure'><a href="#link">Coût Projet (k€)</a></th>
+                        <th className='CoutRunMesure'><a href="#link">Coût Run (k€/an)</a></th>
+                        <th className='AideChiffrageMesure'><a href="#link">Aide au chiffrage</a></th>
+                        <th className='PorteurMesure'><a href="#link">Porteur</a></th>
+                        <th className='DateDebutMesure'><a href="#link">Date début</a></th>
+                        <th className='DateFinMesure'><a href="#link">Date fin</a></th>
+                        <th className='StatutMesure'><a href="#link">Statut</a></th>
+                        <th className='MacroMesure'><a href="#link">Macro projet</a></th>
                     </tr>
                     </thead>
                     <tbody>
                     {mesures.map((mesure) =>(
                         <tr>
-                            <td >{mesure.Id}</td>
-                            <td>{mesure.Nom}</td>
-                            <td>{mesure.Action}</td>
-                            <td>{mesure.Maturite}</td>
-                            <td>{mesure.Priorite}</td>
-                            <td>{mesure.Complexite}</td>
-                            <td>{mesure.CoutProjet}</td>
-                            <td>{mesure.CoutRun}</td>
-                            <td>{mesure.AideChiffrage}</td>
-                            <td>{mesure.Porteur}</td>
-                            <td>{mesure.DateDebut}</td>
-                            <td>{mesure.DateFin}</td>
-                            <td>{mesure.Statut}</td>
-                            <td>{mesure.Macro}</td>
-
+                            <td>
+                                <div contentEditable="true" className='TextId' id='Case'>{mesure.Id}</div>
+                            </td>
+                            <td>
+                                <div contentEditable="true" className='TextNom' id='Case'>{mesure.Nom}</div>
+                            </td>
+                            <td>
+                                <div contentEditable="true" className='TextAction' id='Case'>{mesure.Action}</div>
+                            </td>
+                            <td>
+                                <div contentEditable="true" className='TextMaturite' id='Case'>{mesure.Maturite}</div>
+                            </td>
+                            <td>
+                                <div contentEditable="true" className='TextPriorite' id='Case'>{mesure.Priorite}</div>
+                            </td>
+                            <td>
+                                <div contentEditable="true" className='TextComplexite' id='Case'>{mesure.Complexite}</div>
+                            </td>
+                            <td>
+                                <div contentEditable="true" className='TextCoutProjet' id='Case'>{mesure.CoutProjet}</div>
+                            </td>
+                            <td>
+                                <div contentEditable="true" className='TextCoutRun' id='Case'>{mesure.CoutRun}</div>
+                            </td>
+                            <td>
+                                <div contentEditable="true" className='TextAideChiffrafe' id='Case'>{mesure.AideChiffrage}</div>
+                            </td>
+                            <td>
+                                <div contentEditable="true" className='TextPorteur' id='Case'>{mesure.Porteur}</div>
+                            </td>
+                            <td>
+                                <div contentEditable="true" className='TextDateDebut' id='Case'>{mesure.DateDebut}</div>
+                            </td>
+                            <td>
+                                <div contentEditable="true" className='TextDateFin' id='Case'>{mesure.DateFin}</div>
+                            </td>
+                            <td>
+                                <div contentEditable="true" className='TextStatut' id='Case'>{mesure.Statut}</div>
+                            </td>
+                            <td>
+                                <div contentEditable="true" className='TextMacro' id='Case'>{mesure.Macro}</div>
+                            </td>
                         </tr>
                     ))}
                     </tbody>
