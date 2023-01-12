@@ -270,6 +270,33 @@ const Exigences = () => {
     setUneExigence(Copy2);
     setExigences(Copy);
   };
+  const ChangeExigence = (iter, ID) => {
+    let index = 0;
+    const Copy = [];
+    for (let i = 0; i < exigences.length; i++) {
+      if (exigences[i].Id === ID) {
+        index = i + iter;
+      }
+    }
+    if (index >= 0 && index < exigences.length) {
+      Copy.push({
+        Id: exigences[index].Id,
+        Nom: exigences[index].Nom,
+        Exigence: exigences[index].Exigence,
+        GuideComplet: exigences[index].GuideComplet,
+        GuideAbrege: exigences[index].GuideAbrege,
+        Obj: exigences[index].Obj,
+        Observation: exigences[index].Observation,
+        SousExigences: exigences[index].SousExigences,
+        Note: exigences[index].Note,
+        Maturite: exigences[index].Maturite,
+      });
+      setUneExigence(Copy);
+
+      setactiveID(exigences[index].Id);
+      setOpen(false);
+    }
+  };
   if (isSeen) {
     return (
       <div className="page">
@@ -287,7 +314,27 @@ const Exigences = () => {
         </div>
 
         <div className="ExigenceDescription">
-          <h1 className="TITLE">Exigences</h1>
+          <div className="FirstLine">
+            <h1 className="TITLE">Exigences</h1>
+            <div className="Arrows">
+              <button
+                className="ArrowLeft"
+                onClick={() => ChangeExigence(-1, UneExigence[0].Id)}
+              >
+                <ion-icon size="large" name="chevron-back-outline"></ion-icon>
+              </button>
+
+              <button
+                className="ArrowRight"
+                onClick={() => ChangeExigence(1, UneExigence[0].Id)}
+              >
+                <ion-icon
+                  size="large"
+                  name="chevron-forward-outline"
+                ></ion-icon>
+              </button>
+            </div>
+          </div>
 
           {UneExigence.map((exige) => (
             <div>
