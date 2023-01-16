@@ -10,11 +10,13 @@ const Nav2 = (props) => {
     <div>
       <div className="navbar2">
         <div className="leftpart">
+          <Link to="/">
           <img
-            src="./logoorange.jpg"
+            src="../logoorange.jpg"
             className="logoorange"
             alt="logo orange"
           />
+          </Link>
 
           <Link to="/">
             <Button
