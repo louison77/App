@@ -77,7 +77,7 @@ function TableP() {
         <tbody>
           {projets.map((project) => (
             <tr>
-              <Link to="/Gestion" others={project.nom}>
+              <Link to={"/Gestion/" + project.Nom} others={project.Nom}>
                 <button className="ButtonProjectName">
                   <td>{project.Nom}</td>
                 </button>

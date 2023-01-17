@@ -1,5 +1,6 @@
 .TITLE1{
     margin-left: 20px;
+    margin-top: 5px;
 }
 
 .pageMesure{
@@ -15,21 +16,48 @@
 }
 
 table.ListeMesures th{
-    border: 2px solid black;
+  border: 2px solid black;
 }
 table.ListeMesures td{
-    border: 2px solid black;
+  border: 2px solid black;
 }
 
+a{
+  text-decoration: none;
+  color: black;
+}
 
+a:hover{
+  color: orange;
+}
+
+/*Toutes les cases modifiables*/
+#Case{
+  width:auto;
+  display: inline-table;
+  border: none;
+  outline: none;
+}
+
+/*Changement visuel quand on passe la souris dessus*/
+#CelluleMesure:hover {
+  background-color: peachpuff;  
+}
+/*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
+#CelluleMesure:focus-within {
+  background-color: orange;  
+}
 
 /*Id interne*/
-thead th:nth-child(1) {
+/*Header ou titre*/
+thead th.IdMesure:nth-child(1) {
     width: 80px;
   }
+/*Cellules*/
 tbody td:nth-child(1) {
     text-align: center;
 }
+
 
 /*Libellé*/
 thead th:nth-child(2) {
@@ -39,6 +67,7 @@ thead th:nth-child(2) {
 /*Action détaillée*/
   thead th:nth-child(3) {
     width: 180px;
+    height: auto;
   }
 
 /*Maturité*/
@@ -48,6 +77,7 @@ thead th:nth-child(2) {
   tbody td:nth-child(4) {
     text-align: center;
 }
+
 /*Priorité*/
   thead th:nth-child(5) {
     width: 65px;
@@ -55,6 +85,7 @@ thead th:nth-child(2) {
   tbody td:nth-child(5) {
     text-align: center;
 }
+
 /*Complexité*/
   thead th:nth-child(6) {
     width: 95px;
@@ -62,6 +93,7 @@ thead th:nth-child(2) {
   tbody td:nth-child(6) {
     text-align: center;
 }
+
 /*Coût Projet (k€)*/
   thead th:nth-child(7) {
     width: 95px;
@@ -69,6 +101,7 @@ thead th:nth-child(2) {
   tbody td:nth-child(7) {
     text-align: center;
 }
+
 /*Coût Run (k€/an)*/
   thead th:nth-child(8) {
     width: 75px;
@@ -76,6 +109,7 @@ thead th:nth-child(2) {
   tbody td:nth-child(8) {
     text-align: center;
 }
+
 /*Aide au chiffrage*/
   thead th:nth-child(9) {
     width: 170px;
