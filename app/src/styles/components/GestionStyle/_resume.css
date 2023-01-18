@@ -1,0 +1,41 @@
+html, body, .container
+{
+    height: 100%; 
+    min-height: 100%;
+}
+
+.first {
+    float: left;
+    width: 20%;
+    height: 30%;
+    background-color: gray;
+}
+
+.second{
+    float: left;
+    width: 20%;
+    height: 70%;
+    background-color: gray;
+}
+
+
+.third{
+    float: right;
+    width: 80%;
+    height: 80%;
+    background-color: gray;
+}
+
+.fourth {
+    float: right;
+    width: 40%;
+    height: 20%;
+    background-color: gray;
+}
+
+.last{
+    float: right;
+    width: 40%;
+    height: 20%;
+    background-color: gray;
+}

@@ -11,6 +11,32 @@
     margin-left: 100px;
     width: 100%; 
 }
+.FirstLine{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.Arrows{
+    margin-right: 100px;
+}
+.ArrowLeft{
+    border: none;
+    background-color: white;
+    
+}
+.ArrowLeft:hover{
+    cursor: pointer;
+    color: orange;
+}
+.ArrowRight{
+    border: none;
+    background-color: white;
+}
+.ArrowRight:hover{
+    cursor: pointer;
+    color: orange;
+}
 
 .Exigences_parties{
     display:flex;
