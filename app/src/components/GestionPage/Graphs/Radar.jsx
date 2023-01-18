@@ -32,6 +32,6 @@ export const data = {
     ],
 };
   
-export function Radar() {
+export function RadarChart() {
     return <Radar data={data} />;
 }
