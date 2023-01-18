@@ -1,8 +1,7 @@
 import React from "react";
-import { PolarArea } from "react-chartjs-2";
 import "../../styles/components/GestionStyle/_resume.css";
-import RadarChart from "./Graphs/Radar.jsx"
-import PolarAreaChart from "./Graphs/PolarAreaChart.jsx"
+import RadarChart from "./Graphs/ProgressRadar.jsx"
+import PolarAreaChart from "./Graphs/CostPolarArea.jsx"
 
 const Resume = () => {
   return (
@@ -11,12 +10,12 @@ const Resume = () => {
       <div class="tile_two-third_left"> 
       <h3>Avancement</h3> 
       <div class="tile_half_left"><RadarChart/></div>
-      <div class="tile_half_right"><PolarAreaChart/></div> 
+      <div class="tile_half_right">Progress Bars</div> 
       </div>
 
       <div class="tile_one-third_right"> 
       <h3>Coûts</h3>
-
+      <PolarAreaChart/>
       </div>
 
 
