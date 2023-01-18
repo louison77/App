@@ -1,0 +1,41 @@
+html, body, .container
+{
+    height: 100%; 
+    min-height: 100%;
+}
+
+.tile1 {
+    float: left;
+    width: 20%;
+    height: 30%;
+    background-color: red;
+}
+
+.tile2 {
+    float: left;
+    width: 20%;
+    height: 70%;
+    background-color: green;
+}
+
+
+.tile3 {
+    float: right;
+    width: 80%;
+    height: 80%;
+    background-color: blue;
+}
+
+.tile4 {
+    float: right;
+    width: 40%;
+    height: 20%;
+    background-color: #DDDDDD;
+}
+
+.tile5{
+    float: right;
+    width: 40%;
+    height: 20%;
+    background-color: yellow;
+}
