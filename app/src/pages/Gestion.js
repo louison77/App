@@ -11,7 +11,8 @@ const Gestion = () => {
             <Nav2 name={name}/>
             
             <Outlet/>
-                
+            
+            
             
         </div>
     );

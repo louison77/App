@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import "../../styles/components/NavbarsStyle/_nav2.css";
 import BoutonProfil from "./BoutonProfil";
 
@@ -11,19 +10,11 @@ const Nav2 = (props) => {
       <div className="navbar2">
         <div className="leftpart">
           <Link to="/">
-          <img
-            src="../logoorange.jpg"
-            className="logoorange"
-            alt="logo orange"
-          />
-          </Link>
-
-          <Link to="/">
-            <Button
-              style={{ backgroundColor: "orange", borderColor: "orange" }}
-            >
-              <ion-icon classname="btnhome" name="home-outline"></ion-icon>
-            </Button>
+            <img
+              src="../logoorange.jpg"
+              className="logoorange"
+              alt="logo orange"
+            />
           </Link>
 
           <span className="NameProject"> Projet : {nom}</span>
