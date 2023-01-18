@@ -4,38 +4,38 @@ html, body, .container
     min-height: 100%;
 }
 
-.tile1 {
+.first {
     float: left;
     width: 20%;
     height: 30%;
-    background-color: red;
+    background-color: gray;
 }
 
-.tile2 {
+.second{
     float: left;
     width: 20%;
     height: 70%;
-    background-color: green;
+    background-color: gray;
 }
 
 
-.tile3 {
+.third{
     float: right;
     width: 80%;
     height: 80%;
-    background-color: blue;
+    background-color: gray;
 }
 
-.tile4 {
+.fourth {
     float: right;
     width: 40%;
     height: 20%;
-    background-color: #DDDDDD;
+    background-color: gray;
 }
 
-.tile5{
+.last{
     float: right;
     width: 40%;
     height: 20%;
-    background-color: yellow;
+    background-color: gray;
 }
