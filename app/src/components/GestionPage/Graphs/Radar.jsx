@@ -9,7 +9,6 @@ import {
     Legend,
   } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
-  
 ChartJS.register(
 RadialLinearScale,
 PointElement,
@@ -20,18 +19,38 @@ Legend
 );
   
 export const data = {
-    labels: ['Thing 1', 'Thing 2', 'Thing 3', 'Thing 4', 'Thing 5', 'Thing 6'],
+    labels: ['ORG', 'PHY', 'TEC', 'MGM'],
     datasets: [
+      //TODO: Properly set the scale and create variables associated with the graph categories.
       {
-        label: '# of Votes',
-        data: [2, 9, 3, 5, 2, 3],
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        backgroundColor: 'rgba(0, 0, 0, 0)',
+        borderColor: 'rgba(0, 0, 0, 0)',
+        data: [0, 0, 0, 0],
+      },
+      {
+        backgroundColor: 'rgba(0, 0, 0, 0)',
+        borderColor: 'rgba(0, 0, 0, 0)',
+        data: [1, 1, 1, 1],
+      },
+
+      {
+        label: 'Audit initial',
+        data: [0.2, 0.7, 0.3, 0.6],
+        backgroundColor: 'rgba(255, 99, 132, 0.1)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
       },
+      {
+        label: "Après plan d'action",
+        data: [0.4, 0.8, 0.5, 0.6],
+        backgroundColor: 'rgb(11, 163, 11,0.1)',
+        borderColor: 'rgb(11, 163, 11,1)',
+        borderWidth: 1,
+      },
+
     ],
 };
   
-export function RadarChart() {
+export default function RadarChart() {
     return <Radar data={data} />;
 }
