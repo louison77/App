@@ -3,33 +3,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/components/AccueilStyle/_tableP.css";
 
-const config = {
-  user: "pi2devteam",
-
-  password: "PR470Ca6mz",
-
-  server: "serverocd.database.windows.net",
-
-  //port: 1433,
-
-  database: "ProjetOrangeDatabase",
-
-  authentication: {
-    type: "default",
-  },
-
-  options: {
-    encrypt: true,
-  },
-};
-
-const query =
-  "SELECT client, " +
-  "projetid, " +
-  "statutaudit, " +
-  "statutplanaction " +
-  "FROM Projet " +
-  "ORDER BY projetid; ";
 function TableP() {
   //state
 
@@ -69,7 +42,6 @@ function TableP() {
       //modifier state setter
       setprojets(ProjetCopy);
       setNewProjet("");
-      console.log(query);
     }
   };
   //permet de taper dans la zone de texte

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import "../../styles/components/NavbarsStyle/_nav2.css";
 import BoutonProfil from "./BoutonProfil";
 
