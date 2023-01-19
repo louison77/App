@@ -89,6 +89,7 @@ function TableP() {
           ))}
         </tbody>
       </table>
+      <a href="/.auth/login/aad?post_login_redirect_uri=/">Login</a>
     </div>
   );
 }
