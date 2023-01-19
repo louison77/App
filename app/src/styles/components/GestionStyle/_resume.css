@@ -1,0 +1,50 @@
+html, body, .container
+{
+    height: 100%; 
+    min-height: 100%;
+}
+
+.tile_half_left{
+    float: left;
+    width: 50%;
+    height: 20%;
+    background-color: lightgrey;
+}   
+
+.tile_half_right{
+    float: right;
+    width: 50%;
+    height: 20%;
+    background-color: lightgrey;
+}
+
+.tile_two-third_left {
+    border-radius: 0%;
+    margin: 0%;
+    float: left;
+    width: 66%;
+    height: 20%;
+    background-color: lightgrey;
+}
+
+.tile_two-third_right{
+    float: left;
+    width: 66%;
+    height: 20%;
+    background-color: lightgrey;
+}
+
+
+.tile_one-third_left{
+    float: left;
+    width: 34%;
+    height: 20%;
+    background-color: lightgrey;
+}
+
+.tile_one-third_right{
+    float: right;
+    width: 34%;
+    height: 20%;
+    background-color: lightgrey;
+}
