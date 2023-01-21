@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/components/NavbarsStyle/_navbar.css";
 import BoutonProfil from "./BoutonProfil";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <div>
       <div className="navbar1">
@@ -14,6 +14,7 @@ const Navbar = () => {
           />
         </div>
         <div className="centerpage">
+          <span>{props.user}</span>
           <span className="Title">Application feuille de route</span>
         </div>
 
