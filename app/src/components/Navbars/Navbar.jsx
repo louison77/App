@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/components/NavbarsStyle/_navbar.css";
 import BoutonProfil from "./BoutonProfil";
-import { redirect } from "react-router-dom";
 
 const Navbar = ({ user }) => {
   const [name, setName] = React.useState("");
