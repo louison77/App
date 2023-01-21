@@ -2,7 +2,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/components/NavbarsStyle/_navbar.css";
 import BoutonProfil from "./BoutonProfil";
 
-const Navbar = (props) => {
+const Navbar = ({ user }) => {
+  const [name, setName] = React.useState("");
+  useEffect(() => {
+    if (user && user?.userDetails) {
+      setName(user?.userDetails);
+    }
+  }, [user]);
   return (
     <div>
       <div className="navbar1">
@@ -14,7 +20,7 @@ const Navbar = (props) => {
           />
         </div>
         <div className="centerpage">
-          <span>{props.user}</span>
+          <span>{name}</span>
           <span className="Title">Application feuille de route</span>
         </div>
 
