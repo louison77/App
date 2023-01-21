@@ -1,6 +1,7 @@
-import React from 'react';
+import React ,{useEffect, useState} from 'react';
 import Navbar from '../components/Navbars/Navbar';
 import TableP from '../components/AccueilPage/TableP';
+import Authent from '/Authent.js';
 
 const Accueil = () => {
     const [isAuthenticated, userHasAuthenticated] = useState(false);
