@@ -4,7 +4,7 @@ import TableP from '../components/AccueilPage/TableP';
 import Authent from './Authent.js';
 
 const Accueil = () => {
-    const [isAuthenticated, userHasAuthenticated] = useState(false);
+    const [isAuthenticated, userHasAuthenticated] = useState(true);
     const [user, setUser] = useState(null);
     useEffect(() => {
         getUserInfo();
@@ -28,11 +28,11 @@ const Accueil = () => {
         }
     };  
     
-    if(isAuthenticated){
+    if(user){
         return (
             <div>
-                <Navbar user={user}/>
-                <TableP />
+                <Navbar user={user} Changeuser={setUser} ChangeAuth={userHasAuthenticated}/>
+                <TableP /> 
                 
             </div>
         );

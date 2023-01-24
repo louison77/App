@@ -3,13 +3,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/components/NavbarsStyle/_navbar.css";
 import BoutonProfil from "./BoutonProfil";
 
-const Navbar = ({ user }) => {
+const Navbar = (props) => {
   const [name, setName] = React.useState("");
   useEffect(() => {
-    if (user && user?.userDetails) {
-      setName(user?.userDetails);
+    if (props.user && props.user?.userDetails) {
+      setName(props.user?.userDetails);
     }
-  }, [user]);
+  }, [props.user]);
   return (
     <div>
       <div className="navbar1">
@@ -28,7 +28,11 @@ const Navbar = ({ user }) => {
 
         <div className="rightpart">
           <div className="profil">
-            <BoutonProfil />
+            <BoutonProfil
+              ChangeName={setName}
+              ChangeUser={props.ChangeUser}
+              ChangeAuth={props.ChangeAuth}
+            />
           </div>
         </div>
       </div>
