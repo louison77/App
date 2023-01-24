@@ -29,6 +29,7 @@ function TableP() {
   ]);
   //tableau tampon pour pouvoir ajouter un projet dans le tableau au dessuss
   const [newProjet, setNewProjet] = useState("");
+  const [newID, setNewID] = useState("");
 
   //comportements
 
@@ -36,11 +37,11 @@ function TableP() {
   const handleSubmit = (event) => {
     //pour ne pas que la page se réactualise quand on appuie sur le bouton
     event.preventDefault();
-    if (newProjet !== "") {
+    if (newProjet !== "" && newID !== "") {
       //copie du state
       const ProjetCopy = [...projets];
       //manipulation copie du state, on génère un id aléatoire
-      const id = new Date().getTime();
+      const id = newID;
       const nom = newProjet;
       const StatutAudit = "Pas démarré";
       const StatutPA = "Pas démarré";
@@ -53,11 +54,15 @@ function TableP() {
       //modifier state setter
       setprojets(ProjetCopy);
       setNewProjet("");
+      setNewID("");
     }
   };
   //permet de taper dans la zone de texte
   const handleChange = (event) => {
     setNewProjet(event.target.value);
+  };
+  const ChangeID = (event) => {
+    setNewID(event.target.value);
   };
   //render
   return (
@@ -70,6 +75,13 @@ function TableP() {
             placeholder="Ajouter un projet"
             onChange={handleChange}
           />
+          <input
+            value={newID}
+            type="text"
+            placeholder="Ajouter l'ID"
+            onChange={ChangeID}
+          />
+
           <button className="Button1">Nouveau projet</button>
         </form>
 
