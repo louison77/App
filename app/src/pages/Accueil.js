@@ -28,7 +28,7 @@ const Accueil = () => {
         }
     };  
     
-    if(user){
+    if(isAuthenticated){
         return (
             <div>
                 <Navbar user={user} Changeuser={setUser} ChangeAuth={userHasAuthenticated}/>
