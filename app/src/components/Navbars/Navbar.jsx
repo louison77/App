@@ -30,7 +30,7 @@ const Navbar = (props) => {
           <div className="profil">
             <BoutonProfil
               ChangeName={setName}
-              ChangeUser={props.ChangeUser}
+              ChangeUser={props.Changeuser}
               ChangeAuth={props.ChangeAuth}
             />
           </div>
