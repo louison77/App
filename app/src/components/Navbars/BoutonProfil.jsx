@@ -4,7 +4,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 const BoutonProfil = (props) => {
-  const redirect = "/";
+  const redirect = window.location.pathname;
 
   const HandleChange = () => {
     props.ChangeUser(null);
