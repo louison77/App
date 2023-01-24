@@ -23,7 +23,7 @@
     -o-border-radius: 5px;
 }
 
-.page{
+.pageHome{
     display: flex;
     align-items: center;
     justify-content: center;

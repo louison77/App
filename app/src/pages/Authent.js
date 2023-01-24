@@ -13,7 +13,7 @@ const Authent = () => {
                 alt="logo orange"
                 />
             </div>
-            <div className='page'>
+            <div className='pageHome'>
                 <div className='ConnexionArea'>
                         <button className='ConnexionBtn'><span><a key={provider} href={`/.auth/login/${provider}?post_login_redirect_uri=${redirect}`}><h4>Se connecter avec Azure AD</h4></a> </span></button>
                 </div>
