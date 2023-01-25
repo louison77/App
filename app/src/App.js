@@ -10,8 +10,6 @@ import Gestion from './pages/Gestion';
 import Resume from './components/GestionPage/Resume';
 
 
-
-
 function App() {
 
   

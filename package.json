@@ -1,11 +1,37 @@
 {
   "devDependencies": {
+    "@azure/static-web-apps-cli": "^1.0.4",
+    "azure-functions-core-tools": "^3.0.4899",
+    "concurrently": "^7.6.0",
     "node-sass": "^8.0.0"
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
     "mdb-react-ui-kit": "^5.1.0",
+    "mkdirp": "^1.0.4",
     "react-bootstrap": "^2.7.0",
     "sass": "^1.57.1"
-  }
+  },
+  "name": "app",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start-api": "cd api && npm start",
+    "start-app": "cd app && npm start",
+    "start-dev": "concurrently \"npm:start-api\" \"npm:start-app\" ",
+    "start-swa": "swa start http://localhost:3000 --api-location http://localhost:7071",
+    "start": " npm run start-dev && npm run swa-up"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louison77/App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/louison77/App/issues"
+  },
+  "homepage": "https://github.com/louison77/App#readme"
 }

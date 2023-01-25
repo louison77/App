@@ -22,6 +22,7 @@
     color:white;
     border-radius:5px;
     cursor: pointer;
+    
 }
 
 .TableProjects{
@@ -35,6 +36,15 @@
     cursor: pointer;
     border: 3px black;
     border-radius: 2px;
+    background-color: silver;
+    
+}
+.ButtonProjectName:hover{
+    cursor: pointer;
+    border: 3px black;
+    border-radius: 2px;
+    background-color: orange;
+    color:white;
 }
 thead tr{
     background-color: grey;

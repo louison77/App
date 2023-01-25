@@ -13,7 +13,6 @@ const Gestion = () => {
             <Outlet/>
             
             
-            
         </div>
     );
 };
