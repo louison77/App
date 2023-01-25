@@ -1,4 +1,4 @@
-.TITLE1{
+.TITLEMESURE{
   margin-left: 20px;
   margin-top: 5px;
 }
@@ -122,7 +122,7 @@ thead th:nth-child(10) {
 
 /*Date début*/
 thead th:nth-child(11) {
-  width: 65px;
+  width: 70px;
 }
 tbody td:nth-child(11) {
   text-align: center;
@@ -144,4 +144,24 @@ thead th:nth-child(13) {
 /*Macro Projet*/
 thead th:nth-child(14) {
   width: 95px;
+}
+
+#Filtre {
+  width: 15%;
+  margin-bottom: 10px;
+  margin-left: 50px;
+}
+
+#ChoixFiltre {
+  margin-left: 10px;
+}
+
+#TitreMesure:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+#Triangle {
+  font-style: bold;
+  color : orange;
 }
