@@ -36,12 +36,12 @@ const Accueil = () => {
         try {
             const response = await fetch('/api/hello');
             const json = await response.json();
-            const exigences = json.exigences;
-            console.log(exigences)
+
+            console.log(json)
 
         }
-        catch {
-
+        catch (error) {
+            console.error("It doesn't work")
         }
     }
 

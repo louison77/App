@@ -10,6 +10,17 @@ mongoose.connect(
         useUnifiedTopology: true,
     }
 );
+const ProjetSchema = new mongoose.Schema({
+    projetid: { type: String, unique: true, required: true },
+    statutaudit: String,
+    statutplanaction: String
+});
+
+const Projet = mongoose.model("Projet", ProjetSchema);
+async function createOne(projetData) {
+    const projet = new Projet(projetData);
+    return projet.save();
+}
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
 
