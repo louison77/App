@@ -55,6 +55,7 @@ function TableP() {
       setprojets(ProjetCopy);
       setNewProjet("");
       setNewID("");
+      
     }
   };
   //permet de taper dans la zone de texte

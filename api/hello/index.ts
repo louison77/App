@@ -1,6 +1,19 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 
+
+
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+    const mongoose = require('mongoose');
+
+    // Connect to the database
+    mongoose.connect(
+        process.env.CONNECTION_STRING, // Retrieve connection string
+        { // boiler plate values
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        }
+    );
+
     context.log('HTTP trigger function processed a request.');
     const name = (req.query.name || (req.body && req.body.name));
     const responseMessage = name

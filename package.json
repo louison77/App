@@ -9,6 +9,7 @@
     "bootstrap": "^5.2.3",
     "mdb-react-ui-kit": "^5.1.0",
     "mkdirp": "^1.0.4",
+    "mongoose": "^6.9.0",
     "react-bootstrap": "^2.7.0",
     "sass": "^1.57.1"
   },
