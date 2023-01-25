@@ -9,7 +9,9 @@
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  },
   "devDependencies": {
     "@azure/functions": "^2.0.0",
     "@types/node": "14.x",
