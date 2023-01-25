@@ -22,7 +22,7 @@ const Mesures = () => {
 
 
 
-  const [mesures, setMesures] = useState([
+  const [mesures] = useState([
       {
         Id: "5.08.1.1.1",
         Nom: "Vidéo-surveillance dans la salle serveur",
@@ -247,14 +247,14 @@ const Mesures = () => {
     const Filtre = (event) => {
         /* Valeur dans le champ du filtre : event.target.value */
         
-        if(event.target.value==""){
+        if(event.target.value===""){
           setType(1); /* On fait réapparaître le tableau non filtré qui ne change jamais (car il sert de database locale)*/
         } else {
           const Copy=[];
           if(colonne==="ID Interne")
           {
               for (let i = 0; i < mesures.length; i++) {
-                  if((mesures[i].Id).toLowerCase().search(event.target.value) != -1){
+                  if((mesures[i].Id).toLowerCase().search(event.target.value) !== -1){
                     Copy.push(mesures[i]);
                   }
               }
@@ -262,7 +262,7 @@ const Mesures = () => {
           if(colonne==="Libellé")
           {
               for (let i = 0; i < mesures.length; i++) {
-                  if((mesures[i].Nom).toLowerCase().search(event.target.value) != -1){
+                  if((mesures[i].Nom).toLowerCase().search(event.target.value) !== -1){
                     Copy.push(mesures[i]);
                   }
               }
@@ -270,7 +270,7 @@ const Mesures = () => {
           if(colonne==="Action")
           {
               for (let i = 0; i < mesures.length; i++) {
-                  if((mesures[i].Action).toLowerCase().search(event.target.value) != -1){
+                  if((mesures[i].Action).toLowerCase().search(event.target.value) !== -1){
                       Copy.push(mesures[i]);
                   }
               }
@@ -278,7 +278,7 @@ const Mesures = () => {
           if(colonne==="Maturité")
           {
               for (let i = 0; i < mesures.length; i++) {
-                  if((mesures[i].Maturite).toLowerCase().search(event.target.value) != -1){
+                  if((mesures[i].Maturite).toLowerCase().search(event.target.value) !== -1){
                       Copy.push(mesures[i]);
                   }
               }
@@ -286,7 +286,7 @@ const Mesures = () => {
           if(colonne==="Priorité")
           {
               for (let i = 0; i < mesures.length; i++) {
-                  if(mesures[i].Priorite.search((event.target.value).toUpperCase()) != -1){
+                  if(mesures[i].Priorite.search((event.target.value).toUpperCase()) !== -1){
                       Copy.push(mesures[i]);
                   }
               }
@@ -302,7 +302,7 @@ const Mesures = () => {
           if(colonne==="Coût Projet (k€)")
           {
               for (let i = 0; i < mesures.length; i++) {
-                  if((mesures[i].CoutProjet).toLowerCase().search(event.target.value) != -1){
+                  if((mesures[i].CoutProjet).toLowerCase().search(event.target.value) !== -1){
                       Copy.push(mesures[i]);
                   }
               }
@@ -310,7 +310,7 @@ const Mesures = () => {
           if(colonne==="Coût Run (k€/an)")
           {
               for (let i = 0; i < mesures.length; i++) {
-                  if((mesures[i].CoutRun).toLowerCase().search(event.target.value) != -1){
+                  if((mesures[i].CoutRun).toLowerCase().search(event.target.value) !== -1){
                       Copy.push(mesures[i]);
                   }
               }
@@ -318,7 +318,7 @@ const Mesures = () => {
           if(colonne==="Aide au chiffrage")
           {
               for (let i = 0; i < mesures.length; i++) {
-                  if((mesures[i].AideChiffrage).toLowerCase().search(event.target.value) != -1){
+                  if((mesures[i].AideChiffrage).toLowerCase().search(event.target.value) !== -1){
                       Copy.push(mesures[i]);
                   }
               }
@@ -326,7 +326,7 @@ const Mesures = () => {
           if(colonne==="Porteur")
           {
               for (let i = 0; i < mesures.length; i++) {
-                  if((mesures[i].Porteur).toLowerCase().search(event.target.value) != -1){
+                  if((mesures[i].Porteur).toLowerCase().search(event.target.value) !== -1){
                       Copy.push(mesures[i]);
                   }
               }
@@ -334,7 +334,7 @@ const Mesures = () => {
           if(colonne==="Date début")
           {
               for (let i = 0; i < mesures.length; i++) {
-                  if((mesures[i].DateDebut).toLowerCase().search(event.target.value) != -1){
+                  if((mesures[i].DateDebut).toLowerCase().search(event.target.value) !== -1){
                       Copy.push(mesures[i]);
                   }
               }
@@ -342,7 +342,7 @@ const Mesures = () => {
           if(colonne==="Date fin")
           {
               for (let i = 0; i < mesures.length; i++) {
-                  if((mesures[i].DateFin).toLowerCase().search(event.target.value) != -1){
+                  if((mesures[i].DateFin).toLowerCase().search(event.target.value) !== -1){
                       Copy.push(mesures[i]);
                   }
               }
@@ -350,7 +350,7 @@ const Mesures = () => {
           if(colonne==="Statut")
           {
               for (let i = 0; i < mesures.length; i++) {
-                  if((mesures[i].Statut).toLowerCase().search(event.target.value) != -1){
+                  if((mesures[i].Statut).toLowerCase().search(event.target.value) !== -1){
                       Copy.push(mesures[i]);
                   }
               }
@@ -358,7 +358,7 @@ const Mesures = () => {
           if(colonne==="Macro projet")
           {
               for (let i = 0; i < mesures.length; i++) {
-                  if((mesures[i].Macro).toLowerCase().search(event.target.value) != -1){
+                  if((mesures[i].Macro).toLowerCase().search(event.target.value) !== -1){
                       Copy.push(mesures[i]);
                   }
               }
@@ -450,11 +450,11 @@ const Mesures = () => {
     const Tri = (event, colonne) => {
       const Copy=[];
       /* On copie tout le tableau: mesures si il n'y a pas de filtre, modifMesures si il y a un filtre */
-      if(Type==1){
+      if(Type === 1){
         for(let i = 0; i < mesures.length; i++) {
           Copy.push(mesures[i]);
         }
-      } else if(Type == 2) {
+      } else if(Type === 2) {
         for(let i = 0; i < modifMesures.length; i++) {
           Copy.push(modifMesures[i]);
         }
@@ -619,7 +619,7 @@ const Mesures = () => {
     }
 
 
-    if(Type==1)
+    if(Type === 1)
     {
         return (
             <div>
@@ -717,7 +717,7 @@ const Mesures = () => {
         );
 
     }
-    if(Type==2)
+    if(Type === 2)
     {
         return (
             <div>
