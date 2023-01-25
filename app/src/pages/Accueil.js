@@ -28,6 +28,22 @@ const Accueil = () => {
             console.error('No profile could be found ' + error?.message?.toString());
         }
     };
+    useEffect(() => {
+        getBDD();
+    }
+    )
+    async function getBDD() {
+        try {
+            const response = await fetch('/api/hello');
+            const json = await response.json();
+            const exigences = json.exigences;
+            console.log(exigences)
+
+        }
+        catch {
+
+        }
+    }
 
     if (isAuthenticated) {
         return (
