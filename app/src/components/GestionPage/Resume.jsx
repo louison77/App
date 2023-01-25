@@ -2,6 +2,7 @@ import React from "react";
 import "../../styles/components/GestionStyle/_resume.css";
 import RadarChart from "./Graphs/ProgressRadar.jsx";
 import PolarAreaChart from "./Graphs/CostPolarArea.jsx";
+import { ProgressBar } from "react-bootstrap";
 //import ProgressBar from "./Graphs/ProgressBar";
 
 const Resume = () => {
@@ -13,11 +14,11 @@ const Resume = () => {
         <div class="tile_half_left">
           <RadarChart />
         </div>
-        <div class="tile_half_right">Progress Bar here</div>
+        <div class="tile_half_right"><ProgressBar /></div>
       </div>
 
       <div class="tile_one-third_right">
-        <h3>Coûts</h3>
+        <h3>Coûts</h3>  
         <PolarAreaChart />
       </div>
 

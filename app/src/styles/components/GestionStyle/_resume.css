@@ -4,6 +4,13 @@ html, body, .container
     min-height: 100%;
 }
 
+.tile_full{
+    float: left;
+    width: 100%;
+    height: 20%;
+    background-color: lightgrey;
+}   
+
 .tile_half_left{
     float: left;
     width: 50%;
