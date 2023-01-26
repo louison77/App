@@ -10,6 +10,9 @@ const Navbar = (props) => {
       setName(props.user?.userDetails);
     }
   }, [props.user]);
+  /*<div className="centerpage">
+          <span className="Title">Application feuille de route</span>
+        </div>*/
   return (
     <div>
       <div className="navbar1">
@@ -20,11 +23,9 @@ const Navbar = (props) => {
             alt="logo orange"
           />
 
-          <span>{name}</span>
+          <span className="MailID">{name}</span>
         </div>
-        <div className="centerpage">
-          <span className="Title">Application feuille de route</span>
-        </div>
+        
 
         <div className="rightpart">
           <div className="profil">
