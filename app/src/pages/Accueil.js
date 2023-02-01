@@ -34,6 +34,8 @@ const Accueil = () => {
             try {
                 const newtask = []
                 const response = await fetch('/api/Cosmo');
+
+
                 const retrievedData = await response.json();
                 const retrievedTasks = retrievedData.data;
                 // Loop through all tasks
@@ -50,8 +52,30 @@ const Accueil = () => {
             }
 
         }
+        const ChangeBdd = async () => {
+            try {
+                const res = await fetch('/api/cosmo', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: {
+                        title: 'Test'
+                    }
+                })
+                console.log(JSON.stringify(await res.json()));
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+
+        ChangeBdd();
         getBDD();
+
     }, [tasks]);
+
+
 
 
     if (isAuthenticated) {
