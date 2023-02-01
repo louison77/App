@@ -30,12 +30,18 @@ const Accueil = () => {
     };
     useEffect(() => {
         getBDD();
-    }
-    )
+    }, []
+    );
     async function getBDD() {
         try {
-            const response = await fetch('/api/hello');
-            const json = await response.json();
+            const response = await fetch('/api/Cosmo');
+            const retrievedData = await response.json();
+            const retrievedTasks = retrievedData.tasks;
+            // Loop through all tasks
+            for (let task of retrievedTasks) {
+                // Add each task to the array
+                tasks.push(task);
+            }
 
             console.log(json)
 
