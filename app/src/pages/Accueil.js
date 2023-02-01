@@ -28,6 +28,7 @@ const Accueil = () => {
             console.error('No profile could be found ' + error?.message?.toString());
         }
     };
+    const tasks = [];
     useEffect(() => {
         getBDD();
     }, []
@@ -43,7 +44,7 @@ const Accueil = () => {
                 tasks.push(task);
             }
 
-            console.log(json)
+            console.log(retrievedData)
 
         }
         catch (error) {
