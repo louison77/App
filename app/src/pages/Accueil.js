@@ -28,20 +28,22 @@ const Accueil = () => {
             console.error('No profile could be found ' + error?.message?.toString());
         }
     };
-    const tasks = [];
+    const [tasks, setTasks] = useState('');
     useEffect(() => {
-        async function getBDD() {
+        const getBDD = async () => {
             try {
+                const newtask = []
                 const response = await fetch('/api/Cosmo');
                 const retrievedData = await response.json();
                 const retrievedTasks = retrievedData.tasks;
                 // Loop through all tasks
                 for (let task of retrievedTasks) {
                     // Add each task to the array
-                    tasks.push(task);
+                    newtasktask.push(task);
                 }
+                setTasks(newtask);
 
-                console.log(retrievedData)
+                console.log(tasks);
 
             }
             catch (error) {
