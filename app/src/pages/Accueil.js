@@ -31,18 +31,23 @@ const Accueil = () => {
     };
     useEffect(() => {
         const getBDD = async () => {
+            try {
+                const newtask = []
+                const response = await fetch('/api/Cosmo');
+                const retrievedData = await response.json();
+                const retrievedTasks = retrievedData.data;
+                // Loop through all tasks
+                for (let task of retrievedTasks) {
+                    // Add each task to the array
+                    newtask.push(task);
+                }
+                setTasks(newtask);
+                console.log(retrievedData.header);
 
-            const newtask = []
-            const response = await fetch('/api/Cosmo');
-            const retrievedData = await response.json();
-            const retrievedTasks = retrievedData.data;
-            // Loop through all tasks
-            for (let task of retrievedTasks) {
-                // Add each task to the array
-                newtask.push(task);
             }
-            setTasks(newtask);
-            console.log(retrievedData.header);
+            catch (error) {
+                console.log(error)
+            }
 
         }
         getBDD();
