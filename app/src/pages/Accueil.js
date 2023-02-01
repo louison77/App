@@ -7,7 +7,7 @@ const Accueil = () => {
 
     const [isAuthenticated, userHasAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
-    const [tasks, setTasks] = useState('');
+    const [tasks, setTasks] = useState('coucou');
     useEffect(() => {
         getUserInfo();
     }, []);
@@ -31,24 +31,19 @@ const Accueil = () => {
     };
     useEffect(() => {
         const getBDD = async () => {
-            try {
-                const newtask = []
-                const response = await fetch('/api/Cosmo');
-                const retrievedData = await response.json();
-                const retrievedTasks = retrievedData.data;
-                // Loop through all tasks
-                for (let task of retrievedTasks) {
-                    // Add each task to the array
-                    newtask.push(task);
-                }
-                setTasks(newtask);
 
-                console.log(tasks);
+            const newtask = []
+            const response = await fetch('/api/Cosmo');
+            const retrievedData = await response.json();
+            const retrievedTasks = retrievedData.data;
+            // Loop through all tasks
+            for (let task of retrievedTasks) {
+                // Add each task to the array
+                newtask.push(task);
+            }
+            setTasks(newtask);
+            console.log(tasks);
 
-            }
-            catch (error) {
-                console.error("It doesn't work")
-            }
         }
         getBDD();
     }, []);
