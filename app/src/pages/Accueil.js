@@ -39,7 +39,7 @@ const Accueil = () => {
                 // Loop through all tasks
                 for (let task of retrievedTasks) {
                     // Add each task to the array
-                    newtasktask.push(task);
+                    newtask.push(task);
                 }
                 setTasks(newtask);
 
