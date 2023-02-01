@@ -42,7 +42,7 @@ const Accueil = () => {
                 newtask.push(task);
             }
             setTasks(newtask);
-            console.log(tasks);
+            console.log(retrievedData.header);
 
         }
         getBDD();
