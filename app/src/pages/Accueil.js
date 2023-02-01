@@ -30,26 +30,27 @@ const Accueil = () => {
     };
     const tasks = [];
     useEffect(() => {
+        async function getBDD() {
+            try {
+                const response = await fetch('/api/Cosmo');
+                const retrievedData = await response.json();
+                const retrievedTasks = retrievedData.tasks;
+                // Loop through all tasks
+                for (let task of retrievedTasks) {
+                    // Add each task to the array
+                    tasks.push(task);
+                }
+
+                console.log(retrievedData)
+
+            }
+            catch (error) {
+                console.error("It doesn't work")
+            }
+        }
         getBDD();
     }, []);
-    async function getBDD() {
-        try {
-            const response = await fetch('/api/Cosmo');
-            const retrievedData = await response.json();
-            const retrievedTasks = retrievedData.tasks;
-            // Loop through all tasks
-            for (let task of retrievedTasks) {
-                // Add each task to the array
-                tasks.push(task);
-            }
 
-            console.log(retrievedData)
-
-        }
-        catch (error) {
-            console.error("It doesn't work")
-        }
-    };
 
     if (isAuthenticated) {
         return (
