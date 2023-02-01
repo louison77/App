@@ -31,8 +31,7 @@ const Accueil = () => {
     const tasks = [];
     useEffect(() => {
         getBDD();
-    }, []
-    );
+    }, []);
     async function getBDD() {
         try {
             const response = await fetch('/api/Cosmo');
@@ -50,7 +49,7 @@ const Accueil = () => {
         catch (error) {
             console.error("It doesn't work")
         }
-    }
+    };
 
     if (isAuthenticated) {
         return (
