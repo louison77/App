@@ -46,7 +46,7 @@ const Accueil = () => {
 
         }
         getBDD();
-    }, []);
+    }, [tasks]);
 
 
     if (isAuthenticated) {
