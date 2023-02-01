@@ -7,6 +7,7 @@ const Accueil = () => {
 
     const [isAuthenticated, userHasAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
+    const [tasks, setTasks] = useState('');
     useEffect(() => {
         getUserInfo();
     }, []);
@@ -28,14 +29,13 @@ const Accueil = () => {
             console.error('No profile could be found ' + error?.message?.toString());
         }
     };
-    const [tasks, setTasks] = useState('');
     useEffect(() => {
         const getBDD = async () => {
             try {
                 const newtask = []
                 const response = await fetch('/api/Cosmo');
                 const retrievedData = await response.json();
-                const retrievedTasks = retrievedData.tasks;
+                const retrievedTasks = retrievedData.data;
                 // Loop through all tasks
                 for (let task of retrievedTasks) {
                     // Add each task to the array
