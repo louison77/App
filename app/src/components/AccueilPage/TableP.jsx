@@ -19,10 +19,10 @@ function TableP() {
   };
   //tableau contenant informations différents projets
   const [projets, setprojets] = useState([
-    { Nom: "Acme", Id: 298 - 52, StatutAudit: "Terminé", StatutPA: "Terminé" },
+    { Nom: "Acme",  Code: 298 - 52, StatutAudit: "Terminé", StatutPA: "Terminé" },
     {
       Nom: "Orange",
-      Id: 278 - 40,
+      Code: 278 - 40,
       StatutAudit: "Terminé",
       StatutPA: "En cours",
     },
@@ -41,13 +41,13 @@ function TableP() {
       //copie du state
       const ProjetCopy = [...projets];
       //manipulation copie du state, on génère un id aléatoire
-      const id = newID;
+      const Code = newID;
       const nom = newProjet;
       const StatutAudit = "Pas démarré";
       const StatutPA = "Pas démarré";
       ProjetCopy.push({
         Nom: nom,
-        Id: id,
+        Code: Code,
         StatutAudit: StatutAudit,
         StatutPA: StatutPA,
       });
@@ -92,7 +92,7 @@ function TableP() {
         <thead>
           <tr>
             <th>Nom</th>
-            <th>Id</th>
+            <th>Code</th>
             <th>Statut Audit</th>
             <th>Statut PA</th>
           </tr>
@@ -106,7 +106,7 @@ function TableP() {
                   <td>{project.Nom}</td>
                 </button>
               </Link>
-              <td>{project.Id}</td>
+              <td>{project.Code}</td>
               <td>{project.StatutAudit}</td>
               <td>{project.StatutPA}</td>
             </tr>

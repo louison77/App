@@ -3,7 +3,6 @@ import Navbar from '../components/Navbars/Navbar';
 import TableP from '../components/AccueilPage/TableP';
 import Authent from './Authent.js';
 import axios from 'axios';
-import { FALSE } from 'node-sass';
 
 const Accueil = () => {
     const baseUrl = '/api/Cosmo';
@@ -51,25 +50,21 @@ const Accueil = () => {
             }
 
         }
-        const ChangeBdd = async () => {
+        /*const ChangeBdd = async () => {
             try {
-                const res = await axios.put(`${baseUrl}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: {
-                        title: 'Test'
-                    }
-                })
-                console.log(JSON.stringify(await res.json()));
+                await axios.post(`${baseUrl}`, {
+                    title: 'Test'
+                }, {
+                    'Content-Type': 'application/json'
+                },)
+
             }
             catch (error) {
                 console.log(error);
             }
         }
 
-        ChangeBdd();
+        ChangeBdd();*/
         getBDD();
 
     }, [tasks]);
