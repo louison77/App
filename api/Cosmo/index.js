@@ -2,11 +2,10 @@ const mongoose = require('mongoose');
 console.log(mongoose)
 // Connect to the database
 mongoose.connect(
-    "mongodb://orange-database:ogumKKoSdyA0UGIkP9DFWe4ugqLo5uu8Ag4fzkcO79bSFkI6i23qEpf8DHPAZf5vZaEYqHPA7j0QACDbdJH90g==@orange-database.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@orange-database@", // Retrieve connection string
-    { // boiler plate values
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    }
+    process.env.CONNECTION_STRING, { // boiler plate values
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}
 );
 
 // Create the schema or structure of our object in Mongoose

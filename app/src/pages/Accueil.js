@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbars/Navbar';
 import TableP from '../components/AccueilPage/TableP';
 import Authent from './Authent.js';
+import axios from 'axios';
 
 const Accueil = () => {
-
+    const baseUrl = '/api/Cosmo';
     const [isAuthenticated, userHasAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
-    const [tasks, setTasks] = useState('coucou');
+    const [tasks,] = useState('coucou');
     useEffect(() => {
         getUserInfo();
     }, []);
@@ -32,19 +33,17 @@ const Accueil = () => {
     useEffect(() => {
         const getBDD = async () => {
             try {
-                const newtask = []
-                const response = await fetch('/api/Cosmo');
-
-
-                const retrievedData = await response.json();
-                const retrievedTasks = retrievedData.data;
+                /*const newtask = []*/
+                const response = await axios.get(`${baseUrl}`);
+                const retrievedTasks = response.data;
+                console.log(retrievedTasks);
                 // Loop through all tasks
-                for (let task of retrievedTasks) {
+                /*for (let task of retrievedTasks) {
                     // Add each task to the array
                     newtask.push(task);
                 }
-                setTasks(newtask);
-                console.log(retrievedData.header);
+                setTasks(newtask);*/
+
 
             }
             catch (error) {
@@ -52,10 +51,10 @@ const Accueil = () => {
             }
 
         }
-        const ChangeBdd = async () => {
+        /*const ChangeBdd = async () => {
             try {
-                const res = await fetch('/api/cosmo', {
-                    method: 'POST',
+                const res = await axios.put(`${baseUrl}`, {
+                    method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -70,7 +69,7 @@ const Accueil = () => {
             }
         }
 
-        ChangeBdd();
+        ChangeBdd();*/
         getBDD();
 
     }, [tasks]);
