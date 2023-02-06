@@ -29,15 +29,15 @@ module.exports = async function (context, req) {
 
     // Read the method and determine the requested action
     switch (req.method) {
-        // If get, return all tasks
+        // If get, return all categories
         case 'GET':
             await findAll(context);
             break;
-        // If post, create new task
+        // If post, create new categorie
         case 'POST':
             await createOne(context);
             break;
-        // If put, update task
+        // If put, update categorie
         case 'PATCH':
             await updateOne(context);
             break;
@@ -49,7 +49,7 @@ module.exports = async function (context, req) {
 
 async function findAll() {
     const projet = await Projet.find();
-    // return all tasks
+    // return all categories
     context.res.body = { projet: projet };
 }
 
@@ -62,21 +62,26 @@ async function createOne(context) {
     context.res.body = projet;
 }
 
-async function updateOne(id, projetData) {
-    const projet = await findOne(id);
-    for (const projetElementKey in projetData) {
-        if (
-            projetElementKey[0] !== "_" &&
-            projetData.hasOwnProperty(projetElementKey)
-        ) {
-            projet[projetElementKey] = projetData[projetElementKey];
-        }
+async function updateOne(context) {
+    // Grab the id from the URL (stored in bindingData)
+    const id = context.bindingData.id;
+    // Get the categorie from the body
+    const projet = context.req.body;
+    // Update the item in the database
+    const result = await Projet.updateOne({ _id: id }, categorie);
+    // Check to ensure an item was modified
+    if (result.nModified === 1) {
+        // Updated an item, status 204 (empty update)
+        context.res.status = 204;
+    } else {
+        // Item not found, status 404
+        context.res.status = 404;
     }
-    await projet.save();
-    return await findOne(id);
 }
 
 async function deleteOne(id) {
-    const projet = await findOne(id);
-    return projet.remove();
+    const id = context.bindingData.id;
+    const projet = context.req.body;
+    const result = await Projet.deleteOne({ _id: id });
+    context.res.status = 204;
 }

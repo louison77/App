@@ -51,36 +51,41 @@ module.exports = async function (context, req) {
     }
 };
 
-async function findAll(context) {
-    const exigences = await Exigence.find();
-    // return all tasks
-    context.res.body = { exigences: exigences };
+async function findAll() {
+    const exigence = await Exigence.find();
+    // return all exigences
+    context.res.body = { exigence: exigence };
 }
 
-async function createOne(body) {
+async function createOne(context) {
+
     const body = context.req.body;
     const exigence = new Exigence(body);
     context.res.status = 201;
     // return new object
     context.res.body = exigence;
-
 }
 
-async function updateOne(id, exigenceData) {
-    const exigence = await findOne(id);
-    for (const exigenceElementKey in exigenceData) {
-        if (
-            exigenceElementKey[0] !== "_" &&
-            exigenceData.hasOwnProperty(exigenceElementKey)
-        ) {
-            exigence[exigenceElementKey] = exigenceData[exigenceElementKey];
-        }
+async function updateOne(context) {
+    // Grab the id from the URL (stored in bindingData)
+    const id = context.bindingData.id;
+    // Get the exigence from the body
+    const exigence = context.req.body;
+    // Update the item in the database
+    const result = await Exigence.updateOne({ _id: id }, exigence);
+    // Check to ensure an item was modified
+    if (result.nModified === 1) {
+        // Updated an item, status 204 (empty update)
+        context.res.status = 204;
+    } else {
+        // Item not found, status 404
+        context.res.status = 404;
     }
-    await exigence.save();
-    return await findOne(id);
 }
 
 async function deleteOne(id) {
-    const exigence = await findOne(id);
-    return exigence.remove();
+    const id = context.bindingData.id;
+    const exigence = context.req.body;
+    const result = await Exigence.deleteOne({ _id: id });
+    context.res.status = 204;
 }
