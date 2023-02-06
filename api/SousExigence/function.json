@@ -7,7 +7,9 @@
       "name": "req",
       "methods": [
         "get",
-        "post"
+        "post",
+        "patch",
+        "delete"
       ]
     },
     {
@@ -15,6 +17,5 @@
       "direction": "out",
       "name": "res"
     }
-  ],
-  "scriptFile": "../dist/SousExigence/index.js"
+  ]
 }
