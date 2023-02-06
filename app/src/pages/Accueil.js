@@ -5,7 +5,7 @@ import Authent from './Authent.js';
 import axios from 'axios';
 
 const Accueil = () => {
-    const baseUrl = '/api/Cosmo';
+    const baseUrl = '/api/SousExigence';
     const [isAuthenticated, userHasAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
     const [tasks] = useState('coucou');
@@ -50,10 +50,15 @@ const Accueil = () => {
             }
 
         }
-        /*const ChangeBdd = async () => {
+        const ChangeBdd = async () => {
             try {
                 await axios.post(`${baseUrl}`, {
-                    title: 'Test'
+                    sousexigenceid: "XXXX",
+                    exigenceid: "XXXX2",
+                    projetid: "XX",
+                    libelle: "blabla",
+                    descriptif: "coucou",
+                    maturite: 2
                 }, {
                     'Content-Type': 'application/json'
                 },)
@@ -64,7 +69,7 @@ const Accueil = () => {
             }
         }
 
-        ChangeBdd();*/
+        ChangeBdd();
         getBDD();
 
     }, [tasks]);

@@ -9,14 +9,14 @@ mongoose.connect(
 );
 
 const ProjetSchema = new mongoose.Schema({
-    projetid: { type: String, unique: true, required: true },
+    projetid: String,
     statutaudit: String,
     statutplanaction: String,
     manager: String,
     auditeur: String
-  });
-  
-  const Projet = mongoose.model("Projet", ProjetSchema);
+});
+
+const Projet = mongoose.model("Projet", ProjetSchema);
 
 // Export our function
 module.exports = async function (context, req) {
@@ -47,24 +47,30 @@ module.exports = async function (context, req) {
     }
 };
 
-function findAll() {
-    return Projet.find();
+async function findAll() {
+    const projet = await Projet.find();
+    // return all tasks
+    context.res.body = { projet: projet };
 }
 
-async function createOne(projetData) {
-    const projet = new Projet(projetData);
-    return projet.save();
+async function createOne(context) {
+
+    const body = context.req.body;
+    const projet = new Projet(body);
+    context.res.status = 201;
+    // return new object
+    context.res.body = projet;
 }
 
 async function updateOne(id, projetData) {
     const projet = await findOne(id);
     for (const projetElementKey in projetData) {
-      if (
-        projetElementKey[0] !== "_" &&
-        projetData.hasOwnProperty(projetElementKey)
-      ) {
-        projet[projetElementKey] = projetData[projetElementKey];
-      }
+        if (
+            projetElementKey[0] !== "_" &&
+            projetData.hasOwnProperty(projetElementKey)
+        ) {
+            projet[projetElementKey] = projetData[projetElementKey];
+        }
     }
     await projet.save();
     return await findOne(id);

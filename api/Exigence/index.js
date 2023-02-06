@@ -18,9 +18,9 @@ const ExigenceSchema = new mongoose.Schema({
     objectif: String,
     observations: String,
     selectionne: Number
-  });
+});
 
-  const Exigence = mongoose.model("Exigence", ExigenceSchema);
+const Exigence = mongoose.model("Exigence", ExigenceSchema);
 
 // Export our function
 module.exports = async function (context, req) {
@@ -51,24 +51,30 @@ module.exports = async function (context, req) {
     }
 };
 
-function findAll() {
-    return Exigence.find();
+async function findAll(context) {
+    const exigences = await Exigence.find();
+    // return all tasks
+    context.res.body = { exigences: exigences };
 }
 
-async function createOne(projetData) {
-    const exigence = new Exigence(projetData);
-    return exigence.save();
+async function createOne(body) {
+    const body = context.req.body;
+    const exigence = new Exigence(body);
+    context.res.status = 201;
+    // return new object
+    context.res.body = exigence;
+
 }
 
 async function updateOne(id, exigenceData) {
     const exigence = await findOne(id);
     for (const exigenceElementKey in exigenceData) {
-      if (
-        exigenceElementKey[0] !== "_" &&
-        exigenceData.hasOwnProperty(exigenceElementKey)
-      ) {
-        exigence[exigenceElementKey] = exigenceData[exigenceElementKey];
-      }
+        if (
+            exigenceElementKey[0] !== "_" &&
+            exigenceData.hasOwnProperty(exigenceElementKey)
+        ) {
+            exigence[exigenceElementKey] = exigenceData[exigenceElementKey];
+        }
     }
     await exigence.save();
     return await findOne(id);

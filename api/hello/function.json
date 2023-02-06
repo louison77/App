@@ -1,14 +1,13 @@
 {
   "bindings": [
     {
-      "authLevel": "anonymous",
+      "authLevel": "Anonymous",
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
       "methods": [
         "get",
-        "post",
-        "put"
+        "post"
       ]
     },
     {
@@ -16,5 +15,6 @@
       "direction": "out",
       "name": "res"
     }
-  ]
+  ],
+  "scriptFile": "../dist/hello/index.js"
 }
