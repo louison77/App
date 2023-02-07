@@ -24,7 +24,7 @@ function TableP(props) {
             const retrievedProject = response.data.projets;
             const tab=[]
             
-            retrievedProject.map(projet=>{
+            retrievedProject.forEach(projet=>{
               if(projet.auditeur===props.user.userDetails || projet.manager===props.user.userDetails)
               {
                 const NewProject={
@@ -36,7 +36,8 @@ function TableP(props) {
               tab.push(NewProject);
               }
             },
-            setprojets(tab))
+            
+            setprojets(tab));
             console.log(retrievedProject)
         }
         catch (error) {
