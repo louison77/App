@@ -9,6 +9,7 @@ mongoose.connect(
 );
 
 const ProjetSchema = new mongoose.Schema({
+    nom: String,
     projetid: String,
     statutaudit: String,
     statutplanaction: String,
@@ -38,31 +39,33 @@ module.exports = async function (context, req) {
             await createOne(context);
             break;
         // If put, update categorie
-        case 'PATCH':
+        /*case 'PATCH':
             await updateOne(context);
             break;
         case 'DELETE':
             await deleteOne(context);
-            break;
+            break;*/
     }
 };
 
-async function findAll() {
-    const projet = await Projet.find();
+async function findAll(context) {
+
+    const projets = await Projet.find();
     // return all categories
-    context.res.body = { projet: projet };
+    context.res.body = { projets: projets };
+
 }
 
 async function createOne(context) {
 
     const body = context.req.body;
-    const projet = new Projet(body);
+    const projet = await Projet.create(body);
     context.res.status = 201;
     // return new object
     context.res.body = projet;
 }
 
-async function updateOne(context) {
+/*async function updateOne(context) {
     // Grab the id from the URL (stored in bindingData)
     const id = context.bindingData.id;
     // Get the categorie from the body
@@ -84,4 +87,4 @@ async function deleteOne(id) {
     const projet = context.req.body;
     const result = await Projet.deleteOne({ _id: id });
     context.res.status = 204;
-}
+}*/

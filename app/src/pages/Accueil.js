@@ -35,8 +35,10 @@ const Accueil = () => {
             try {
                 //const newtask = []
                 const response = await axios.get(`${baseUrl}`);
-                const retrievedTasks = response.data;
-                console.log(retrievedTasks);
+                const retrievedTasks = response.data.sousexigences;
+                retrievedTasks.map(data => console.log(data.sousexigenceid))
+
+
 
                 // Add each task to the array
 
@@ -50,10 +52,10 @@ const Accueil = () => {
             }
 
         }
-        const ChangeBdd = async () => {
+        /*const ChangeBdd = async () => {
             try {
                 await axios.post(`${baseUrl}`, {
-                    sousexigenceid: "XXXX",
+                    sousexigenceid: "XXXXlm",
                     exigenceid: "XXXX2",
                     projetid: "XX",
                     libelle: "blabla",
@@ -69,7 +71,7 @@ const Accueil = () => {
             }
         }
 
-        ChangeBdd();
+        ChangeBdd();*/
         getBDD();
 
     }, [tasks]);
@@ -81,7 +83,7 @@ const Accueil = () => {
         return (
             <div>
                 <Navbar user={user} Changeuser={setUser} ChangeAuth={userHasAuthenticated} />
-                <TableP />
+                <TableP user={user} />
 
             </div>
         );

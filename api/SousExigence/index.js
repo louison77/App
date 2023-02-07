@@ -48,41 +48,36 @@ module.exports = async function (context, req) {
     }
 };
 
-async function findAll() {
-    const sousExigence = await SousExigence.find();
-    // return all sous exigences
-    context.res.body = { sousExigence: sousExigence };
+async function findAll(context) {
+    const sousexigences = await SousExigence.find();
+    // return all tasks
+    context.res.body = { sousexigences: sousexigences };
 }
 
 async function createOne(context) {
-
     const body = context.req.body;
-    const sousExigence = new SousExigence(body);
+    // Save to database
+    const sousexigences = await SousExigence.create(body);
+    // Set the HTTP status to created
     context.res.status = 201;
     // return new object
-    context.res.body = sousExigence;
+    context.res.body = sousexigences;
 }
-
-async function updateOne(context) {
-    // Grab the id from the URL (stored in bindingData)
-    const id = context.bindingData.id;
-    // Get the sousExigence from the body
-    const sousExigence = context.req.body;
-    // Update the item in the database
-    const result = await SousExigence.updateOne({ _id: id }, sousExigence);
-    // Check to ensure an item was modified
-    if (result.nModified === 1) {
-        // Updated an item, status 204 (empty update)
-        context.res.status = 204;
-    } else {
-        // Item not found, status 404
-        context.res.status = 404;
+async function updateOne(id, sousExigenceData) {
+    const sousExigence = await findOne(id);
+    for (const sousExigenceElementKey in sousExigenceData) {
+        if (
+            sousExigenceElementKey[0] !== "_" &&
+            sousExigenceData.hasOwnProperty(sousExigenceElementKey)
+        ) {
+            sousExigence[sousExigenceElementKey] = sousExigenceData[sousExigenceElementKey];
+        }
     }
+    await sousExigence.save();
+    return await findOne(id);
 }
 
 async function deleteOne(id) {
-    const id = context.bindingData.id;
-    const sousExigence = context.req.body;
-    const result = await SousExigence.deleteOne({ _id: id });
-    context.res.status = 204;
+    const sousExigence = await findOne(id);
+    return sousExigence.remove();
 }
