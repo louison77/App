@@ -25,7 +25,7 @@ function TableP(props) {
             const tab=[]
             
             retrievedProject.map(projet=>{
-              if(projet.auditeur==props.user.userDetails || projet.manager==props.user.userDetails)
+              if(projet.auditeur===props.user.userDetails || projet.manager===props.user.userDetails)
               {
                 const NewProject={
                   Nom:projet.nom,
@@ -33,11 +33,8 @@ function TableP(props) {
                   StatutAudit:projet.statutaudit,
                   StatutPA:projet.statutplanaction
               }
-              tab.push(NewProject)
-
+              tab.push(NewProject);
               }
-              
-  
             },
             setprojets(tab))
             console.log(retrievedProject)
@@ -45,14 +42,9 @@ function TableP(props) {
         catch (error) {
             console.log(error)
         }
-
     }
-    
     getBDD();
-    
-    
-
-}, []);
+}, [props.user.userDetails]);
   //comportement/evenenement lors de la soumission du formulaire
   const handleSubmit = (event) => {
     //pour ne pas que la page se réactualise quand on appuie sur le bouton
@@ -84,7 +76,7 @@ function TableP(props) {
           manager:props.user.userDetails
         },{
           'Content-Type': 'application/json'
-      },) .then(function (response) {
+      },).then(function (response) {
         console.log(response);})
       }
       catch(error){
