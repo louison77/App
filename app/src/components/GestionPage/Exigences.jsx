@@ -11,114 +11,8 @@ const Exigences = () => {
   const baseUrl = '/api/Exigence';
   //Tableau général de toutes les exigences
   const [code] = useOutletContext();
-  const baseExigences = [{
-    Nom: "Libelle 1",
-    Exigence: "",
-    GuideComplet: "Guidecomplet1",
-    GuideAbrege: "Guideabrege1",
-    Obj: "obj1",
-    SousExigences: [
-      {
-        categorie: 1, sousId: "1.1", index: 0, color: 0
-      },
-      { categorie: 2, sousId: "1.2", index: 1, color: 0 },
-      { categorie: 3, sousId: "1.3", index: 2, color: 0 },
-      { categorie: 4, sousId: "1.4", index: 3, color: 0 },
+  const [length, setLength] = useState(0)
 
-    ],
-  },
-  {
-    Nom: "Libelle 2",
-    Exigence: "",
-    GuideComplet: "Guidecomplet2",
-    GuideAbrege: "Guideabrege2",
-    Obj: "obj2",
-    SousExigences: [
-      {
-        categorie: 1, sousId: "1.1", index: 0, color: 0
-      },
-      { categorie: 2, sousId: "1.2", index: 1, color: 0 },
-      { categorie: 3, sousId: "1.3", index: 2, color: 0 },
-      { categorie: 4, sousId: "1.4", index: 3, color: 0 },
-
-    ],
-  }, {
-    Nom: "Libelle 3",
-    Exigence: "",
-    GuideComplet: "Guidecomplet3",
-    GuideAbrege: "Guideabrege3",
-    Obj: "obj3",
-    SousExigences: [
-      {
-        categorie: 1, sousId: "1.1", index: 0, color: 0
-      },
-      { categorie: 2, sousId: "1.2", index: 1, color: 0 },
-      { categorie: 3, sousId: "1.3", index: 2, color: 0 },
-      { categorie: 4, sousId: "1.4", index: 3, color: 0 },
-
-    ],
-  },
-  {
-    Nom: "Libelle 4",
-    Exigence: "",
-    GuideComplet: "Guidecomplet4",
-    GuideAbrege: "Guideabrege4",
-    Obj: "obj4",
-    SousExigences: [
-      {
-        categorie: 1, sousId: "1.1", index: 0, color: 0
-      },
-      { categorie: 2, sousId: "1.2", index: 1, color: 0 },
-      { categorie: 3, sousId: "1.3", index: 2, color: 0 },
-      { categorie: 4, sousId: "1.4", index: 3, color: 0 },
-
-    ],
-  }, {
-    Nom: "Libelle 5",
-    Exigence: "",
-    GuideComplet: "Guidecomplet5",
-    GuideAbrege: "Guideabrege5",
-    Obj: "obj5",
-    SousExigences: [
-      {
-        categorie: 1, sousId: "1.1", index: 0, color: 0
-      },
-      { categorie: 2, sousId: "1.2", index: 1, color: 0 },
-      { categorie: 3, sousId: "1.3", index: 2, color: 0 },
-      { categorie: 4, sousId: "1.4", index: 3, color: 0 },
-
-    ],
-  }, {
-    Nom: "Libelle 6",
-    Exigence: "",
-    GuideComplet: "Guidecomplet6",
-    GuideAbrege: "Guideabrege6",
-    Obj: "obj6",
-    SousExigences: [
-      {
-        categorie: 1, sousId: "1.1", index: 0, color: 0
-      },
-      { categorie: 2, sousId: "1.2", index: 1, color: 0 },
-      { categorie: 3, sousId: "1.3", index: 2, color: 0 },
-      { categorie: 4, sousId: "1.4", index: 3, color: 0 },
-
-    ],
-  }, {
-    Nom: "Libelle 7",
-    Exigence: "",
-    GuideComplet: "Guidecomplet7",
-    GuideAbrege: "Guideabrege7",
-    Obj: "obj7s",
-    SousExigences: [
-      {
-        categorie: 1, sousId: "1.1", index: 0, color: 0
-      },
-      { categorie: 2, sousId: "1.2", index: 1, color: 0 },
-      { categorie: 3, sousId: "1.3", index: 2, color: 0 },
-      { categorie: 4, sousId: "1.4", index: 3, color: 0 },
-
-    ],
-  }]
   const [exigences, setExigences] = useState([
     {
       Id: "ORG 5.08",
@@ -201,6 +95,115 @@ const Exigences = () => {
 
   useEffect(() => {
     const getExigences = async () => {
+      const baseExigences = [{
+        Nom: "Libelle 1",
+        Exigence: "",
+        GuideComplet: "Guidecomplet1",
+        GuideAbrege: "Guideabrege1",
+        Obj: "obj1",
+        SousExigences: [
+          {
+            categorie: 1, sousId: "1.1", index: 0, color: 0
+          },
+          { categorie: 2, sousId: "1.2", index: 1, color: 0 },
+          { categorie: 3, sousId: "1.3", index: 2, color: 0 },
+          { categorie: 4, sousId: "1.4", index: 3, color: 0 },
+
+        ],
+      },
+      {
+        Nom: "Libelle 2",
+        Exigence: "",
+        GuideComplet: "Guidecomplet2",
+        GuideAbrege: "Guideabrege2",
+        Obj: "obj2",
+        SousExigences: [
+          {
+            categorie: 1, sousId: "1.1", index: 0, color: 0
+          },
+          { categorie: 2, sousId: "1.2", index: 1, color: 0 },
+          { categorie: 3, sousId: "1.3", index: 2, color: 0 },
+          { categorie: 4, sousId: "1.4", index: 3, color: 0 },
+
+        ],
+      }, {
+        Nom: "Libelle 3",
+        Exigence: "",
+        GuideComplet: "Guidecomplet3",
+        GuideAbrege: "Guideabrege3",
+        Obj: "obj3",
+        SousExigences: [
+          {
+            categorie: 1, sousId: "1.1", index: 0, color: 0
+          },
+          { categorie: 2, sousId: "1.2", index: 1, color: 0 },
+          { categorie: 3, sousId: "1.3", index: 2, color: 0 },
+          { categorie: 4, sousId: "1.4", index: 3, color: 0 },
+
+        ],
+      },
+      {
+        Nom: "Libelle 4",
+        Exigence: "",
+        GuideComplet: "Guidecomplet4",
+        GuideAbrege: "Guideabrege4",
+        Obj: "obj4",
+        SousExigences: [
+          {
+            categorie: 1, sousId: "1.1", index: 0, color: 0
+          },
+          { categorie: 2, sousId: "1.2", index: 1, color: 0 },
+          { categorie: 3, sousId: "1.3", index: 2, color: 0 },
+          { categorie: 4, sousId: "1.4", index: 3, color: 0 },
+
+        ],
+      }, {
+        Nom: "Libelle 5",
+        Exigence: "",
+        GuideComplet: "Guidecomplet5",
+        GuideAbrege: "Guideabrege5",
+        Obj: "obj5",
+        SousExigences: [
+          {
+            categorie: 1, sousId: "1.1", index: 0, color: 0
+          },
+          { categorie: 2, sousId: "1.2", index: 1, color: 0 },
+          { categorie: 3, sousId: "1.3", index: 2, color: 0 },
+          { categorie: 4, sousId: "1.4", index: 3, color: 0 },
+
+        ],
+      }, {
+        Nom: "Libelle 6",
+        Exigence: "",
+        GuideComplet: "Guidecomplet6",
+        GuideAbrege: "Guideabrege6",
+        Obj: "obj6",
+        SousExigences: [
+          {
+            categorie: 1, sousId: "1.1", index: 0, color: 0
+          },
+          { categorie: 2, sousId: "1.2", index: 1, color: 0 },
+          { categorie: 3, sousId: "1.3", index: 2, color: 0 },
+          { categorie: 4, sousId: "1.4", index: 3, color: 0 },
+
+        ],
+      }, {
+        Nom: "Libelle 7",
+        Exigence: "",
+        GuideComplet: "Guidecomplet7",
+        GuideAbrege: "Guideabrege7",
+        Obj: "obj7s",
+        SousExigences: [
+          {
+            categorie: 1, sousId: "1.1", index: 0, color: 0
+          },
+          { categorie: 2, sousId: "1.2", index: 1, color: 0 },
+          { categorie: 3, sousId: "1.3", index: 2, color: 0 },
+          { categorie: 4, sousId: "1.4", index: 3, color: 0 },
+
+        ],
+      }]
+      setLength(baseExigences.length)
       try {
 
         const response = await axios.get(`${baseUrl}`);
@@ -240,14 +243,14 @@ const Exigences = () => {
         },
 
           setExigences(tab));
-        console.log(exigences)
+
       }
       catch (error) {
         console.log(error)
       }
     }
     getExigences();
-  }, []);
+  }, [code]);
   //comportements
   const toggleVisibility = (event, ID) => {
     const Copy = [];
@@ -276,7 +279,7 @@ const Exigences = () => {
   const CreateExigences = () => {
 
     const sendexigences = async () => {
-      for (let i = 0; i < baseExigences.length; i++) {
+      for (let i = 0; i < length; i++) {
         try {
 
           await axios.post(`${baseUrl}`,

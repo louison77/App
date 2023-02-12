@@ -12,13 +12,14 @@ const Gestion = () => {
 
     useEffect(() => {
         console.log(location)
-        if (location.state.Project) {
+        if (location.state) {
+            let _state = location.state
 
-            const newcode = location.state.Project
 
-            setcode(newcode)
+            setcode(_state.Project)
 
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
