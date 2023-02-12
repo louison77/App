@@ -205,12 +205,14 @@ const Exigences = () => {
 
         const response = await axios.get(`${baseUrl}`);
         const retrievedExigences = response.data.exigence;
+        console.log(retrievedExigences)
         var tab = []
         let i = 0;
         retrievedExigences.forEach(exigence => {
 
 
           if (exigence.projetid === code) {
+            console.log("NICE")
             const NewExigence = {
               Note: exigence.note,
               Maturite: exigence.maturite,
@@ -238,6 +240,7 @@ const Exigences = () => {
         },
 
           setExigences(tab));
+        console.log(exigences)
       }
       catch (error) {
         console.log(error)
@@ -279,8 +282,8 @@ const Exigences = () => {
           await axios.post(`${baseUrl}`,
             {
 
-              exigenceid: code + " " + (i + 1).toString(),
-              exigencenom: "Exigence " + i.toString(),
+              exigenceid: code + " " + (i).toString(),
+              exigencenom: "Exigence " + (i + 1).toString(),
               projetid: code,
               observations: "Observations",
               maturite: "0",

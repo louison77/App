@@ -134,7 +134,7 @@ function TableP(props) {
         <tbody>
           {projets.map((project) => (
             <tr>
-              <td style={{ textAlign: "left", fontWeight: "bold" }}><Link to={"/Gestion/" + project.Nom} others={project.Nom}>
+              <td style={{ textAlign: "left", fontWeight: "bold" }}><Link to={"/Gestion/" + project.Nom} state={{ Project: project.Code }}>
                 {project.Nom}
               </Link>
               </td>

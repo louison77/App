@@ -9,8 +9,9 @@ const Gestion = () => {
 
     const location = useLocation();
     const [code, setcode] = useState("")
+
     useEffect(() => {
-        console.log(location.state.Project)
+        console.log(location)
         if (location.state.Project) {
 
             const newcode = location.state.Project
@@ -18,8 +19,6 @@ const Gestion = () => {
             setcode(newcode)
 
         }
-
-
     }, [])
 
     return (
