@@ -124,7 +124,7 @@ function TableP(props) {
       <table className="TableProjects">
         <thead>
           <tr>
-            <th>Nom</th>
+            <th style={{ textAlign: "left" }}>Nom</th>
             <th>Code</th>
             <th>Statut Audit</th>
             <th>Statut PA</th>
@@ -134,11 +134,10 @@ function TableP(props) {
         <tbody>
           {projets.map((project) => (
             <tr>
-              <Link to={"/Gestion/" + project.Nom} others={project.Nom} state={{ Project: project.Code }}>
-                <button className="ButtonProjectName">
-                  <td>{project.Nom}</td>
-                </button>
+              <td style={{ textAlign: "left", fontWeight: "bold" }}><Link to={"/Gestion/" + project.Nom} others={project.Nom}>
+                {project.Nom}
               </Link>
+              </td>
               <td>{project.Code}</td>
               <td>{project.StatutAudit}</td>
               <td>{project.StatutPA}</td>
@@ -146,7 +145,6 @@ function TableP(props) {
           ))}
         </tbody>
       </table>
-
     </div>
   );
 }
