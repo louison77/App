@@ -24,9 +24,9 @@ const MesureSchema = new mongoose.Schema({
     fin: Date,
     statut: String,
     selection: String
-  });
-  
-  const Mesure = mongoose.model("Mesure", MesureSchema);
+});
+
+const Mesure = mongoose.model("Mesure", MesureSchema);
 
 // Export our function
 module.exports = async function (context, req) {
@@ -48,16 +48,16 @@ module.exports = async function (context, req) {
             await createOne(context);
             break;
         // If put, update categorie
-        case 'PATCH':
+        /*case 'PATCH':
             await updateOne(context);
             break;
         case 'DELETE':
             await deleteOne(context);
-            break;
+            break;*/
     }
 };
 
-async function findAll() {
+async function findAll(context) {
     const mesure = await Mesure.find();
     // return all categories
     context.res.body = { mesure: mesure };
@@ -72,7 +72,7 @@ async function createOne(context) {
     context.res.body = mesure;
 }
 
-async function updateOne(context) {
+/*async function updateOne(context) {
     // Grab the id from the URL (stored in bindingData)
     const id = context.bindingData.id;
     // Get the categorie from the body
@@ -94,4 +94,4 @@ async function deleteOne(id) {
     const mesure = context.req.body;
     const result = await Mesure.deleteOne({ _id: id });
     context.res.status = 204;
-}
+}*/

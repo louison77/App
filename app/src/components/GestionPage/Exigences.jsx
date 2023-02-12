@@ -1,15 +1,124 @@
 import React from "react";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
+import axios from 'axios'
 import Button from "react-bootstrap/Button";
-
 import Collapse from "react-bootstrap/Collapse";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import "../../styles/components/GestionStyle/_exigences.css";
 
 const Exigences = () => {
+  const baseUrl = '/api/Exigence';
   //Tableau général de toutes les exigences
+  const [code] = useOutletContext();
+  const baseExigences = [{
+    Nom: "Libelle 1",
+    Exigence: "",
+    GuideComplet: "Guidecomplet1",
+    GuideAbrege: "Guideabrege1",
+    Obj: "obj1",
+    SousExigences: [
+      {
+        categorie: 1, sousId: "1.1", index: 0, color: 0
+      },
+      { categorie: 2, sousId: "1.2", index: 1, color: 0 },
+      { categorie: 3, sousId: "1.3", index: 2, color: 0 },
+      { categorie: 4, sousId: "1.4", index: 3, color: 0 },
+
+    ],
+  },
+  {
+    Nom: "Libelle 2",
+    Exigence: "",
+    GuideComplet: "Guidecomplet2",
+    GuideAbrege: "Guideabrege2",
+    Obj: "obj2",
+    SousExigences: [
+      {
+        categorie: 1, sousId: "1.1", index: 0, color: 0
+      },
+      { categorie: 2, sousId: "1.2", index: 1, color: 0 },
+      { categorie: 3, sousId: "1.3", index: 2, color: 0 },
+      { categorie: 4, sousId: "1.4", index: 3, color: 0 },
+
+    ],
+  }, {
+    Nom: "Libelle 3",
+    Exigence: "",
+    GuideComplet: "Guidecomplet3",
+    GuideAbrege: "Guideabrege3",
+    Obj: "obj3",
+    SousExigences: [
+      {
+        categorie: 1, sousId: "1.1", index: 0, color: 0
+      },
+      { categorie: 2, sousId: "1.2", index: 1, color: 0 },
+      { categorie: 3, sousId: "1.3", index: 2, color: 0 },
+      { categorie: 4, sousId: "1.4", index: 3, color: 0 },
+
+    ],
+  },
+  {
+    Nom: "Libelle 4",
+    Exigence: "",
+    GuideComplet: "Guidecomplet4",
+    GuideAbrege: "Guideabrege4",
+    Obj: "obj4",
+    SousExigences: [
+      {
+        categorie: 1, sousId: "1.1", index: 0, color: 0
+      },
+      { categorie: 2, sousId: "1.2", index: 1, color: 0 },
+      { categorie: 3, sousId: "1.3", index: 2, color: 0 },
+      { categorie: 4, sousId: "1.4", index: 3, color: 0 },
+
+    ],
+  }, {
+    Nom: "Libelle 5",
+    Exigence: "",
+    GuideComplet: "Guidecomplet5",
+    GuideAbrege: "Guideabrege5",
+    Obj: "obj5",
+    SousExigences: [
+      {
+        categorie: 1, sousId: "1.1", index: 0, color: 0
+      },
+      { categorie: 2, sousId: "1.2", index: 1, color: 0 },
+      { categorie: 3, sousId: "1.3", index: 2, color: 0 },
+      { categorie: 4, sousId: "1.4", index: 3, color: 0 },
+
+    ],
+  }, {
+    Nom: "Libelle 6",
+    Exigence: "",
+    GuideComplet: "Guidecomplet6",
+    GuideAbrege: "Guideabrege6",
+    Obj: "obj6",
+    SousExigences: [
+      {
+        categorie: 1, sousId: "1.1", index: 0, color: 0
+      },
+      { categorie: 2, sousId: "1.2", index: 1, color: 0 },
+      { categorie: 3, sousId: "1.3", index: 2, color: 0 },
+      { categorie: 4, sousId: "1.4", index: 3, color: 0 },
+
+    ],
+  }, {
+    Nom: "Libelle 7",
+    Exigence: "",
+    GuideComplet: "Guidecomplet7",
+    GuideAbrege: "Guideabrege7",
+    Obj: "obj7s",
+    SousExigences: [
+      {
+        categorie: 1, sousId: "1.1", index: 0, color: 0
+      },
+      { categorie: 2, sousId: "1.2", index: 1, color: 0 },
+      { categorie: 3, sousId: "1.3", index: 2, color: 0 },
+      { categorie: 4, sousId: "1.4", index: 3, color: 0 },
+
+    ],
+  }]
   const [exigences, setExigences] = useState([
     {
       Id: "ORG 5.08",
@@ -88,6 +197,54 @@ const Exigences = () => {
   const [open, setOpen] = useState(false);
   //Id représentant l'exigence active
   const [activeID, setactiveID] = useState("");
+
+
+  useEffect(() => {
+    const getExigences = async () => {
+      try {
+
+        const response = await axios.get(`${baseUrl}`);
+        const retrievedExigences = response.data.exigence;
+        var tab = []
+        let i = 0;
+        retrievedExigences.forEach(exigence => {
+
+
+          if (exigence.projetid === code) {
+            const NewExigence = {
+              Note: exigence.note,
+              Maturite: exigence.maturite,
+              Observation: exigence.observations,
+              Id: exigence.exigencenom,
+              Nom: baseExigences[i].Nom,
+              GuideAbrege: baseExigences[i].GuideAbrege,
+              GuideComplet: baseExigences[i].GuideComplet,
+              SousExigences: baseExigences[i].SousExigences,
+              Obj: baseExigences[i].Obj,
+              Exigence: baseExigences[i].Exigence
+            }
+            i++
+            tab.push(NewExigence);
+            tab.sort(function compare(a, b) {
+              if (a.Id < b.Id) {
+                return -1;
+              }
+              if (a.Id > b.Id) {
+                return 1;
+              }
+              return 0;
+            })
+          }
+        },
+
+          setExigences(tab));
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+    getExigences();
+  }, []);
   //comportements
   const toggleVisibility = (event, ID) => {
     const Copy = [];
@@ -113,6 +270,32 @@ const Exigences = () => {
     setactiveID(ID);
     setOpen(false);
   };
+  const CreateExigences = () => {
+
+    const sendexigences = async () => {
+      for (let i = 0; i < baseExigences.length; i++) {
+        try {
+
+          await axios.post(`${baseUrl}`,
+            {
+
+              exigenceid: code + " " + (i + 1).toString(),
+              exigencenom: "Exigence " + i.toString(),
+              projetid: code,
+              observations: "Observations",
+              maturite: "0",
+              note: "0"
+            }, {
+            'Content-Type': 'application/json'
+          });
+        }
+        catch (error) {
+          console.log(error.response.data)
+        }
+      }
+    }
+    sendexigences()
+  }
   //Changer valeur Observation
   const ModifyObserv = (event) => {
     const Copy = [];
@@ -151,6 +334,23 @@ const Exigences = () => {
     setExigences(Copy);
     event.preventDefault();
   };
+  const PatchObservations = (e) => {
+    e.preventDefault();
+    const sendRequest = async () => {
+      try {
+        await axios.patch(`${baseUrl}`, {
+          observation: UneExigence[0].Observation,
+        }, {
+          'Content-Type': 'application/json'
+        })
+      }
+      catch (error) {
+        console.log(error)
+      }
+
+    }
+    sendRequest()
+  }
 
   const ChangeColor = (count, Index) => {
     //On créer deux variable tampon pour les futures UneExigence et exigences
@@ -237,6 +437,7 @@ const Exigences = () => {
   const ChangeMaturity = (value) => {
     const Copy = [];
     const Copy2 = [];
+    const valeur = UneExigence[0].Maturite === value ? "0" : value
     for (let i = 0; i < exigences.length; i++) {
       if (exigences[i].Id === UneExigence[0].Id) {
         Copy.push({
@@ -249,7 +450,7 @@ const Exigences = () => {
           Observation: exigences[i].Observation,
           SousExigences: exigences[i].SousExigences,
           Note: exigences[i].Note,
-          Maturite: value,
+          Maturite: valeur,
         });
       } else {
         Copy.push(exigences[i]);
@@ -265,7 +466,7 @@ const Exigences = () => {
       Observation: UneExigence[0].Observation,
       SousExigences: UneExigence[0].SousExigences,
       Note: UneExigence[0].Note,
-      Maturite: value,
+      Maturite: valeur,
     });
     setUneExigence(Copy2);
     setExigences(Copy);
@@ -401,7 +602,7 @@ const Exigences = () => {
                           type="textarea"
                           onChange={ModifyObserv}
                         ></textarea>
-                        <button Classname="BoutonObserv">
+                        <button classname="BoutonObserv" onClick={PatchObservations}>
                           Ajouter Observations
                         </button>
                       </form>
@@ -489,10 +690,10 @@ const Exigences = () => {
                               sentence.categorie === 1
                                 ? "red"
                                 : sentence.categorie === 2
-                                ? "gold"
-                                : sentence.categorie === 3
-                                ? "pink"
-                                : "lightgreen",
+                                  ? "gold"
+                                  : sentence.categorie === 3
+                                    ? "pink"
+                                    : "lightgreen",
                           }}
                         >
                           ({sentence.categorie})
@@ -546,6 +747,9 @@ const Exigences = () => {
     return (
       <div>
         <div className="page">
+          <div>
+            <btn onClick={CreateExigences}>Iso 27001</btn>
+          </div>
           <div className="BarreDéroulé">
             {exigences.map((exige) => (
               <h5
