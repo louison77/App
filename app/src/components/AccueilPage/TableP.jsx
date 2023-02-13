@@ -1,38 +1,49 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/components/AccueilStyle/_tableP.css";
+import axios from 'axios'
+//import XLSX from 'xlsx'
 
-function TableP() {
+function TableP(props) {
   //state
-  const [name, setName] = React.useState("");
-  const [message, setMessage] = React.useState("");
-
-  const getDataFromApi = async (e) => {
-    e.preventDefault();
-    const data = await fetch(`/api/hello?name=${name}`);
-    const json = await data.json();
-
-    if (json.message) {
-      setMessage(json.message);
-    }
-  };
+  const baseUrl = '/api/Projet';
   //tableau contenant informations différents projets
   const [projets, setprojets] = useState([
-    { Nom: "Acme", Id: 298 - 52, StatutAudit: "Terminé", StatutPA: "Terminé" },
-    {
-      Nom: "Orange",
-      Id: 278 - 40,
-      StatutAudit: "Terminé",
-      StatutPA: "En cours",
-    },
   ]);
   //tableau tampon pour pouvoir ajouter un projet dans le tableau au dessuss
   const [newProjet, setNewProjet] = useState("");
   const [newID, setNewID] = useState("");
 
   //comportements
+  useEffect(() => {
+    const getBDD = async () => {
 
+      try {
+
+        const response = await axios.get(`${baseUrl}`);
+        const retrievedProject = response.data.projets;
+        const tab = []
+
+        retrievedProject.forEach(projet => {
+          if (projet.auditeur === props.user.userDetails || projet.manager === props.user.userDetails) {
+            const NewProject = {
+              Nom: projet.nom,
+              Code: projet.projetid,
+              StatutAudit: projet.statutaudit,
+              StatutPA: projet.statutplanaction
+            }
+            tab.push(NewProject);
+          }
+        },
+          setprojets(tab));
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+    getBDD();
+  }, [props.user.userDetails]);
   //comportement/evenenement lors de la soumission du formulaire
   const handleSubmit = (event) => {
     //pour ne pas que la page se réactualise quand on appuie sur le bouton
@@ -41,22 +52,45 @@ function TableP() {
       //copie du state
       const ProjetCopy = [...projets];
       //manipulation copie du state, on génère un id aléatoire
-      const id = newID;
+      const Code = newID;
       const nom = newProjet;
       const StatutAudit = "Pas démarré";
       const StatutPA = "Pas démarré";
       ProjetCopy.push({
         Nom: nom,
-        Id: id,
+        Code: Code,
         StatutAudit: StatutAudit,
         StatutPA: StatutPA,
       });
+
+      const sendProject = async () => {
+
+        try {
+
+          await axios.post(`${baseUrl}`, {
+            nom: nom,
+            projetid: Code,
+            statutaudit: StatutAudit,
+            statutplanaction: StatutPA,
+            manager: props.user.userDetails
+          }, {
+            'Content-Type': 'application/json'
+          },).then(function (response) {
+            console.log(response);
+          })
+        }
+        catch (error) {
+          console.log(error)
+        }
+      }
+      sendProject()
       //modifier state setter
+      setNewID("");
       setprojets(ProjetCopy);
       setNewProjet("");
-      setNewID("");
     }
   };
+
   //permet de taper dans la zone de texte
   const handleChange = (event) => {
     setNewProjet(event.target.value);
@@ -90,8 +124,8 @@ function TableP() {
       <table className="TableProjects">
         <thead>
           <tr>
-            <th>Nom</th>
-            <th>Id</th>
+            <th style={{ textAlign: "left" }}>Nom</th>
+            <th>Code</th>
             <th>Statut Audit</th>
             <th>Statut PA</th>
           </tr>
@@ -100,42 +134,17 @@ function TableP() {
         <tbody>
           {projets.map((project) => (
             <tr>
-              <Link to={"/Gestion/" + project.Nom} others={project.Nom}>
-                <button className="ButtonProjectName">
-                  <td>{project.Nom}</td>
-                </button>
+              <td style={{ textAlign: "left", fontWeight: "bold" }}><Link to={"/Gestion/" + project.Nom} state={{ Project: project.Code }}>
+                {project.Nom}
               </Link>
-              <td>{project.Id}</td>
+              </td>
+              <td>{project.Code}</td>
               <td>{project.StatutAudit}</td>
               <td>{project.StatutPA}</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <p>
-        <form
-          id="form1"
-          className="App-form"
-          onSubmit={(e) => getDataFromApi(e)}
-        >
-          <div>
-            <input
-              type="text"
-              id="name"
-              className="App-input"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <button type="submit" className="App-button">
-              Submit
-            </button>
-          </div>
-        </form>
-        <div>
-          <h5>Message: {message} </h5>
-        </div>
-      </p>
     </div>
   );
 }
