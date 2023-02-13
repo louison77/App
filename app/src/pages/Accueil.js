@@ -4,7 +4,7 @@ import TableP from '../components/AccueilPage/TableP';
 import Authent from './Authent.js';
 
 const Accueil = () => {
-    const [isAuthenticated, userHasAuthenticated] = useState(false);
+    const [isAuthenticated, userHasAuthenticated] = useState(true); //change to false on push
     const [user, setUser] = useState(null);
     useEffect(() => {
         getUserInfo();

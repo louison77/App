@@ -23,8 +23,7 @@ function App() {
         <Route path="/" element={<Accueil/>}/>
         <Route path={"/Gestion/:name"} element={<Gestion />}>
         <Route path="/Gestion/:name/Resume" element={<Resume/>}/>
-          <Route path="/Gestion/:name/Exigences" element={<Exigences/>}/>
-              
+          <Route path="/Gestion/:name/Exigences" element={<Exigences/>}/>  
           <Route path="/Gestion/:name/Mesures" element={<Mesures/>}/>
           <Route path="/Gestion/:name/Suivi" element={<Suivi/>}/>
           <Route path="/Gestion/:name/Export" element={<Export/>}/>
