@@ -28,9 +28,8 @@ const Gestion = () => {
             <Nav2 name={name} />
             <Outlet context={[code]} />
 
-
         </div>
     );
 };
-
+    
 export default Gestion;

@@ -8,21 +8,27 @@ html, body, .container
     float: left;
     width: 100%;
     height: 20%;
-    background-color: lightgrey;
+    background-color: white;
+    outline-color: lightgrey;
+    outline-width: 1px;
 }   
 
 .tile_half_left{
     float: left;
     width: 50%;
     height: 20%;
-    background-color: lightgrey;
+    background-color: white;
+    outline-color: lightgrey;
+    outline-width: 1px;
 }   
 
 .tile_half_right{
     float: right;
     width: 50%;
     height: 20%;
-    background-color: lightgrey;
+    background-color: white;
+    outline-color: lightgrey;
+    outline-width: 1px;
 }
 
 .tile_two-third_left {
@@ -31,14 +37,16 @@ html, body, .container
     float: left;
     width: 66%;
     height: 20%;
-    background-color: lightgrey;
+    background-color: white;
+    outline: 2px dashed lightgrey;
 }
 
 .tile_two-third_right{
     float: left;
     width: 66%;
     height: 20%;
-    background-color: lightgrey;
+    background-color: white;
+    outline: 2px dashed lightgrey;
 }
 
 
@@ -46,12 +54,14 @@ html, body, .container
     float: left;
     width: 34%;
     height: 20%;
-    background-color: lightgrey;
+    background-color: white;
+    outline: 2px dashed lightgrey;
 }
 
 .tile_one-third_right{
     float: right;
     width: 34%;
     height: 20%;
-    background-color: lightgrey;
+    background-color: white;
+    outline: 2px dashed lightgrey;
 }
