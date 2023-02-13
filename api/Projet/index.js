@@ -14,7 +14,7 @@ const ProjetSchema = new mongoose.Schema({
     statutaudit: String,
     statutplanaction: String,
     manager: String,
-    auditeur: String
+    auditeur: String,
 });
 
 const Projet = mongoose.model("Projet", ProjetSchema);
@@ -38,11 +38,11 @@ module.exports = async function (context, req) {
         case 'POST':
             await createOne(context);
             break;
-        // If put, update categorie
-        /*case 'PATCH':
+        //If put, update categorie
+        case 'PATCH':
             await updateOne(context);
             break;
-        case 'DELETE':
+        /*case 'DELETE':
             await deleteOne(context);
             break;*/
     }
@@ -65,13 +65,13 @@ async function createOne(context) {
     context.res.body = projet;
 }
 
-/*async function updateOne(context) {
+async function updateOne(context) {
     // Grab the id from the URL (stored in bindingData)
-    const id = context.bindingData.id;
+    const id = context.req.body.projetid;
     // Get the categorie from the body
     const projet = context.req.body;
     // Update the item in the database
-    const result = await Projet.updateOne({ _id: id }, categorie);
+    const result = await Projet.findOneAndUpdate({ projetid: id }, projet);
     // Check to ensure an item was modified
     if (result.nModified === 1) {
         // Updated an item, status 204 (empty update)
@@ -81,7 +81,7 @@ async function createOne(context) {
         context.res.status = 404;
     }
 }
-
+/*
 async function deleteOne(id) {
     const id = context.bindingData.id;
     const projet = context.req.body;

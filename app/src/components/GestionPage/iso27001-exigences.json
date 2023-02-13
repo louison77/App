@@ -1,0 +1,839 @@
+[
+  {
+    "Domaine": "Politiques de sécurité de l'information",
+    "Macro-exigence": "Politiques de sécurité de l'information",
+    "Exigence": "Information security policy and topic-specific policies should be defined, approved by management, published, communicated to and acknowledged by relevant personnel and relevant interested parties, and reviewed at planned intervals and if significant changes occur.",
+    "Basique": "La PSSI existe et a été validée par la direction",
+    "Moyenne": "La PSSI est publiée et approuvée par les personnes concernées",
+    "Elevée": "La PSSI est adaptée puis validée avec la direction à intervalles planifiés ou en cas de changements importants",
+    "Très élevée": "Des politiques de sécurité spécifiques existent"
+  },
+  {
+    "Domaine": "Organisation de la sécurité de l'information",
+    "Macro-exigence": "Fonctions et responsabilités liées à la sécurité de l'information",
+    "Exigence": "Information security roles and responsibilities should be defined and allocated according to the organization needs.",
+    "Basique": "Le DSI est responsable de facto de la SSI",
+    "Moyenne": "Un Référent SSI est nommé",
+    "Elevée": "Un RSSI (Responsable SSI) est nommé et dispose de moyens et d'appuis hiérarchiques pour faire appliquer et respecter ses décisions",
+    "Très élevée": "Un RSSI (Responsable SSI) est nommé et est rattaché à un niveau hiérarchique proche du niveau décisionnel (e.g. il est N-1 d'un directeur)"
+  },
+  {
+    "Domaine": "Organisation de la sécurité de l'information",
+    "Macro-exigence": "Séparation des tâches",
+    "Exigence": "Conflicting duties and conflicting areas of responsibility should be segregated.",
+    "Basique": "Les combinaisons toxiques sont identifiées pour les utilisateurs/administrateurs fonctionnels, et sont pris en compte dans la définition des rôles métiers / techniques",
+    "Moyenne": "Les combinaisons toxiques sont contrôlées manuellement et a posteriori pour les utilisateurs/administrateurs fonctionnels et techniques",
+    "Elevée": "Les procédures de gestion de droit d'accès empêchent toute allocation de combinaison de droits toxiques. Un processus formel de dérogation est appliqué s'il n'est pas possible de l'éviter",
+    "Très élevée": "Des outils automatisés permettent d'identifier les conflits et de faciliter le retrait des droits incriminés"
+  },
+  {
+    "Domaine": "Sécurité des ressources humaines",
+    "Macro-exigence": "Responsabilités de la direction",
+    "Exigence": "Management should require all personnel to apply information security in accordance with the established information security policy, topic-specific policies and procedures of the organization.",
+    "Basique": "La Direction fournit des consignes claires au personnel sur les attentes en SSI propres à leur rôle dans l'organisation, en particulier au travers de la PSSI et des chartes utilisateurs et administrateur",
+    "Moyenne": "La Direction s'assure que le personnel est sensibilisé aux enjeux de sécurité de l'organisation, et est formé pour avoir les compétences et certifications SSI requises à l'exercice de son activité",
+    "Elevée": "La Direction alloue les ressources nécessaires (budget / planning) pour mettre en œuvre et contrôler la PSSI",
+    "Très élevée": "La Direction met en place un canal d'échange sécurisé pour permettre à des lanceurs d'alerte de rapporter d'éventuelles violations graves de la PSSI, de manière anonyme ou garantissant une protection maximale de leur identité."
+  },
+  {
+    "Domaine": "Organisation de la sécurité de l'information",
+    "Macro-exigence": "Relations avec les autorités",
+    "Exigence": "The organization should establish and maintain contact with relevant authorities.",
+    "Basique": "N/A",
+    "Moyenne": "L'organisation tient un registre des contacts avec les autorités (police, CNIL, régulateur, etc.), précisant quand et comment les contacter en cas d'incident de sécurité",
+    "Elevée": "L'organisation entretient des contacts réguliers avec les autorités dans le cadre de sa gestion d'incidents et de sa continuité d'activité",
+    "Très élevée": "L'organisation entretient des contacts réguliers avec les régulateurs afin d'anticiper leurs attentes actuelles ou à venir (ex: changement de législation...)"
+  },
+  {
+    "Domaine": "Organisation de la sécurité de l'information",
+    "Macro-exigence": "Relations avec des groupes de travail spécialisés",
+    "Exigence": "The organization should establish and maintain contact with special interest groups or other specialist security forums and professional associations.",
+    "Basique": "L'organisation suit des forums spécialisés et autres ressources électroniques pour améliorer sa connaissance des bonnes pratiques de sécurité de l'information",
+    "Moyenne": "L'organisation souscrit à des alertes anticipées sur des nouvelles vulnérabilités et mises à jour de sécurité",
+    "Elevée": "L'organisation est membre d'associations professionnelles, ou groupes d'intérêt spécialisés en sécurité de l'information, lui permettant d'échanger des informations sur les nouvelles technologies, produits, services, menaces et vulnérabilités, ou d'entretenir un réseau de des points de contacts en cas d'incidents de sécurité",
+    "Très élevée": "Du personnel de l'organisation contribue à des groupes de travail, ou participe activement à des salons et autre événements en cybersécurité"
+  },
+  {
+    "Domaine": "Organisation de la sécurité de l'information",
+    "Macro-exigence": "Intelligence des menaces",
+    "Exigence": "Information relating to information security threats should be collected and analysed to produce threat intelligence.",
+    "Basique": "N/A",
+    "Moyenne": "L'organisation souscrit à des alertes anticipées sur des nouvelles vulnérabilités et mises à jour de sécurité",
+    "Elevée": "L'organisation collecte des informations sur les menaces actuelles ou émergeantes auprès de diverses sources (e.g. Open Source, fournisseurs externes, pairs de l'industrie, autorités, dark web, réseaux sociaux....) de manière empirique. Les informations peuvent être stratégiques (panorama de la menace), tactiques (méthodologies, outils et technologies des attaquants) ou opérationnelles (détails sur les TTP et IOC)",
+    "Très élevée": "L'organisation collecte et analyse les informations de CTI afin de détecter et si possible empêcher qu'elles ne nuisent à l'organisation, ou de limiter les impacts d'éventuelles attaques. En particulier, ces sources d'informations sont intégrés sur processus de gestion des risques de l'organisation, alimentent les outils de détection et prévention comme les parefeux, anti-malwares, et sondes IDS/IPS, et sont utilisés dans les processus de test / audit de sécurité internes (ex red team). De plus, elles les partage mutuellement avec d'autres organisations"
+  },
+  {
+    "Domaine": "Organisation de la sécurité de l'information",
+    "Macro-exigence": "Sécurité de l'information dans la gestion de projet",
+    "Exigence": "Information security should be integrated into project management.",
+    "Basique": "Une méthodologie d'ISP est connue et appliquée par les parties prenantes (chefs de projet IT, architectes...) pour adresser les risques SSI tout au long du cycle projet, en agile comme en cascade. Elle intègre notamment des phases de sécurisation de l'architecture et de recette sécurité",
+    "Moyenne": "Une revue de conformité à un référentiel de mesures minimales de sécurité est effectuée pour les projets sensibles",
+    "Elevée": "Les projets font l’objet d’analyses de risque, avec l’emploi d’une méthode reconnue et éprouvée. \nDe plus les AR sont révisées régulièrement en fonction de la sensibilité des projets",
+    "Très élevée": "Les SI sensibles font l’objet d’homologation de sécurité avec une autorité d’homologation au niveau hiérarchique adéquat"
+  },
+  {
+    "Domaine": "Gestion des actifs",
+    "Macro-exigence": "Inventaire des informations et des autres actifs associés",
+    "Exigence": "An inventory of information and other associated assets, including owners, should be developed and maintained.",
+    "Basique": "Les applications, ressources informatiques et infrastructures les plus sensibles sont inventoriées dans un inventaire centralisé. L'inventaire comprend au minimum les éléments suivants : nom de l'actif, localisation ou bien support sous-jacent, propriétaire du bien",
+    "Moyenne": "Les applications disposent d'un niveau de sensibilité et/ou de niveaux d'exigence de sécurité applicables, mesuré selon des critères communs à l'organisation et renseigné dans l'inventaire centralisé des actifs",
+    "Elevée": "Pour chaque actif, un propriétaire est désigné et est responsable de sa gestion durant tout son cycle de vie. Un dépositaire peut être désigné pour s'assurer de l'application des règles de sécurité, mais le propriétaire est doit s'assurer régulièrement que les informations et actifs associées sont correctement inventoriés, classifiés et protégés, que les restrictions d'accès sont alignées avec leur classification, et qu'elles sont gérés de manière sécurisée au moment de leur retrait ou décommisionnement. De plus, le propriétaire doit être impliqué dans l'identification et la gestion des risques associés à ces actifs.",
+    "Très élevée": "Des processus sont définis et appliqués pour mettre à jour l'inventaire et les informations qu'il contient à chaque création / modification / suppression d'actif, et à intervalle régulier, et pour désigner un nouveau propriétaire de l'actif en cas de départ du précédent."
+  },
+  {
+    "Domaine": "Gestion des actifs",
+    "Macro-exigence": "Utilisation correcte des actifs",
+    "Exigence": "Rules for the acceptable use and procedures for handling information and other associated assets should be identified, documented and implemented.",
+    "Basique": "Une charte d'utilisation des moyens informatiques est communiquée au personnel interne et externe de l'organisation, utilisateur du SI . Elle donne des instructions claires sur les comportements attendus ou inacceptables concernant l'utilisation des moyens informatiques, et la surveillance des activités de la part de l'organisation.",
+    "Moyenne": "La charte est  signée par tous les utilisateurs ou annexée au règlement interne",
+    "Elevée": "Une charte administrateur complète la charte utilisateur avec les attentes et interdits spécifiques pour les populations administateur fonctionnel ou technique",
+    "Très élevée": "Les chartes sont revues régulièrement"
+  },
+  {
+    "Domaine": "Gestion des actifs",
+    "Macro-exigence": "Restitution des actifs",
+    "Exigence": "Personnel and other interested parties as appropriate should return all the organization’s assets in their possession upon change or termination of their employment, contract or agreement.",
+    "Basique": "En cas de rupture de contrat ou de changement de poste, le matériel de l'entreprise sont restitués auprès du personnel (poste de travail, pki, documents physiques, téléphone)",
+    "Moyenne": "Un processus est défini pour restituer le matériel de l'entreprise",
+    "Elevée": "Une liste définie du matériel à rendre est établie pour gérer la restitution de ces derniers",
+    "Très élevée": "Le contrôle du matériel de l'entreprise est réalisé en continu"
+  },
+  {
+    "Domaine": "Gestion des actifs",
+    "Macro-exigence": "Classification de l'information",
+    "Exigence": "Information should be classified according to the information security needs of the organization based on confidentiality, integrity, availability and relevant interested party requirements.",
+    "Basique": "N/A",
+    "Moyenne": "Une méthodologie de classification des données structurées est formalisée. Elle comprend des échelles de classification en fonction des critères DICT. La méthodologie de classification des données est communiquée au utilisateurs.",
+    "Elevée": "L'ensemble des données \"structurée\" utilisées par les applications sont classifiées en fonction des critères DICT.",
+    "Très élevée": "Un outil permet d'inventorier les informations et de gérer la classification."
+  },
+  {
+    "Domaine": "Gestion des actifs",
+    "Macro-exigence": "Marquage des informations",
+    "Exigence": "An appropriate set of procedures for information labelling should be developed and implemented in accordance with the information classification scheme adopted by the organization.",
+    "Basique": "N/A",
+    "Moyenne": "La méthodologie de classification des données intégre des labels de classification pour la confidentialité de l'information.",
+    "Elevée": "L'ensemble des données \"non-structurée\" utilisées par les applications sont classifiées en fonction de l'échelle de confidentialité établie",
+    "Très élevée": "Un outil permet de marquer automatiquement les données non structurées"
+  },
+  {
+    "Domaine": "Sécurité des communications",
+    "Macro-exigence": "Transfert de l'information",
+    "Exigence": "Information transfer rules, procedures, or agreements should be in place for all types of transfer facilities within the organization and between the organization and other parties.",
+    "Basique": "Les bonnes pratiques en matière de transfert de l'information sont appliquées par les utilisateurs. (Chiffrements des données, vigilence…)",
+    "Moyenne": "Une politique indique les règles de transfert à appliquer en fonction de la méthodologie de classification des données établie.",
+    "Elevée": "Un outil de transfert des fichiers sécurisé est mis à disposition des utilisateurs.",
+    "Très élevée": "Un système de DLP basé sur la classification des données et les chaines de caractères détectées existe. La détection est globale : transferts web, emails et ports USB. Si nécessaire, les transferts sont bloqués en fonction de l'information transmise."
+  },
+  {
+    "Domaine": "Contrôle d'accès",
+    "Macro-exigence": "Contrôle d'accès",
+    "Exigence": "Rules to control physical and logical access to information and other associated assets should be established and implemented based on business and information security requirements.",
+    "Basique": "Absence de gestion par profils ou de politique",
+    "Moyenne": "Une politique globale établit des règles pour le contrôle d'accés.",
+    "Elevée": "Des profils d'accès sont identifiés et formalisés pour l'ensemble des applications et des systèmes.",
+    "Très élevée": "Un outil IAM centralisé est déployé. Les règles accès prennent en compte la classification de l'information qui sera accédée."
+  },
+  {
+    "Domaine": "Contrôle d'accès",
+    "Macro-exigence": "Gestion des identités",
+    "Exigence": "The full life cycle of identities should be managed.",
+    "Basique": "L'ensemble du personnel possède un compte nominatif. Un inventaires des comptes est présent.",
+    "Moyenne": "L'usage de compte générique est proscrit, sauf exception tracée. L'ensemble des comptes techniques sont tracés.",
+    "Elevée": "Le SSO est déployée sur au moins 50 % des applications. La désactivation des comptes est automatique pour au moins 50% des applications.",
+    "Très élevée": "La fédération d'identité est déployée pour les applications SaaS."
+  },
+  {
+    "Domaine": "Contrôle d'accès",
+    "Macro-exigence": "Informations d'authentification",
+    "Exigence": "Allocation and management of authentication information should be controlled by a management process, including advising personnel on the appropriate handling of authentication information.",
+    "Basique": "Une politique de mot de passe est formalisée.",
+    "Moyenne": "Un outil de gestion des mots de passe est disponible pour l'ensemble du personnel",
+    "Elevée": "Une solution d'authentification forte existe et peut être utilisée par l'ensemble du personnel",
+    "Très élevée": "L'authentification forte est déployée sur l'ensemble des accès externes et des accès internes sensibles."
+  },
+  {
+    "Domaine": "Contrôle d'accès",
+    "Macro-exigence": "Droits d'accès",
+    "Exigence": "Access rights to information and other associated assets should be provisioned, reviewed, modified and removed in accordance with the organization’s topic-specific policy on and rules for access control.",
+    "Basique": "Pour l'initialisation ou la fin d'un accès, il est fourni/supprimé en respectant le principe de moindre privilège. Les accès sont gérés avec un outil de ticketing.",
+    "Moyenne": "Chaque demande d'accès est explicitement validée par une autorité.",
+    "Elevée": "Une revue des accès est réalisée périodiquement pour l'ensemble des comptes (utilisateurs, techniques et administrateurs)",
+    "Très élevée": "Le contrôle des accès est réalisé en continu avec un outil IAM. Les combinaisons toxiques sont bloqués automatiquement lors d'une demande."
+  },
+  {
+    "Domaine": "Relations avec les fournisseurs",
+    "Macro-exigence": "Sécurité de l'information dans les relations avec les fournisseurs",
+    "Exigence": "Processes and procedures should be defined and implemented to manage the information security risks associated with the use of supplier’s products or services.",
+    "Basique": "N/A",
+    "Moyenne": "Définir une politique pour les relations avec les fournisseurs et la communiquer à toutes les parties prenantes",
+    "Elevée": "Documenter les processus et gérer les risques de sécurité associés à l'utilisation de produits et services délivrés par des fournisseurs.",
+    "Très élevée": "Définir un processus de continuité de service au cas où les fournisseurs ne sont plus en mesure de le délivrer"
+  },
+  {
+    "Domaine": "Relations avec les fournisseurs",
+    "Macro-exigence": "Prise en compte de la sécurité de l'information dans les accords conclus avec les fournisseurs",
+    "Exigence": "Relevant information security requirements should be established and agreed with each supplier based on the type of supplier relationship.",
+    "Basique": "N/A",
+    "Moyenne": "N/A",
+    "Elevée": "Définir des clauses contractuelles pour préciser les obligations de sécurité entre l'entreprise et les fournisseurs",
+    "Très élevée": "Améliorer l'exhaustivité des clauses contractuelles des obligations de sécurité en traitant des sujets suivants : classification des données, protection des données sensibles et personnelles, obligations et contrôles, autorisation et accès aux informations, pénalités et remédiation, audit, comitologie, résolution des conflits, gestion des changements, sécurité physique, etc."
+  },
+  {
+    "Domaine": "Relations avec les fournisseurs",
+    "Macro-exigence": "Management de la sécurité de l'information dans la chaîne d'approvisionnement TIC",
+    "Exigence": "Processes and procedures should be defined and implemented to manage the information security risks associated with the ICT products and services supply chain.",
+    "Basique": "N/A",
+    "Moyenne": "Définir une politique de gestion des risques de l'information pour les systèmes d'information et de communication",
+    "Elevée": "Appliquer la politique de gestion des risques de l'information pour les systèmes d'information et de communication",
+    "Très élevée": "Les fournisseurs procurent des systèmes d'information et de communication provenant de sources fiables ou à défaut contrôle la qualité des produits"
+  },
+  {
+    "Domaine": "Relations avec les fournisseurs",
+    "Macro-exigence": "Suivi, revue et gestion des changements des services fournisseurs",
+    "Exigence": "The organization should regularly monitor, review, evaluate and manage change in supplier information security practices and service delivery.",
+    "Basique": "Des SLAs sont systèmatiquement formalisée avec les fournisseurs. Les contrats engagent les fournisseurs à communiquer sur les changements réalisés et qui peuvent impacter le service souscrit.",
+    "Moyenne": "Le respect des SLAs et les changements des fournisseurs sont suivis régulièrement. L'impact sur la sécurité est systèmatiquement évalué.",
+    "Elevée": "Le rôle de responsable de suivi des fournisseurs est formellement affecté à une personne.",
+    "Très élevée": "Des audits spécifiques sont réalisés régulièrement auprès des fournisseurs sensibles. ils contrôlent le processus de gestion des changements des fournisseurs."
+  },
+  {
+    "Domaine": "Relations avec les fournisseurs",
+    "Macro-exigence": "Sécurité de l'information dans l'utilisation de services en nuage",
+    "Exigence": "Processes for acquisition, use, management and exit from cloud services should be established in accordance with the organization’s information security requirements.",
+    "Basique": "Un référentiel d'exigences de sécurité Cloud est établi. Cela inclut les critères de réversibilité et de notification des incidents de sécurité.",
+    "Moyenne": "Des critères d'éligilité des applications au Cloud sont formalisés.",
+    "Elevée": "Les processus d'éligilité au cloud et la conformité aux exigences de sécurité sont strictement appliqués sur l'ensemble des applications hébergé en IaaS et  en PaaS.",
+    "Très élevée": "Les processus d'éligilité au cloud et la conformité aux exigences de sécurité sont strictement appliqués sur l'ensemble des applications SaaS"
+  },
+  {
+    "Domaine": "Gestion des incidents liés à la sécurité de l'information",
+    "Macro-exigence": "Responsabilités et préparation de la gestion des incidents liés à la sécurité de l'information",
+    "Exigence": "The organization should plan and prepare for managing information security incidents by defining, establishing and communicating information security incident management processes, roles and responsibilities.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Gestion des incidents liés à la sécurité de l'information",
+    "Macro-exigence": "Appréciation des événements liés à la sécurité de l'information et prise de décision",
+    "Exigence": "The organization should assess information security events and decide if they are to be categorized as information security incidents.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Gestion des incidents liés à la sécurité de l'information",
+    "Macro-exigence": "Réponse aux incidents liés à la sécurité de l'information",
+    "Exigence": "Information security incidents should be responded to in accordance with the documented procedures.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Gestion des incidents liés à la sécurité de l'information",
+    "Macro-exigence": "Tirer des enseignements des incidents liés à la sécurité de l'information",
+    "Exigence": "Knowledge gained from information security incidents should be used to strengthen and improve the information security controls.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Gestion des incidents liés à la sécurité de l'information",
+    "Macro-exigence": "Recueil de preuves",
+    "Exigence": "The organization should establish and implement procedures for the identification, collection, acquisition and preservation of evidence related to information security events.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Aspects de la sécurité de l'information dans la gestion de la continuité de l'activité",
+    "Macro-exigence": "Sécurité de l'information durant une perturbation",
+    "Exigence": "The organization should plan how to maintain information security at an appropriate level during disruption.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Aspects de la sécurité de l'information dans la gestion de la continuité de l'activité",
+    "Macro-exigence": "Préparation des TIC pour la continuité d'activité",
+    "Exigence": "ICT readiness should be planned, implemented, maintained and tested based on business continuity objectives and ICT continuity requirements.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Conformité",
+    "Macro-exigence": "Identification des exigences légales, statutaires, réglementaires et contractuelles",
+    "Exigence": "Legal, statutory, regulatory and contractual requirements relevant to information security and the organization’s approach to meet these requirements should be identified, documented and kept up to date.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Conformité",
+    "Macro-exigence": "Droits de propriété intellectuelle",
+    "Exigence": "The organization should implement appropriate procedures to protect intellectual property rights.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Conformité",
+    "Macro-exigence": "Protection des enregistrements",
+    "Exigence": "Records should be protected from loss, destruction, falsification, unauthorized access and unauthorized release.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Conformité",
+    "Macro-exigence": "Vie privée et protection des DCP",
+    "Exigence": "The organization should identify and meet the requirements regarding the preservation of privacy and protection of PII according to applicable laws and regulations and contractual requirements.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Conformité",
+    "Macro-exigence": "Revue indépendante de la sécurité de l'information",
+    "Exigence": "The organization’s approach to managing information security and its implementation including people, processes and technologies should be reviewed independently at planned intervals, or when significant changes occur.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Conformité",
+    "Macro-exigence": "Conformité aux politiques et normes de sécurité de l'information",
+    "Exigence": "Compliance with the organization’s information security policy, topic-specific policies, rules and standards should be regularly reviewed.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité liée à l'exploitation",
+    "Macro-exigence": "Procédures d'exploitation documentées",
+    "Exigence": "Operating procedures for information processing facilities should be documented and made available to personnel who need them.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité des ressources humaines",
+    "Macro-exigence": "Préselection",
+    "Exigence": "Background verification checks on all candidates to become personnel should be carried out prior to joining the organization and on an ongoing basis taking into consideration applicable laws, regulations and ethics and be proportional to the business requirements, the classification of the information to be accessed and the perceived risks.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité des ressources humaines",
+    "Macro-exigence": "Conditions générales d'embauche",
+    "Exigence": "The employment contractual agreements should state the personnel’s and the organization’s responsibilities for information security.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité des ressources humaines",
+    "Macro-exigence": "Sensibilisation, apprentissage et formation à la sécurité de l'information",
+    "Exigence": "Personnel of the organization and relevant interested parties should receive appropriate informationsecurity awareness, education and training and regular updates of the organization's informationsecurity policy, topic-specific policies and procedures, as relevant for their job function.",
+    "Basique": "Les employés sont sensibilisés au moins 1 fois par an par sur les risques cyber et les bonnes pratiques",
+    "Moyenne": "Des rappels sur les risques cyber et les bonnes pratiques sont rappelées lors de communications régulières",
+    "Elevée": "Des formations spécifiques aux pratiques des employés sont réalisées",
+    "Très élevée": "Les employés sont mis au courant des évolutions de la PSSI, des procédures et des politiques relatives à leurs missions et la sécurité"
+  },
+  {
+    "Domaine": "Sécurité des ressources humaines",
+    "Macro-exigence": "Processus disciplinaire",
+    "Exigence": "A disciplinary process should be formalized and communicated to take actions against personnel and other relevant interested parties who have committed an information security policy violation.",
+    "Basique": "N/A",
+    "Moyenne": "Des rappels sur les possibles sanctions disciplinaire en cas de non respect des règles d'utilisation du SI sont rappelées aux utilisateurs. Les sanctions sont mentionnées dans la charte informatique.",
+    "Elevée": "Un processus de sanction disciplinaire a été formalisée et validé par le service RH.",
+    "Très élevée": "Le processus de sanction disciplinaire est systèmatiquement appliqué."
+  },
+  {
+    "Domaine": "Sécurité des ressources humaines",
+    "Macro-exigence": "Responsabilités consécutivement à la fin ou à la modification du contrat de travail",
+    "Exigence": "Information security responsibilities and duties that remain valid after termination or change of employment should be defined, enforced and communicated to relevant personnel and other interested parties.",
+    "Basique": "N/A",
+    "Moyenne": "La clause de confidentialité mentionne bien les obligations des salariés après la fin d'un contrat de travail.",
+    "Elevée": "Les obligations du salarié sont rappelés par courrier à l'issue de la fin de son contrat de travail.",
+    "Très élevée": "Les obligations des salariés et les rappels des obligations s'appliquent également aux  prestataires externes en régie."
+  },
+  {
+    "Domaine": "Sécurité des communications",
+    "Macro-exigence": "Engagements de confidentialité ou de non-divulgation",
+    "Exigence": "Confidentiality or non-disclosure agreements reflecting the organization’s needs for the protection of information should be identified, documented, regularly reviewed and signed by personnel and other relevant interested parties.",
+    "Basique": "Une clause de confidentialité est présente dans l'ensemble des contrats de travail.",
+    "Moyenne": "Un NDA est systèmatiquement signé par l'ensemble des prestataires extérieurs.",
+    "Elevée": "N/A",
+    "Très élevée": "Un PV de destruction signé est systèmatiquement demandé au prestataires extérieurs à la fin du contrat."
+  },
+  {
+    "Domaine": "Organisation de la sécurité de l'information",
+    "Macro-exigence": "Travail à distance",
+    "Exigence": "Security measures should be implemented when personnel are working remotely to protect information accessed, processed or stored outside the organization’s premises.",
+    "Basique": "Chiffrement flux (VPN IPSEC/SSL, RDP sécurisé, HTTPS …)",
+    "Moyenne": "Authentification forte (2FA user ou user + machine)",
+    "Elevée": "Processus d'habilitation\n'Sensibilisation (Pro/perso, mot de passe…)",
+    "Très élevée": "Vérification de la conformité du poste'"
+  },
+  {
+    "Domaine": "Gestion des incidents liés à la sécurité de l'information",
+    "Macro-exigence": "Signalement des failles liées à la sécurité de l’information",
+    "Exigence": "The organization should provide a mechanism for personnel to report observed or suspected information security events through appropriate channels in a timely manner.",
+    "Basique": "Un processus est formalisé et communiqué aux utilisateurs pour remonter les alertes de sécurité.",
+    "Moyenne": "2 canaux sont mis en œuvre afin de permettre la remontée des incidents de sécurité.",
+    "Elevée": "Un canal est mis en œuvre pour permettre aux fournisseurs de remonter les alertes de sécurité.",
+    "Très élevée": "'Toute alerte de sécurité est analysée, tracée et catégorisée. Un reporting global avec des indicateurs est mis en œuvre."
+  },
+  {
+    "Domaine": "Sécurité physique et environnementale",
+    "Macro-exigence": "Périmètre de sécurité physique",
+    "Exigence": "Security perimeters should be defined and used to protect areas that contain information and other associated assets.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité physique et environnementale",
+    "Macro-exigence": "Contrôles physiques des accès",
+    "Exigence": "Secure areas should be protected by appropriate entry controls and access points.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité physique et environnementale",
+    "Macro-exigence": "Sécurisation des bureaux, des salles et des équipements",
+    "Exigence": "Physical security for offices, rooms and facilities should be designed and implemented.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité physique et environnementale",
+    "Macro-exigence": "Surveillance de la sécurité physique",
+    "Exigence": "Premises should be continuously monitored for unauthorized physical access.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité physique et environnementale",
+    "Macro-exigence": "Protection contre les menaces extérieures et environnementales",
+    "Exigence": "Protection against physical and environmental threats, such as natural disasters and other intentional or unintentional physical threats to infrastructure should be designed and implemented.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité physique et environnementale",
+    "Macro-exigence": "Travail dans les zones sécurisées",
+    "Exigence": "Security measures for working in secure areas should be designed and implemented.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité physique et environnementale",
+    "Macro-exigence": "Bureau propre et écran vide",
+    "Exigence": "Clear desk rules for papers and removable storage media and clear screen rules for information processing facilities should be defined and appropriately enforced.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité physique et environnementale",
+    "Macro-exigence": "Emplacement et protection du matériel",
+    "Exigence": "Equipment should be sited securely and protected.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité physique et environnementale",
+    "Macro-exigence": "Sécurité du matériel et des actifs hors des locaux",
+    "Exigence": "Off-site assets should be protected.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Gestion des actifs",
+    "Macro-exigence": "Supports de stockage",
+    "Exigence": "Storage media should be managed through their life cycle of acquisition, use, transportation and disposal in accordance with the organization’s classification scheme and handling requirements.",
+    "Basique": "Déployer un outil permettant de faire les demandes d'accès à priviliges avec un workflow de validation. Interdire les comptes génériques et les comptes utilisateurs pour les accès à privilèges.",
+    "Moyenne": "Rédiger un processus de revues annuels des accès à privilèges et vérifier son application.Contrôler l'application une première occurrence.",
+    "Elevée": "Déployer une solution bastion avec authentification à double facteur pour les accès à privilèges. Supprimer les accès directs.",
+    "Très élevée": "Mettre en œuvre un processus d'autorisation temporaire pour activer les accès de télémaintenances externes."
+  },
+  {
+    "Domaine": "Sécurité physique et environnementale",
+    "Macro-exigence": "Services généraux",
+    "Exigence": "Information processing facilities should be protected from power failures and other disruptions caused by failures in supporting utilities.",
+    "Basique": "Les maintenances électriques et la maintenance des équipements de climatisation sont effectuées régulièrement.",
+    "Moyenne": "Les arrivées électriques sont redondées et des onduleurs sont déployés",
+    "Elevée": "Une arrivée électrique de secours est mise en œuvre.",
+    "Très élevée": "Des alarmes avec une intervention 24/7 est mise en œuvre en cas pour alerte."
+  },
+  {
+    "Domaine": "Sécurité physique et environnementale",
+    "Macro-exigence": "Sécurité du câblage",
+    "Exigence": "Cables carrying power, data or supporting information services should be protected from interception, interference or damage.",
+    "Basique": "L'ensemble des cables sont identifiés et les cables sont protégés contre les interférences électromagnétiques",
+    "Moyenne": "L'ensemble du cablage entre les baies, entre les salles et entre les datacenter est sécurisé.",
+    "Elevée": "N/A",
+    "Très élevée": "L'accès aux baies contenant des équipements sensibles est protégé. (clés, code PIN…)"
+  },
+  {
+    "Domaine": "Sécurité physique et environnementale",
+    "Macro-exigence": "Maintenance du matériel",
+    "Exigence": "Equipment should be maintained correctly to ensure availability, integrity and confidentiality of information.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité physique et environnementale",
+    "Macro-exigence": "Mise au rebut ou recyclage sécurisé(e) du matériel",
+    "Exigence": "Items of equipment containing storage media should be verified to ensure that any sensitive data and licensed software has been removed or securely overwritten prior to disposal or re-use.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité physique et environnementale",
+    "Macro-exigence": "erminaux utilisateurs",
+    "Exigence": "Information stored on, processed by or accessible via user endpoint devices should be protected.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Contrôle d'accès",
+    "Macro-exigence": "Privilèges d'accès",
+    "Exigence": "The allocation and use of privileged access rights should be restricted and managed.",
+    "Basique": "Un outil est mis en œuvre pour tracer les demandes d'accès à privilèges des administrateurs et des comptes de services. Ces comptes sont obligatoirement différents des comptes utilisateurs. L'utilisation des comptes génériques est interdites.",
+    "Moyenne": "Des revues annuelles des comptes à privilège sont formalisées.",
+    "Elevée": "Un bastion avec authentification forte est mise en œuvre pour tous les accès à privilège. (internes et maintenance externe) L'ensemble des actions d'administration sont tracées.",
+    "Très élevée": "Les accès à privilèges pour les télé-maintenances externes sont nominatifs et sont donnés temporairement, sur demande."
+  },
+  {
+    "Domaine": "Contrôle d'accès",
+    "Macro-exigence": "Restriction d'accès à l'information",
+    "Exigence": "Access to information and other associated assets should be restricted in accordance with the established topic-specific policy on access control.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Contrôle d'accès",
+    "Macro-exigence": "Accès au code source",
+    "Exigence": "Read and write access to source code, development tools and software libraries should be appropriately managed.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Contrôle d'accès",
+    "Macro-exigence": "Authentification sécurisée",
+    "Exigence": "Secure authentication technologies and procedures should be implemented based on information access restrictions and the topic-specific policy on access control.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité liée à l'exploitation",
+    "Macro-exigence": "Dimensionnement",
+    "Exigence": "The use of resources should be monitored and adjusted in line with current and expected capacity requirements.",
+    "Basique": "",
+    "Moyenne": "",
+    "Elevée": "",
+    "Très élevée": ""
+  },
+  {
+    "Domaine": "Sécurité liée à l'exploitation",
+    "Macro-exigence": "Protection contre les programmes malveillants",
+    "Exigence": "Protection against malware should be implemented and supported by appropriate user awareness.",
+    "Basique": "Un anti-virus est installé sur 100% des postes de travail Windows et au moins 70% des serveurs",
+    "Moyenne": "Un anti-virus est installé sur 100% du domaine Windows, avec màj automatique, et à fréquence à minima hebdomadaire",
+    "Elevée": "Un EDR est déployé sur au moins 80% du parc de postes et serveurs",
+    "Très élevée": "Un EDR est déployé sur 100% du parc de postes et serveurs"
+  },
+  {
+    "Domaine": "Sécurité liée à l'exploitation",
+    "Macro-exigence": "Gestion des vulnérabilités techniques",
+    "Exigence": "Information about technical vulnerabilities of information systems in use should be obtained, the organization’s exposure to such vulnerabilities should be evaluated and appropriate measures should be taken.",
+    "Basique": "Les OS (serveurs et postes de travail) sont mis à jour mensuellement.",
+    "Moyenne": "Un processus de veille est mis en œuvre pour détecter les vulnérabilités les plus critiques.",
+    "Elevée": "Les logiciels, les applications et le middleware sont mis à jour dans un délais définie par une politique en cas de vulnérabilité critiques.",
+    "Très élevée": "Un scanner de vulnérabilité interne est déployée. Celui-ci est synchronisé avec l'inventaire centralisé des actifs."
+  },
+  {
+    "Domaine": "Sécurité liée à l'exploitation",
+    "Macro-exigence": "Gestion de la configuration",
+    "Exigence": "Configurations, including security configurations, of hardware, software, services and networks should be established, documented, implemented, monitored and reviewed.",
+    "Basique": "N/A",
+    "Moyenne": "Les OS (serveurs et postes de travail) sont durcis en fonction des bonnes pratiques de sécurité. Des masters standardisés sont créées.",
+    "Elevée": "Des templates de configuration sont définis pour les actifs les plus critiques (OS, middleware critiques …)",
+    "Très élevée": "Un scanner de configuration interne est déployé pour détecter les non-conformités. Celui-ci est synchronisé avec l'inventaire centralisé des actifs et se base sur les templates de configuration définis."
+  },
+  {
+    "Domaine": "Sécurité liée à l'exploitation",
+    "Macro-exigence": "Suppression d'information",
+    "Exigence": "Information stored in information systems, devices or in any other storage media should be deleted when no longer required.",
+    "Basique": "Les disques mis au rebut sont systèmatiquement effacés de façon irréversible.",
+    "Moyenne": "Des PV de destruction sont formalisés pour chaque disque mis au rebut.",
+    "Elevée": "Des outils sont déployés pour supprimer automatiquement les données après une période définie.",
+    "Très élevée": "Une GED est mise en œuvre pour gérer les versions des documents et supprimer automatiquement les versions anciennes."
+  },
+  {
+    "Domaine": "Sécurité liée à l'exploitation",
+    "Macro-exigence": "Masquage des données",
+    "Exigence": "Data masking should be used in accordance with the organization’s topic-specific policy on access control and other related topic-specific policies, and business requirements, taking applicable legislation into consideration.",
+    "Basique": "Le masquage des données est défini dans des politiques spécifiques ou dans la politique de contrôle d'accès.",
+    "Moyenne": "Les données personnelles sont gérées pour être en conformité avec la législation.",
+    "Elevée": "Les données sensibles doivent être obfusquées à l'aide de technique comme le data masking, l'anonymisation ou la pseudonymisation pour être en conformité avec la législation.",
+    "Très élevée": "Un process de contrôle vérifie que les données sensibles sont correctement masquées"
+  },
+  {
+    "Domaine": "Sécurité liée à l'exploitation",
+    "Macro-exigence": "Prévention de la fuite de données",
+    "Exigence": "Data leakage prevention measures should be applied to systems, networks and any other devices that process, store or transmit sensitive information.",
+    "Basique": "Les données à protéger en cas de fuites de données sont identifiées",
+    "Moyenne": "Les données à protéger en cas de fuites de données sont classifiées",
+    "Elevée": "Les canaux de transmissions où de potentiels de fuites de données peuvent arriver sont contrôlés (emails, services de transfert de fichiers, supports amovibles, téléphones, ordinateurs portables, etc.)",
+    "Très élevée": "Des moyens de prévention contre la fuite de données  sont mis en place (quarantaine d'emails envoyant des données sensibles ou de gros volumes, blocage de l'envoi de données vers des services tiers non fiables, etc.)"
+  },
+  {
+    "Domaine": "Sécurité liée à l'exploitation",
+    "Macro-exigence": "Sauvegarde des informations",
+    "Exigence": "Backup copies of information, software and systems should be maintained and regularly tested in accordance with the agreed topic-specific policy on backup",
+    "Basique": "Une politique de sauvegarde avec un plan de sauvegarde a été créée",
+    "Moyenne": "Une infrastructure de sauvegarde adéquate pour répondre aux besoins précisés dans la politique de sauvegarde a été mise en place",
+    "Elevée": "La restauration des sauvegardes est testée régulièrement",
+    "Très élevée": "Un système d'alerte si des données ont été perdues avant de faire la prochaine sauvegarde est déployé"
+  },
+  {
+    "Domaine": "Aspects de la sécurité de l'information dans la gestion de la continuité de l'activité",
+    "Macro-exigence": "Redondance des moyens de traitement de l'information",
+    "Exigence": "Information processing facilities should be implemented with redundancy sufficient to meet availability requirements.",
+    "Basique": "Les besoins de disponibilité du système d'information et des prestations de l'entreprise ont été identifiés",
+    "Moyenne": "Une architecture du système d'information permettant de répondre aux besoins de disponibilité définis a été mise en place",
+    "Elevée": "L'activation des composants de redondances est planifiée. Un mécanisme d'alerte et de réponse en cas de dysfonctionnement et une procédure d'urgence pour maintenir la disponibilité ont été documentés",
+    "Très élevée": "Les systèmes redondants sont testés régulièrement sur les périmètres où cela est possible  pour s'assurer que les dysfonctionnements en production sont mitigés"
+  },
+  {
+    "Domaine": "Sécurité liée à l'exploitation",
+    "Macro-exigence": "Journalisation",
+    "Exigence": "Logs that record activities, exceptions, faults and other relevant events should be produced, stored, protected and analysed.",
+    "Basique": "Les logs des équipements les plus sensibles de votre système d'information (réseaux, serveurs, équipements industriels, etc..) sont générés et stockés",
+    "Moyenne": "Les logs sur les équipements de votre système d'information (réseaux, serveurs, équipements industriels, etc..) sont générés et stockés",
+    "Elevée": "Les logs sont protégés de la suppression ou de la modification (même par les administrateurs).",
+    "Très élevée": "Les logs sont analysés et interprétés par des événements de sécurité pour déterminer les activités inhabituelles et celles pouvant indiquer une compromission."
+  },
+  {
+    "Domaine": "Sécurité liée à l'exploitation",
+    "Macro-exigence": "Activités de surveillance",
+    "Exigence": "Networks, systems and applications should be monitored for anomalous behaviour and appropriate actions taken to evaluate potential information security incidents.",
+    "Basique": "N/A",
+    "Moyenne": "Le périmètre et le niveau de surveillance sont définis en fonction des politiques de sécurité et des régulations pour les réseaux, les applications et les systèmes",
+    "Elevée": "Des moyens de détection des comportements anormaux et des incidents pour les réseaux, les applications et les systèmes sensibles sont mis en œuvre",
+    "Très élevée": "Des moyens de détection des comportements anormaux et des incidents pour les réseaux, les applications et les systèmes sont mis en œuvre"
+  },
+  {
+    "Domaine": "Sécurité liée à l'exploitation",
+    "Macro-exigence": "Synchronisation des horloges",
+    "Exigence": "The clocks of information processing systems used by the organization should be synchronized to approved time sources.",
+    "Basique": "N/A",
+    "Moyenne": "Le processus et les configurations de la synchronisation des horloges en fonction des besoins et de la législation sont documentés",
+    "Elevée": "Les horloges des systèmes sont synchronisées grâce à des sources de temps fiables",
+    "Très élevée": "Une seconde source fiable est utilisée pour synchroniser l'horloge des systèmes en cas de dysfonctionnement de la source principale"
+  },
+  {
+    "Domaine": "Contrôle d'accès",
+    "Macro-exigence": "Utilisation de programmes utilitaires à privilèges",
+    "Exigence": "The use of utility programs that can be capable of overriding system and application controls should be restricted and tightly controlled.",
+    "Basique": "Une politique existe pour la restriction de l'utilisation de programmes capables d'outrepasser les contrôles des applications et du système (antivirus, degradmenteur de disque, logiciel de sauvegarde, de mise à jour, de diagnostiques, etc.)",
+    "Moyenne": "La politique sur la restriction de l'utilisation de programmes capables d'outrepasser les contrôles des applications et du système est mise en œuvre",
+    "Elevée": "La mise en œuvre de la politique de restriction de l'utilisation de programmes capables d'outrepasser les contrôles des applications et du système est contrôlée",
+    "Très élevée": "Les autorisations continues des programmes capables d'outrepasser les contrôles des applications et du système sont suivies et maîtrisées"
+  },
+  {
+    "Domaine": "Sécurité liée à l'exploitation",
+    "Macro-exigence": "Installation de logiciels sur des systèmes en exploitation",
+    "Exigence": "Procedures and measures should be implemented to securely manage software installation on operational systems.",
+    "Basique": "Des procédures et des mesures pour gérer l'installation des logiciels (responsabilités, logiciels autorisés, limite de temps pour mettre à jour un logiciel, etc.) sont définies",
+    "Moyenne": "Les procédures et les mesures sont appliquées par des employés qualifiés (administrateurs, mainteneurs)",
+    "Elevée": "Les mises à jour sont appliquées uniquement après des tests approfondis qui ont été concluants et une analyse des besoins de l'entreprise et de la sécurité de la version avec la possibilité de faire un rollback de version",
+    "Très élevée": "Les logs de mises à jour, les procédures et les anciennes versions des logiciels avec leurs configurations sont archivés"
+  },
+  {
+    "Domaine": "Sécurité des communications",
+    "Macro-exigence": "Mesures liées aux réseaux",
+    "Exigence": "Networks and network devices should be secured, managed and controlled to protect information in systems and applications.",
+    "Basique": "Une documentation du réseau comportant les fichiers de configuration et les schémas des réseaux est maintenu à jour et les responsabilités et les procédures de gestion de ces actifs on été définis",
+    "Moyenne": "Les équipements réseau sont protégés contre les accès non autorisés, leurs configurations sont durcies et l'utilisation de protocoles non sécurisés n'est pas autorisée",
+    "Elevée": "Des logs sont collectés, les activités qui peuvent avoir un impact sur la sécurité sont surveillées et des contrôles pour préserver la confidentialité et l'intégrité des données passant par des réseaux publics ont été établis",
+    "Très élevée": "Les activités de la gestion du réseau pour l'optimiser sont coordonnées et des contrôles standardisés sont réalisés à travers le système d'information"
+  },
+  {
+    "Domaine": "Sécurité des communications",
+    "Macro-exigence": "Sécurité des services en réseau",
+    "Exigence": "Security mechanisms, service levels and service requirements of network services should be identified, implemented and monitored.",
+    "Basique": "N/A",
+    "Moyenne": "Les mécanismes, les exigences et les niveaux de services pour la sécurité des réseaux sont définis",
+    "Elevée": "Les mesures de sécurité sont mises en œuvre par les fournisseurs (interne ou externe) de services réseau",
+    "Très élevée": "La mise en œuvre de la sécurité par le fournisseur (interne ou externe) de services réseau est contrôlée régulièrement (en prévoyant une clause contractuelle à ce sujet avec le fournisseur s'il est externe)"
+  },
+  {
+    "Domaine": "Sécurité des communications",
+    "Macro-exigence": "Filtrage Internet",
+    "Exigence": "Groups of information services, users and information systems should be segregated in the organization’s networks.",
+    "Basique": "Définir des critères et une politique de ségrégation du réseau en plusieurs sous-réseaux (par criticité, par services, etc.), physiques ou logiques et les règles de filtrage entre les sous-réseaux",
+    "Moyenne": "Il y a une ségrégation des réseaux",
+    "Elevée": "La possibilité de ségréguer les réseaux wifi comme des accès externes dans les environnements sensibles a été étudiée",
+    "Très élevée": "La mise en œuvre de la ségrégation des réseaux est contrôlée"
+  },
+  {
+    "Domaine": "Sécurité des communications",
+    "Macro-exigence": "Cloisonnement des réseaux",
+    "Exigence": "Access to external websites should be managed to reduce exposure to malicious content.",
+    "Basique": "Les règles de bonnes pratiques pour l'utilisation de ressources en ligne sont définies et maintenues à jour",
+    "Moyenne": "Des formations sont dispensées aux collaborateurs pour un usage sécurisé des ressources en ligne.",
+    "Elevée": "Des règles de filtrage pour le blocage des sites de phishing et des sites avec des informations illégales ou des virus sont définies et maintenues à jour",
+    "Très élevée": "Les règles de filtrage sont mises en place pour le blocage des sites de phishing et des sites avec des informations illégales ou des virus"
+  },
+  {
+    "Domaine": "Cryptographie",
+    "Macro-exigence": "Utilisation de la cryptographie",
+    "Exigence": "Rules for the effective use of cryptography, including cryptographic key management, should be defined and implemented.",
+    "Basique": "N/A",
+    "Moyenne": "Les rôles et les responsabilités quant à la gestion des clés et l'implémentation des règles pour les usages cryptographiques sont définis.",
+    "Elevée": "Une politique pour l'utilisation de la cryptographie et la gestion des clés est définie",
+    "Très élevée": "La politique d'utilisation de la cryptographie et de la gestion des clés est mise en œuvre en tenant compte de la législation et les contraintes contractuelles"
+  },
+  {
+    "Domaine": "Acquisition, développement et maintenance des systèmes d'information",
+    "Macro-exigence": "Cycle de vie de développement sécurisé",
+    "Exigence": "Rules for the secure development of software and systems should be established and applied.",
+    "Basique": "N/A",
+    "Moyenne": "Une politique est définie pour le développement de services, d'architecture, de logiciels et de systèmes sécurisés",
+    "Elevée": "La politique de développement sécurisé est appliquée tout au long du cycle de développement des produits",
+    "Très élevée": "L'application de la politique de développement sécurisé est contrôlée. En cas d'externalisation, mettre en place des clauses pour s'assurer de la mise en œuvre de l'application de la politique."
+  },
+  {
+    "Domaine": "Acquisition, développement et maintenance des systèmes d'information",
+    "Macro-exigence": "Exigences de sécurité des applications",
+    "Exigence": "Information security requirements should be identified, specified and approved when developing or\nacquiring applications.",
+    "Basique": "Une identification et une définition des exigences de sécurité traitant des sujets suivants est faite pour les applications : IAM, résilience face aux vulnérabilités communes (injection sql, buffer overflow, XSS, CSRF), contraintes législatives sur le traitement et le stockage des données, le chiffrement, la confidentialité et l'intégrité des données transmises et traitées, etc.",
+    "Moyenne": "Les exigences de sécurité sont mises en œuvre pour les applications développées ou obtenues",
+    "Elevée": "La mise en œuvre des exigences de sécurité pour les applications est contrôlée",
+    "Très élevée": "L'exhaustivité des exigences de sécurité est améliorée et elles sont définies en fonction du type d'application"
+  },
+  {
+    "Domaine": "Acquisition, développement et maintenance des systèmes d'information",
+    "Macro-exigence": "Principes d'ingénierie et d'architecture système sécurisée",
+    "Exigence": "Principles for engineering secure systems should be established, documented, maintained and applied to any information system development activities.",
+    "Basique": "Une politique de sécurité de l'architecture et de l'ingénierie logicielle est définie",
+    "Moyenne": "La politique de sécurité de l'architecture et de l'ingénierie logicielle est mise en œuvre",
+    "Elevée": "La mise en œuvre de la politique de sécurité de l'architecture et de l'ingénierie logicielle est contrôlée. En cas d'externalisation, des clauses sont prévues pour s'assurer de la mise en œuvre de l'application de la politique.",
+    "Très élevée": "L'exhaustivité des règles dans la politique de sécurité de l'architecture et de l'ingénierie logicielle est améliorée, notamment en utilisant des principes comme la sécurité par le design, la défense en profondeur, le refus par défaut, le moindre privilège, la méfiance des données provenant de sources externes"
+  },
+  {
+    "Domaine": "Acquisition, développement et maintenance des systèmes d'information",
+    "Macro-exigence": "Codage sécurisé",
+    "Exigence": "Secure coding principles should be applied to software development.",
+    "Basique": "N/A",
+    "Moyenne": "N/A",
+    "Elevée": "Les principes de codage sont définis pour le développement d'application pendant la phase de planification, pendant le codage et pendant la revue et la maintenance du code",
+    "Très élevée": "Les principes de codage sont appliqués pour le développement d'application."
+  },
+  {
+    "Domaine": "Acquisition, développement et maintenance des systèmes d'information",
+    "Macro-exigence": "Tests de sécurité dans le développement et l'acceptation",
+    "Exigence": "Security testing processes should be defined and implemented in the development life cycle.",
+    "Basique": "N/A",
+    "Moyenne": "N/A",
+    "Elevée": "Un processus est défini pour tester l'implémentation des exigences de sécurité quand les applications développées sont déployées dans l'environnement de production",
+    "Très élevée": "un processus est en place pour tester l'implémentation des exigences de sécurité quand les applications développées sont déployées dans l'environnement de production"
+  },
+  {
+    "Domaine": "Acquisition, développement et maintenance des systèmes d'information",
+    "Macro-exigence": "Développement externalisé",
+    "Exigence": "The organization should direct, monitor and review the activities related to outsourced system development.",
+    "Basique": "N/A",
+    "Moyenne": "N/A",
+    "Elevée": "Les exigences de sécurité dans le cadre d'un développement externalisé sont définies et ajoutées dans les clauses contractuelles",
+    "Très élevée": "Des contrôles de l'implémentation des exigences sont mis en œuvre"
+  },
+  {
+    "Domaine": "Acquisition, développement et maintenance des systèmes d'information",
+    "Macro-exigence": "Séparation des environnements de développement, de test et de production",
+    "Exigence": "Development, testing and production environments should be separated and secured.",
+    "Basique": "N/A",
+    "Moyenne": "N/A",
+    "Elevée": "Le niveau de séparation nécessaire entre l'environnement/données de test et l'environnement/données de production est déterminé",
+    "Très élevée": "Un contrôle vérifie la mise en œuvre de la séparation des données et de l'environnement entre la production et le test."
+  },
+  {
+    "Domaine": "Acquisition, développement et maintenance des systèmes d'information",
+    "Macro-exigence": "Gestion des changements",
+    "Exigence": "Changes to information processing facilities and information systems should be subject to change management procedures.",
+    "Basique": "N/A",
+    "Moyenne": "Des règles et un processus de documentation de spécification de test et de contrôle qualité et de mise en œuvre sont définis",
+    "Elevée": "Les processus de contrôle de changement sont intégrés dans tous les projets logiciels, de technologie de l'information et des communications",
+    "Très élevée": "Le contrôle des changements est précéduré et audité pour garantir la confidentialité, l'intégrité et la disponibilité des systèmes, des applications et des informations tout au long du cycle de vie"
+  },
+  {
+    "Domaine": "Acquisition, développement et maintenance des systèmes d'information",
+    "Macro-exigence": "Informations relatives aux tests",
+    "Exigence": "Test information should be appropriately selected, protected and managed.",
+    "Basique": "Les données de tests doivent être sélectionnées pour assurer la fiabilité des tests et la confidentialité des informations opérationnelles",
+    "Moyenne": "Les données sensibles doivent être supprimées et ne plus être copiées dans l'environnement de test et de développement",
+    "Elevée": "Les données de test sont stockées de manière sécurisée et ne sont utilisées que pour les tests",
+    "Très élevée": "Les recommandations suivantes sont appliquées pour les tests :\n-appliquer les mêmes procédures aux environnements de test qu'aux environnements opérationnels\n-Conserver les logs de copie et d'usage de données opérationnelles\n-Protéger les données sensibles utilisées pour de l'obfuscation\n-Supprimer les données opérationnelles des environnements de test une fois fini"
+  },
+  {
+    "Domaine": "Sécurité liée à l'exploitation",
+    "Macro-exigence": "Protection des systèmes d'information en cours d'audit et de test",
+    "Exigence": "Audit tests and other assurance activities involving assessment of operational systems should be planned and agreed between the tester and appropriate management.",
+    "Basique": "Les activités d'audit et de contrôle doivent être planifiées et validées par les auditeurs et les responsables des systèmes d'information testés",
+    "Moyenne": "Le principe de moindres privilèges est appliqué pour fournir les accès aux auditeurs",
+    "Elevée": "Des logs d'accès sont générés et surveillés pendant les tests",
+    "Très élevée": "Les tests qui peuvent affecter la disponibilité du système testé sont exécutés hors des heures de bureau"
+  }
+]

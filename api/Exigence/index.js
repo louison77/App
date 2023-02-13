@@ -11,13 +11,7 @@ mongoose.connect(
 const ExigenceSchema = new mongoose.Schema({
     exigenceid: String,
     exigencenom: String,
-    categorie: String,
-    macroexigence: String,
     projetid: String,
-    libelle: String,
-    guidecomplet: String,
-    guideabrege: String,
-    objectif: String,
     observations: String,
     maturite: String,
     note: String,
@@ -45,7 +39,7 @@ module.exports = async function (context, req) {
             await createOne(context);
             break;
         // If put, update task
-        /*case 'PATCH':
+        case 'PATCH':
             await updateOne(context);
             break;
         /*case 'DELETE':
@@ -69,21 +63,21 @@ async function createOne(context) {
     context.res.body = exigence;
 }
 
-/*async function updateOne(context) {
+async function updateOne(context) {
     // Grab the id from the URL (stored in bindingData)
-    const id = context.bindingData.id;
-    // Get the exigence from the body
-    const exigence = context.req.body;
-    // Update the item in the database
-    const result = await Exigence.updateOne({ _id: id }, exigence);
-    // Check to ensure an item was modified
-    if (result.nModified === 1) {
-        // Updated an item, status 204 (empty update)
+    try {
+        const id = context.req.body.exigenceid;
+        // Get the exigence from the body
+        const exigence = context.req.body;
+        // Update the item in the database
+        await Exigencemodel.findOneAndUpdate({ exigenceid: id }, exigence);
         context.res.status = 204;
-    } else {
-        // Item not found, status 404
+    }
+    catch (error) {
         context.res.status = 404;
     }
+    // Check to ensure an item was modified
+
 }
 /*
 async function deleteOne(id) {
