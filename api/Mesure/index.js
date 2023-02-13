@@ -9,21 +9,15 @@ mongoose.connect(
 );
 
 const MesureSchema = new mongoose.Schema({
-    mesureid: { type: String, unique: true, required: true },
-    sousexigenceid: String,
+    mesureid: String,
     projetid: String,
-    libelle: String,
-    action: String,
-    guideabrege: String,
     priorite: String,
     complexite: String,
     cout: Number,
-    aide: String,
     porteur: String,
-    debut: Date,
-    fin: Date,
-    statut: String,
-    selection: String
+    debut: String,
+    fin: String,
+    statut: String
 });
 
 const Mesure = mongoose.model("Mesure", MesureSchema);
@@ -51,7 +45,7 @@ module.exports = async function (context, req) {
         /*case 'PATCH':
             await updateOne(context);
             break;
-        case 'DELETE':
+        /*case 'DELETE':
             await deleteOne(context);
             break;*/
     }
@@ -64,17 +58,23 @@ async function findAll(context) {
 }
 
 async function createOne(context) {
+    try {
 
-    const body = context.req.body;
-    const mesure = new Mesure(body);
-    context.res.status = 201;
-    // return new object
-    context.res.body = mesure;
+
+        const body = context.req.body;
+        const mesure = await Mesure.create(body);
+        context.res.status = 201;
+        // return new object
+        context.res.body = mesure;
+    }
+    catch (error) {
+        context.res.status = 404
+    }
 }
 
 /*async function updateOne(context) {
     // Grab the id from the URL (stored in bindingData)
-    const id = context.bindingData.id;
+    const id = context.req.body;
     // Get the categorie from the body
     const mesure = context.req.body;
     // Update the item in the database
@@ -88,7 +88,7 @@ async function createOne(context) {
         context.res.status = 404;
     }
 }
-
+/*
 async function deleteOne(id) {
     const id = context.bindingData.id;
     const mesure = context.req.body;

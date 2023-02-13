@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/components/AccueilStyle/_tableP.css";
 import axios from 'axios'
-//import XLSX from 'xlsx'
 
 function TableP(props) {
   //state
@@ -13,7 +12,8 @@ function TableP(props) {
   ]);
   //tableau tampon pour pouvoir ajouter un projet dans le tableau au dessuss
   const [newProjet, setNewProjet] = useState("");
-  const [newID, setNewID] = useState("");
+  const [maxId, setmaxID] = useState(0);
+
 
   //comportements
   useEffect(() => {
@@ -23,6 +23,7 @@ function TableP(props) {
 
         const response = await axios.get(`${baseUrl}`);
         const retrievedProject = response.data.projets;
+
         const tab = []
 
         retrievedProject.forEach(projet => {
@@ -35,6 +36,14 @@ function TableP(props) {
             }
             tab.push(NewProject);
           }
+          if (parseInt(projet.projetid.substring(7)) >= maxId) {
+            console.log((parseInt(projet.projetid.substring(7)) + 1))
+            const VALUE = (parseInt(projet.projetid.substring(7)) + 1)
+            setmaxID(VALUE.toString())
+
+            console.log("Value " + VALUE + " maxid " + maxId)
+
+          }
         },
           setprojets(tab));
       }
@@ -43,16 +52,21 @@ function TableP(props) {
       }
     }
     getBDD();
-  }, [props.user.userDetails]);
+  }, [props.user.userDetails, maxId, newProjet]);
   //comportement/evenenement lors de la soumission du formulaire
   const handleSubmit = (event) => {
     //pour ne pas que la page se réactualise quand on appuie sur le bouton
     event.preventDefault();
-    if (newProjet !== "" && newID !== "") {
+
+
+
+
+    if (newProjet !== "") {
       //copie du state
       const ProjetCopy = [...projets];
       //manipulation copie du state, on génère un id aléatoire
-      const Code = newID;
+      const Code = newProjet[0].toUpperCase() + "-" + (new Date().getFullYear()).toString() + "-" + maxId.toString();
+      console.log(Code)
       const nom = newProjet;
       const StatutAudit = "Pas démarré";
       const StatutPA = "Pas démarré";
@@ -85,7 +99,7 @@ function TableP(props) {
       }
       sendProject()
       //modifier state setter
-      setNewID("");
+
       setprojets(ProjetCopy);
       setNewProjet("");
     }
@@ -95,9 +109,7 @@ function TableP(props) {
   const handleChange = (event) => {
     setNewProjet(event.target.value);
   };
-  const ChangeID = (event) => {
-    setNewID(event.target.value);
-  };
+
   //render
   return (
     <div>
@@ -109,12 +121,7 @@ function TableP(props) {
             placeholder="Ajouter un projet"
             onChange={handleChange}
           />
-          <input
-            value={newID}
-            type="text"
-            placeholder="Ajouter l'ID"
-            onChange={ChangeID}
-          />
+
 
           <button className="Button1">Nouveau projet</button>
         </form>
@@ -134,7 +141,7 @@ function TableP(props) {
         <tbody>
           {projets.map((project) => (
             <tr>
-              <td style={{ textAlign: "left", fontWeight: "bold" }}><Link to={"/Gestion/" + project.Nom} state={{ Project: project.Code }}>
+              <td style={{ textAlign: "left", fontWeight: "bold" }}><Link to={"/Gestion/" + project.Code} state={{ Project: project.Code }}>
                 {project.Nom}
               </Link>
               </td>

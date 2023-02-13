@@ -9,80 +9,25 @@ import "../../styles/components/GestionStyle/_exigences.css";
 
 const Exigences = () => {
   const baseUrl = '/api/Exigence';
+  const baseUrl2 = '/api/Projet';
+  const baseUrl3 = '/api/Mesure';
+  const [isposted, setposted] = useState(false)
   //Tableau général de toutes les exigences
   const [code] = useOutletContext();
   const [length, setLength] = useState(0)
-
-  const [exigences, setExigences] = useState([
-    {
-      Id: "ORG 5.08",
-      Nom: "Sécurité de l'information",
-      Exigence: "Assure blabla",
-      GuideComplet:
-        "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamusterry richardson ad squid. Nihil anim keffiyeh helvetica, craft beerlabore wes anderson cred nesciunt sapiente ea proident. ",
-      GuideAbrege:
-        "Doit inclure <br/> ​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb) évaluation et traitement des risques de sécurité de l'information lors du projet\n​c) évaluation et traitement des risques de sécurité de l'information une fois le projet mis en place​d) tests des mesures de sécurité en pace​e) intégration de la sécurité de l'information au sein de toutes les phases de la méthodologie projet​",
-      Obj: "Objectif 5.08",
-      Observation: "Observations",
-      SousExigences: [
-        { categorie: 1, sousId: "5.08.1.1", index: 0, color: 0 },
-        { categorie: 1, sousId: "5.08.1.2", index: 1, color: 0 },
-        { categorie: 2, sousId: "5.08.2.1", index: 2, color: 0 },
-      ],
-      Note: "0",
-      Maturite: "0",
-    },
-    {
-      Id: "ORG 5.09",
-      Nom: "Sécurité Gestion",
-      Exigence: "Réalise machin",
-      GuideComplet: "fhqhhf",
-      GuideAbrege:
-        "Doit inclure\n​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb)",
-      Obj: "Objectif 5.09",
-      Observation: "Observations",
-      SousExigences: [
-        { categorie: 1, sousId: "5.08.1.1", index: 0, color: 0 },
-        { categorie: 1, sousId: "5.08.1.2", index: 1, color: 0 },
-        { categorie: 2, sousId: "5.08.2.1", index: 2, color: 0 },
-        { categorie: 3, sousId: "5.08.3.1", index: 3, color: 0 },
-      ],
-      Note: "0",
-      Maturite: "0",
-    },
-    {
-      Id: "ORG 5.10",
-      Nom: "Sécurité réseau",
-      Exigence: "Gère le réseau de l'entreprise",
-      GuideComplet: "fffff",
-      GuideAbrege:
-        "Doit inclure\n​a) identification et gestion des exigences de sécurité de l'information, du respect de la propriété intellectuelle, et des processus projetb)",
-      Obj: "Objectif 5.10",
-      Observation: "Observations",
-      SousExigences: [
-        {
-          categorie: 1,
-          sousId: "5.08.1.1",
-          index: 0,
-          color: 0,
-        },
-        {
-          categorie: 1,
-          sousId: "5.08.1.2",
-          index: 1,
-          color: 0,
-        },
-        {
-          categorie: 2,
-          sousId: "5.08.2.1",
-          index: 2,
-          color: 0,
-        },
-      ],
-      Note: "0",
-      Maturite: "0",
-    },
-  ]);
+  const [exigences, setExigences] = useState([{
+    exigenceid: "",
+    Note: "",
+    Maturite: "",
+    Observation: "",
+    Id: "",
+    Nom: "",
+    GuideAbrege: "",
+    GuideComplet: "",
+    SousExigences: "",
+    Obj: "",
+    Exigence: "",
+  }]);
   //valeur tampon de l'exigence
   const [UneExigence, setUneExigence] = useState("");
   //booléen pour afficher la partie de droite
@@ -94,133 +39,42 @@ const Exigences = () => {
 
 
   useEffect(() => {
+    const excel = require('./iso27001-exigences.json')
+
+
     const getExigences = async () => {
-      const baseExigences = [{
-        Nom: "Libelle 1",
-        Exigence: "",
-        GuideComplet: "Guidecomplet1",
-        GuideAbrege: "Guideabrege1",
-        Obj: "obj1",
-        SousExigences: [
-          {
-            categorie: 1, sousId: "1.1", index: 0, color: 0
+      var baseExigences = []
+      for (const element of excel) {
+        baseExigences.push({
+          Nom: element.Domaine,
+          Exigence: element["Macro-exigence"],
+          GuideAbrege: element.Exigence,
+          GuideComplet: "",
+          Obj: "",
+          SousExigences: [{
+            categorie: 1, sousId: element.Basique, index: 0, color: 0
           },
-          { categorie: 2, sousId: "1.2", index: 1, color: 0 },
-          { categorie: 3, sousId: "1.3", index: 2, color: 0 },
-          { categorie: 4, sousId: "1.4", index: 3, color: 0 },
-
-        ],
-      },
-      {
-        Nom: "Libelle 2",
-        Exigence: "",
-        GuideComplet: "Guidecomplet2",
-        GuideAbrege: "Guideabrege2",
-        Obj: "obj2",
-        SousExigences: [
-          {
-            categorie: 1, sousId: "1.1", index: 0, color: 0
-          },
-          { categorie: 2, sousId: "1.2", index: 1, color: 0 },
-          { categorie: 3, sousId: "1.3", index: 2, color: 0 },
-          { categorie: 4, sousId: "1.4", index: 3, color: 0 },
-
-        ],
-      }, {
-        Nom: "Libelle 3",
-        Exigence: "",
-        GuideComplet: "Guidecomplet3",
-        GuideAbrege: "Guideabrege3",
-        Obj: "obj3",
-        SousExigences: [
-          {
-            categorie: 1, sousId: "1.1", index: 0, color: 0
-          },
-          { categorie: 2, sousId: "1.2", index: 1, color: 0 },
-          { categorie: 3, sousId: "1.3", index: 2, color: 0 },
-          { categorie: 4, sousId: "1.4", index: 3, color: 0 },
-
-        ],
-      },
-      {
-        Nom: "Libelle 4",
-        Exigence: "",
-        GuideComplet: "Guidecomplet4",
-        GuideAbrege: "Guideabrege4",
-        Obj: "obj4",
-        SousExigences: [
-          {
-            categorie: 1, sousId: "1.1", index: 0, color: 0
-          },
-          { categorie: 2, sousId: "1.2", index: 1, color: 0 },
-          { categorie: 3, sousId: "1.3", index: 2, color: 0 },
-          { categorie: 4, sousId: "1.4", index: 3, color: 0 },
-
-        ],
-      }, {
-        Nom: "Libelle 5",
-        Exigence: "",
-        GuideComplet: "Guidecomplet5",
-        GuideAbrege: "Guideabrege5",
-        Obj: "obj5",
-        SousExigences: [
-          {
-            categorie: 1, sousId: "1.1", index: 0, color: 0
-          },
-          { categorie: 2, sousId: "1.2", index: 1, color: 0 },
-          { categorie: 3, sousId: "1.3", index: 2, color: 0 },
-          { categorie: 4, sousId: "1.4", index: 3, color: 0 },
-
-        ],
-      }, {
-        Nom: "Libelle 6",
-        Exigence: "",
-        GuideComplet: "Guidecomplet6",
-        GuideAbrege: "Guideabrege6",
-        Obj: "obj6",
-        SousExigences: [
-          {
-            categorie: 1, sousId: "1.1", index: 0, color: 0
-          },
-          { categorie: 2, sousId: "1.2", index: 1, color: 0 },
-          { categorie: 3, sousId: "1.3", index: 2, color: 0 },
-          { categorie: 4, sousId: "1.4", index: 3, color: 0 },
-
-        ],
-      }, {
-        Nom: "Libelle 7",
-        Exigence: "",
-        GuideComplet: "Guidecomplet7",
-        GuideAbrege: "Guideabrege7",
-        Obj: "obj7s",
-        SousExigences: [
-          {
-            categorie: 1, sousId: "1.1", index: 0, color: 0
-          },
-          { categorie: 2, sousId: "1.2", index: 1, color: 0 },
-          { categorie: 3, sousId: "1.3", index: 2, color: 0 },
-          { categorie: 4, sousId: "1.4", index: 3, color: 0 },
-
-        ],
-      }]
+          { categorie: 2, sousId: element.Moyenne, index: 1, color: 0 },
+          { categorie: 3, sousId: element.Elevée, index: 2, color: 0 },
+          { categorie: 4, sousId: element["Très élevée"], index: 3, color: 0 },
+          ]
+        })
+      }
       setLength(baseExigences.length)
       try {
 
         const response = await axios.get(`${baseUrl}`);
         const retrievedExigences = response.data.exigence;
-        console.log(retrievedExigences)
         var tab = []
         let i = 0;
         retrievedExigences.forEach(exigence => {
-
-
           if (exigence.projetid === code) {
-            console.log("NICE")
             const NewExigence = {
+              exigenceid: exigence.exigenceid,
               Note: exigence.note,
               Maturite: exigence.maturite,
               Observation: exigence.observations,
-              Id: exigence.exigencenom,
+              Id: "Exigence " + (i + 1).toString(),
               Nom: baseExigences[i].Nom,
               GuideAbrege: baseExigences[i].GuideAbrege,
               GuideComplet: baseExigences[i].GuideComplet,
@@ -231,10 +85,10 @@ const Exigences = () => {
             i++
             tab.push(NewExigence);
             tab.sort(function compare(a, b) {
-              if (a.Id < b.Id) {
+              if (parseInt(a.Id.split(" ")[1]) < parseInt(b.Id.split(" ")[1])) {
                 return -1;
               }
-              if (a.Id > b.Id) {
+              if (parseInt(a.Id.split(" ")[1]) > parseInt(b.Id.split(" ")[1])) {
                 return 1;
               }
               return 0;
@@ -244,19 +98,21 @@ const Exigences = () => {
 
           setExigences(tab));
 
+
       }
       catch (error) {
         console.log(error)
       }
     }
     getExigences();
-  }, [code]);
+  }, [code, isposted]);
   //comportements
   const toggleVisibility = (event, ID) => {
     const Copy = [];
     for (let i = 0; i < exigences.length; i++) {
       if (exigences[i].Id === ID) {
         Copy.push({
+          exigenceid: exigences[i].exigenceid,
           Id: exigences[i].Id,
           Nom: exigences[i].Nom,
           Exigence: exigences[i].Exigence,
@@ -279,28 +135,48 @@ const Exigences = () => {
   const CreateExigences = () => {
 
     const sendexigences = async () => {
+
       for (let i = 0; i < length; i++) {
         try {
-
           await axios.post(`${baseUrl}`,
             {
 
-              exigenceid: code + " " + (i).toString(),
-              exigencenom: "Exigence " + (i + 1).toString(),
+              exigenceid: code + " " + (i + 1).toString(),
               projetid: code,
               observations: "Observations",
               maturite: "0",
               note: "0"
             }, {
             'Content-Type': 'application/json'
+          },).then(function (response) {
+            console.log(response);
           });
         }
         catch (error) {
           console.log(error.response.data)
         }
       }
+      setposted(true)
     }
+    const patchStatutProjet = async () => {
+      try {
+
+        await axios.patch(`${baseUrl2}`,
+          {
+            projetid: code,
+            statutaudit: "En cours"
+          }, {
+          'Content-Type': 'application/json'
+        })
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+
     sendexigences()
+    patchStatutProjet();
+
   }
   //Changer valeur Observation
   const ModifyObserv = (event) => {
@@ -309,6 +185,7 @@ const Exigences = () => {
     for (let i = 0; i < exigences.length; i++) {
       if (exigences[i].Id === UneExigence[0].Id) {
         Copy.push({
+          exigenceid: exigences[i].exigenceid,
           Id: exigences[i].Id,
           Nom: exigences[i].Nom,
           Exigence: exigences[i].Exigence,
@@ -325,6 +202,7 @@ const Exigences = () => {
       }
     }
     Copy2.push({
+      exigenceid: UneExigence[0].exigenceid,
       Id: UneExigence[0].Id,
       Nom: UneExigence[0].Nom,
       Exigence: UneExigence[0].Exigence,
@@ -344,8 +222,10 @@ const Exigences = () => {
     e.preventDefault();
     const sendRequest = async () => {
       try {
+        console.log(UneExigence[0].exigenceid)
         await axios.patch(`${baseUrl}`, {
-          observation: UneExigence[0].Observation,
+          exigenceid: UneExigence[0].exigenceid,
+          observations: UneExigence[0].Observation,
         }, {
           'Content-Type': 'application/json'
         })
@@ -371,6 +251,7 @@ const Exigences = () => {
     for (let i = 0; i < exigences.length; i++) {
       if (exigences[i].Id === UneExigence[0].Id) {
         Copy.push({
+          exigenceid: exigences[i].exigenceid,
           Id: exigences[i].Id,
           Nom: exigences[i].Nom,
           Exigence: exigences[i].Exigence,
@@ -388,6 +269,7 @@ const Exigences = () => {
     }
     //On fait pareil pour UneExigence dans Copy2
     Copy2.push({
+      exigenceid: UneExigence[0].exigenceid,
       Id: UneExigence[0].Id,
       Nom: UneExigence[0].Nom,
       Exigence: UneExigence[0].Exigence,
@@ -409,6 +291,7 @@ const Exigences = () => {
     for (let i = 0; i < exigences.length; i++) {
       if (exigences[i].Id === UneExigence[0].Id) {
         Copy.push({
+          exigenceid: exigences[i].exigenceid,
           Id: exigences[i].Id,
           Nom: exigences[i].Nom,
           Exigence: exigences[i].Exigence,
@@ -425,6 +308,7 @@ const Exigences = () => {
       }
     }
     Copy2.push({
+      exigenceid: UneExigence[0].exigenceid,
       Id: UneExigence[0].Id,
       Nom: UneExigence[0].Nom,
       Exigence: UneExigence[0].Exigence,
@@ -438,6 +322,21 @@ const Exigences = () => {
     });
     setUneExigence(Copy2);
     setExigences(Copy);
+    const ChangeNote = async () => {
+      try {
+        console.log("ChangeNote " + UneExigence[0].exigenceid)
+        await axios.patch(`${baseUrl}`, {
+          exigenceid: UneExigence[0].exigenceid,
+          note: event.target.value,
+        }, {
+          'Content-Type': 'application/json'
+        })
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+    ChangeNote()
     event.preventDefault();
   };
   const ChangeMaturity = (value) => {
@@ -447,6 +346,7 @@ const Exigences = () => {
     for (let i = 0; i < exigences.length; i++) {
       if (exigences[i].Id === UneExigence[0].Id) {
         Copy.push({
+          exigenceid: exigences[i].exigenceid,
           Id: exigences[i].Id,
           Nom: exigences[i].Nom,
           Exigence: exigences[i].Exigence,
@@ -463,6 +363,7 @@ const Exigences = () => {
       }
     }
     Copy2.push({
+      exigenceid: UneExigence[0].exigenceid,
       Id: UneExigence[0].Id,
       Nom: UneExigence[0].Nom,
       Exigence: UneExigence[0].Exigence,
@@ -476,6 +377,22 @@ const Exigences = () => {
     });
     setUneExigence(Copy2);
     setExigences(Copy);
+    const UpdateMaturity = async () => {
+      try {
+
+        await axios.patch(`${baseUrl}`, {
+          exigenceid: UneExigence[0].exigenceid,
+          maturite: valeur,
+        }, {
+          'Content-Type': 'application/json'
+        })
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+    UpdateMaturity()
+
   };
   const ChangeExigence = (iter, ID) => {
     let index = 0;
@@ -487,6 +404,7 @@ const Exigences = () => {
     }
     if (index >= 0 && index < exigences.length) {
       Copy.push({
+        exigenceid: exigences[index].exigenceid,
         Id: exigences[index].Id,
         Nom: exigences[index].Nom,
         Exigence: exigences[index].Exigence,
@@ -504,6 +422,39 @@ const Exigences = () => {
       setOpen(false);
     }
   };
+  const Sendmesures = () => {
+
+    const EnvoyerMesures = async () => {
+      for (let i = 0; i < UneExigence[0].SousExigences.length; i++) {
+
+        if (UneExigence[0].SousExigences[i].color === 2) {
+          try {
+            await axios.post(`${baseUrl3}`,
+              {
+                mesureid: UneExigence[0].exigenceid + "." + (i + 1).toString(),
+                projetid: code,
+                priorite: "",
+                complexite: "",
+                cout: 0,
+                porteur: "",
+                debut: "",
+                fin: "",
+                statut: "",
+              }, {
+              'Content-Type': 'application/json'
+            },).then(function (response) {
+              console.log(response);
+            })
+          }
+          catch (error) {
+            console.log(error)
+          }
+
+        }
+      }
+    }
+    EnvoyerMesures()
+  }
   if (isSeen) {
     return (
       <div className="page">
@@ -551,7 +502,7 @@ const Exigences = () => {
               <div className="Exigences_parties">
                 <div className="Part1">
                   <h4 className="NamePart">
-                    Exigences
+                    Macro-Exigence
                     <br />
                   </h4>
                   <span className="TexteParties">
@@ -648,7 +599,7 @@ const Exigences = () => {
                             onClick={() => ChangeMaturity("1")}
                             checked={exige.Maturite === "1" ? true : false}
                           />
-                          <p>Texte Basique niveau </p>
+                          <p>{exige.SousExigences[0].sousId} </p>
                         </div>
                       </td>
                       <td className="Case">
@@ -658,7 +609,7 @@ const Exigences = () => {
                             onClick={() => ChangeMaturity("2")}
                             checked={exige.Maturite === "2" ? true : false}
                           />
-                          <p>Texte Moyen niveau </p>
+                          <p>{exige.SousExigences[1].sousId} </p>
                         </div>
                       </td>
                       <td className="Case">
@@ -668,7 +619,7 @@ const Exigences = () => {
                             onClick={() => ChangeMaturity("3")}
                             checked={exige.Maturite === "3" ? true : false}
                           />
-                          <p>Texte Elevee niveau </p>
+                          <p>{exige.SousExigences[2].sousId} </p>
                         </div>
                       </td>
                       <td className="Case">
@@ -678,7 +629,7 @@ const Exigences = () => {
                             onClick={() => ChangeMaturity("4")}
                             checked={exige.Maturite === "4" ? true : false}
                           />
-                          <p>Texte Très Elevée niveau </p>
+                          <p>{exige.SousExigences[3].sousId} </p>
                         </div>
                       </td>
                     </tr>
@@ -706,7 +657,7 @@ const Exigences = () => {
                         </text>
                         <text className="DescriptifSE">
                           {" "}
-                          Descriptif {sentence.sousId}{" "}
+                          Descriptif {" "}
                         </text>
                         <button
                           className="BoutonOk"
@@ -742,6 +693,11 @@ const Exigences = () => {
                       </div>
                     ))}
                   </div>
+                </div>
+                <div className="ButtonSendMesures">
+                  <btn className="MesureButton" onClick={Sendmesures}>
+                    Envoyer mesures au plan d'action
+                  </btn>
                 </div>
               </div>
             </div>
