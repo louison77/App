@@ -70,8 +70,8 @@ const Mesures = () => {
         retrievedMesures.forEach(mesure => {
 
           if (mesure.projetid === code) {
-            const index = (parseInt(mesure.mesureid.split(' ')[1][0]) * 4) + parseInt(mesure.mesureid.split(' ')[1][2]) - 5
-
+            const index = (parseInt(mesure.mesureid.split(' ')[1].split('.')[0]) * 4) + parseInt(mesure.mesureid.split(' ')[1].split('.')[1]) - 5
+            console.log(BaseMesure[index].Ref)
             tab.push({
               Id: BaseMesure[index].Ref,
               Nom: BaseMesure[index].Exigence,
