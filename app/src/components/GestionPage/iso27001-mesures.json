@@ -1,0 +1,2018 @@
+[
+  {
+    "Réf Exigence": 1,
+    "Exigence": "Information security policy and topic-specific policies should be defined, approved by management, published, communicated to and acknowledged by relevant personnel and relevant interested parties, and reviewed at planned intervals and if significant changes occur.",
+    "Maturité": 1,
+    "Sous-exigence": "La PSSI existe et a été validée par la direction",
+    "Mesure": "Réaliser la PSSI puis les faire valider par la direction.",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "10j"
+  },
+  {
+    "Réf Exigence": 1,
+    "Exigence": "Information security policy and topic-specific policies should be defined, approved by management, published, communicated to and acknowledged by relevant personnel and relevant interested parties, and reviewed at planned intervals and if significant changes occur.",
+    "Maturité": 2,
+    "Sous-exigence": "La PSSI est publiée et approuvée par les personnes concernées",
+    "Mesure": "Publier la PSSI et la faire approuver aux personnes concernées",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "3 JH pour publier et organiser les présentations de la PSSI"
+  },
+  {
+    "Réf Exigence": 1,
+    "Exigence": "Information security policy and topic-specific policies should be defined, approved by management, published, communicated to and acknowledged by relevant personnel and relevant interested parties, and reviewed at planned intervals and if significant changes occur.",
+    "Maturité": 3,
+    "Sous-exigence": "La PSSI est adaptée puis validée avec la direction à intervalles planifiés ou en cas de changements importants",
+    "Mesure": "Adapter la PSSI et valider avec la direction à intervalles planifiés ou en cas de changements importants.",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "5 JH pour faire de légères modifications sur la PSSI et la faire valider"
+  },
+  {
+    "Réf Exigence": 1,
+    "Exigence": "Information security policy and topic-specific policies should be defined, approved by management, published, communicated to and acknowledged by relevant personnel and relevant interested parties, and reviewed at planned intervals and if significant changes occur.",
+    "Maturité": 4,
+    "Sous-exigence": "Des politiques de sécurité spécifiques existent",
+    "Mesure": "Réaliser des politiques de sécurité spécifiques en fonction des particularités de l'entreprise",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "3 à 10 JH pour réaliser une politique spécifique et la faire valider par la direction"
+  },
+  {
+    "Réf Exigence": 2,
+    "Exigence": "Information security roles and responsibilities should be defined and allocated according to the organization needs.",
+    "Maturité": 1,
+    "Sous-exigence": "Le DSI est responsable de facto de la SSI",
+    "Mesure": "Inclure les missions SSI à la fiche de poste du DSI",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "2 jours pour mettre à jour la fiche de poste et réaliser les actions administratives"
+  },
+  {
+    "Réf Exigence": 2,
+    "Exigence": "Information security roles and responsibilities should be defined and allocated according to the organization needs.",
+    "Maturité": 2,
+    "Sous-exigence": "Un Référent SSI est nommé",
+    "Mesure": "Nommer un référent SSI dédié à la SSI",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "2 jours pour mettre à jour la fiche de poste et réaliser les actions administratives"
+  },
+  {
+    "Réf Exigence": 2,
+    "Exigence": "Information security roles and responsibilities should be defined and allocated according to the organization needs.",
+    "Maturité": 3,
+    "Sous-exigence": "Un RSSI (Responsable SSI) est nommé et dispose de moyens et d'appuis hiérarchiques pour faire appliquer et respecter ses décisions",
+    "Mesure": "Rattacher le RSSI à la Direction",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "2 jours pour mettre à jour la fiche de poste et réaliser les actions administratives"
+  },
+  {
+    "Réf Exigence": 2,
+    "Exigence": "Information security roles and responsibilities should be defined and allocated according to the organization needs.",
+    "Maturité": 4,
+    "Sous-exigence": "Un RSSI (Responsable SSI) est nommé et est rattaché à un niveau hiérarchique proche du niveau décisionnel (e.g. il est N-1 d'un directeur)",
+    "Mesure": "Nommer un RSSI responsable de la SSI",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "2 jours pour mettre à jour la fiche de poste et réaliser les actions administratives"
+  },
+  {
+    "Réf Exigence": 3,
+    "Exigence": "Conflicting duties and conflicting areas of responsibility should be segregated.",
+    "Maturité": 1,
+    "Sous-exigence": "Les combinaisons toxiques sont identifiées pour les utilisateurs/administrateurs fonctionnels, et sont pris en compte dans la définition des rôles métiers / techniques",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "N/A"
+  },
+  {
+    "Réf Exigence": 3,
+    "Exigence": "Conflicting duties and conflicting areas of responsibility should be segregated.",
+    "Maturité": 2,
+    "Sous-exigence": "Les combinaisons toxiques sont contrôlées manuellement et a posteriori pour les utilisateurs/administrateurs fonctionnels et techniques",
+    "Mesure": "Définir des rôles métier excluant toute combinaison de droits toxiques et mettre en place une surveillance pour détecter tout abus ou fraude",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 3,
+    "Exigence": "Conflicting duties and conflicting areas of responsibility should be segregated.",
+    "Maturité": 3,
+    "Sous-exigence": "Les procédures de gestion de droit d'accès empêchent toute allocation de combinaison de droits toxiques. Un processus formel de dérogation est appliqué s'il n'est pas possible de l'éviter",
+    "Mesure": "Interdire le cumul de rôles métiers incompatibles et mettre en place un processus de dérogation au cas où les contraintes opérationnelles conduisent à un tel cumul",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 3,
+    "Exigence": "Conflicting duties and conflicting areas of responsibility should be segregated.",
+    "Maturité": 4,
+    "Sous-exigence": "Des outils automatisés permettent d'identifier les conflits et de faciliter le retrait des droits incriminés",
+    "Mesure": "Automatiser la détection de combinaisons de droits toxiques et leur retrait",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 4,
+    "Exigence": "Management should require all personnel to apply information security in accordance with the established information security policy, topic-specific policies and procedures of the organization.",
+    "Maturité": 1,
+    "Sous-exigence": "La Direction fournit des consignes claires au personnel sur les attentes en SSI propres à leur rôle dans l'organisation, en particulier au travers de la PSSI et des chartes utilisateurs et administrateur",
+    "Mesure": "Faire signer la charte utilisateur suite à signature du contrat ou de la remise des moyens informatiques.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 4,
+    "Exigence": "Management should require all personnel to apply information security in accordance with the established information security policy, topic-specific policies and procedures of the organization.",
+    "Maturité": 2,
+    "Sous-exigence": "La Direction s'assure que le personnel est sensibilisé aux enjeux de sécurité de l'organisation, et est formé pour avoir les compétences et certifications SSI requises à l'exercice de son activité",
+    "Mesure": "Mettre en place une stratégie de sensibilisation et de formation pour les différentes populations d'utilisateur",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 4,
+    "Exigence": "Management should require all personnel to apply information security in accordance with the established information security policy, topic-specific policies and procedures of the organization.",
+    "Maturité": 3,
+    "Sous-exigence": "La Direction alloue les ressources nécessaires (budget / planning) pour mettre en œuvre et contrôler la PSSI",
+    "Mesure": "Dédier les ressources nécessaires aux équipes sécurité pour l'exercice de leurs missions",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 4,
+    "Exigence": "Management should require all personnel to apply information security in accordance with the established information security policy, topic-specific policies and procedures of the organization.",
+    "Maturité": 4,
+    "Sous-exigence": "La Direction met en place un canal d'échange sécurisé pour permettre à des lanceurs d'alerte de rapporter d'éventuelles violations graves de la PSSI, de manière anonyme ou garantissant une protection maximale de leur identité.",
+    "Mesure": "Mettre en place un canal d'échange sécurisé pour rapporter d'éventuelles violations graves de sécurité, et garantissant la confidentialité des échanges et de l'identité des lanceurs d'alerte",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 5,
+    "Exigence": "The organization should establish and maintain contact with relevant authorities.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 5,
+    "Exigence": "The organization should establish and maintain contact with relevant authorities.",
+    "Maturité": 2,
+    "Sous-exigence": "L'organisation tient un registre des contacts avec les autorités (police, CNIL, régulateur, etc.), précisant quand et comment les contacter en cas d'incident de sécurité",
+    "Mesure": "Tenir un registre des contacts avec les autorités (police, CNIL, régulateur, etc.), précisant quand et comment les contacter en cas d'incident de sécurité",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 5,
+    "Exigence": "The organization should establish and maintain contact with relevant authorities.",
+    "Maturité": 3,
+    "Sous-exigence": "L'organisation entretient des contacts réguliers avec les autorités dans le cadre de sa gestion d'incidents et de sa continuité d'activité",
+    "Mesure": "Entretenir des contacts réguliers avec les autorités dans le cadre de sa gestion d'incidents et de sa continuité d'activité",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 5,
+    "Exigence": "The organization should establish and maintain contact with relevant authorities.",
+    "Maturité": 4,
+    "Sous-exigence": "L'organisation entretient des contacts réguliers avec les régulateurs afin d'anticiper leurs attentes actuelles ou à venir (ex: changement de législation...)",
+    "Mesure": "Entretenir des contacts réguliers avec les régulateurs afin d'anticiper leurs attentes actuelles ou à venir (ex: changement de législation...)",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 6,
+    "Exigence": "The organization should establish and maintain contact with special interest groups or other specialist security forums and professional associations.",
+    "Maturité": 1,
+    "Sous-exigence": "L'organisation suit des forums spécialisés et autres ressources électroniques pour améliorer sa connaissance des bonnes pratiques de sécurité de l'information",
+    "Mesure": "S'abonner à des newsletter de revue spécialisés, groupes d'intérêt sur LinkedIn,…",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 6,
+    "Exigence": "The organization should establish and maintain contact with special interest groups or other specialist security forums and professional associations.",
+    "Maturité": 2,
+    "Sous-exigence": "L'organisation souscrit à des alertes anticipées sur des nouvelles vulnérabilités et mises à jour de sécurité",
+    "Mesure": "Souscrire à des services de veille sécurités des principaux fournisseurs de services cyber, et/ou aux bulletins d'alerte des CSIRT / CERT",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 6,
+    "Exigence": "The organization should establish and maintain contact with special interest groups or other specialist security forums and professional associations.",
+    "Maturité": 3,
+    "Sous-exigence": "L'organisation est membre d'associations professionnelles, ou groupes d'intérêt spécialisés en sécurité de l'information, lui permettant d'échanger des informations sur les nouvelles technologies, produits, services, menaces et vulnérabilités, ou d'entretenir un réseau de des points de contacts en cas d'incidents de sécurité",
+    "Mesure": "Devenir membre d'association professionnelle, via obtention de certification comme CISSP, cooptation (CLUSIF etc.), ou activité dans un domaine spécifique",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 6,
+    "Exigence": "The organization should establish and maintain contact with special interest groups or other specialist security forums and professional associations.",
+    "Maturité": 4,
+    "Sous-exigence": "Du personnel de l'organisation contribue à des groupes de travail, ou participe activement à des salons et autre événements en cybersécurité",
+    "Mesure": "Participer à des conférences et salons (Assises, SSTIC, etc., keynotes de fournisseurs,…), et si possible contribuer à la visibilité et le progrès de la profession (conférence / rumps / publications / RETEX / travaux d'étude)",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 7,
+    "Exigence": "Information relating to information security threats should be collected and analysed to produce threat intelligence.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 7,
+    "Exigence": "Information relating to information security threats should be collected and analysed to produce threat intelligence.",
+    "Maturité": 2,
+    "Sous-exigence": "L'organisation souscrit à des alertes anticipées sur des nouvelles vulnérabilités et mises à jour de sécurité",
+    "Mesure": "Souscrire à des services de veille sécurités des principaux fournisseurs de services cyber, et/ou aux bulletins d'alerte des CSIRT / CERT",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 7,
+    "Exigence": "Information relating to information security threats should be collected and analysed to produce threat intelligence.",
+    "Maturité": 3,
+    "Sous-exigence": "L'organisation collecte des informations sur les menaces actuelles ou émergeantes auprès de diverses sources (e.g. Open Source, fournisseurs externes, pairs de l'industrie, autorités, dark web, réseaux sociaux....) de manière empirique. Les informations peuvent être stratégiques (panorama de la menace), tactiques (méthodologies, outils et technologies des attaquants) ou opérationnelles (détails sur les TTP et IOC)",
+    "Mesure": "Souscrire à des services de CTI et mettre en place les plateformes techniques d'échange associées (ex: openCTI, MISP)",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 7,
+    "Exigence": "Information relating to information security threats should be collected and analysed to produce threat intelligence.",
+    "Maturité": 4,
+    "Sous-exigence": "L'organisation collecte et analyse les informations de CTI afin de détecter et si possible empêcher qu'elles ne nuisent à l'organisation, ou de limiter les impacts d'éventuelles attaques. En particulier, ces sources d'informations sont intégrés sur processus de gestion des risques de l'organisation, alimentent les outils de détection et prévention comme les parefeux, anti-malwares, et sondes IDS/IPS, et sont utilisés dans les processus de test / audit de sécurité internes (ex red team). De plus, elles les partage mutuellement avec d'autres organisations",
+    "Mesure": "Optimiser les processus des mises à jour des outils de détection et prévention pour intégrer les IOC le plus rapidement possible dans la configuration des outils de sécurité",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 8,
+    "Exigence": "Information security should be integrated into project management.",
+    "Maturité": 1,
+    "Sous-exigence": "Une méthodologie d'ISP est connue et appliquée par les parties prenantes (chefs de projet IT, architectes...) pour adresser les risques SSI tout au long du cycle projet, en agile comme en cascade. Elle intègre notamment des phases de sécurisation de l'architecture et de recette sécurité",
+    "Mesure": "Définir une méthodologie d'intégration de la sécurité dans les projets, applicable à tout type de projet IT (cascade vs agile) et tout périmètre (projet applicatif, projet réseau, …). En particulier, les rôles et responsabilités en lien avec la SSI sur le projet doivent être clairement définies, les besoins de sécurité et les impacts métiers doivent être déterminés, et des grands jalons tels que la revue d'architecture et la recette sécurité sont obligatoires.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 8,
+    "Exigence": "Information security should be integrated into project management.",
+    "Maturité": 2,
+    "Sous-exigence": "Une revue de conformité à un référentiel de mesures minimales de sécurité est effectuée pour les projets sensibles",
+    "Mesure": "Définir un socle de mesures minimales de sécurité pour les projets sensibles",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 8,
+    "Exigence": "Information security should be integrated into project management.",
+    "Maturité": 3,
+    "Sous-exigence": "Les projets font l’objet d’analyses de risque, avec l’emploi d’une méthode reconnue et éprouvée. \nDe plus les AR sont révisées régulièrement en fonction de la sensibilité des projets",
+    "Mesure": "Faire une analyse de risque sur les projets les plus sensibles, et les réviser régulièrement (au maximum 3 ans par défaut, et 1 an pour les projets critiques). Pour les projets les plus sensibles, utiliser EBIOS RM ou une autre méthode reconnue équivalente",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 8,
+    "Exigence": "Information security should be integrated into project management.",
+    "Maturité": 4,
+    "Sous-exigence": "Les SI sensibles font l’objet d’homologation de sécurité avec une autorité d’homologation au niveau hiérarchique adéquat",
+    "Mesure": "Mettre en place et appliquer une démarche d'homologation telle que définie par l'ANSSI",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 10,
+    "Exigence": "Rules for the acceptable use and procedures for handling information and other associated assets should be identified, documented and implemented.",
+    "Maturité": 1,
+    "Sous-exigence": "Une charte d'utilisation des moyens informatiques est communiquée au personnel interne et externe de l'organisation, utilisateur du SI . Elle donne des instructions claires sur les comportements attendus ou inacceptables concernant l'utilisation des moyens informatiques, et la surveillance des activités de la part de l'organisation.",
+    "Mesure": "Rédiger une charte informatique et la diffuser aux collaborateurs (mailing, intranet, remise en main propre au moment de la signature d'un contrat ou remise de poste informatique…)",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 10,
+    "Exigence": "Rules for the acceptable use and procedures for handling information and other associated assets should be identified, documented and implemented.",
+    "Maturité": 2,
+    "Sous-exigence": "La charte est  signée par tous les utilisateurs ou annexée au règlement interne",
+    "Mesure": "Faire signer la charte utilisateur suite à signature du contrat ou de la remise des moyens informatiques.",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 10,
+    "Exigence": "Rules for the acceptable use and procedures for handling information and other associated assets should be identified, documented and implemented.",
+    "Maturité": 3,
+    "Sous-exigence": "Une charte administrateur complète la charte utilisateur avec les attentes et interdits spécifiques pour les populations administateur fonctionnel ou technique",
+    "Mesure": "Rédiger et faire signer la charte administrateur par les populations concernées",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 10,
+    "Exigence": "Rules for the acceptable use and procedures for handling information and other associated assets should be identified, documented and implemented.",
+    "Maturité": 4,
+    "Sous-exigence": "Les chartes sont revues régulièrement",
+    "Mesure": "Revoir les chartes informatiques au maximum tous les 3 ans",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 11,
+    "Exigence": "Personnel and other interested parties as appropriate should return all the organization’s assets in their possession upon change or termination of their employment, contract or agreement.",
+    "Maturité": 1,
+    "Sous-exigence": "En cas de rupture de contrat ou de changement de poste, le matériel de l'entreprise sont restitués auprès du personnel (poste de travail, pki, documents physiques, téléphone)",
+    "Mesure": "Récupérer de manière informelle le matériel du personnel",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "-"
+  },
+  {
+    "Réf Exigence": 11,
+    "Exigence": "Personnel and other interested parties as appropriate should return all the organization’s assets in their possession upon change or termination of their employment, contract or agreement.",
+    "Maturité": 2,
+    "Sous-exigence": "Un processus est défini pour restituer le matériel de l'entreprise",
+    "Mesure": "Définir un processus de récupération du matériel",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "2 JH pour créer le processus général"
+  },
+  {
+    "Réf Exigence": 11,
+    "Exigence": "Personnel and other interested parties as appropriate should return all the organization’s assets in their possession upon change or termination of their employment, contract or agreement.",
+    "Maturité": 3,
+    "Sous-exigence": "Une liste définie du matériel à rendre est établie pour gérer la restitution de ces derniers",
+    "Mesure": "Définir une liste du matériel à récupérer",
+    "Aide au choix technologique": "CMDB, GLPI",
+    "Aide au chiffrage": "15 JH pour cadrer les différents actifs"
+  },
+  {
+    "Réf Exigence": 11,
+    "Exigence": "Personnel and other interested parties as appropriate should return all the organization’s assets in their possession upon change or termination of their employment, contract or agreement.",
+    "Maturité": 4,
+    "Sous-exigence": "Le contrôle du matériel de l'entreprise est réalisé en continu",
+    "Mesure": "Contrôler en continu l'évolution des missions du personnel pour récupérer le matériel",
+    "Aide au choix technologique": "CMDB, GLPI",
+    "Aide au chiffrage": "-"
+  },
+  {
+    "Réf Exigence": 12,
+    "Exigence": "Information should be classified according to the information security needs of the organization based on confidentiality, integrity, availability and relevant interested party requirements.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 12,
+    "Exigence": "Information should be classified according to the information security needs of the organization based on confidentiality, integrity, availability and relevant interested party requirements.",
+    "Maturité": 2,
+    "Sous-exigence": "Une méthodologie de classification des données structurées est formalisée. Elle comprend des échelles de classification en fonction des critères DICT. La méthodologie de classification des données est communiquée au utilisateurs.",
+    "Mesure": "Formaliser une méthodologie de classification des données structurées (bases de données et applications) basée sur les critires DICT. L'échelle de confidentialité doit correspondre à l'echelle de marquage pour les documents non-structurés (mails, fichiers).",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": "3 à 10 JH pour réaliser une politique spécifique et la faire valider par la direction"
+  },
+  {
+    "Réf Exigence": 12,
+    "Exigence": "Information should be classified according to the information security needs of the organization based on confidentiality, integrity, availability and relevant interested party requirements.",
+    "Maturité": 3,
+    "Sous-exigence": "L'ensemble des données \"structurée\" utilisées par les applications sont classifiées en fonction des critères DICT.",
+    "Mesure": "Classifier l'ensemble des types de données structurées manipulées par l'organisation.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 12,
+    "Exigence": "Information should be classified according to the information security needs of the organization based on confidentiality, integrity, availability and relevant interested party requirements.",
+    "Maturité": 4,
+    "Sous-exigence": "Un outil permet d'inventorier les informations et de gérer la classification.",
+    "Mesure": "Classifier les données structurées directement dans l'inventaire applicatif en fonction des données qui sont manipulées par les applications.",
+    "Aide au choix technologique": "Excel, GLPI, Servicenow",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 13,
+    "Exigence": "An appropriate set of procedures for information labelling should be developed and implemented in accordance with the information classification scheme adopted by the organization.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 13,
+    "Exigence": "An appropriate set of procedures for information labelling should be developed and implemented in accordance with the information classification scheme adopted by the organization.",
+    "Maturité": 2,
+    "Sous-exigence": "La méthodologie de classification des données intégre des labels de classification pour la confidentialité de l'information.",
+    "Mesure": "Formaliser une méthodologie de classification pour le marquage pour les documents non-structurés (mails, fichiers).",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 13,
+    "Exigence": "An appropriate set of procedures for information labelling should be developed and implemented in accordance with the information classification scheme adopted by the organization.",
+    "Maturité": 3,
+    "Sous-exigence": "L'ensemble des données \"non-structurée\" utilisées par les applications sont classifiées en fonction de l'échelle de confidentialité établie",
+    "Mesure": "Classifier l'ensemble des documents non structurés (fichiers, emails..) manuellement.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 13,
+    "Exigence": "An appropriate set of procedures for information labelling should be developed and implemented in accordance with the information classification scheme adopted by the organization.",
+    "Maturité": 4,
+    "Sous-exigence": "Un outil permet de marquer automatiquement les données non structurées",
+    "Mesure": "Déployer un outil qui permet d'automatiser la classification des documents non structurés (fichiers, emails..)",
+    "Aide au choix technologique": "Titus Data Classification, VARONIS, Microsoft AIP",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 14,
+    "Exigence": "Information transfer rules, procedures, or agreements should be in place for all types of transfer facilities within the organization and between the organization and other parties.",
+    "Maturité": 1,
+    "Sous-exigence": "Les bonnes pratiques en matière de transfert de l'information sont appliquées par les utilisateurs. (Chiffrements des données, vigilence…)",
+    "Mesure": "Rédiger et communiquer un guide de bonnes pratiques pour le transfert de l'information. (Disques amovible, sites de partages en ligne,  Email, FTP, etc.)",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 14,
+    "Exigence": "Information transfer rules, procedures, or agreements should be in place for all types of transfer facilities within the organization and between the organization and other parties.",
+    "Maturité": 2,
+    "Sous-exigence": "Une politique indique les règles de transfert à appliquer en fonction de la méthodologie de classification des données établie.",
+    "Mesure": "Formaliser une politique indiquant les règles de transfert à appliquer en fonction de la méthodologie de classification des données.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 14,
+    "Exigence": "Information transfer rules, procedures, or agreements should be in place for all types of transfer facilities within the organization and between the organization and other parties.",
+    "Maturité": 3,
+    "Sous-exigence": "Un outil de transfert des fichiers sécurisé est mis à disposition des utilisateurs.",
+    "Mesure": "Déployer un outil de partage sécurisé des fichiers avec les destinataires externes.",
+    "Aide au choix technologique": "Sharepoint, xfiles, Norméa,",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 14,
+    "Exigence": "Information transfer rules, procedures, or agreements should be in place for all types of transfer facilities within the organization and between the organization and other parties.",
+    "Maturité": 4,
+    "Sous-exigence": "Un système de DLP basé sur la classification des données et les chaines de caractères détectées existe. La détection est globale : transferts web, emails et ports USB. Si nécessaire, les transferts sont bloqués en fonction de l'information transmise.",
+    "Mesure": "Déployer et configurer une solution de DLP qui intégre à minima la détection sur la partie web, la partie email et la partie disques amovibles. Mettre en œuvre un blocage en cas de non respect de la politique.",
+    "Aide au choix technologique": "Symantec DLP, Proofpoint, MacAfee ..",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 18,
+    "Exigence": "Access rights to information and other associated assets should be provisioned, reviewed, modified and removed in accordance with the organization’s topic-specific policy on and rules for access control.",
+    "Maturité": 1,
+    "Sous-exigence": "Pour l'initialisation ou la fin d'un accès, il est fourni/supprimé en respectant le principe de moindre privilège. Les accès sont gérés avec un outil de ticketing.",
+    "Mesure": "Assigner ou supprimer les accès en respectant le principe de moindre privilège au début et à la fin d'un projet en utilisant un outil de ticketing.",
+    "Aide au choix technologique": "AD, Cyberark, zendesk",
+    "Aide au chiffrage": "Cyberark 5$/utilisateur/mois"
+  },
+  {
+    "Réf Exigence": 18,
+    "Exigence": "Access rights to information and other associated assets should be provisioned, reviewed, modified and removed in accordance with the organization’s topic-specific policy on and rules for access control.",
+    "Maturité": 2,
+    "Sous-exigence": "Chaque demande d'accès est explicitement validée par une autorité.",
+    "Mesure": "Définir une politique des règles d'accès pour gérer l'attribution, la revue, et la suppression des droits",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": "10 JH pour réaliser une politique d'accès générale"
+  },
+  {
+    "Réf Exigence": 18,
+    "Exigence": "Access rights to information and other associated assets should be provisioned, reviewed, modified and removed in accordance with the organization’s topic-specific policy on and rules for access control.",
+    "Maturité": 3,
+    "Sous-exigence": "Une revue des accès est réalisée périodiquement pour l'ensemble des comptes (utilisateurs, techniques et administrateurs)",
+    "Mesure": "Réaliser une revue périodique des droits d'accès",
+    "Aide au choix technologique": "AD, Cyberark",
+    "Aide au chiffrage": "Cyberark 5$/utilisateur/mois"
+  },
+  {
+    "Réf Exigence": 18,
+    "Exigence": "Access rights to information and other associated assets should be provisioned, reviewed, modified and removed in accordance with the organization’s topic-specific policy on and rules for access control.",
+    "Maturité": 4,
+    "Sous-exigence": "Le contrôle des accès est réalisé en continu avec un outil IAM. Les combinaisons toxiques sont bloqués automatiquement lors d'une demande.",
+    "Mesure": "Gérer en continu l'attribution, la revue et la suppression des accès",
+    "Aide au choix technologique": "AD, Cyberark",
+    "Aide au chiffrage": "Cyberark 5$/utilisateur/mois"
+  },
+  {
+    "Réf Exigence": 19,
+    "Exigence": "Processes and procedures should be defined and implemented to manage the information security risks associated with the use of supplier’s products or services.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 19,
+    "Exigence": "Processes and procedures should be defined and implemented to manage the information security risks associated with the use of supplier’s products or services.",
+    "Maturité": 2,
+    "Sous-exigence": "Définir une politique pour les relations avec les fournisseurs et la communiquer à toutes les parties prenantes",
+    "Mesure": "Définir une politique pour les relations avec les fournisseurs et la communiquer à toutes les parties prenantes",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 19,
+    "Exigence": "Processes and procedures should be defined and implemented to manage the information security risks associated with the use of supplier’s products or services.",
+    "Maturité": 3,
+    "Sous-exigence": "Documenter les processus et gérer les risques de sécurité associés à l'utilisation de produits et services délivrés par des fournisseurs.",
+    "Mesure": "Documenter les processus et gérer les risques de sécurité associés à l'utilisation de produits et services délivrés par des fournisseurs.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 19,
+    "Exigence": "Processes and procedures should be defined and implemented to manage the information security risks associated with the use of supplier’s products or services.",
+    "Maturité": 4,
+    "Sous-exigence": "Définir un processus de continuité de service au cas où les fournisseurs ne sont plus en mesure de le délivrer",
+    "Mesure": "Définir un processus de continuité de service au cas où les fournisseurs ne sont plus en mesure de le délivrer",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 20,
+    "Exigence": "Relevant information security requirements should be established and agreed with each supplier based on the type of supplier relationship.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 20,
+    "Exigence": "Relevant information security requirements should be established and agreed with each supplier based on the type of supplier relationship.",
+    "Maturité": 2,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 20,
+    "Exigence": "Relevant information security requirements should be established and agreed with each supplier based on the type of supplier relationship.",
+    "Maturité": 3,
+    "Sous-exigence": "Définir des clauses contractuelles pour préciser les obligations de sécurité entre l'entreprise et les fournisseurs",
+    "Mesure": "Définir des clauses contractuelles pour préciser les obligations de sécurité entre l'entreprise et les fournisseurs",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 20,
+    "Exigence": "Relevant information security requirements should be established and agreed with each supplier based on the type of supplier relationship.",
+    "Maturité": 4,
+    "Sous-exigence": "Améliorer l'exhaustivité des clauses contractuelles des obligations de sécurité en traitant des sujets suivants : classification des données, protection des données sensibles et personnelles, obligations et contrôles, autorisation et accès aux informations, pénalités et remédiation, audit, comitologie, résolution des conflits, gestion des changements, sécurité physique, etc.",
+    "Mesure": "Améliorer l'exhaustivité des clauses contractuelles des obligations de sécurité en traitant des sujets suivants : classification des données, protection des données sensibles et personnelles, obligations et contrôles, autorisation et accès aux informations, pénalités et remédiation, audit, comitologie, résolution des conflits, gestion des changements, sécurité physique, etc.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 21,
+    "Exigence": "Processes and procedures should be defined and implemented to manage the information security risks associated with the ICT products and services supply chain.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 21,
+    "Exigence": "Processes and procedures should be defined and implemented to manage the information security risks associated with the ICT products and services supply chain.",
+    "Maturité": 2,
+    "Sous-exigence": "Définir une politique de gestion des risques de l'information pour les systèmes d'information et de communication",
+    "Mesure": "Définir une politique de gestion des risques de l'information pour les systèmes d'information et de communication",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 21,
+    "Exigence": "Processes and procedures should be defined and implemented to manage the information security risks associated with the ICT products and services supply chain.",
+    "Maturité": 3,
+    "Sous-exigence": "Appliquer la politique de gestion des risques de l'information pour les systèmes d'information et de communication",
+    "Mesure": "Appliquer la politique de gestion des risques de l'information pour les systèmes d'information et de communication",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 21,
+    "Exigence": "Processes and procedures should be defined and implemented to manage the information security risks associated with the ICT products and services supply chain.",
+    "Maturité": 4,
+    "Sous-exigence": "Les fournisseurs procurent des systèmes d'information et de communication provenant de sources fiables ou à défaut contrôle la qualité des produits",
+    "Mesure": "Les fournisseurs procurent des systèmes d'information et de communication provenant de sources fiables ou à défaut contrôle la qualité des produits",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 22,
+    "Exigence": "The organization should regularly monitor, review, evaluate and manage change in supplier information security practices and service delivery.",
+    "Maturité": 1,
+    "Sous-exigence": "Des SLAs sont systèmatiquement formalisée avec les fournisseurs. Les contrats engagent les fournisseurs à communiquer sur les changements réalisés et qui peuvent impacter le service souscrit.",
+    "Mesure": "Contrôler les clauses contractuelles et les SLAs définis avec les fournisseurs le plus critiques. S'assurer que la gestion des changements est bien mentionnée, notamment pour les aspects sécurité.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 22,
+    "Exigence": "The organization should regularly monitor, review, evaluate and manage change in supplier information security practices and service delivery.",
+    "Maturité": 2,
+    "Sous-exigence": "Le respect des SLAs et les changements des fournisseurs sont suivis régulièrement. L'impact sur la sécurité est systèmatiquement évalué.",
+    "Mesure": "S'assurer que les changements sont bien communiqués par les fournisseurs et vérifier le bon respect des SLAs. Evaluer l'impact sur la sécurité.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 22,
+    "Exigence": "The organization should regularly monitor, review, evaluate and manage change in supplier information security practices and service delivery.",
+    "Maturité": 3,
+    "Sous-exigence": "Le rôle de responsable de suivi des fournisseurs est formellement affecté à une personne.",
+    "Mesure": "Nommer une personnes responsable du suivi des fournisseurs de services IT.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 22,
+    "Exigence": "The organization should regularly monitor, review, evaluate and manage change in supplier information security practices and service delivery.",
+    "Maturité": 4,
+    "Sous-exigence": "Des audits spécifiques sont réalisés régulièrement auprès des fournisseurs sensibles. ils contrôlent le processus de gestion des changements des fournisseurs.",
+    "Mesure": "Réaliser des fournisseurs sensibles et contrôler le processus de gestion des changements des fournisseurs.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 23,
+    "Exigence": "Processes for acquisition, use, management and exit from cloud services should be established in accordance with the organization’s information security requirements.",
+    "Maturité": 1,
+    "Sous-exigence": "Un référentiel d'exigences de sécurité Cloud est établi. Cela inclut les critères de réversibilité et de notification des incidents de sécurité.",
+    "Mesure": "Formaliser un référentiel d'exigences de sécurité Cloud. Des critères de réversibilité et de notification des incidents de sécurité doivent être inclut.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 23,
+    "Exigence": "Processes for acquisition, use, management and exit from cloud services should be established in accordance with the organization’s information security requirements.",
+    "Maturité": 2,
+    "Sous-exigence": "Des critères d'éligilité des applications au Cloud sont formalisés.",
+    "Mesure": "Formaliser des critères d'éligilité des applications au Cloud.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 23,
+    "Exigence": "Processes for acquisition, use, management and exit from cloud services should be established in accordance with the organization’s information security requirements.",
+    "Maturité": 3,
+    "Sous-exigence": "Les processus d'éligilité au cloud et la conformité aux exigences de sécurité sont strictement appliqués sur l'ensemble des applications hébergé en IaaS et  en PaaS.",
+    "Mesure": "Mettre en œuvre un processus pour s'assurer que l'ensemble des projets de migraiton des applications sur les services IaaS et PaaS respectent le référentiel d'exigences de sécurité Cloud et les critères d'éligilité.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 23,
+    "Exigence": "Processes for acquisition, use, management and exit from cloud services should be established in accordance with the organization’s information security requirements.",
+    "Maturité": 4,
+    "Sous-exigence": "Les processus d'éligilité au cloud et la conformité aux exigences de sécurité sont strictement appliqués sur l'ensemble des applications SaaS",
+    "Mesure": "Mettre en œuvre un processus pour s'assurer que l'ensemble des projets de migration des applications en SaaS respectent le référentiel d'exigences de sécurité Cloud et les critères d'éligilité.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 24,
+    "Exigence": "The organization should plan and prepare for managing information security incidents by defining, establishing and communicating information security incident management processes, roles and responsibilities.",
+    "Maturité": 1,
+    "Sous-exigence": 0,
+    "Mesure": "",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 24,
+    "Exigence": "The organization should plan and prepare for managing information security incidents by defining, establishing and communicating information security incident management processes, roles and responsibilities.",
+    "Maturité": 2,
+    "Sous-exigence": 0,
+    "Mesure": "",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 24,
+    "Exigence": "The organization should plan and prepare for managing information security incidents by defining, establishing and communicating information security incident management processes, roles and responsibilities.",
+    "Maturité": 3,
+    "Sous-exigence": 0,
+    "Mesure": "",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 24,
+    "Exigence": "The organization should plan and prepare for managing information security incidents by defining, establishing and communicating information security incident management processes, roles and responsibilities.",
+    "Maturité": 4,
+    "Sous-exigence": 0,
+    "Mesure": "",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 40,
+    "Exigence": "Personnel of the organization and relevant interested parties should receive appropriate informationsecurity awareness, education and training and regular updates of the organization's informationsecurity policy, topic-specific policies and procedures, as relevant for their job function.",
+    "Maturité": 1,
+    "Sous-exigence": "Les employés sont sensibilisés au moins 1 fois par an par sur les risques cyber et les bonnes pratiques",
+    "Mesure": "Réaliser une sensibilisation pour les employés régulièrement sur les risques cyber et les bonnes pratiques",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "environ 1000€ HT par personne pour un groupe de 10"
+  },
+  {
+    "Réf Exigence": 40,
+    "Exigence": "Personnel of the organization and relevant interested parties should receive appropriate informationsecurity awareness, education and training and regular updates of the organization's informationsecurity policy, topic-specific policies and procedures, as relevant for their job function.",
+    "Maturité": 2,
+    "Sous-exigence": "Des rappels sur les risques cyber et les bonnes pratiques sont rappelées lors de communications régulières",
+    "Mesure": "communiquer régulièrement aux employés à propos des risques cyber et des bonnes pratiques",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "1 JH par ensemble de communication"
+  },
+  {
+    "Réf Exigence": 40,
+    "Exigence": "Personnel of the organization and relevant interested parties should receive appropriate informationsecurity awareness, education and training and regular updates of the organization's informationsecurity policy, topic-specific policies and procedures, as relevant for their job function.",
+    "Maturité": 3,
+    "Sous-exigence": "Des formations spécifiques aux pratiques des employés sont réalisées",
+    "Mesure": "Réaliser des formations spécifiques en fonction des postes des employés",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "environ 1000€ HT par personne pour un groupe de 10"
+  },
+  {
+    "Réf Exigence": 40,
+    "Exigence": "Personnel of the organization and relevant interested parties should receive appropriate informationsecurity awareness, education and training and regular updates of the organization's informationsecurity policy, topic-specific policies and procedures, as relevant for their job function.",
+    "Maturité": 4,
+    "Sous-exigence": "Les employés sont mis au courant des évolutions de la PSSI, des procédures et des politiques relatives à leurs missions et la sécurité",
+    "Mesure": "Tenir informés les employés de toutes les évolutions de la PSSI, des procédures et des politiques de sécurité spécifiques",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "5 JH"
+  },
+  {
+    "Réf Exigence": 41,
+    "Exigence": "A disciplinary process should be formalized and communicated to take actions against personnel and other relevant interested parties who have committed an information security policy violation.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 41,
+    "Exigence": "A disciplinary process should be formalized and communicated to take actions against personnel and other relevant interested parties who have committed an information security policy violation.",
+    "Maturité": 2,
+    "Sous-exigence": "Des rappels sur les possibles sanctions disciplinaire en cas de non respect des règles d'utilisation du SI sont rappelées aux utilisateurs. Les sanctions sont mentionnées dans la charte informatique.",
+    "Mesure": "Rappeler l'existence de sanctions disciplinaire non respect des règles dans la charte informatique qui doit être explicitement accepté par les salariés.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 41,
+    "Exigence": "A disciplinary process should be formalized and communicated to take actions against personnel and other relevant interested parties who have committed an information security policy violation.",
+    "Maturité": 3,
+    "Sous-exigence": "Un processus de sanction disciplinaire a été formalisée et validé par le service RH.",
+    "Mesure": "Formaliser un processus de sanction disciplinaire qui doit être validé par le service RH.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 41,
+    "Exigence": "A disciplinary process should be formalized and communicated to take actions against personnel and other relevant interested parties who have committed an information security policy violation.",
+    "Maturité": 4,
+    "Sous-exigence": "Le processus de sanction disciplinaire est systèmatiquement appliqué.",
+    "Mesure": "Tracer chaque mise en œuvre des sanctions disciplinaires.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 42,
+    "Exigence": "Information security responsibilities and duties that remain valid after termination or change of employment should be defined, enforced and communicated to relevant personnel and other interested parties.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 42,
+    "Exigence": "Information security responsibilities and duties that remain valid after termination or change of employment should be defined, enforced and communicated to relevant personnel and other interested parties.",
+    "Maturité": 2,
+    "Sous-exigence": "La clause de confidentialité mentionne bien les obligations des salariés après la fin d'un contrat de travail.",
+    "Mesure": "Mentionner les obligations des salariés après la fin d'un contrat de travail dans a clause de confidentialité.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 42,
+    "Exigence": "Information security responsibilities and duties that remain valid after termination or change of employment should be defined, enforced and communicated to relevant personnel and other interested parties.",
+    "Maturité": 3,
+    "Sous-exigence": "Les obligations du salarié sont rappelés par courrier à l'issue de la fin de son contrat de travail.",
+    "Mesure": "Mettre en œuvre un processus pour rappeler systèmatiquement par courrier les obligations du salarié à l'issue de la fin de son contrat de travail.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 42,
+    "Exigence": "Information security responsibilities and duties that remain valid after termination or change of employment should be defined, enforced and communicated to relevant personnel and other interested parties.",
+    "Maturité": 4,
+    "Sous-exigence": "Les obligations des salariés et les rappels des obligations s'appliquent également aux  prestataires externes en régie.",
+    "Mesure": "Mettre en œuvre un processus pour rappeler les obligations des salariés aux prestataires externes en régie.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 43,
+    "Exigence": "Confidentiality or non-disclosure agreements reflecting the organization’s needs for the protection of information should be identified, documented, regularly reviewed and signed by personnel and other relevant interested parties.",
+    "Maturité": 1,
+    "Sous-exigence": "Une clause de confidentialité est présente dans l'ensemble des contrats de travail.",
+    "Mesure": "Ajouter une clause de confidentialité dans l'ensemble des contrats de travail.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 43,
+    "Exigence": "Confidentiality or non-disclosure agreements reflecting the organization’s needs for the protection of information should be identified, documented, regularly reviewed and signed by personnel and other relevant interested parties.",
+    "Maturité": 2,
+    "Sous-exigence": "Un NDA est systèmatiquement signé par l'ensemble des prestataires extérieurs.",
+    "Mesure": "Formaliser un NDA type et s'assurer qu'il soit systèmatiquement signé par l'ensemble des prestataires extérieurs.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 43,
+    "Exigence": "Confidentiality or non-disclosure agreements reflecting the organization’s needs for the protection of information should be identified, documented, regularly reviewed and signed by personnel and other relevant interested parties.",
+    "Maturité": 3,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 43,
+    "Exigence": "Confidentiality or non-disclosure agreements reflecting the organization’s needs for the protection of information should be identified, documented, regularly reviewed and signed by personnel and other relevant interested parties.",
+    "Maturité": 4,
+    "Sous-exigence": "Un PV de destruction signé est systèmatiquement demandé au prestataires extérieurs à la fin du contrat.",
+    "Mesure": "Formaliser un PV de destruction type et s'assurer qu'il soit signé par les prestataires extérieurs à la fin du contrat.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 45,
+    "Exigence": "The organization should provide a mechanism for personnel to report observed or suspected information security events through appropriate channels in a timely manner.",
+    "Maturité": 1,
+    "Sous-exigence": "Un processus est formalisé et communiqué aux utilisateurs pour remonter les alertes de sécurité.",
+    "Mesure": "Formaliser et communiquer un processus aux utilisateurs pour remonter les alertes de sécurité.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 45,
+    "Exigence": "The organization should provide a mechanism for personnel to report observed or suspected information security events through appropriate channels in a timely manner.",
+    "Maturité": 2,
+    "Sous-exigence": "2 canaux sont mis en œuvre afin de permettre la remontée des incidents de sécurité.",
+    "Mesure": "Mettre en œuvre 2 canaux afin de permettre la remontée des incidents de sécurité par les utilisateurs. (Email, outil de ticketing, téléphone…)",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 45,
+    "Exigence": "The organization should provide a mechanism for personnel to report observed or suspected information security events through appropriate channels in a timely manner.",
+    "Maturité": 3,
+    "Sous-exigence": "Un canal est mis en œuvre pour permettre aux fournisseurs de remonter les alertes de sécurité.",
+    "Mesure": "Mettre en œuvre un canaux afin de permettre la remontée des incidents de sécurité pour les fournisseurs. (Email, outil de ticketing, téléphone…)",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 45,
+    "Exigence": "The organization should provide a mechanism for personnel to report observed or suspected information security events through appropriate channels in a timely manner.",
+    "Maturité": 4,
+    "Sous-exigence": "'Toute alerte de sécurité est analysée, tracée et catégorisée. Un reporting global avec des indicateurs est mis en œuvre.",
+    "Mesure": "Tracer toutes les alertes de sécurité dans un outil de ticketing. Chaque alertes doit être analysée et catégorisée. Mettre en œuvre un reporting global avec des indicateurs.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 56,
+    "Exigence": "Information processing facilities should be protected from power failures and other disruptions caused by failures in supporting utilities.",
+    "Maturité": 1,
+    "Sous-exigence": "Les maintenances électriques et la maintenance des équipements de climatisation sont effectuées régulièrement.",
+    "Mesure": "Mettre en œuvre un contrat de maintenance régulier pour les installations électriques et de climatisation.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 56,
+    "Exigence": "Information processing facilities should be protected from power failures and other disruptions caused by failures in supporting utilities.",
+    "Maturité": 2,
+    "Sous-exigence": "Les arrivées électriques sont redondées et des onduleurs sont déployés",
+    "Mesure": "Redonder les arrivées électriques sur chaque équipement et déployer des onduleurs.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 56,
+    "Exigence": "Information processing facilities should be protected from power failures and other disruptions caused by failures in supporting utilities.",
+    "Maturité": 3,
+    "Sous-exigence": "Une arrivée électrique de secours est mise en œuvre.",
+    "Mesure": "Mettre en œuvre des générateurs de secours en cas de coupure compléte de l'alimentation électrique.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 56,
+    "Exigence": "Information processing facilities should be protected from power failures and other disruptions caused by failures in supporting utilities.",
+    "Maturité": 4,
+    "Sous-exigence": "Des alarmes avec une intervention 24/7 est mise en œuvre en cas pour alerte.",
+    "Mesure": "Déployer un système d'alarme 24/7 avec une astreinte pour internvenir en cas d'alerte.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 57,
+    "Exigence": "Cables carrying power, data or supporting information services should be protected from interception, interference or damage.",
+    "Maturité": 1,
+    "Sous-exigence": "L'ensemble des cables sont identifiés et les cables sont protégés contre les interférences électromagnétiques",
+    "Mesure": "Marquer l'ensemble des cables pour les identifier. Utiliser uniquement des cables Ethernet protégés contre les interférences électromagnétiques ou des fibres optiques.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 57,
+    "Exigence": "Cables carrying power, data or supporting information services should be protected from interception, interference or damage.",
+    "Maturité": 2,
+    "Sous-exigence": "L'ensemble du cablage entre les baies, entre les salles et entre les datacenter est sécurisé.",
+    "Mesure": "Protéger l'ensembles des cables d'interconnexion. (Baie, salles, locaux techniques et datacenter)",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 57,
+    "Exigence": "Cables carrying power, data or supporting information services should be protected from interception, interference or damage.",
+    "Maturité": 3,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 57,
+    "Exigence": "Cables carrying power, data or supporting information services should be protected from interception, interference or damage.",
+    "Maturité": 4,
+    "Sous-exigence": "L'accès aux baies contenant des équipements sensibles est protégé. (clés, code PIN…)",
+    "Mesure": "Protéger l'accès aux baies sensibles par une fermeture sécurisée. (Clés, code PIN…)",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 61,
+    "Exigence": "The allocation and use of privileged access rights should be restricted and managed.",
+    "Maturité": 1,
+    "Sous-exigence": "Un outil est mis en œuvre pour tracer les demandes d'accès à privilèges des administrateurs et des comptes de services. Ces comptes sont obligatoirement différents des comptes utilisateurs. L'utilisation des comptes génériques est interdites.",
+    "Mesure": "Déployer un outil permettant de faire les demandes d'accès à privilèges avec un workflow de validation. Interdire les comptes génériques et les comptes utilisateurs pour les accès à privilèges.",
+    "Aide au choix technologique": "GLPI, Sailpoint, ServiceNow",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 61,
+    "Exigence": "The allocation and use of privileged access rights should be restricted and managed.",
+    "Maturité": 2,
+    "Sous-exigence": "Des revues annuelles des comptes à privilège sont formalisées.",
+    "Mesure": "Rédiger un processus de revues annuelles des accès à privilèges et vérifier son application.Contrôler l'application une première occurrence.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 61,
+    "Exigence": "The allocation and use of privileged access rights should be restricted and managed.",
+    "Maturité": 3,
+    "Sous-exigence": "Un bastion avec authentification forte est mise en œuvre pour tous les accès à privilège. (internes et maintenance externe) L'ensemble des actions d'administration sont tracées.",
+    "Mesure": "Déployer une solution bastion avec authentification à double facteur pour les accès à privilèges. Supprimer les accès directs.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 61,
+    "Exigence": "The allocation and use of privileged access rights should be restricted and managed.",
+    "Maturité": 4,
+    "Sous-exigence": "Les accès à privilèges pour les télé-maintenances externes sont nominatifs et sont donnés temporairement, sur demande.",
+    "Mesure": "Mettre en œuvre un processus d'autorisation temporaire pour activer les accès de télémaintenances externes.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 66,
+    "Exigence": "Protection against malware should be implemented and supported by appropriate user awareness.",
+    "Maturité": 1,
+    "Sous-exigence": "Un anti-virus est installé sur 100% des postes de travail Windows et au moins 70% des serveurs",
+    "Mesure": "Installer un anti-virus sur au moins 70% des postes de travail",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 66,
+    "Exigence": "Protection against malware should be implemented and supported by appropriate user awareness.",
+    "Maturité": 2,
+    "Sous-exigence": "Un anti-virus est installé sur 100% du domaine Windows, avec màj automatique, et à fréquence à minima hebdomadaire",
+    "Mesure": "Installer un anti-virus sur au moins 80% des postes de travail, avec màj automatique, et à fréquence à minima hebdomadaire avec vérification régulière des alertes.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 66,
+    "Exigence": "Protection against malware should be implemented and supported by appropriate user awareness.",
+    "Maturité": 3,
+    "Sous-exigence": "Un EDR est déployé sur au moins 80% du parc de postes et serveurs",
+    "Mesure": "Installer un EDR sur au moins 80% des postes de travail avec un support SOC",
+    "Aide au choix technologique": "F-secure EDR\nMcAfee MVISION EDR&EPP\nPalo Alto Cortex XDR\nTEHTRIS EDR",
+    "Aide au chiffrage": "10 JH / projet + 0,05 JH / poste\n100-499 : 40 € HT /poste\n500-999 :  36 € HT / poste\n1000-1999 : 32 €  HT /poste\nFormation :"
+  },
+  {
+    "Réf Exigence": 66,
+    "Exigence": "Protection against malware should be implemented and supported by appropriate user awareness.",
+    "Maturité": 4,
+    "Sous-exigence": "Un EDR est déployé sur 100% du parc de postes et serveurs",
+    "Mesure": "Installer un EDR sur l'intégralité des postes de travail des postes de travail avec un support SOC",
+    "Aide au choix technologique": "F-secure EDR\nMcAfee MVISION EDR&EPP\nPalo Alto Cortex XDR\nTEHTRIS EDR",
+    "Aide au chiffrage": "10 JH / projet + 0,05 JH / poste\n100-499 : 40 € HT /poste\n500-999 :  36 € HT / poste\n1000-1999 : 32 €  HT /poste\nFormation :"
+  },
+  {
+    "Réf Exigence": 67,
+    "Exigence": "Information about technical vulnerabilities of information systems in use should be obtained, the organization’s exposure to such vulnerabilities should be evaluated and appropriate measures should be taken.",
+    "Maturité": 1,
+    "Sous-exigence": "Les OS (serveurs et postes de travail) sont mis à jour mensuellement.",
+    "Mesure": "Mettre en œuvre un processus de mise à jour et de suivi des correctifs des OS. Un tableau de bord doit montrer que l'ensemble des OS sont effectivement patchés.",
+    "Aide au choix technologique": "WSUS\nSolarWinds - Patch Manager",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 67,
+    "Exigence": "Information about technical vulnerabilities of information systems in use should be obtained, the organization’s exposure to such vulnerabilities should be evaluated and appropriate measures should be taken.",
+    "Maturité": 2,
+    "Sous-exigence": "Un processus de veille est mis en œuvre pour détecter les vulnérabilités les plus critiques.",
+    "Mesure": "Mettre en œuvre un processus de mise à jour et de suivi des correctifs des OS. Isoler les OS obsolètes, ou qui ne peuvent pas être mis à jour.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 67,
+    "Exigence": "Information about technical vulnerabilities of information systems in use should be obtained, the organization’s exposure to such vulnerabilities should be evaluated and appropriate measures should be taken.",
+    "Maturité": 3,
+    "Sous-exigence": "Les logiciels, les applications et le middleware sont mis à jour dans un délais définie par une politique en cas de vulnérabilité critiques.",
+    "Mesure": "Mettre en œuvre un processus de mise à jour et de suivi des correctifs critiques pour les applications, logiciels et middlewares.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 67,
+    "Exigence": "Information about technical vulnerabilities of information systems in use should be obtained, the organization’s exposure to such vulnerabilities should be evaluated and appropriate measures should be taken.",
+    "Maturité": 4,
+    "Sous-exigence": "Un scanner de vulnérabilité interne est déployée. Celui-ci est synchronisé avec l'inventaire centralisé des actifs.",
+    "Mesure": "Déployer un scanner de vulnérabilité. Synchroniser la base des actifs à scanner avec l'inventaire centralisé.",
+    "Aide au choix technologique": "Nessus\nOpenVAS (Greeenbone)",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 68,
+    "Exigence": "Configurations, including security configurations, of hardware, software, services and networks should be established, documented, implemented, monitored and reviewed.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 68,
+    "Exigence": "Configurations, including security configurations, of hardware, software, services and networks should be established, documented, implemented, monitored and reviewed.",
+    "Maturité": 2,
+    "Sous-exigence": "Les OS (serveurs et postes de travail) sont durcis en fonction des bonnes pratiques de sécurité. Des masters standardisés sont créées.",
+    "Mesure": "Créer et utiliser des images de masters durcies pour le déploiement d'OS. (la désactivation des services inutiles, la limitation des applications installées, la configuration d’un pare-feu/AV/HIPS, la limitation des accès aux ports d’administration, gestion des journaux ...)",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 68,
+    "Exigence": "Configurations, including security configurations, of hardware, software, services and networks should be established, documented, implemented, monitored and reviewed.",
+    "Maturité": 3,
+    "Sous-exigence": "Des templates de configuration sont définis pour les actifs les plus critiques (OS, middleware critiques …)",
+    "Mesure": "Crééer des référentiels de configurations pour l'ensemble des OS utilisées.",
+    "Aide au choix technologique": "CIS20",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 68,
+    "Exigence": "Configurations, including security configurations, of hardware, software, services and networks should be established, documented, implemented, monitored and reviewed.",
+    "Maturité": 4,
+    "Sous-exigence": "Un scanner de configuration interne est déployé pour détecter les non-conformités. Celui-ci est synchronisé avec l'inventaire centralisé des actifs et se base sur les templates de configuration définis.",
+    "Mesure": "Déployer un scanner de configuration. Synchroniser la base des actifs à scanner avec l'inventaire centralisé.",
+    "Aide au choix technologique": "Nessus",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 69,
+    "Exigence": "Information stored in information systems, devices or in any other storage media should be deleted when no longer required.",
+    "Maturité": 1,
+    "Sous-exigence": "Les disques mis au rebut sont systèmatiquement effacés de façon irréversible.",
+    "Mesure": "Rédiger un processus d'effacement des disques systématique avant mise au rebut. Contrôler l'application.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 69,
+    "Exigence": "Information stored in information systems, devices or in any other storage media should be deleted when no longer required.",
+    "Maturité": 2,
+    "Sous-exigence": "Des PV de destruction sont formalisés pour chaque disque mis au rebut.",
+    "Mesure": "Formaliser la destruction d'un disque par un PV de destruction.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 69,
+    "Exigence": "Information stored in information systems, devices or in any other storage media should be deleted when no longer required.",
+    "Maturité": 3,
+    "Sous-exigence": "Des outils sont déployés pour supprimer automatiquement les données après une période définie.",
+    "Mesure": "Déployer une solution pour supprimer automatiquement les données après une période définie (Notammaent les DCP : cf GDPR)",
+    "Aide au choix technologique": "Varonis",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 69,
+    "Exigence": "Information stored in information systems, devices or in any other storage media should be deleted when no longer required.",
+    "Maturité": 4,
+    "Sous-exigence": "Une GED est mise en œuvre pour gérer les versions des documents et supprimer automatiquement les versions anciennes.",
+    "Mesure": "Déployer une GED documentaire capable de gérer les versions et supprimer les versions des documents des plus anciennes.",
+    "Aide au choix technologique": "Norméa",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 70,
+    "Exigence": "Data masking should be used in accordance with the organization’s topic-specific policy on access control and other related topic-specific policies, and business requirements, taking applicable legislation into consideration.",
+    "Maturité": 1,
+    "Sous-exigence": "Le masquage des données est défini dans des politiques spécifiques ou dans la politique de contrôle d'accès.",
+    "Mesure": "Rédiger des politiques spécifiques ou ajouter le masquage des données dans la politique de contrôle d'accès.",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": "ERWANN"
+  },
+  {
+    "Réf Exigence": 70,
+    "Exigence": "Data masking should be used in accordance with the organization’s topic-specific policy on access control and other related topic-specific policies, and business requirements, taking applicable legislation into consideration.",
+    "Maturité": 2,
+    "Sous-exigence": "Les données personnelles sont gérées pour être en conformité avec la législation.",
+    "Mesure": "Les données personnelles doivent être gérées pour être en conformité avec la législation.",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 70,
+    "Exigence": "Data masking should be used in accordance with the organization’s topic-specific policy on access control and other related topic-specific policies, and business requirements, taking applicable legislation into consideration.",
+    "Maturité": 3,
+    "Sous-exigence": "Les données sensibles doivent être obfusquées à l'aide de technique comme le data masking, l'anonymisation ou la pseudonymisation pour être en conformité avec la législation.",
+    "Mesure": "Les données sensibles doivent être obfusquées à l'aide de technique comme le data masking, l'anonymisation ou la pseudonymisation pour être en conformité avec la législation.",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 70,
+    "Exigence": "Data masking should be used in accordance with the organization’s topic-specific policy on access control and other related topic-specific policies, and business requirements, taking applicable legislation into consideration.",
+    "Maturité": 4,
+    "Sous-exigence": "Un process de contrôle vérifie que les données sensibles sont correctement masquées",
+    "Mesure": "Contrôler que les données sensibles sont correctement masquées",
+    "Aide au choix technologique": "N/A",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 71,
+    "Exigence": "Data leakage prevention measures should be applied to systems, networks and any other devices that process, store or transmit sensitive information.",
+    "Maturité": 1,
+    "Sous-exigence": "Les données à protéger en cas de fuites de données sont identifiées",
+    "Mesure": "Identifier les données à protéger en cas de fuites de données",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 71,
+    "Exigence": "Data leakage prevention measures should be applied to systems, networks and any other devices that process, store or transmit sensitive information.",
+    "Maturité": 2,
+    "Sous-exigence": "Les données à protéger en cas de fuites de données sont classifiées",
+    "Mesure": "Classifier les données à protéger en cas de fuites de données",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 71,
+    "Exigence": "Data leakage prevention measures should be applied to systems, networks and any other devices that process, store or transmit sensitive information.",
+    "Maturité": 3,
+    "Sous-exigence": "Les canaux de transmissions où de potentiels de fuites de données peuvent arriver sont contrôlés (emails, services de transfert de fichiers, supports amovibles, téléphones, ordinateurs portables, etc.)",
+    "Mesure": "Contrôler les canaux de transmissions de potentiels de fuites de données (emails, services de transfert de fichiers, supports amovibles, téléphones, ordinateurs portables, etc.)",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 71,
+    "Exigence": "Data leakage prevention measures should be applied to systems, networks and any other devices that process, store or transmit sensitive information.",
+    "Maturité": 4,
+    "Sous-exigence": "Des moyens de prévention contre la fuite de données  sont mis en place (quarantaine d'emails envoyant des données sensibles ou de gros volumes, blocage de l'envoi de données vers des services tiers non fiables, etc.)",
+    "Mesure": "Mettre en place des moyens de prévention contre la fuite de données (quarantaine d'emails envoyant des données sensibles ou de gros volumes, blocage de l'envoi de données vers des services tiers non fiables, etc.)",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 72,
+    "Exigence": "Backup copies of information, software and systems should be maintained and regularly tested in accordance with the agreed topic-specific policy on backup",
+    "Maturité": 1,
+    "Sous-exigence": "Une politique de sauvegarde avec un plan de sauvegarde a été créée",
+    "Mesure": "Rédiger une politique de sauvegarde avec un plan de sauvegarde",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 72,
+    "Exigence": "Backup copies of information, software and systems should be maintained and regularly tested in accordance with the agreed topic-specific policy on backup",
+    "Maturité": 2,
+    "Sous-exigence": "Une infrastructure de sauvegarde adéquate pour répondre aux besoins précisés dans la politique de sauvegarde a été mise en place",
+    "Mesure": "Mettre en place une infrastructure de sauvegarde adéquate pour répondre aux besoins précisés dans la politique de sauvegarde",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 72,
+    "Exigence": "Backup copies of information, software and systems should be maintained and regularly tested in accordance with the agreed topic-specific policy on backup",
+    "Maturité": 3,
+    "Sous-exigence": "La restauration des sauvegardes est testée régulièrement",
+    "Mesure": "Tester régulièrement la restauration de vos sauvegardes.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 72,
+    "Exigence": "Backup copies of information, software and systems should be maintained and regularly tested in accordance with the agreed topic-specific policy on backup",
+    "Maturité": 4,
+    "Sous-exigence": "Un système d'alerte si des données ont été perdues avant de faire la prochaine sauvegarde est déployé",
+    "Mesure": "Mettre en place des moyens pour se rendre compte si des données ont été perdues avant de faire la prochaine sauvegarde.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 73,
+    "Exigence": "Information processing facilities should be implemented with redundancy sufficient to meet availability requirements.",
+    "Maturité": 1,
+    "Sous-exigence": "Les besoins de disponibilité du système d'information et des prestations de l'entreprise ont été identifiés",
+    "Mesure": "Identifier les besoins de disponibilité du système d'information et des prestations de l'entreprise",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 73,
+    "Exigence": "Information processing facilities should be implemented with redundancy sufficient to meet availability requirements.",
+    "Maturité": 2,
+    "Sous-exigence": "Une architecture du système d'information permettant de répondre aux besoins de disponibilité définis a été mise en place",
+    "Mesure": "Mettre en œuvre une architecture du système d'information permettant de répondre aux besoins de disponibilité définis.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 73,
+    "Exigence": "Information processing facilities should be implemented with redundancy sufficient to meet availability requirements.",
+    "Maturité": 3,
+    "Sous-exigence": "L'activation des composants de redondances est planifiée. Un mécanisme d'alerte et de réponse en cas de dysfonctionnement et une procédure d'urgence pour maintenir la disponibilité ont été documentés",
+    "Mesure": "Planifier et procédurer l'activation des composants de redondances, un mécanisme d'alerte et de réponse en cas de dysfonctionnement et une procédure d'urgence pour maintenir la disponibilité",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 73,
+    "Exigence": "Information processing facilities should be implemented with redundancy sufficient to meet availability requirements.",
+    "Maturité": 4,
+    "Sous-exigence": "Les systèmes redondants sont testés régulièrement sur les périmètres où cela est possible  pour s'assurer que les dysfonctionnements en production sont mitigés",
+    "Mesure": "Tester régulièrement sur les périmètres où cela est possible les systèmes redondants pour s'assurer que les dysfonctionnements en production sont mitigés",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 74,
+    "Exigence": "Logs that record activities, exceptions, faults and other relevant events should be produced, stored, protected and analysed.",
+    "Maturité": 1,
+    "Sous-exigence": "Les logs des équipements les plus sensibles de votre système d'information (réseaux, serveurs, équipements industriels, etc..) sont générés et stockés",
+    "Mesure": "Générer et stocker les logs des équipements les plus sensibles de votre système d'information (réseaux, serveurs, équipements industriels, etc..)",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 74,
+    "Exigence": "Logs that record activities, exceptions, faults and other relevant events should be produced, stored, protected and analysed.",
+    "Maturité": 2,
+    "Sous-exigence": "Les logs sur les équipements de votre système d'information (réseaux, serveurs, équipements industriels, etc..) sont générés et stockés",
+    "Mesure": "Générer et stocker les logs sur les équipements de votre système d'information (réseaux, serveurs, équipements industriels, etc..)",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 74,
+    "Exigence": "Logs that record activities, exceptions, faults and other relevant events should be produced, stored, protected and analysed.",
+    "Maturité": 3,
+    "Sous-exigence": "Les logs sont protégés de la suppression ou de la modification (même par les administrateurs).",
+    "Mesure": "Protéger les logs de la suppression ou de la modification (même par les administrateurs).",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 74,
+    "Exigence": "Logs that record activities, exceptions, faults and other relevant events should be produced, stored, protected and analysed.",
+    "Maturité": 4,
+    "Sous-exigence": "Les logs sont analysés et interprétés par des événements de sécurité pour déterminer les activités inhabituelles et celles pouvant indiquer une compromission.",
+    "Mesure": "Analyser les logs et interpréter les événements de sécurité pour déterminer les activités inhabituelles et celles pouvant indiquer une compromission.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 75,
+    "Exigence": "Networks, systems and applications should be monitored for anomalous behaviour and appropriate actions taken to evaluate potential information security incidents.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 75,
+    "Exigence": "Networks, systems and applications should be monitored for anomalous behaviour and appropriate actions taken to evaluate potential information security incidents.",
+    "Maturité": 2,
+    "Sous-exigence": "Le périmètre et le niveau de surveillance sont définis en fonction des politiques de sécurité et des régulations pour les réseaux, les applications et les systèmes",
+    "Mesure": "Déterminer le périmètre et le niveau de surveillance en fonction des politiques de sécurité et des régulations pour les réseaux, les applications et les systèmes",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 75,
+    "Exigence": "Networks, systems and applications should be monitored for anomalous behaviour and appropriate actions taken to evaluate potential information security incidents.",
+    "Maturité": 3,
+    "Sous-exigence": "Des moyens de détection des comportements anormaux et des incidents pour les réseaux, les applications et les systèmes sensibles sont mis en œuvre",
+    "Mesure": "Mettre en place des moyens de détection des comportements anormaux et des incidents pour les réseaux, les applications et les systèmes sensibles",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 75,
+    "Exigence": "Networks, systems and applications should be monitored for anomalous behaviour and appropriate actions taken to evaluate potential information security incidents.",
+    "Maturité": 4,
+    "Sous-exigence": "Des moyens de détection des comportements anormaux et des incidents pour les réseaux, les applications et les systèmes sont mis en œuvre",
+    "Mesure": "Mettre en place des moyens de détection des comportements anormaux et des incidents pour les réseaux, les applications et les systèmes",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 76,
+    "Exigence": "The clocks of information processing systems used by the organization should be synchronized to approved time sources.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 76,
+    "Exigence": "The clocks of information processing systems used by the organization should be synchronized to approved time sources.",
+    "Maturité": 2,
+    "Sous-exigence": "Le processus et les configurations de la synchronisation des horloges en fonction des besoins et de la législation sont documentés",
+    "Mesure": "Documenter le processus et les configurations de la synchronisation des horloges en fonction des besoins et de la législation",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 76,
+    "Exigence": "The clocks of information processing systems used by the organization should be synchronized to approved time sources.",
+    "Maturité": 3,
+    "Sous-exigence": "Les horloges des systèmes sont synchronisées grâce à des sources de temps fiables",
+    "Mesure": "Synchroniser les horloges internes des systèmes grâce à des sources de temps fiables",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 76,
+    "Exigence": "The clocks of information processing systems used by the organization should be synchronized to approved time sources.",
+    "Maturité": 4,
+    "Sous-exigence": "Une seconde source fiable est utilisée pour synchroniser l'horloge des systèmes en cas de dysfonctionnement de la source principale",
+    "Mesure": "Utiliser une seconde source fiable pour synchroniser l'horloge des systèmes en cas de dysfonctionnement de la source principale",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 77,
+    "Exigence": "The use of utility programs that can be capable of overriding system and application controls should be restricted and tightly controlled.",
+    "Maturité": 1,
+    "Sous-exigence": "Une politique existe pour la restriction de l'utilisation de programmes capables d'outrepasser les contrôles des applications et du système (antivirus, degradmenteur de disque, logiciel de sauvegarde, de mise à jour, de diagnostiques, etc.)",
+    "Mesure": "Rédiger une politique sur la restriction de l'utilisation de programmes capables d'outrepasser les contrôles des applications et du système",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 77,
+    "Exigence": "The use of utility programs that can be capable of overriding system and application controls should be restricted and tightly controlled.",
+    "Maturité": 2,
+    "Sous-exigence": "La politique sur la restriction de l'utilisation de programmes capables d'outrepasser les contrôles des applications et du système est mise en œuvre",
+    "Mesure": "Mettre en œuvre la politique sur la restriction de l'utilisation de programmes capables d'outrepasser les contrôles des applications et du système",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 77,
+    "Exigence": "The use of utility programs that can be capable of overriding system and application controls should be restricted and tightly controlled.",
+    "Maturité": 3,
+    "Sous-exigence": "La mise en œuvre de la politique de restriction de l'utilisation de programmes capables d'outrepasser les contrôles des applications et du système est contrôlée",
+    "Mesure": "Contrôler la mise en œuvre de la politique de restriction de l'utilisation de programmes capables d'outrepasser les contrôles des applications et du système",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 77,
+    "Exigence": "The use of utility programs that can be capable of overriding system and application controls should be restricted and tightly controlled.",
+    "Maturité": 4,
+    "Sous-exigence": "Les autorisations continues des programmes capables d'outrepasser les contrôles des applications et du système sont suivies et maîtrisées",
+    "Mesure": "Faire le suivi et maîtriser les autorisations de manière continue des programmes capables d'outrepasser les contrôles des applications et du système",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 78,
+    "Exigence": "Procedures and measures should be implemented to securely manage software installation on operational systems.",
+    "Maturité": 1,
+    "Sous-exigence": "Des procédures et des mesures pour gérer l'installation des logiciels (responsabilités, logiciels autorisés, limite de temps pour mettre à jour un logiciel, etc.) sont définies",
+    "Mesure": "Définir des procédures et des mesures pour gérer l'installation des logiciels",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 78,
+    "Exigence": "Procedures and measures should be implemented to securely manage software installation on operational systems.",
+    "Maturité": 2,
+    "Sous-exigence": "Les procédures et les mesures sont appliquées par des employés qualifiés (administrateurs, mainteneurs)",
+    "Mesure": "Faire appliquer les procédures et les mesures définies par des employés qualifiés",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 78,
+    "Exigence": "Procedures and measures should be implemented to securely manage software installation on operational systems.",
+    "Maturité": 3,
+    "Sous-exigence": "Les mises à jour sont appliquées uniquement après des tests approfondis qui ont été concluants et une analyse des besoins de l'entreprise et de la sécurité de la version avec la possibilité de faire un rollback de version",
+    "Mesure": "Faire appliquer les mises à jour uniquement après des tests approfondis qui ont été concluants ainsi qu'une analyse des besoins de l'entreprise et de la sécurité de la version et prévoir un processus de rollback de version",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 78,
+    "Exigence": "Procedures and measures should be implemented to securely manage software installation on operational systems.",
+    "Maturité": 4,
+    "Sous-exigence": "Les logs de mises à jour, les procédures et les anciennes versions des logiciels avec leurs configurations sont archivés",
+    "Mesure": "Archiver les logs de mises à jour, les procédures et les anciennes versions des logiciels avec leurs configurations",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 79,
+    "Exigence": "Networks and network devices should be secured, managed and controlled to protect information in systems and applications.",
+    "Maturité": 1,
+    "Sous-exigence": "Une documentation du réseau comportant les fichiers de configuration et les schémas des réseaux est maintenu à jour et les responsabilités et les procédures de gestion de ces actifs on été définis",
+    "Mesure": "Maintenir à jour une documentation de son réseau comportant les fichiers de configuration et les schémas des réseaux et définir les responsabilités et les procédures de gestion de ces actifs",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 79,
+    "Exigence": "Networks and network devices should be secured, managed and controlled to protect information in systems and applications.",
+    "Maturité": 2,
+    "Sous-exigence": "Les équipements réseau sont protégés contre les accès non autorisés, leurs configurations sont durcies et l'utilisation de protocoles non sécurisés n'est pas autorisée",
+    "Mesure": "Protéger les équipements réseau contre les accès non autorisés, durcir leurs configurations et bloquer l'utilisation de protocoles non sécurisés",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 79,
+    "Exigence": "Networks and network devices should be secured, managed and controlled to protect information in systems and applications.",
+    "Maturité": 3,
+    "Sous-exigence": "Des logs sont collectés, les activités qui peuvent avoir un impact sur la sécurité sont surveillées et des contrôles pour préserver la confidentialité et l'intégrité des données passant par des réseaux publics ont été établis",
+    "Mesure": "Collecter des logs, surveiller les activités qui peuvent avoir un impact sur la sécurité et établir des contrôles pour préserver la confidentialité et l'intégrité des données passant par des réseaux publics",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 79,
+    "Exigence": "Networks and network devices should be secured, managed and controlled to protect information in systems and applications.",
+    "Maturité": 4,
+    "Sous-exigence": "Les activités de la gestion du réseau pour l'optimiser sont coordonnées et des contrôles standardisés sont réalisés à travers le système d'information",
+    "Mesure": "Coordonner les activités de la gestion du réseau pour l'optimiser et réaliser des contrôles standardisés à travers le système d'information",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 80,
+    "Exigence": "Security mechanisms, service levels and service requirements of network services should be identified, implemented and monitored.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 80,
+    "Exigence": "Security mechanisms, service levels and service requirements of network services should be identified, implemented and monitored.",
+    "Maturité": 2,
+    "Sous-exigence": "Les mécanismes, les exigences et les niveaux de services pour la sécurité des réseaux sont définis",
+    "Mesure": "Définir les mécanismes, les exigences et les niveaux de services pour la sécurité des réseaux.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 80,
+    "Exigence": "Security mechanisms, service levels and service requirements of network services should be identified, implemented and monitored.",
+    "Maturité": 3,
+    "Sous-exigence": "Les mesures de sécurité sont mises en œuvre par les fournisseurs (interne ou externe) de services réseau",
+    "Mesure": "Les mesures de sécurité doivent être mises en œuvre par les fournisseurs (interne ou externe) de services réseau",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 80,
+    "Exigence": "Security mechanisms, service levels and service requirements of network services should be identified, implemented and monitored.",
+    "Maturité": 4,
+    "Sous-exigence": "La mise en œuvre de la sécurité par le fournisseur (interne ou externe) de services réseau est contrôlée régulièrement (en prévoyant une clause contractuelle à ce sujet avec le fournisseur s'il est externe)",
+    "Mesure": "Contrôler régulièrement la mise en œuvre de la sécurité par le fournisseur (interne ou externe) de services réseau (en prévoyant une clause contractuelle à ce sujet avec le fournisseur s'il est externe)",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 81,
+    "Exigence": "Groups of information services, users and information systems should be segregated in the organization’s networks.",
+    "Maturité": 1,
+    "Sous-exigence": "Définir des critères et une politique de ségrégation du réseau en plusieurs sous-réseaux (par criticité, par services, etc.), physiques ou logiques et les règles de filtrage entre les sous-réseaux",
+    "Mesure": "Définir des critères et une politique de ségrégation du réseau en plusieurs sous-réseaux (par criticité, par services, etc.), physiques ou logiques et les règles de filtrage entre les sous-réseaux",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 81,
+    "Exigence": "Groups of information services, users and information systems should be segregated in the organization’s networks.",
+    "Maturité": 2,
+    "Sous-exigence": "Il y a une ségrégation des réseaux",
+    "Mesure": "Mettre en œuvre la ségrégation des réseaux",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 81,
+    "Exigence": "Groups of information services, users and information systems should be segregated in the organization’s networks.",
+    "Maturité": 3,
+    "Sous-exigence": "La possibilité de ségréguer les réseaux wifi comme des accès externes dans les environnements sensibles a été étudiée",
+    "Mesure": "Etudier la possibilité de ségréguer les réseaux wifi comme des accès externes dans les environnements sensibles",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 81,
+    "Exigence": "Groups of information services, users and information systems should be segregated in the organization’s networks.",
+    "Maturité": 4,
+    "Sous-exigence": "La mise en œuvre de la ségrégation des réseaux est contrôlée",
+    "Mesure": "Contrôler la mise en œuvre de la ségrégation des réseaux",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 82,
+    "Exigence": "Access to external websites should be managed to reduce exposure to malicious content.",
+    "Maturité": 1,
+    "Sous-exigence": "Les règles de bonnes pratiques pour l'utilisation de ressources en ligne sont définies et maintenues à jour",
+    "Mesure": "Définir et maintenir à jour les règles de bonnes pratiques pour l'utilisation de ressources en ligne",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 82,
+    "Exigence": "Access to external websites should be managed to reduce exposure to malicious content.",
+    "Maturité": 2,
+    "Sous-exigence": "Des formations sont dispensées aux collaborateurs pour un usage sécurisé des ressources en ligne.",
+    "Mesure": "Dispenser des formations aux collaborateurs pour un usage sécurisé des ressources en ligne.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 82,
+    "Exigence": "Access to external websites should be managed to reduce exposure to malicious content.",
+    "Maturité": 3,
+    "Sous-exigence": "Des règles de filtrage pour le blocage des sites de phishing et des sites avec des informations illégales ou des virus sont définies et maintenues à jour",
+    "Mesure": "Définir et maintenir à jour des règles de filtrage pour le blocage des sites de phishing et des sites avec des informations illégales ou des virus.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 82,
+    "Exigence": "Access to external websites should be managed to reduce exposure to malicious content.",
+    "Maturité": 4,
+    "Sous-exigence": "Les règles de filtrage sont mises en place pour le blocage des sites de phishing et des sites avec des informations illégales ou des virus",
+    "Mesure": "Mettre en place les règles de filtrage pour le blocage des sites de phishing et des sites avec des informations illégales ou des virus.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 83,
+    "Exigence": "Rules for the effective use of cryptography, including cryptographic key management, should be defined and implemented.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 83,
+    "Exigence": "Rules for the effective use of cryptography, including cryptographic key management, should be defined and implemented.",
+    "Maturité": 2,
+    "Sous-exigence": "Les rôles et les responsabilités quant à la gestion des clés et l'implémentation des règles pour les usages cryptographiques sont définis.",
+    "Mesure": "Définir les rôles et les responsabilités quant à la gestion des clés et l'implémentation des règles pour les usages cryptographiques",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 83,
+    "Exigence": "Rules for the effective use of cryptography, including cryptographic key management, should be defined and implemented.",
+    "Maturité": 3,
+    "Sous-exigence": "Une politique pour l'utilisation de la cryptographie et la gestion des clés est définie",
+    "Mesure": "Définir une politique pour l'utilisation de la cryptographie et la gestion des clés",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 83,
+    "Exigence": "Rules for the effective use of cryptography, including cryptographic key management, should be defined and implemented.",
+    "Maturité": 4,
+    "Sous-exigence": "La politique d'utilisation de la cryptographie et de la gestion des clés est mise en œuvre en tenant compte de la législation et les contraintes contractuelles",
+    "Mesure": "Mettre en œuvre la politique d'utilisation de la cryptographie et de la gestion des clés en tenant compte de la législation et les contraintes contractuelles",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 84,
+    "Exigence": "Rules for the secure development of software and systems should be established and applied.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 84,
+    "Exigence": "Rules for the secure development of software and systems should be established and applied.",
+    "Maturité": 2,
+    "Sous-exigence": "Une politique est définie pour le développement de services, d'architecture, de logiciels et de systèmes sécurisés",
+    "Mesure": "Définir une politique de développement de services, d'architecture, de logiciels et de systèmes sécurisés",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 84,
+    "Exigence": "Rules for the secure development of software and systems should be established and applied.",
+    "Maturité": 3,
+    "Sous-exigence": "La politique de développement sécurisé est appliquée tout au long du cycle de développement des produits",
+    "Mesure": "Appliquer la politique de développement sécurisé tout au long du cycle de développement des produits",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 84,
+    "Exigence": "Rules for the secure development of software and systems should be established and applied.",
+    "Maturité": 4,
+    "Sous-exigence": "L'application de la politique de développement sécurisé est contrôlée. En cas d'externalisation, mettre en place des clauses pour s'assurer de la mise en œuvre de l'application de la politique.",
+    "Mesure": "Contrôler l'application de la politique de développement sécurisé. En cas d'externalisation, mettre en place des clauses pour s'assurer de la mise en œuvre de l'application de la politique.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 85,
+    "Exigence": "Information security requirements should be identified, specified and approved when developing or\nacquiring applications.",
+    "Maturité": 1,
+    "Sous-exigence": "Une identification et une définition des exigences de sécurité traitant des sujets suivants est faite pour les applications : IAM, résilience face aux vulnérabilités communes (injection sql, buffer overflow, XSS, CSRF), contraintes législatives sur le traitement et le stockage des données, le chiffrement, la confidentialité et l'intégrité des données transmises et traitées, etc.",
+    "Mesure": "Identifier et définir les exigences de sécurité pour les applications : IAM, résilience face aux vulnérabilités communes (injection sql, buffer overflow, XSS, CSRF), contraintes législatives sur le traitement et le stockage des données, le chiffrement, la confidentialité et l'intégrité des données transmises et traitées, etc.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 85,
+    "Exigence": "Information security requirements should be identified, specified and approved when developing or\nacquiring applications.",
+    "Maturité": 2,
+    "Sous-exigence": "Les exigences de sécurité sont mises en œuvre pour les applications développées ou obtenues",
+    "Mesure": "Mettre en œuvre les exigences de sécurité pour les applications développées ou obtenues",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 85,
+    "Exigence": "Information security requirements should be identified, specified and approved when developing or\nacquiring applications.",
+    "Maturité": 3,
+    "Sous-exigence": "La mise en œuvre des exigences de sécurité pour les applications est contrôlée",
+    "Mesure": "Contrôler la mise en place des exigences de sécurité pour les applications.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 85,
+    "Exigence": "Information security requirements should be identified, specified and approved when developing or\nacquiring applications.",
+    "Maturité": 4,
+    "Sous-exigence": "L'exhaustivité des exigences de sécurité est améliorée et elles sont définies en fonction du type d'application",
+    "Mesure": "Améliorer l'exhaustivité des exigences de sécurité et les définir en fonction du type d'application",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 86,
+    "Exigence": "Principles for engineering secure systems should be established, documented, maintained and applied to any information system development activities.",
+    "Maturité": 1,
+    "Sous-exigence": "Une politique de sécurité de l'architecture et de l'ingénierie logicielle est définie",
+    "Mesure": "Définir une politique de sécurité de l'architecture et de l'ingénierie logicielle",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 86,
+    "Exigence": "Principles for engineering secure systems should be established, documented, maintained and applied to any information system development activities.",
+    "Maturité": 2,
+    "Sous-exigence": "La politique de sécurité de l'architecture et de l'ingénierie logicielle est mise en œuvre",
+    "Mesure": "Mettre en œuvre la politique de sécurité de l'architecture et de l'ingénierie logicielle",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 86,
+    "Exigence": "Principles for engineering secure systems should be established, documented, maintained and applied to any information system development activities.",
+    "Maturité": 3,
+    "Sous-exigence": "La mise en œuvre de la politique de sécurité de l'architecture et de l'ingénierie logicielle est contrôlée. En cas d'externalisation, des clauses sont prévues pour s'assurer de la mise en œuvre de l'application de la politique.",
+    "Mesure": "Contrôler la mise en œuvre de la politique de sécurité de l'architecture et de l'ingénierie logicielle. En cas d'externalisation, mettre en place des clauses pour s'assurer de la mise en œuvre de l'application de la politique.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 86,
+    "Exigence": "Principles for engineering secure systems should be established, documented, maintained and applied to any information system development activities.",
+    "Maturité": 4,
+    "Sous-exigence": "L'exhaustivité des règles dans la politique de sécurité de l'architecture et de l'ingénierie logicielle est améliorée, notamment en utilisant des principes comme la sécurité par le design, la défense en profondeur, le refus par défaut, le moindre privilège, la méfiance des données provenant de sources externes",
+    "Mesure": "Améliorer l'exhaustivité des règles dans la politique de sécurité de l'architecture et de l'ingénierie logicielle, notamment en utilisant des principes comme la sécurité par le design, la défense en profondeur, le refus par défaut, le moindre privilège, la méfiance des données provenant de sources externes",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 87,
+    "Exigence": "Secure coding principles should be applied to software development.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 87,
+    "Exigence": "Secure coding principles should be applied to software development.",
+    "Maturité": 2,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 87,
+    "Exigence": "Secure coding principles should be applied to software development.",
+    "Maturité": 3,
+    "Sous-exigence": "Les principes de codage sont définis pour le développement d'application pendant la phase de planification, pendant le codage et pendant la revue et la maintenance du code",
+    "Mesure": "Définir des principes de codage pour le développement d'application pendant la phase de planification, pendant le codage et pendant la revue et la maintenance du code",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 87,
+    "Exigence": "Secure coding principles should be applied to software development.",
+    "Maturité": 4,
+    "Sous-exigence": "Les principes de codage sont appliqués pour le développement d'application.",
+    "Mesure": "Appliquer les principes de codage pour le développement d'application.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 88,
+    "Exigence": "Security testing processes should be defined and implemented in the development life cycle.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 88,
+    "Exigence": "Security testing processes should be defined and implemented in the development life cycle.",
+    "Maturité": 2,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 88,
+    "Exigence": "Security testing processes should be defined and implemented in the development life cycle.",
+    "Maturité": 3,
+    "Sous-exigence": "Un processus est défini pour tester l'implémentation des exigences de sécurité quand les applications développées sont déployées dans l'environnement de production",
+    "Mesure": "Définir un processus pour tester l'implémentation des exigences de sécurité quand les applications développées sont déployées dans l'environnement de production",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 88,
+    "Exigence": "Security testing processes should be defined and implemented in the development life cycle.",
+    "Maturité": 4,
+    "Sous-exigence": "un processus est en place pour tester l'implémentation des exigences de sécurité quand les applications développées sont déployées dans l'environnement de production",
+    "Mesure": "Mettre en place le processus pour tester l'implémentation des exigences de sécurité quand les applications développées sont déployées dans l'environnement de production",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 89,
+    "Exigence": "The organization should direct, monitor and review the activities related to outsourced system development.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 89,
+    "Exigence": "The organization should direct, monitor and review the activities related to outsourced system development.",
+    "Maturité": 2,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 89,
+    "Exigence": "The organization should direct, monitor and review the activities related to outsourced system development.",
+    "Maturité": 3,
+    "Sous-exigence": "Les exigences de sécurité dans le cadre d'un développement externalisé sont définies et ajoutées dans les clauses contractuelles",
+    "Mesure": "Déterminer des exigences de sécurité dans le cadre d'un développement externalisé et les ajouter dans les clauses contractuelles",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 89,
+    "Exigence": "The organization should direct, monitor and review the activities related to outsourced system development.",
+    "Maturité": 4,
+    "Sous-exigence": "Des contrôles de l'implémentation des exigences sont mis en œuvre",
+    "Mesure": "Mettre en place des contrôles de l'implémentation des exigences",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 90,
+    "Exigence": "Development, testing and production environments should be separated and secured.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 90,
+    "Exigence": "Development, testing and production environments should be separated and secured.",
+    "Maturité": 2,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 90,
+    "Exigence": "Development, testing and production environments should be separated and secured.",
+    "Maturité": 3,
+    "Sous-exigence": "Le niveau de séparation nécessaire entre l'environnement/données de test et l'environnement/données de production est déterminé",
+    "Mesure": "Identifier et déterminer le niveau de séparation nécessaire entre l'environnement/données de test et l'environnement/données de production",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 90,
+    "Exigence": "Development, testing and production environments should be separated and secured.",
+    "Maturité": 4,
+    "Sous-exigence": "Un contrôle vérifie la mise en œuvre de la séparation des données et de l'environnement entre la production et le test.",
+    "Mesure": "Mettre en place un contrôle de la séparation des données et de l'environnement entre la production et le test.",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 91,
+    "Exigence": "Changes to information processing facilities and information systems should be subject to change management procedures.",
+    "Maturité": 1,
+    "Sous-exigence": "N/A",
+    "Mesure": "N/A",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 91,
+    "Exigence": "Changes to information processing facilities and information systems should be subject to change management procedures.",
+    "Maturité": 2,
+    "Sous-exigence": "Des règles et un processus de documentation de spécification de test et de contrôle qualité et de mise en œuvre sont définis",
+    "Mesure": "Définir les règles et un processus de documentation de spécification de test et de contrôle qualité et de mise en œuvre",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 91,
+    "Exigence": "Changes to information processing facilities and information systems should be subject to change management procedures.",
+    "Maturité": 3,
+    "Sous-exigence": "Les processus de contrôle de changement sont intégrés dans tous les projets logiciels, de technologie de l'information et des communications",
+    "Mesure": "Intégrer les processus de contrôle de changement dans tous les projets logiciels, de technologie de l'information et des communications",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 91,
+    "Exigence": "Changes to information processing facilities and information systems should be subject to change management procedures.",
+    "Maturité": 4,
+    "Sous-exigence": "Le contrôle des changements est précéduré et audité pour garantir la confidentialité, l'intégrité et la disponibilité des systèmes, des applications et des informations tout au long du cycle de vie",
+    "Mesure": "Procédurer et auditer le contrôle des changements pour garantir la confidentialité, l'intégrité et la disponibilité des systèmes, des applications et des informations tout au long du cycle de vie",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 92,
+    "Exigence": "Test information should be appropriately selected, protected and managed.",
+    "Maturité": 1,
+    "Sous-exigence": "Les données de tests doivent être sélectionnées pour assurer la fiabilité des tests et la confidentialité des informations opérationnelles",
+    "Mesure": "Les données de tests doivent être sélectionnées pour assurer la fiabilité des tests et la confidentialité des informations opérationnelles",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 92,
+    "Exigence": "Test information should be appropriately selected, protected and managed.",
+    "Maturité": 2,
+    "Sous-exigence": "Les données sensibles doivent être supprimées et ne plus être copiées dans l'environnement de test et de développement",
+    "Mesure": "Les données sensibles doivent être supprimées et ne plus être copiées dans l'environnement de test et de développement",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 92,
+    "Exigence": "Test information should be appropriately selected, protected and managed.",
+    "Maturité": 3,
+    "Sous-exigence": "Les données de test sont stockées de manière sécurisée et ne sont utilisées que pour les tests",
+    "Mesure": "Stocker de manière sécurisée les données de test et ne les utiliser que pour les tests",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 92,
+    "Exigence": "Test information should be appropriately selected, protected and managed.",
+    "Maturité": 4,
+    "Sous-exigence": "Les recommandations suivantes sont appliquées pour les tests :\n-appliquer les mêmes procédures aux environnements de test qu'aux environnements opérationnels\n-Conserver les logs de copie et d'usage de données opérationnelles\n-Protéger les données sensibles utilisées pour de l'obfuscation\n-Supprimer les données opérationnelles des environnements de test une fois fini",
+    "Mesure": "Appliquer les recommandations suivantes pour les tests :\n-appliquer les mêmes procédures aux environnements de test qu'aux environnements opérationnels\n-Conserver les logs de copie et d'usage de données opérationnelles\n-Protéger les données sensibles utilisées pour de l'obfuscation\n-Supprimer les données opérationnelles des environnements de test une fois fini",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 93,
+    "Exigence": "Audit tests and other assurance activities involving assessment of operational systems should be planned and agreed between the tester and appropriate management.",
+    "Maturité": 1,
+    "Sous-exigence": "Les activités d'audit et de contrôle doivent être planifiées et validées par les auditeurs et les responsables des systèmes d'information testés",
+    "Mesure": "Les activités d'audit et de contrôle doivent être planifiées et validées par les auditeurs et les responsables des systèmes d'information testés",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 93,
+    "Exigence": "Audit tests and other assurance activities involving assessment of operational systems should be planned and agreed between the tester and appropriate management.",
+    "Maturité": 2,
+    "Sous-exigence": "Le principe de moindres privilèges est appliqué pour fournir les accès aux auditeurs",
+    "Mesure": "Appliquer le principe de moindres privilèges pour fournir les accès aux auditeurs",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 93,
+    "Exigence": "Audit tests and other assurance activities involving assessment of operational systems should be planned and agreed between the tester and appropriate management.",
+    "Maturité": 3,
+    "Sous-exigence": "Des logs d'accès sont générés et surveillés pendant les tests",
+    "Mesure": "Surveiller et générer les logs d'accès pendant les tests",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  },
+  {
+    "Réf Exigence": 93,
+    "Exigence": "Audit tests and other assurance activities involving assessment of operational systems should be planned and agreed between the tester and appropriate management.",
+    "Maturité": 4,
+    "Sous-exigence": "Les tests qui peuvent affecter la disponibilité du système testé sont exécutés hors des heures de bureau",
+    "Mesure": "Exécuter les tests qui peuvent affecter la disponibilité du système testé hors des heures de bureau",
+    "Aide au choix technologique": "",
+    "Aide au chiffrage": ""
+  }
+]
