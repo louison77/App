@@ -2,8 +2,8 @@ import React from "react";
 import "../../styles/components/GestionStyle/_resume.css";
 import RadarChart from "./Graphs/ProgressRadar.jsx";
 import PolarAreaChart from "./Graphs/CostPolarArea.jsx";
-import { ProgressBar } from "react-bootstrap";
-//import ProgressBar from "./Graphs/ProgressBar";
+//import { ProgressBar } from "react-bootstrap";
+import ProgressBar from "./Graphs/ProgressBar";
 
 const Resume = () => {
   return (

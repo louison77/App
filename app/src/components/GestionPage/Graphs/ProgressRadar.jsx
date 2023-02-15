@@ -17,11 +17,21 @@ Filler,
 Tooltip,
 Legend
 );
+
+
+// Imported Values (must be ranged from 0 to 1)
+const current_values = [0.2, 0.7, 0.3, 0.6];
+const goal_values = [0.8, 0.9, 0.7, 0.8];
+
+// Chart Setup
+const options = {
+  plugins: {legend: {display: false}}
+};
+
   
-export const data = {
+const data = {
     labels: ['ORG', 'PHY', 'TEC', 'MGM'],
     datasets: [
-      //TODO: Properly set the scale and create variables associated with the graph categories.
       {
         backgroundColor: 'rgba(0, 0, 0, 0)',
         borderColor: 'rgba(0, 0, 0, 0)',
@@ -35,14 +45,14 @@ export const data = {
 
       {
         label: 'Audit initial',
-        data: [0.2, 0.7, 0.3, 0.6],
+        data: current_values,
         backgroundColor: 'rgba(255, 99, 132, 0.1)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
       },
       {
         label: "Après plan d'action",
-        data: [0.4, 0.8, 0.5, 0.6],
+        data: goal_values,
         backgroundColor: 'rgb(11, 163, 11,0.1)',
         borderColor: 'rgb(11, 163, 11,1)',
         borderWidth: 1,
@@ -52,5 +62,5 @@ export const data = {
 };
   
 export default function RadarChart() {
-    return <Radar data={data} />;
+    return <Radar options={options} data={data} />;
 }

@@ -9,7 +9,7 @@ import {
 import { PolarArea } from 'react-chartjs-2';
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
-export const data = {
+const data = {
   labels: ['P0', 'P1', 'P2', 'P3'],
   datasets: [
     {
@@ -39,8 +39,21 @@ export const data = {
       borderWidth: 1,
     },
   ],
+  options: {
+    plugins: {
+        legend: {
+            display: false
+        },
+    }
+  }
+};
+
+const options = {
+  plugins: {
+    plugins: {legend: {display: false}}
+  },
 };
 
 export default function PolarAreaChart() {
-  return <PolarArea data={data}/>;
+  return <PolarArea options={options} data={data} />;
 }
