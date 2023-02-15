@@ -24,6 +24,7 @@ const Mesures = () => {
   const [TriMacro, setTriMacro] = useState("");
   const baseUrl = '/api/Mesure'
   const [code] = useOutletContext();
+  const [change, setchange] = useState("")
 
 
 
@@ -31,8 +32,7 @@ const Mesures = () => {
     {
       Id: "",
       Nom: "",
-      Action:
-        "​",
+      Action: "​",
       Maturite: "",
       Priorite: "",
       Complexite: "",
@@ -45,6 +45,7 @@ const Mesures = () => {
       DateFin: "",
       Statut: "",
       Macro: "",
+      MesureID: ""
     }
   ]);
   useEffect(() => {
@@ -76,16 +77,17 @@ const Mesures = () => {
               Nom: BaseMesure[index].Exigence,
               Action: BaseMesure[index].Mesure,
               Maturite: BaseMesure[index].Ref[2],
-              Priorite: "",
-              Complexite: "",
-              CoutProjet: "",
+              Priorite: mesure.priorite,
+              Complexite: mesure.complexite,
+              CoutProjet: mesure.cout,
               CoutRun: "",
               AideChiffrage: BaseMesure[index].AideChiffrage,
-              Porteur: "",
+              Porteur: mesure.porteur,
               DateDebut: "",
               DateFin: "",
-              Statut: "",
+              Statut: mesure.statut,
               Macro: "",
+              MesureID: mesure.mesureid,
 
             })
 
@@ -93,14 +95,13 @@ const Mesures = () => {
         })
 
         setmesures(tab)
-
       }
       catch (error) {
         console.log(error)
       }
     }
     GetMesure()
-  }, [code,])
+  }, [code, change])
   const [modifMesures, setModifMesures] = useState([{}])
 
   const [colonne, setColonne] = useState("Libellé");
@@ -465,6 +466,106 @@ const Mesures = () => {
     setModifMesures(Copy);
     setType(2); /*On fait apparaître le tableau modifié */
   }
+  const SendContent = (e, id, number) => {
+
+    const valuetoChange = e.currentTarget.textContent;
+    const sendelement = async () => {
+      try {
+        if (number === 1) {
+
+          setchange("1")
+          axios.patch(`${baseUrl}`,
+            {
+              mesureid: id,
+              priorite: valuetoChange
+
+            }, {
+            'Content-Type': 'application/json'
+          })
+        }
+
+        if (number === 2) {
+          setchange("2")
+          axios.patch(`${baseUrl}`,
+            {
+              mesureid: id,
+              complexite: valuetoChange,
+
+            }, {
+            'Content-Type': 'application/json'
+          })
+        }
+
+        if (number === 3) {
+          setchange("3")
+          axios.patch(`${baseUrl}`,
+            {
+              mesureid: id,
+              cout: valuetoChange
+
+            }, {
+            'Content-Type': 'application/json'
+          })
+
+        }
+
+        if (number === 4) {
+          setchange("4")
+          axios.patch(`${baseUrl}`,
+            {
+              mesureid: id,
+              porteur: valuetoChange
+
+            }, {
+            'Content-Type': 'application/json'
+          })
+        }
+
+        if (number === 5) {
+          setchange("5")
+          axios.patch(`${baseUrl}`,
+            {
+              mesureid: id,
+              statut: valuetoChange
+
+            }, {
+            'Content-Type': 'application/json'
+          })
+        }
+
+        if (number === 6) {
+          setchange("6")
+          axios.patch(`${baseUrl}`,
+            {
+              mesureid: id,
+              debut: valuetoChange
+
+            }, {
+            'Content-Type': 'application/json'
+          })
+        }
+
+        if (number === 7) {
+          setchange("7")
+          axios.patch(`${baseUrl}`,
+            {
+              mesureid: id,
+              fin: valuetoChange
+
+            }, {
+            'Content-Type': 'application/json'
+          })
+        }
+
+      }
+
+
+      catch (error) {
+        console.log(error)
+      }
+    }
+    sendelement()
+  }
 
 
   if (Type === 1) {
@@ -514,43 +615,43 @@ const Mesures = () => {
               {mesures.map((mesure) => (
                 <tr className="Cellule">
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextId' id='Case'>{mesure.Id}</div>
+                    <div contentEditable="false" className='TextId' id='Case'>{mesure.Id}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextNom' id='Case'>{mesure.Nom}</div>
+                    <div contentEditable="false" className='TextNom' id='Case'>{mesure.Nom}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextAction' id='Case'>{mesure.Action}</div>
+                    <div contentEditable="false" className='TextAction' id='Case'>{mesure.Action}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextMaturite' id='Case'>{mesure.Maturite}</div>
+                    <div contentEditable="false" className='TextMaturite' id='Case'>{mesure.Maturite}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextPriorite' id='Case'>{mesure.Priorite}</div>
+                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 1)} className='TextPriorite' id='Case'>{mesure.Priorite}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextComplexite' id='Case'>{mesure.Complexite}</div>
+                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 2)} className='TextComplexite' id='Case'>{mesure.Complexite}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextCoutProjet' id='Case'>{mesure.CoutProjet}</div>
+                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 3)} className='TextCoutProjet' id='Case'>{mesure.CoutProjet}</div>
                   </td>
                   <td id="CelluleMesure">
                     <div contentEditable="true" className='TextCoutRun' id='Case'>{mesure.CoutRun}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextAideChiffrafe' id='Case'>{mesure.AideChiffrage}</div>
+                    <div contentEditable="false" className='TextAideChiffrafe' id='Case'>{mesure.AideChiffrage}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextPorteur' id='Case'>{mesure.Porteur}</div>
+                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 4)} className='TextPorteur' id='Case'>{mesure.Porteur}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextDateDebut' id='Case'>{mesure.DateDebut}</div>
+                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 6)} className='TextDateDebut' id='Case'>{mesure.DateDebut}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextDateFin' id='Case'>{mesure.DateFin}</div>
+                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 7)} className='TextDateFin' id='Case'>{mesure.DateFin}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextStatut' id='Case'>{mesure.Statut}</div>
+                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 5)} className='TextStatut' id='Case'>{mesure.Statut}</div>
                   </td>
                   <td id="CelluleMesure">
                     <div contentEditable="true" className='TextMacro' id='Case'>{mesure.Macro}</div>
@@ -611,43 +712,43 @@ const Mesures = () => {
               {modifMesures.map((mesure) => (
                 <tr className="Cellule">
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextId' id='Case'>{mesure.Id}</div>
+                    <div contentEditable="false" className='TextId' id='Case'>{mesure.Id}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextNom' id='Case'>{mesure.Nom}</div>
+                    <div contentEditable="false" className='TextNom' id='Case'>{mesure.Nom}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextAction' id='Case'>{mesure.Action}</div>
+                    <div contentEditable="false" className='TextAction' id='Case'>{mesure.Action}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextMaturite' id='Case'>{mesure.Maturite}</div>
+                    <div contentEditable="false" className='TextMaturite' id='Case'>{mesure.Maturite}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextPriorite' id='Case'>{mesure.Priorite}</div>
+                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 1)} className='TextPriorite' id='Case'>{mesure.Priorite}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextComplexite' id='Case'>{mesure.Complexite}</div>
+                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 2)} className='TextComplexite' id='Case'>{mesure.Complexite}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextCoutProjet' id='Case'>{mesure.CoutProjet}</div>
+                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 3)} className='TextCoutProjet' id='Case'>{mesure.CoutProjet}</div>
                   </td>
                   <td id="CelluleMesure">
                     <div contentEditable="true" className='TextCoutRun' id='Case'>{mesure.CoutRun}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextAideChiffrafe' id='Case'>{mesure.AideChiffrage}</div>
+                    <div contentEditable="false" className='TextAideChiffrafe' id='Case'>{mesure.AideChiffrage}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextPorteur' id='Case'>{mesure.Porteur}</div>
+                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 4)} className='TextPorteur' id='Case'>{mesure.Porteur}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextDateDebut' id='Case'>{mesure.DateDebut}</div>
+                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 6)} className='TextDateDebut' id='Case'>{mesure.DateDebut}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextDateFin' id='Case'>{mesure.DateFin}</div>
+                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 7)} className='TextDateFin' id='Case'>{mesure.DateFin}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextStatut' id='Case'>{mesure.Statut}</div>
+                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 5)} className='TextStatut' id='Case'>{mesure.Statut}</div>
                   </td>
                   <td id="CelluleMesure">
                     <div contentEditable="true" className='TextMacro' id='Case'>{mesure.Macro}</div>

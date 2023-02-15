@@ -42,7 +42,7 @@ module.exports = async function (context, req) {
             await createOne(context);
             break;
         // If put, update categorie
-        /*case 'PATCH':
+        case 'PATCH':
             await updateOne(context);
             break;
         /*case 'DELETE':
@@ -59,8 +59,6 @@ async function findAll(context) {
 
 async function createOne(context) {
     try {
-
-
         const body = context.req.body;
         const mesure = await Mesure.create(body);
         context.res.status = 201;
@@ -72,21 +70,20 @@ async function createOne(context) {
     }
 }
 
-/*async function updateOne(context) {
+async function updateOne(context) {
     // Grab the id from the URL (stored in bindingData)
-    const id = context.req.body;
-    // Get the categorie from the body
-    const mesure = context.req.body;
-    // Update the item in the database
-    const result = await Mesure.updateOne({ _id: id }, categorie);
-    // Check to ensure an item was modified
-    if (result.nModified === 1) {
-        // Updated an item, status 204 (empty update)
+    try {
+        const id = context.req.body.mesureid;
+        // Get the categorie from the body
+        const mesure = context.req.body;
+        // Update the item in the database
+        await Mesure.findOneAndUpdate({ mesureid: id }, mesure);
         context.res.status = 204;
-    } else {
-        // Item not found, status 404
+    }
+    catch (error) {
         context.res.status = 404;
     }
+
 }
 /*
 async function deleteOne(id) {
