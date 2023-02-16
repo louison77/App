@@ -1,83 +1,92 @@
-.TITLE{
+.TITLE {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.page{
+
+.page {
     display: flex;
     flex-direction: row;
 }
 
-.ExigenceDescription{
+.ExigenceDescription {
     margin-left: 100px;
-    width: 100%; 
+    width: 100%;
 }
-.FirstLine{
+
+.FirstLine {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
-.Arrows{
+
+.Arrows {
     margin-right: 100px;
 }
-.ArrowLeft{
+
+.ArrowLeft {
     border: none;
     background-color: white;
-    
+
 }
-.ArrowLeft:hover{
-    cursor: pointer;
-    color: orange;
-}
-.ArrowRight{
-    border: none;
-    background-color: white;
-}
-.ArrowRight:hover{
+
+.ArrowLeft:hover {
     cursor: pointer;
     color: orange;
 }
 
-.Exigences_parties{
-    display:flex;
+.ArrowRight {
+    border: none;
+    background-color: white;
+}
+
+.ArrowRight:hover {
+    cursor: pointer;
+    color: orange;
+}
+
+.Exigences_parties {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 
-.Part2{
+.Part2 {
     display: flex;
     justify-content: right;
     margin-right: 10px;
-    width:40%;
+    width: 40%;
 }
 
-.Part1{
-    width:50%;
+.Part1 {
+    width: 50%;
     margin-left: 0px;
     margin-right: 50px;
 
 }
 
-.TextArea{
-    
-    width:400px;
-    height:100px;
+.TextArea {
+
+    width: 400px;
+    height: 100px;
     margin-bottom: 10px;
-    color:rgb(9, 118, 161);
+    color: rgb(9, 118, 161);
 
 }
-.FormObserv{
+
+.FormObserv {
     display: flex;
     flex-direction: column;
-    width:50%;
-    
+    width: 50%;
+
 }
-.BoutonObserv{
+
+.BoutonObserv {
     color: #D68910;
 }
-    
-.BarreDéroulé{
+
+.BarreDéroulé {
     margin-top: 50px;
     margin-left: 50px;
     display: flex;
@@ -85,44 +94,54 @@
     width: 200px;
 }
 
-.BlackExigences{
+.BlackExigences {
     cursor: pointer;
 
 }
-.OrangeExigence{
-    color:orange;
+
+.OrangeExigence {
+    color: orange;
     cursor: pointer;
 }
-.SelectionMesures{
+
+.SelectionMesures {
     margin-top: 50px;
 }
-.ChoixNiveaux{
+
+.ChoixNiveaux {
     width: 1000px;
 }
-.CaseTable{
+
+.CaseTable {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.Case{
-    
+
+.Case {
+
     width: 20%;
-    height:20%; 
-    
+    height: 20%;
+
 }
-.Basique{
+
+.Basique {
     background-color: crimson;
 }
-.Moyenne{
-    background-color:orange;
+
+.Moyenne {
+    background-color: orange;
 }
-.Elevee{
+
+.Elevee {
     background-color: yellow;
 }
-.Televee{
+
+.Televee {
     background-color: greenyellow;
 }
-.TexteParties{
+
+.TexteParties {
     background-color: lightgrey;
     padding-left: 5px;
     padding-right: 5px;
@@ -131,7 +150,8 @@
     margin-top: 5px;
     font-size: 15px;
 }
-.TexteGuideAbregee{
+
+.TexteGuideAbregee {
     background-color: lightgrey;
     padding-left: 10px;
     padding-right: 10px;
@@ -141,69 +161,115 @@
 
 
 
-.GuidePart{
+.GuidePart {
     display: flex;
     flex-direction: row;
-    margin-top:20px;
+    margin-top: 20px;
     margin-bottom: 10px;
     align-items: center;
 }
-.GuideBtn{
-    color:black;
+
+.GuideBtn {
+    color: black;
     background-color: white !important;
     border-color: black;
     margin-right: 10px;
 }
-.GuideBtn:hover{
-    color:black;
+
+.GuideBtn:hover {
+    color: black;
     background-color: white !important;
     border-color: black;
 }
-.GuideBtn.show  {
-    background-color: white  !important;
+
+.GuideBtn.show {
+    background-color: white !important;
     border-color: black;
 }
+
 .GuideBtn:active {
     background-color: white !important;
     border-color: black;
 }
+
 .GuideBtn:focus {
     background-color: white !important;
     border-color: black;
 }
-.CollapseText{
+
+.CollapseText {
     background-color: lightgrey;
 }
-.SousExigenceRow{
+
+.MesurePart {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between
+}
+
+.SousExigenceRow {
     margin-bottom: 5px;
 }
-.BoutonOk{
-    background-color:lightgrey;
+
+.BoutonOk {
+    background-color: lightgrey;
     margin-right: 10px;
     margin-left: 5px;
     border-color: lightgrey;
     border-radius: 10px;
     height: 30px;
-    
+
 }
-.BoutonNok{
-    background-color:lightgrey;
+
+.BoutonNok {
+    background-color: lightgrey;
     border-color: lightgrey;
     margin-right: 10px;
     border-radius: 10px;
-    height: 30px;   
+    height: 30px;
 }
-.BoutonNA{
-    background-color:lightgrey;
+
+.BoutonNA {
+    background-color: lightgrey;
     border-color: lightgrey;
     border-radius: 10px;
-    height: 30px;   
+    height: 30px;
 }
-.AffectationMesures{
+
+.AffectationMesures {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
-    width:50%;
+    width: 50%;
     height: 50%;
 }
 
+
+
+
+
+.MesureButton {
+    background-color: orange;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+.MesureButton:hover {
+    cursor: pointer;
+}
+
+.BtnISO {
+    background-color: #D68910;
+    color: white;
+    margin-left: 50px;
+    padding: 4px;
+    border-radius: 5px;
+
+}
+
+.BtnISO:hover {
+    cursor: pointer;
+    padding: 5px;
+}

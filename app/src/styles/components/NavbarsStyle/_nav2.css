@@ -1,46 +1,50 @@
-.navbar2{
+.navbar2 {
     background-color: black;
     height: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    
+    margin-bottom: 20px;
+
 }
 
-.logoorange{
-    height:50px;
+.logoorange {
+    height: 50px;
     width: 50px;
     margin-left: 25px;
     margin-right: 50px;
     cursor: pointer;
 }
-.ButtonHome{
+
+.ButtonHome {
     background-color: white;
     border-radius: 5%;
     margin-right: 20px;
     margin-bottom: 15px;
-    width:5px;
-    height:5px;
-}
-.NameProject{
-    font-size: 15px;
-    color:orange;
-    margin-left: 10px;
-}
-.menu-liste li:hover{
-    color:orange
+    width: 5px;
+    height: 5px;
 }
 
-.menu-liste li{
+.NameProject {
+    font-size: 15px;
+    color: orange;
+    margin-left: 10px;
+}
+
+.menu-liste li:hover {
+    color: orange
+}
+
+.menu-liste li {
     color: white;
     justify-content: center;
 }
 
 
-.profil{
+.profil {
     margin-right: 30px;
-    font-size:30px;
+    font-size: 30px;
     cursor: pointer;
     color: aliceblue;
 }

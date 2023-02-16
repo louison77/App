@@ -573,7 +573,6 @@ const Exigences = () => {
                           <option value="1">1</option>
                         </select>
                       </form>
-                      <h5>La note actuelle est {exige.Note}</h5>
                     </div>
                   </div>
                 </div>
@@ -636,68 +635,70 @@ const Exigences = () => {
                   </tbody>
                 </table>
                 <h4 className="NamePart">Aide à la sélection de mesures</h4>
-                <div className="AffectationMesures">
-                  <div className="ChoixSousExigences">
-                    {exige.SousExigences.map((sentence) => (
-                      <div className="SousExigenceRow">
-                        <text
-                          className="CategorieSousId"
-                          style={{
-                            color:
-                              sentence.categorie === 1
-                                ? "red"
-                                : sentence.categorie === 2
-                                  ? "gold"
-                                  : sentence.categorie === 3
-                                    ? "pink"
-                                    : "lightgreen",
-                          }}
-                        >
-                          ({sentence.categorie})
-                        </text>
-                        <text className="DescriptifSE">
-                          {" "}
-                          Descriptif {" "}
-                        </text>
-                        <button
-                          className="BoutonOk"
-                          onClick={() => ChangeColor(1, sentence.index)}
-                          style={{
-                            backgroundColor:
-                              sentence.color === 1 ? "Green" : "lightgray",
-                          }}
-                        >
-                          OK
-                        </button>
-                        <button
-                          className="BoutonNok"
-                          onClick={() => ChangeColor(2, sentence.index)}
-                          value={sentence.color}
-                          style={{
-                            backgroundColor:
-                              sentence.color === 2 ? "Red" : "lightgray",
-                          }}
-                        >
-                          NOk
-                        </button>
-                        <button
-                          className="BoutonNA"
-                          onClick={() => ChangeColor(3, sentence.index)}
-                          style={{
-                            backgroundColor:
-                              sentence.color === 3 ? "Gray" : "lightgray",
-                          }}
-                        >
-                          N/A
-                        </button>
-                      </div>
-                    ))}
+                <div className="Mesurepart">
+                  <div className="AffectationMesures">
+                    <div className="ChoixSousExigences">
+                      {exige.SousExigences.map((sentence) => (
+                        <div className="SousExigenceRow">
+                          <text
+                            className="CategorieSousId"
+                            style={{
+                              color:
+                                sentence.categorie === 1
+                                  ? "red"
+                                  : sentence.categorie === 2
+                                    ? "gold"
+                                    : sentence.categorie === 3
+                                      ? "pink"
+                                      : "lightgreen",
+                            }}
+                          >
+                            ({sentence.categorie})
+                          </text>
+                          <text className="DescriptifSE">
+                            {" "}
+                            Descriptif {" "}
+                          </text>
+                          <button
+                            className="BoutonOk"
+                            onClick={() => ChangeColor(1, sentence.index)}
+                            style={{
+                              backgroundColor:
+                                sentence.color === 1 ? "Green" : "lightgray",
+                            }}
+                          >
+                            OK
+                          </button>
+                          <button
+                            className="BoutonNok"
+                            onClick={() => ChangeColor(2, sentence.index)}
+                            value={sentence.color}
+                            style={{
+                              backgroundColor:
+                                sentence.color === 2 ? "Red" : "lightgray",
+                            }}
+                          >
+                            NOk
+                          </button>
+                          <button
+                            className="BoutonNA"
+                            onClick={() => ChangeColor(3, sentence.index)}
+                            style={{
+                              backgroundColor:
+                                sentence.color === 3 ? "Gray" : "lightgray",
+                            }}
+                          >
+                            N/A
+                          </button>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="ButtonSendMesures">
-                  <btn className="MesureButton" onClick={Sendmesures}>
-                    Envoyer mesures au plan d'action
-                  </btn>
+                  <div className="ButtonSendMesures">
+                    <btn className="MesureButton" onClick={Sendmesures}>
+                      Envoyer mesures au plan d'action
+                    </btn>
+                  </div>
                 </div>
               </div>
             </div>
@@ -708,10 +709,11 @@ const Exigences = () => {
   } else {
     return (
       <div>
+        <div>
+          <btn className="BtnISO" onClick={CreateExigences}>Utiliser Iso 27001</btn>
+        </div>
         <div className="page">
-          <div>
-            <btn onClick={CreateExigences}>Iso 27001</btn>
-          </div>
+
           <div className="BarreDéroulé">
             {exigences.map((exige) => (
               <h5
