@@ -56,11 +56,22 @@ async function findAll(context) {
 
 async function createOne(context) {
 
-    const body = context.req.body;
+    /*const body = context.req.body;
     const exigence = await Exigencemodel.create(body);
     context.res.status = 201;
     // return new object
-    context.res.body = exigence;
+    context.res.body = exigence;*/
+
+    try {
+        const body = context.req.body;
+        const exigence = await Exigencemodel.insertMany(body);
+        console.log("imported successfully");
+        context.res.status = 201;
+        context.res.body = exigence
+    }
+    catch (e) {
+        console.log(e)
+    }
 }
 
 async function updateOne(context) {

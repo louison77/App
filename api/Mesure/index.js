@@ -9,7 +9,7 @@ mongoose.connect(
 );
 
 const MesureSchema = new mongoose.Schema({
-    mesureid: String,
+    mesureid: { type: String, unique: true },
     projetid: String,
     priorite: String,
     complexite: String,

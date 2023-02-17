@@ -9,12 +9,13 @@ mongoose.connect(
 );
 
 const ProjetSchema = new mongoose.Schema({
+
     nom: String,
     projetid: String,
     statutaudit: String,
     statutplanaction: String,
     manager: String,
-    auditeur: String,
+    auditeur: [String],
 });
 
 const Projet = mongoose.model("Projet", ProjetSchema);
@@ -67,19 +68,20 @@ async function createOne(context) {
 
 async function updateOne(context) {
     // Grab the id from the URL (stored in bindingData)
-    const id = context.req.body.projetid;
-    // Get the categorie from the body
-    const projet = context.req.body;
-    // Update the item in the database
-    const result = await Projet.findOneAndUpdate({ projetid: id }, projet);
-    // Check to ensure an item was modified
-    if (result.nModified === 1) {
-        // Updated an item, status 204 (empty update)
+    try {
+
+
+        const id = context.req.body.projetid;
+        // Get the categorie from the body
+        const projet = context.req.body;
+        // Update the item in the database
+        await Projet.findOneAndUpdate({ projetid: id }, projet);
         context.res.status = 204;
-    } else {
-        // Item not found, status 404
+    }
+    catch (error) {
         context.res.status = 404;
     }
+
 }
 /*
 async function deleteOne(id) {

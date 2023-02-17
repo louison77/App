@@ -70,31 +70,36 @@ const Mesures = () => {
         retrievedMesures.forEach(mesure => {
 
           if (mesure.projetid === code) {
-            const index = (parseInt(mesure.mesureid.split(' ')[1].split('.')[0]) * 4) + parseInt(mesure.mesureid.split(' ')[1].split('.')[1]) - 5
-            console.log(BaseMesure[index].Ref)
-            tab.push({
-              Id: BaseMesure[index].Ref,
-              Nom: BaseMesure[index].Exigence,
-              Action: BaseMesure[index].Mesure,
-              Maturite: BaseMesure[index].Ref[2],
-              Priorite: mesure.priorite,
-              Complexite: mesure.complexite,
-              CoutProjet: mesure.cout,
-              CoutRun: "",
-              AideChiffrage: BaseMesure[index].AideChiffrage,
-              Porteur: mesure.porteur,
-              DateDebut: "",
-              DateFin: "",
-              Statut: mesure.statut,
-              Macro: "",
-              MesureID: mesure.mesureid,
+            for (let i = 0; i < BaseMesure.length; i++) {
+              if (BaseMesure[i].Ref === mesure.mesureid.split(' ')[1]) {
 
-            })
+                tab.push({
+                  Id: BaseMesure[i].Ref,
+                  Nom: BaseMesure[i].Exigence,
+                  Action: BaseMesure[i].Mesure,
+                  Maturite: BaseMesure[i].Ref[-1],
+                  Priorite: mesure.priorite,
+                  Complexite: mesure.complexite,
+                  CoutProjet: mesure.cout,
+                  CoutRun: "",
+                  AideChiffrage: BaseMesure[i].AideChiffrage,
+                  Porteur: mesure.porteur,
+                  DateDebut: "",
+                  DateFin: "",
+                  Statut: mesure.statut,
+                  Macro: "",
+                  MesureID: mesure.mesureid,
+
+                })
+              }
+            }
+            //const index = (parseInt(mesure.mesureid.split(' ')[1].split('.')[0]) * 4) + parseInt(mesure.mesureid.split(' ')[1].split('.')[1]) - 5
 
           }
         })
 
         setmesures(tab)
+        console.log(tab)
       }
       catch (error) {
         console.log(error)

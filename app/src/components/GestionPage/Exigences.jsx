@@ -133,31 +133,34 @@ const Exigences = () => {
     setOpen(false);
   };
   const CreateExigences = () => {
-
-    const sendexigences = async () => {
-
+    const EnvoyerMesures = async () => {
+      var tab = []
       for (let i = 0; i < length; i++) {
-        try {
-          await axios.post(`${baseUrl}`,
-            {
 
-              exigenceid: code + " " + (i + 1).toString(),
-              projetid: code,
-              observations: "Observations",
-              maturite: "0",
-              note: "0"
-            }, {
-            'Content-Type': 'application/json'
-          },).then(function (response) {
-            console.log(response);
-          });
+        tab.push({
+          exigenceid: code + " " + (i + 1).toString(),
+          projetid: code,
+          observations: "Observations",
+          maturite: "0",
+          note: "0"
         }
-        catch (error) {
-          console.log(error.response.data)
-        }
+        )
+      }
+      try {
+        await axios.post(`${baseUrl}`,
+          tab, {
+          'Content-Type': 'application/json'
+        },).then(function (response) {
+          console.log(response);
+        })
+      }
+      catch (error) {
+        console.log(error)
       }
       setposted(true)
     }
+    EnvoyerMesures()
+
     const patchStatutProjet = async () => {
       try {
 
@@ -174,7 +177,7 @@ const Exigences = () => {
       }
     }
 
-    sendexigences()
+    //sendexigences()
     patchStatutProjet();
 
   }
@@ -707,29 +710,55 @@ const Exigences = () => {
       </div>
     );
   } else {
-    return (
-      <div>
+    if (exigences.length === 0) {
+      return (
         <div>
-          <btn className="BtnISO" onClick={CreateExigences}>Utiliser Iso 27001</btn>
-        </div>
-        <div className="page">
+          <div>
+            <btn className="BtnISO" onClick={CreateExigences}>Utiliser Iso 27001</btn>
+          </div>
+          <div className="page">
 
-          <div className="BarreDéroulé">
-            {exigences.map((exige) => (
-              <h5
-                className={
-                  activeID === exige.Id ? "OrangeExigence" : "BlackExigences"
-                }
-                onClick={(e) => toggleVisibility(e, exige.Id)}
-              >
-                {exige.Id}
-              </h5>
-            ))}
+            <div className="BarreDéroulé">
+              {exigences.map((exige) => (
+                <h5
+                  className={
+                    activeID === exige.Id ? "OrangeExigence" : "BlackExigences"
+                  }
+                  onClick={(e) => toggleVisibility(e, exige.Id)}
+                >
+                  {exige.Id}
+                </h5>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
+    else {
+      return (
+        <div>
+
+          <div className="page">
+
+            <div className="BarreDéroulé">
+              {exigences.map((exige) => (
+                <h5
+                  className={
+                    activeID === exige.Id ? "OrangeExigence" : "BlackExigences"
+                  }
+                  onClick={(e) => toggleVisibility(e, exige.Id)}
+                >
+                  {exige.Id}
+                </h5>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+
+    }
   }
+
 };
 
 export default Exigences;

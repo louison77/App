@@ -27,7 +27,7 @@ function TableP(props) {
         const tab = []
 
         retrievedProject.forEach(projet => {
-          if (projet.auditeur === props.user.userDetails || projet.manager === props.user.userDetails) {
+          if (projet.auditeur.includes(props.user.userDetails) === true || projet.manager === props.user.userDetails) {
             const NewProject = {
               Nom: projet.nom,
               Code: projet.projetid,
@@ -37,11 +37,11 @@ function TableP(props) {
             tab.push(NewProject);
           }
           if (parseInt(projet.projetid.substring(7)) >= maxId) {
-            console.log((parseInt(projet.projetid.substring(7)) + 1))
+
             const VALUE = (parseInt(projet.projetid.substring(7)) + 1)
             setmaxID(VALUE.toString())
 
-            console.log("Value " + VALUE + " maxid " + maxId)
+
 
           }
         },
