@@ -8,6 +8,7 @@ const Accueil = () => {
     const [isAuthenticated, userHasAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
 
+
     useEffect(() => {
         getUserInfo();
     }, []);
@@ -18,12 +19,11 @@ const Accueil = () => {
             const response = await fetch('/.auth/me');
             const payload = await response.json();
             const { clientPrincipal } = payload;
-            console.log(payload)
 
             if (clientPrincipal) {
                 setUser(clientPrincipal);
                 userHasAuthenticated(true);
-                console.log(`clientPrincipal = ${JSON.stringify(clientPrincipal)}`);
+
             }
 
         } catch (error) {

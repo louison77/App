@@ -15,6 +15,7 @@ const ExigenceSchema = new mongoose.Schema({
     observations: String,
     maturite: String,
     note: String,
+    color: [Number]
 });
 
 const Exigencemodel = mongoose.model("Exigence", ExigenceSchema);

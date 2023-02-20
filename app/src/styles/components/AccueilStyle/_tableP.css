@@ -1,50 +1,59 @@
-.boutons{
+.boutons {
     display: flex;
     justify-content: row;
-    padding-left: 150px;
-    padding-top: 30px;
-    color : orange;
+    padding-left: 30%;
+    padding-top: 100px;
+    color: orange;
 }
 
-.Button1{
+.Button1 {
     padding: 5px;
     background-color: orange;
     border-color: orange;
-    border-radius:5px;
     margin-right: 50px;
-    color:white;
+    color: white;
     cursor: pointer;
+    height: 100%;
+    box-shadow: none;
 }
-.Button2{
+
+.InputProjet {
+    height: 100%
+}
+
+.Button2 {
     padding: 5px;
     background-color: orange;
     border-color: orange;
-    color:white;
-    border-radius:5px;
+    color: white;
+    border-radius: 5px;
     cursor: pointer;
-    
+
 }
 
-.TableProjects{
+.TableProjects {
     border-collapse: collapse;
     min-width: 1000px;
     width: auto;
-    margin: 100px auto;
+    margin-top: 50px;
+    margin: 50px auto;
 
 }
-.ButtonProjectName{
+
+.ButtonProjectName {
     cursor: pointer;
     border: 3px black;
     border-radius: 2px;
     background-color: silver;
-    
+
 }
-.ButtonProjectName:hover{
+
+.ButtonProjectName:hover {
     cursor: pointer;
     border: 3px black;
     border-radius: 2px;
     background-color: orange;
-    color:white;
+    color: white;
 }
 
 table {
@@ -53,7 +62,7 @@ table {
     border-collapse: collapse;
     border-spacing: 0px;
     min-width: 650px;
-    
+
 }
 
 thead {
@@ -68,7 +77,7 @@ thead tr {
 }
 
 th {
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-weight: 500;
     font-size: 0.875rem;
     line-height: 1.5rem;
@@ -79,7 +88,7 @@ th {
     text-align: right;
     padding: 16px;
     font-weight: 900;
-        color: #F57C00;
+    color: #F57C00;
 }
 
 tbody {
@@ -94,7 +103,7 @@ tbody tr {
 }
 
 td {
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.43;

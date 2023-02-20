@@ -99,7 +99,6 @@ const Mesures = () => {
         })
 
         setmesures(tab)
-        console.log(tab)
       }
       catch (error) {
         console.log(error)

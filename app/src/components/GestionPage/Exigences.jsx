@@ -14,6 +14,7 @@ const Exigences = () => {
   const [isposted, setposted] = useState(false)
   //Tableau général de toutes les exigences
   const [code] = useOutletContext();
+
   const [length, setLength] = useState(0)
   const [exigences, setExigences] = useState([{
     exigenceid: "",
@@ -69,6 +70,11 @@ const Exigences = () => {
         let i = 0;
         retrievedExigences.forEach(exigence => {
           if (exigence.projetid === code) {
+            var SousEx = baseExigences[i].SousExigences;
+            for (let j = 0; j < exigence.color.length; j++) {
+              SousEx[j].color = exigence.color[j]
+            }
+
             const NewExigence = {
               exigenceid: exigence.exigenceid,
               Note: exigence.note,
@@ -78,7 +84,7 @@ const Exigences = () => {
               Nom: baseExigences[i].Nom,
               GuideAbrege: baseExigences[i].GuideAbrege,
               GuideComplet: baseExigences[i].GuideComplet,
-              SousExigences: baseExigences[i].SousExigences,
+              SousExigences: SousEx,
               Obj: baseExigences[i].Obj,
               Exigence: baseExigences[i].Exigence
             }
@@ -142,7 +148,8 @@ const Exigences = () => {
           projetid: code,
           observations: "Observations",
           maturite: "0",
-          note: "0"
+          note: "0",
+          color: [0, 0, 0, 0]
         }
         )
       }
@@ -428,6 +435,7 @@ const Exigences = () => {
   const Sendmesures = () => {
 
     const EnvoyerMesures = async () => {
+
       for (let i = 0; i < UneExigence[0].SousExigences.length; i++) {
 
         if (UneExigence[0].SousExigences[i].color === 2) {
@@ -448,6 +456,7 @@ const Exigences = () => {
             },).then(function (response) {
               console.log(response);
             })
+
           }
           catch (error) {
             console.log(error)
@@ -457,6 +466,42 @@ const Exigences = () => {
       }
     }
     EnvoyerMesures()
+    const MesureEncours = async () => {
+      try {
+
+        await axios.patch(`${baseUrl2}`,
+          {
+            projetid: code,
+            statutplanaction: "En cours"
+          }, {
+          'Content-Type': 'application/json'
+        })
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+    MesureEncours()
+    const Updatecolor = async () => {
+      var colortab = [];
+      for (let i = 0; i < UneExigence[0].SousExigences.length; i++) {
+        colortab.push(UneExigence[0].SousExigences[i].color)
+      }
+      try {
+        await axios.patch(`${baseUrl}`, {
+          exigenceid: UneExigence[0].exigenceid,
+          color: colortab,
+        }, {
+          'Content-Type': 'application/json'
+        },).then(function (response) {
+          console.log(response);
+        })
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+    Updatecolor()
   }
   if (isSeen) {
     return (

@@ -15,6 +15,7 @@ function TableP(props) {
   const [maxId, setmaxID] = useState(0);
 
 
+
   //comportements
   useEffect(() => {
     const getBDD = async () => {
@@ -117,6 +118,7 @@ function TableP(props) {
       <div className="boutons">
         <form action="submit" onSubmit={handleSubmit}>
           <input
+            className="InputProjet"
             value={newProjet}
             type="text"
             placeholder="Ajouter un projet"
@@ -142,7 +144,7 @@ function TableP(props) {
         <tbody>
           {projets.map((project) => (
             <tr>
-              <td style={{ textAlign: "left", fontWeight: "bold" }}><Link to={"/Gestion/" + project.Code} state={{ Project: project.Code }}>
+              <td style={{ textAlign: "left", fontWeight: "bold" }}><Link to={"/Gestion/" + project.Code} state={{ Currentuser: props.user.userDetails }}>
                 {project.Nom}
               </Link>
               </td>

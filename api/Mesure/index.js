@@ -87,8 +87,8 @@ async function updateOne(context) {
 }
 /*
 async function deleteOne(id) {
-    const id = context.bindingData.id;
+    const id = context.req.body.mesureid;
     const mesure = context.req.body;
-    const result = await Mesure.deleteOne({ _id: id });
+    await Mesure.deleteOne({ mesureid: id });
     context.res.status = 204;
 }*/
