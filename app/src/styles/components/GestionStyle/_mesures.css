@@ -1,13 +1,13 @@
-.TITLEMESURE{
+.TITLEMESURE {
   margin-left: 20px;
   margin-top: 5px;
 }
 
-.pageMesure{
+.pageMesure {
   display: flex;
 }
 
-.ListeMesures{
+.ListeMesures {
   margin-left: 50px;
   margin-right: 50px;
   margin-bottom: 50px;
@@ -15,37 +15,41 @@
   border-collapse: collapse;
 }
 
-table.ListeMesures th{
-border: 2px solid black;
-}
-table.ListeMesures td{
-border: 2px solid black;
+table.ListeMesures th {
+  border: 2px solid black;
 }
 
-a{
-text-decoration: none;
-color: black;
+table.ListeMesures td {
+  border: 2px solid black;
 }
 
-a:hover{
-color: orange;
+a {
+  text-decoration: none;
+  color: black;
 }
+
+a:hover {
+  color: orange;
+}
+
+.Cellule {}
 
 /*Toutes les cases modifiables*/
-#Case{
-width:auto;
-display: inline-table;
-border: none;
-outline: none;
+#Case {
+  width: auto;
+  display: inline-table;
+  border: none;
+  outline: none;
 }
 
 /*Changement visuel quand on passe la souris dessus*/
 #CelluleMesure:hover {
-background-color: peachpuff;  
+  background-color: peachpuff;
 }
+
 /*Changement visuel quand on clique sur l'intérieur de la cellule (la div contentEditable)*/
 #CelluleMesure:focus-within {
-background-color: orange;  
+  background-color: orange;
 }
 
 /*Id interne*/
@@ -53,6 +57,7 @@ background-color: orange;
 thead th.IdMesure:nth-child(1) {
   width: 80px;
 }
+
 /*Cellules*/
 tbody td:nth-child(1) {
   text-align: center;
@@ -74,6 +79,7 @@ thead th:nth-child(3) {
 thead th:nth-child(4) {
   width: 70px;
 }
+
 tbody td:nth-child(4) {
   text-align: center;
 }
@@ -82,6 +88,7 @@ tbody td:nth-child(4) {
 thead th:nth-child(5) {
   width: 65px;
 }
+
 tbody td:nth-child(5) {
   text-align: center;
 }
@@ -90,6 +97,7 @@ tbody td:nth-child(5) {
 thead th:nth-child(6) {
   width: 95px;
 }
+
 tbody td:nth-child(6) {
   text-align: center;
 }
@@ -98,6 +106,7 @@ tbody td:nth-child(6) {
 thead th:nth-child(7) {
   width: 95px;
 }
+
 tbody td:nth-child(7) {
   text-align: center;
 }
@@ -106,6 +115,7 @@ tbody td:nth-child(7) {
 thead th:nth-child(8) {
   width: 75px;
 }
+
 tbody td:nth-child(8) {
   text-align: center;
 }
@@ -124,6 +134,7 @@ thead th:nth-child(10) {
 thead th:nth-child(11) {
   width: 70px;
 }
+
 tbody td:nth-child(11) {
   text-align: center;
 }
@@ -132,6 +143,7 @@ tbody td:nth-child(11) {
 thead th:nth-child(12) {
   width: 65px;
 }
+
 tbody td:nth-child(12) {
   text-align: center;
 }
@@ -163,5 +175,19 @@ thead th:nth-child(14) {
 
 #Triangle {
   font-style: bold;
-  color : orange;
+  color: orange;
+}
+
+.BtnDelete {
+  border: 1px solid black;
+  padding: 2px 8px;
+  position: relative;
+  top: 200px;
+  left: 10%
+}
+
+.BtnDelete:hover {
+  background-color: #d62828;
+  color: white;
+  cursor: pointer;
 }
