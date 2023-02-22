@@ -23,6 +23,7 @@ const Mesures = () => {
   const [TriStatut, setTriStatut] = useState("");
   const [TriMacro, setTriMacro] = useState("");
   const baseUrl = '/api/Mesure'
+  const baseUrl2 = '/api/Exigence'
   const [code] = useOutletContext();
   const [change, setchange] = useState("")
 
@@ -570,6 +571,47 @@ const Mesures = () => {
     }
     sendelement()
   }
+  const DeleteMesure = (id) => {
+    const DeleteOne = async () => {
+      try {
+        await axios.delete(`${baseUrl}`, {
+          data: {
+
+
+            mesureid: id,
+          }
+        }, {
+          'Content-Type': 'application/json'
+        })
+      }
+      catch (error) {
+        console.log(error)
+      }
+      const exigenceid = id.split(".")[0]
+      console.log(exigenceid)
+      const index = id.split(".")[1]
+      const response = (await axios.get(`${baseUrl2}`)).data.exigence;
+      var tab = []
+      response.forEach(exigence => {
+        if (exigence.exigenceid === exigenceid) {
+          tab = exigence.color;
+          tab[index - 1] = 0
+        }
+      })
+      console.log(tab)
+      try {
+        await axios.patch(`${baseUrl2}`, {
+          exigenceid: exigenceid,
+          color: tab
+        })
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+    DeleteOne()
+    setchange("3")
+  }
 
 
   if (Type === 1) {
@@ -660,6 +702,7 @@ const Mesures = () => {
                   <td id="CelluleMesure">
                     <div contentEditable="true" className='TextMacro' id='Case'>{mesure.Macro}</div>
                   </td>
+                  <div><btn onClick={() => DeleteMesure(mesure.MesureID)} className="BtnDelete">Delete</btn></div>
                 </tr>
               ))}
             </tbody>
@@ -757,6 +800,7 @@ const Mesures = () => {
                   <td id="CelluleMesure">
                     <div contentEditable="true" className='TextMacro' id='Case'>{mesure.Macro}</div>
                   </td>
+                  <div><btn onClick={() => DeleteMesure(mesure.MesureID)} className="BtnDelete">Delete</btn></div>
                 </tr>
               ))}
             </tbody>
