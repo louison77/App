@@ -63,7 +63,7 @@ const Nav2 = (props) => {
           </div>
           <div className="rightpart">
             <div className="profil">
-              <BoutonProfil />
+
             </div>
           </div>
         </div>

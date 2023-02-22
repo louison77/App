@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import "../../styles/components/AccueilStyle/_tableP.css";
 import axios from 'axios'
 
+
 function TableP(props) {
+  const role = props.role
   //state
   const baseUrl = '/api/Projet';
   //tableau contenant informations différents projets
@@ -33,7 +35,8 @@ function TableP(props) {
               Nom: projet.nom,
               Code: projet.projetid,
               StatutAudit: projet.statutaudit,
-              StatutPA: projet.statutplanaction
+              StatutPA: projet.statutplanaction,
+              Manager: projet.manager
             }
             tab.push(NewProject);
           }
@@ -76,6 +79,7 @@ function TableP(props) {
         Code: Code,
         StatutAudit: StatutAudit,
         StatutPA: StatutPA,
+        Manager: props.user.userDetails,
       });
 
       const sendProject = async () => {
@@ -112,51 +116,86 @@ function TableP(props) {
     setNewProjet(event.target.value);
   };
 
-  //render
-  return (
-    <div>
-      <div className="boutons">
-        <form action="submit" onSubmit={handleSubmit}>
-          <input
-            className="InputProjet"
-            value={newProjet}
-            type="text"
-            placeholder="Ajouter un projet"
-            onChange={handleChange}
-          />
+  if (role === "Manager") {
+    return (
+      <div>
+        <div className="boutons">
+          <form action="submit" onSubmit={handleSubmit}>
+            <input
+              className="InputProjet"
+              value={newProjet}
+              type="text"
+              placeholder="Ajouter un projet"
+              onChange={handleChange}
+            />
 
 
-          <button className="Button1">Nouveau projet</button>
-        </form>
-
-        <button className="Button2">Nouveau CdP</button>
-      </div>
-      <table className="TableProjects">
-        <thead>
-          <tr>
-            <th style={{ textAlign: "left" }}>Nom</th>
-            <th>Code</th>
-            <th>Statut Audit</th>
-            <th>Statut PA</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {projets.map((project) => (
+            <button className="Button1">Nouveau projet</button>
+          </form>
+        </div>
+        <table className="TableProjects">
+          <thead>
             <tr>
-              <td style={{ textAlign: "left", fontWeight: "bold" }}><Link to={"/Gestion/" + project.Code} state={{ Currentuser: props.user.userDetails }}>
-                {project.Nom}
-              </Link>
-              </td>
-              <td>{project.Code}</td>
-              <td>{project.StatutAudit}</td>
-              <td>{project.StatutPA}</td>
+              <th style={{ textAlign: "left" }}>Nom</th>
+              <th>Code</th>
+              <th>Chef de Projet</th>
+              <th>Statut Audit</th>
+              <th>Statut PA</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+          </thead>
+
+          <tbody>
+            {projets.map((project) => (
+              <tr>
+                <td style={{ textAlign: "left", fontWeight: "bold" }}><Link to={"/Gestion/" + project.Code} state={{ Currentuser: props.user.userDetails }}>
+                  {project.Nom}
+                </Link>
+                </td>
+                <td>{project.Code}</td>
+                <td>{project.Manager}</td>
+                <td>{project.StatutAudit}</td>
+                <td>{project.StatutPA}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+  else {
+    return (
+      <div>
+        <table className="TableProjects">
+          <thead>
+            <tr>
+              <th style={{ textAlign: "left" }}>Nom</th>
+              <th>Code</th>
+              <th>Chef de Projet</th>
+              <th>Statut Audit</th>
+              <th>Statut PA</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {projets.map((project) => (
+              <tr>
+                <td style={{ textAlign: "left", fontWeight: "bold" }}><Link to={"/Gestion/" + project.Code} state={{ Currentuser: props.user.userDetails }}>
+                  {project.Nom}
+                </Link>
+                </td>
+                <td>{project.Code}</td>
+                <td>{project.Manager}</td>
+                <td>{project.StatutAudit}</td>
+                <td>{project.StatutPA}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )
+  }
+  //render
+
 }
 
 export default TableP;

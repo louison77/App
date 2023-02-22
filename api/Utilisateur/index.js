@@ -9,7 +9,7 @@ mongoose.connect(
 );
 
 const UserSchema = new mongoose.Schema({
-    mail: String,
+    mail: { type: String, unique: true },
     role: String,
 });
 
