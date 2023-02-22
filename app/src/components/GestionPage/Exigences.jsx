@@ -607,7 +607,7 @@ const Exigences = () => {
                           type="textarea"
                           onChange={ModifyObserv}
                         ></textarea>
-                        <button classname="BoutonObserv" onClick={PatchObservations}>
+                        <button class="BoutonObserv" onClick={PatchObservations}>
                           Ajouter Observations
                         </button>
                       </form>
