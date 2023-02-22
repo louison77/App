@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/components/NavbarsStyle/_nav2.css";
-import BoutonProfil from "./BoutonProfil";
+
 import axios from 'axios'
 
 
@@ -109,7 +109,7 @@ const Nav2 = (props) => {
           </div>
           <div className="rightpart">
             <div className="profil">
-              <BoutonProfil />
+
             </div>
           </div>
         </div>

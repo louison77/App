@@ -6,6 +6,7 @@ import "../../styles/components/GestionStyle/_suivi.css";
 const Suivi = () => {
     const [code] = useOutletContext();
     const baseUrl = "/api/Projet"
+    const baseUrl2 = "/api/Utilisateur"
     const [newauditeur, setauditeur] = useState("");
     const [auditeursprojet, setauditeursprojet] = useState([]);
     const [Refresh, setRefresh] = useState("");
@@ -62,6 +63,17 @@ const Suivi = () => {
                 }
                 catch (error) {
                     console.log()
+                }
+                try {
+                    axios.post(`${baseUrl2}`, {
+                        mail: newauditeur,
+                        role: "Auditeur"
+                    }, {
+                        'Content-Type': 'application/json'
+                    })
+                }
+                catch (error) {
+
                 }
                 setRefresh("1")
             }
