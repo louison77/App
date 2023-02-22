@@ -629,7 +629,7 @@ const Exigences = () => {
               <div className="SelectionMesures">
                 <h4 className="NamePart">Evaluation de la maturité </h4>
                 <table className="ChoixNiveaux">
-                  <thead>
+                  <thead class="labelLevels">
                     <tr>
                       <th className="Basique">Basique</th>
                       <th className="Moyenne">Moyenne</th>
@@ -646,37 +646,56 @@ const Exigences = () => {
                             onClick={() => ChangeMaturity("1")}
                             checked={exige.Maturite === "1" ? true : false}
                           />
-                          <p>{exige.SousExigences[0].sousId} </p>
+
+                          {" "+exige.SousExigences[0].sousId}
                         </div>
                       </td>
                       <td className="Case">
                         <div className="CaseTable">
+                        <label style={{display: "inline-block"}}>
                           <input
                             type="checkbox"
                             onClick={() => ChangeMaturity("2")}
                             checked={exige.Maturite === "2" ? true : false}
-                          />
-                          <p>{exige.SousExigences[1].sousId} </p>
+                            style={{verticalAlign: "middle"}}
+                            />
+                        <span style={{verticalAlign: "middle"}}>
+  
+                            {" "+ exige.SousExigences[1].sousId} 
+                        </span>
+                        </label>  
                         </div>
                       </td>
                       <td className="Case">
                         <div className="CaseTable">
+                        <label style={{display: "inline-block"}}>
                           <input
                             type="checkbox"
                             onClick={() => ChangeMaturity("3")}
                             checked={exige.Maturite === "3" ? true : false}
-                          />
-                          <p>{exige.SousExigences[2].sousId} </p>
+                            style={{verticalAlign: "middle"}}
+                            />
+                        <span style={{verticalAlign: "middle"}}>
+  
+                            {" "+ exige.SousExigences[2].sousId} 
+                        </span>
+                        </label> 
                         </div>
                       </td>
                       <td className="Case">
                         <div className="CaseTable">
+                        <label style={{display: "inline-block"}}>
                           <input
                             type="checkbox"
                             onClick={() => ChangeMaturity("4")}
                             checked={exige.Maturite === "4" ? true : false}
-                          />
-                          <p>{exige.SousExigences[3].sousId} </p>
+                            style={{verticalAlign: "middle"}}
+                            />
+                        <span style={{verticalAlign: "middle"}}>
+  
+                            {" "+ exige.SousExigences[3].sousId} 
+                        </span>
+                        </label> 
                         </div>
                       </td>
                     </tr>
