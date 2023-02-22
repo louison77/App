@@ -21,7 +21,6 @@ const BoutonProfil = (props) => {
           <ion-icon name="person-outline"></ion-icon>
         </DropdownToggle>
         <DropdownMenu>
-          <Dropdown.Item>Profil</Dropdown.Item>
           <Dropdown.Item>
             <a
               href={`/.auth/logout?post_logout_redirect_uri=${redirect}`}
