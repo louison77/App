@@ -9,8 +9,9 @@
 }
 
 .ExigenceDescription {
-    margin-left: 100px;
-    width: 100%;
+    width: 80%;
+    margin-left: 5%;
+
 }
 
 .FirstLine {
@@ -49,20 +50,26 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
 }
 
 
 .Part2 {
     display: flex;
     justify-content: right;
-    margin-right: 10px;
+    margin-right: 5%;
     width: 40%;
 }
 
 .Part1 {
     width: 50%;
-    margin-left: 0px;
-    margin-right: 50px;
+    margin-right: 5%;
+
+}
+
+h4 {
+    color:#ee970a;
+    margin-top: 10px;
 
 }
 
@@ -70,8 +77,11 @@
 
     width: 400px;
     height: 100px;
+    padding: 3%;
     margin-bottom: 10px;
-    color: rgb(9, 118, 161);
+    color: black;
+    background: rgb(243, 243, 243);
+    border: transparent ;
 
 }
 
@@ -79,19 +89,19 @@
     display: flex;
     flex-direction: column;
     width: 50%;
+    
 
 }
 
-.BoutonObserv {
-    color: #D68910;
-}
+
 
 .BarreDéroulé {
-    margin-top: 50px;
-    margin-left: 50px;
+    margin-top: 2%;
+    margin-left: 5%;
     display: flex;
     flex-direction: column;
-    width: 200px;
+width: max-content;
+
 }
 
 .BlackExigences {
@@ -146,8 +156,7 @@
 }
 
 .TexteParties {
-    background-color: lightgrey;
-    padding-left: 5px;
+    background-color: transparent;
     padding-right: 5px;
     padding-bottom: 2px;
     padding-top: 2px;
@@ -156,8 +165,7 @@
 }
 
 .TexteGuideAbregee {
-    background-color: lightgrey;
-    padding-left: 10px;
+    background-color: transparent;
     padding-right: 10px;
     padding-bottom: 5px;
     padding-top: 5px;
@@ -213,26 +221,26 @@
 
 .BoutonOk {
     background-color: lightgrey;
+    border: transparent;
     margin-right: 10px;
     margin-left: 5px;
-    border-color: lightgrey;
-    border-radius: 10px;
+    border-radius: 8px;
     height: 30px;
 
 }
 
 .BoutonNok {
     background-color: lightgrey;
-    border-color: lightgrey;
+    border: transparent;
     margin-right: 10px;
-    border-radius: 10px;
+    border-radius: 8px;
     height: 30px;
 }
 
 .BoutonNA {
     background-color: lightgrey;
-    border-color: lightgrey;
-    border-radius: 10px;
+    border:transparent;
+    border-radius: 8px;
     height: 30px;
 }
 
@@ -258,17 +266,22 @@
 
 
 .MesureButton {
-    background-color: white;
-    border: 2px solid black;
+    background-color: orange;
+    border: 2px solid rgb(240, 159, 8);
     padding: 5px;
     border-radius: 5px;
+    color: white;
+    margin-left: 60px;
+    width: max-content;
 
 }
 
 .MesureButton:hover {
     cursor: pointer;
-    background-color: black;
+    background-color: #D68910;
     color: white;
+    width: max-content;
+
 }
 
 .ButtonSendMesures {
@@ -278,6 +291,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.BoutonObserv {
+    background-color: orange;
+    border: 2px solid rgb(240, 159, 8);
+    border-radius: 5px;
+    color: white;
+    width: max-content;
+}
+
+.BoutonObserv:hover {
+    cursor: pointer;
+    background-color: #D68910;
+    color: white;
+    width: max-content;
 }
 
 .BtnISO {
