@@ -2,9 +2,11 @@
     background-color: white;
     border-color: black;
     color: black;
-    height: 3.5em;
+    height: 2.5em;
     padding: 2%;
-    width: 30%
+    width: 30%;
+    display: flex;
+    align-items: center;
 }
 
 .Addauditeur:hover {

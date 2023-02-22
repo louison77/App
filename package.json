@@ -15,6 +15,7 @@
     "mongoose": "^6.9.0",
     "react-bootstrap": "^2.7.0",
     "react-chartjs-2": "^5.2.0",
+    "react-dropdown-input": "^0.1.11",
     "react-router-dom": "^6.8.1",
     "react-scripts": "^5.0.1",
     "roboto": "^0.8.2",
