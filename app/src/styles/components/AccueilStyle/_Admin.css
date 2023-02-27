@@ -1,0 +1,53 @@
+.GestionManager {
+
+    width: 100%;
+    height: 40%;
+    padding-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.TitleGestion {
+    margin-bottom: 2%;
+}
+
+.FormManager {
+    margin-left: 2%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5%;
+}
+
+.ManagerInput {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    border: 2px solid black;
+    border-right: none;
+    height: 3.5em;
+}
+
+.AddManager {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    border: 2px solid black;
+    height: 3.5em;
+    background-color: white;
+}
+
+.AddManager:hover {
+    color: white;
+    background-color: black;
+}
+
+.Managers {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.tableManager {
+    width: 30%;
+}
