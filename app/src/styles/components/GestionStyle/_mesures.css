@@ -181,9 +181,9 @@ thead th:nth-child(14) {
 .BtnDelete {
   border: 1px solid black;
   padding: 2px 8px;
-  position: relative;
-  top: 200px;
-  left: 10%
+  position: absolute;
+  transform: translate(10%, 5em);
+
 }
 
 .BtnDelete:hover {

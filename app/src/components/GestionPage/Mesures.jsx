@@ -43,8 +43,6 @@ const Mesures = () => {
 
   }
 
-
-
   const [mesures, setmesures] = useState([
     {
       Id: "",
@@ -94,7 +92,7 @@ const Mesures = () => {
                   Id: BaseMesure[i].Ref,
                   Nom: BaseMesure[i].Exigence,
                   Action: BaseMesure[i].Mesure,
-                  Maturite: BaseMesure[i].Ref[-1],
+                  Maturite: BaseMesure[i].Ref[BaseMesure[i].Ref.length - 1],
                   Priorite: mesure.priorite,
                   Complexite: mesure.complexite,
                   CoutProjet: mesure.cout,
@@ -665,20 +663,20 @@ const Mesures = () => {
           <table className='ListeMesures'>
             <thead>
               <tr>
-                <th id="TitreMesure" className='IdMesure' onClick={(e) => Tri(e, "Id")}>ID interne</th>
-                <th id="TitreMesure" className='NomMesure' onClick={(e) => Tri(e, "Nom")}>Libellé</th>
-                <th id="TitreMesure" className='ActionMesure' onClick={(e) => Tri(e, "Action")}>Action détaillée</th>
-                <th id="TitreMesure" className='MaturiteMEsure' onClick={(e) => Tri(e, "Maturite")}>Maturité</th>
-                <th id="TitreMesure" className='PrioriteMesure' onClick={(e) => Tri(e, "Priorite")}>Priorité</th>
-                <th id="TitreMesure" className='ComplexiteMesure' onClick={(e) => Tri(e, "Complexite")}>Complexité</th>
-                <th id="TitreMesure" className='CoutProjetMesure' onClick={(e) => Tri(e, "Cout Projet")}>Coût Projet (k€)</th>
-                <th id="TitreMesure" className='CoutRunMesure' onClick={(e) => Tri(e, "Cout Run")}>Coût Run (k€/an)</th>
-                <th id="TitreMesure" className='AideChiffrageMesure' onClick={(e) => Tri(e, "Aide Chiffrage")}>Aide au chiffrage</th>
-                <th id="TitreMesure" className='PorteurMesure' onClick={(e) => Tri(e, "Porteur")}>Porteur</th>
-                <th id="TitreMesure" className='DateDebutMesure' onClick={(e) => Tri(e, "Date Debut")}>Date début</th>
-                <th id="TitreMesure" className='DateFinMesure' onClick={(e) => Tri(e, "Date Fin")}>Date fin</th>
-                <th id="TitreMesure" className='StatutMesure' onClick={(e) => Tri(e, "Statut")}>Statut</th>
-                <th id="TitreMesure" className='MacroMesure' onClick={(e) => Tri(e, "Macro")}>Macro projet</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='IdMesure' onClick={(e) => Tri(e, "Id")}>ID interne</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='NomMesure' onClick={(e) => Tri(e, "Nom")}>Libellé</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='ActionMesure' onClick={(e) => Tri(e, "Action")}>Action détaillée</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='MaturiteMEsure' onClick={(e) => Tri(e, "Maturite")}>Maturité</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='PrioriteMesure' onClick={(e) => Tri(e, "Priorite")}>Priorité</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='ComplexiteMesure' onClick={(e) => Tri(e, "Complexite")}>Complexité</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='CoutProjetMesure' onClick={(e) => Tri(e, "Cout Projet")}>Coût Projet (k€)</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='CoutRunMesure' onClick={(e) => Tri(e, "Cout Run")}>Coût Run (k€/an)</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='AideChiffrageMesure' onClick={(e) => Tri(e, "Aide Chiffrage")}>Aide au chiffrage</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='PorteurMesure' onClick={(e) => Tri(e, "Porteur")}>Porteur</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='DateDebutMesure' onClick={(e) => Tri(e, "Date Debut")}>Date début</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='DateFinMesure' onClick={(e) => Tri(e, "Date Fin")}>Date fin</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='StatutMesure' onClick={(e) => Tri(e, "Statut")}>Statut</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='MacroMesure' onClick={(e) => Tri(e, "Macro")}>Macro projet</th>
               </tr>
             </thead>
             <tbody>
@@ -726,7 +724,7 @@ const Mesures = () => {
                   <td id="CelluleMesure">
                     <div contentEditable="true" className='TextMacro' id='Case'>{mesure.Macro}</div>
                   </td>
-                  <div><btn onClick={() => handleDelete(mesure.MesureID)} className="BtnDelete">Delete</btn></div>
+                  <div><btn onClick={() => handleDelete(mesure.MesureID)} className="BtnDelete">X</btn></div>
                 </tr>
               ))}
             </tbody>
@@ -764,20 +762,20 @@ const Mesures = () => {
           <table className='ListeMesures'>
             <thead>
               <tr>
-                <th id="TitreMesure" className='IdMesure' onClick={(e) => Tri(e, "Id")}>ID interne <span id="Triangle">{TriId}</span></th>
-                <th id="TitreMesure" className='NomMesure' onClick={(e) => Tri(e, "Nom")}>Libellé <span id="Triangle">{TriNom}</span></th>
-                <th id="TitreMesure" className='ActionMesure' onClick={(e) => Tri(e, "Action")}>Action détaillée <span id="Triangle">{TriAction}</span></th>
-                <th id="TitreMesure" className='MaturiteMEsure' onClick={(e) => Tri(e, "Maturite")}>Maturité <span id="Triangle">{TriMaturite}</span></th>
-                <th id="TitreMesure" className='PrioriteMesure' onClick={(e) => Tri(e, "Priorite")}>Priorité <span id="Triangle">{TriPriorite}</span></th>
-                <th id="TitreMesure" className='ComplexiteMesure' onClick={(e) => Tri(e, "Complexite")}>Complexité <span id="Triangle">{TriComplexite}</span></th>
-                <th id="TitreMesure" className='CoutProjetMesure' onClick={(e) => Tri(e, "Cout Projet")}>Coût Projet (k€) <span id="Triangle">{TriCoutProjet}</span></th>
-                <th id="TitreMesure" className='CoutRunMesure' onClick={(e) => Tri(e, "Cout Run")}>Coût Run (k€/an) <span id="Triangle">{TriCoutRun}</span></th>
-                <th id="TitreMesure" className='AideChiffrageMesure' onClick={(e) => Tri(e, "Aide Chiffrage")}>Aide au chiffrage <span id="Triangle">{TriAideChiffrage}</span></th>
-                <th id="TitreMesure" className='PorteurMesure' onClick={(e) => Tri(e, "Porteur")}>Porteur <span id="Triangle">{TriPorteur}</span></th>
-                <th id="TitreMesure" className='DateDebutMesure' onClick={(e) => Tri(e, "Date Debut")}>Date début <span id="Triangle">{TriDateDebut}</span></th>
-                <th id="TitreMesure" className='DateFinMesure' onClick={(e) => Tri(e, "Date Fin")}>Date fin <span id="Triangle">{TriDateFin}</span></th>
-                <th id="TitreMesure" className='StatutMesure' onClick={(e) => Tri(e, "Statut")}>Statut <span id="Triangle">{TriStatut}</span></th>
-                <th id="TitreMesure" className='MacroMesure' onClick={(e) => Tri(e, "Macro")}>Macro projet <span id="Triangle">{TriMacro}</span></th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='IdMesure' onClick={(e) => Tri(e, "Id")}>ID interne <span id="Triangle">{TriId}</span></th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='NomMesure' onClick={(e) => Tri(e, "Nom")}>Libellé <span id="Triangle">{TriNom}</span></th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='ActionMesure' onClick={(e) => Tri(e, "Action")}>Action détaillée <span id="Triangle">{TriAction}</span></th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='MaturiteMEsure' onClick={(e) => Tri(e, "Maturite")}>Maturité <span id="Triangle">{TriMaturite}</span></th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='PrioriteMesure' onClick={(e) => Tri(e, "Priorite")}>Priorité <span id="Triangle">{TriPriorite}</span></th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='ComplexiteMesure' onClick={(e) => Tri(e, "Complexite")}>Complexité <span id="Triangle">{TriComplexite}</span></th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='CoutProjetMesure' onClick={(e) => Tri(e, "Cout Projet")}>Coût Projet (k€) <span id="Triangle">{TriCoutProjet}</span></th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='CoutRunMesure' onClick={(e) => Tri(e, "Cout Run")}>Coût Run (k€/an) <span id="Triangle">{TriCoutRun}</span></th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='AideChiffrageMesure' onClick={(e) => Tri(e, "Aide Chiffrage")}>Aide au chiffrage <span id="Triangle">{TriAideChiffrage}</span></th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='PorteurMesure' onClick={(e) => Tri(e, "Porteur")}>Porteur <span id="Triangle">{TriPorteur}</span></th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='DateDebutMesure' onClick={(e) => Tri(e, "Date Debut")}>Date début <span id="Triangle">{TriDateDebut}</span></th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='DateFinMesure' onClick={(e) => Tri(e, "Date Fin")}>Date fin <span id="Triangle">{TriDateFin}</span></th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='StatutMesure' onClick={(e) => Tri(e, "Statut")}>Statut <span id="Triangle">{TriStatut}</span></th>
+                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='MacroMesure' onClick={(e) => Tri(e, "Macro")}>Macro projet <span id="Triangle">{TriMacro}</span></th>
               </tr>
             </thead>
             <tbody>
@@ -825,7 +823,7 @@ const Mesures = () => {
                   <td id="CelluleMesure">
                     <div contentEditable="true" className='TextMacro' id='Case'>{mesure.Macro}</div>
                   </td>
-                  <div><btn onClick={() => handleDelete(mesure.MesureID)} className="BtnDelete">Delete</btn></div>
+                  <div><btn onClick={() => handleDelete(mesure.MesureID)} className="BtnDelete">X</btn></div>
                 </tr>
               ))}
             </tbody>

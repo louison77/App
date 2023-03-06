@@ -13,6 +13,7 @@ const Exigences = () => {
   const baseUrl2 = '/api/Projet';
   const baseUrl3 = '/api/Mesure';
   const [isposted, setposted] = useState(false)
+  const [statutP, setstatutP] = useState("")
   //Tableau général de toutes les exigences
   const [code] = useOutletContext();
 
@@ -52,7 +53,10 @@ const Exigences = () => {
     })
   }
   const handleDelete = (id) => {
-    HandleConfirmation("Est-ce que vous voulez bien les ajouter au plan d'action?", true, id);
+    if (statutP !== "Terminé") {
+      HandleConfirmation("Est-ce que vous voulez bien les ajouter au plan d'action?", true, id);
+    }
+
 
   }
 
@@ -129,6 +133,23 @@ const Exigences = () => {
       }
     }
     getExigences();
+    const getStatuAudit = async () => {
+      try {
+        const response = await axios.get(`${baseUrl2}`);
+        const retrievedProject = response.data.projets;
+        retrievedProject.forEach(projet => {
+          if (projet.projetid === code) {
+            setstatutP(projet.statutaudit)
+
+          }
+        })
+      }
+      catch (error) {
+        console.log(error)
+      }
+
+    }
+    getStatuAudit()
   }, [code, isposted]);
   //comportements
   const toggleVisibility = (event, ID) => {
@@ -208,231 +229,246 @@ const Exigences = () => {
   }
   //Changer valeur Observation
   const ModifyObserv = (event) => {
-    const Copy = [];
-    const Copy2 = [];
-    for (let i = 0; i < exigences.length; i++) {
-      if (exigences[i].Id === UneExigence[0].Id) {
-        Copy.push({
-          exigenceid: exigences[i].exigenceid,
-          Id: exigences[i].Id,
-          Nom: exigences[i].Nom,
-          Exigence: exigences[i].Exigence,
-          GuideComplet: exigences[i].GuideComplet,
-          GuideAbrege: exigences[i].GuideAbrege,
-          Obj: exigences[i].Obj,
-          Observation: event.target.value,
-          SousExigences: exigences[i].SousExigences,
-          Note: exigences[i].Note,
-          Maturite: exigences[i].Maturite,
-        });
-      } else {
-        Copy.push(exigences[i]);
+    if (statutP !== "Terminé") {
+      const Copy = [];
+      const Copy2 = [];
+      for (let i = 0; i < exigences.length; i++) {
+        if (exigences[i].Id === UneExigence[0].Id) {
+          Copy.push({
+            exigenceid: exigences[i].exigenceid,
+            Id: exigences[i].Id,
+            Nom: exigences[i].Nom,
+            Exigence: exigences[i].Exigence,
+            GuideComplet: exigences[i].GuideComplet,
+            GuideAbrege: exigences[i].GuideAbrege,
+            Obj: exigences[i].Obj,
+            Observation: event.target.value,
+            SousExigences: exigences[i].SousExigences,
+            Note: exigences[i].Note,
+            Maturite: exigences[i].Maturite,
+          });
+        } else {
+          Copy.push(exigences[i]);
+        }
       }
+      Copy2.push({
+        exigenceid: UneExigence[0].exigenceid,
+        Id: UneExigence[0].Id,
+        Nom: UneExigence[0].Nom,
+        Exigence: UneExigence[0].Exigence,
+        GuideComplet: UneExigence[0].GuideComplet,
+        GuideAbrege: UneExigence[0].GuideAbrege,
+        Obj: UneExigence[0].Obj,
+        Observation: event.target.value,
+        SousExigences: UneExigence[0].SousExigences,
+        Note: UneExigence[0].Note,
+        Maturite: UneExigence[0].Maturite,
+      });
+      setUneExigence(Copy2);
+      setExigences(Copy);
+      event.preventDefault();
     }
-    Copy2.push({
-      exigenceid: UneExigence[0].exigenceid,
-      Id: UneExigence[0].Id,
-      Nom: UneExigence[0].Nom,
-      Exigence: UneExigence[0].Exigence,
-      GuideComplet: UneExigence[0].GuideComplet,
-      GuideAbrege: UneExigence[0].GuideAbrege,
-      Obj: UneExigence[0].Obj,
-      Observation: event.target.value,
-      SousExigences: UneExigence[0].SousExigences,
-      Note: UneExigence[0].Note,
-      Maturite: UneExigence[0].Maturite,
-    });
-    setUneExigence(Copy2);
-    setExigences(Copy);
-    event.preventDefault();
+
   };
   const PatchObservations = (e) => {
     e.preventDefault();
-    const sendRequest = async () => {
-      try {
-        console.log(UneExigence[0].exigenceid)
-        await axios.patch(`${baseUrl}`, {
-          exigenceid: UneExigence[0].exigenceid,
-          observations: UneExigence[0].Observation,
-        }, {
-          'Content-Type': 'application/json'
-        })
-      }
-      catch (error) {
-        console.log(error)
-      }
+    if (statutP !== "Terminé") {
+      const sendRequest = async () => {
+        try {
+          console.log(UneExigence[0].exigenceid)
+          await axios.patch(`${baseUrl}`, {
+            exigenceid: UneExigence[0].exigenceid,
+            observations: UneExigence[0].Observation,
+          }, {
+            'Content-Type': 'application/json'
+          })
+        }
+        catch (error) {
+          console.log(error)
+        }
 
+      }
+      sendRequest()
     }
-    sendRequest()
+
   }
 
   const ChangeColor = (count, Index) => {
-    //On créer deux variable tampon pour les futures UneExigence et exigences
-    const Copy = [];
-    const Copy2 = [];
-    //Tabcol prend la valeur de Sousexigences
-    let Tabcol = UneExigence[0].SousExigences;
+    if (statutP !== "Terminé") {
+      //On créer deux variable tampon pour les futures UneExigence et exigences
+      const Copy = [];
+      const Copy2 = [];
+      //Tabcol prend la valeur de Sousexigences
+      let Tabcol = UneExigence[0].SousExigences;
 
-    Tabcol[Index].color = count;
+      Tabcol[Index].color = count;
 
-    //Pour chaque valeur de exigences on la push dans Copy et on modifie seulement le bon color
-    for (let i = 0; i < exigences.length; i++) {
-      if (exigences[i].Id === UneExigence[0].Id) {
-        Copy.push({
-          exigenceid: exigences[i].exigenceid,
-          Id: exigences[i].Id,
-          Nom: exigences[i].Nom,
-          Exigence: exigences[i].Exigence,
-          GuideComplet: exigences[i].GuideComplet,
-          GuideAbrege: exigences[i].GuideAbrege,
-          Obj: exigences[i].Obj,
-          Observation: exigences[i].Observation,
-          SousExigences: Tabcol,
-          Note: exigences[i].Note,
-          Maturite: exigences[i].Maturite,
-        });
-      } else {
-        Copy.push(exigences[i]);
+      //Pour chaque valeur de exigences on la push dans Copy et on modifie seulement le bon color
+      for (let i = 0; i < exigences.length; i++) {
+        if (exigences[i].Id === UneExigence[0].Id) {
+          Copy.push({
+            exigenceid: exigences[i].exigenceid,
+            Id: exigences[i].Id,
+            Nom: exigences[i].Nom,
+            Exigence: exigences[i].Exigence,
+            GuideComplet: exigences[i].GuideComplet,
+            GuideAbrege: exigences[i].GuideAbrege,
+            Obj: exigences[i].Obj,
+            Observation: exigences[i].Observation,
+            SousExigences: Tabcol,
+            Note: exigences[i].Note,
+            Maturite: exigences[i].Maturite,
+          });
+        } else {
+          Copy.push(exigences[i]);
+        }
       }
+      //On fait pareil pour UneExigence dans Copy2
+      Copy2.push({
+        exigenceid: UneExigence[0].exigenceid,
+        Id: UneExigence[0].Id,
+        Nom: UneExigence[0].Nom,
+        Exigence: UneExigence[0].Exigence,
+        GuideComplet: UneExigence[0].GuideComplet,
+        GuideAbrege: UneExigence[0].GuideAbrege,
+        Obj: UneExigence[0].Obj,
+        Observation: UneExigence[0].Observation,
+        SousExigences: Tabcol,
+        Note: UneExigence[0].Note,
+        Maturite: UneExigence[0].Maturite,
+      });
+      //On utilise le seter pour modifie l'etat des deux variables
+      setUneExigence(Copy2);
+      setExigences(Copy);
     }
-    //On fait pareil pour UneExigence dans Copy2
-    Copy2.push({
-      exigenceid: UneExigence[0].exigenceid,
-      Id: UneExigence[0].Id,
-      Nom: UneExigence[0].Nom,
-      Exigence: UneExigence[0].Exigence,
-      GuideComplet: UneExigence[0].GuideComplet,
-      GuideAbrege: UneExigence[0].GuideAbrege,
-      Obj: UneExigence[0].Obj,
-      Observation: UneExigence[0].Observation,
-      SousExigences: Tabcol,
-      Note: UneExigence[0].Note,
-      Maturite: UneExigence[0].Maturite,
-    });
-    //On utilise le seter pour modifie l'etat des deux variables
-    setUneExigence(Copy2);
-    setExigences(Copy);
   };
   const SubmitNote = (event) => {
-    const Copy = [];
-    const Copy2 = [];
-    for (let i = 0; i < exigences.length; i++) {
-      if (exigences[i].Id === UneExigence[0].Id) {
-        Copy.push({
-          exigenceid: exigences[i].exigenceid,
-          Id: exigences[i].Id,
-          Nom: exigences[i].Nom,
-          Exigence: exigences[i].Exigence,
-          GuideComplet: exigences[i].GuideComplet,
-          GuideAbrege: exigences[i].GuideAbrege,
-          Obj: exigences[i].Obj,
-          Observation: exigences[i].Observation,
-          SousExigences: exigences[i].SousExigences,
-          Note: event.target.value,
-          Maturite: exigences[i].Maturite,
-        });
-      } else {
-        Copy.push(exigences[i]);
+    if (statutP !== "Terminé") {
+      const Copy = [];
+      const Copy2 = [];
+      for (let i = 0; i < exigences.length; i++) {
+        if (exigences[i].Id === UneExigence[0].Id) {
+          Copy.push({
+            exigenceid: exigences[i].exigenceid,
+            Id: exigences[i].Id,
+            Nom: exigences[i].Nom,
+            Exigence: exigences[i].Exigence,
+            GuideComplet: exigences[i].GuideComplet,
+            GuideAbrege: exigences[i].GuideAbrege,
+            Obj: exigences[i].Obj,
+            Observation: exigences[i].Observation,
+            SousExigences: exigences[i].SousExigences,
+            Note: event.target.value,
+            Maturite: exigences[i].Maturite,
+          });
+        } else {
+          Copy.push(exigences[i]);
+        }
       }
+      Copy2.push({
+        exigenceid: UneExigence[0].exigenceid,
+        Id: UneExigence[0].Id,
+        Nom: UneExigence[0].Nom,
+        Exigence: UneExigence[0].Exigence,
+        GuideComplet: UneExigence[0].GuideComplet,
+        GuideAbrege: UneExigence[0].GuideAbrege,
+        Obj: UneExigence[0].Obj,
+        Observation: UneExigence[0].Observation,
+        SousExigences: UneExigence[0].SousExigences,
+        Note: event.target.value,
+        Maturite: UneExigence[0].Maturite,
+      });
+      setUneExigence(Copy2);
+      setExigences(Copy);
+      const ChangeNote = async () => {
+        try {
+          console.log("ChangeNote " + UneExigence[0].exigenceid)
+          await axios.patch(`${baseUrl}`, {
+            exigenceid: UneExigence[0].exigenceid,
+            note: event.target.value,
+          }, {
+            'Content-Type': 'application/json'
+          })
+        }
+        catch (error) {
+          console.log(error)
+        }
+      }
+      ChangeNote()
+      event.preventDefault();
     }
-    Copy2.push({
-      exigenceid: UneExigence[0].exigenceid,
-      Id: UneExigence[0].Id,
-      Nom: UneExigence[0].Nom,
-      Exigence: UneExigence[0].Exigence,
-      GuideComplet: UneExigence[0].GuideComplet,
-      GuideAbrege: UneExigence[0].GuideAbrege,
-      Obj: UneExigence[0].Obj,
-      Observation: UneExigence[0].Observation,
-      SousExigences: UneExigence[0].SousExigences,
-      Note: event.target.value,
-      Maturite: UneExigence[0].Maturite,
-    });
-    setUneExigence(Copy2);
-    setExigences(Copy);
-    const ChangeNote = async () => {
-      try {
-        console.log("ChangeNote " + UneExigence[0].exigenceid)
-        await axios.patch(`${baseUrl}`, {
-          exigenceid: UneExigence[0].exigenceid,
-          note: event.target.value,
-        }, {
-          'Content-Type': 'application/json'
-        })
-      }
-      catch (error) {
-        console.log(error)
-      }
-    }
-    ChangeNote()
-    event.preventDefault();
+
   };
   const ChangeMaturity = (value) => {
-    const Copy = [];
-    const Copy2 = [];
-    var sousExigencesCopy = UneExigence[0].SousExigences;
+    if (statutP !== "Terminé") {
+      const Copy = [];
+      const Copy2 = [];
+      var sousExigencesCopy = UneExigence[0].SousExigences;
 
-    const valeur = UneExigence[0].Maturite === value ? "0" : value
-    for (let i = 0; i < sousExigencesCopy.length; i++) {
-      if (i + 1 <= parseInt(valeur)) {
-        sousExigencesCopy[i].color = 1
+      const valeur = UneExigence[0].Maturite === value ? "0" : value
+      for (let i = 0; i < sousExigencesCopy.length; i++) {
+        if (i + 1 <= parseInt(valeur)) {
+          sousExigencesCopy[i].color = 1
+        }
+        else if ((parseInt(valeur) + 1) === i + 1 && valeur !== "0") {
+          sousExigencesCopy[i].color = 2
+        }
+        else {
+          sousExigencesCopy[i].color = 0
+        }
       }
-      else if ((parseInt(valeur) + 1) === i + 1 && valeur !== "0") {
-        sousExigencesCopy[i].color = 2
+      for (let i = 0; i < exigences.length; i++) {
+        if (exigences[i].Id === UneExigence[0].Id) {
+          Copy.push({
+            exigenceid: exigences[i].exigenceid,
+            Id: exigences[i].Id,
+            Nom: exigences[i].Nom,
+            Exigence: exigences[i].Exigence,
+            GuideComplet: exigences[i].GuideComplet,
+            GuideAbrege: exigences[i].GuideAbrege,
+            Obj: exigences[i].Obj,
+            Observation: exigences[i].Observation,
+            SousExigences: sousExigencesCopy,
+            Note: exigences[i].Note,
+            Maturite: valeur,
+          });
+        } else {
+          Copy.push(exigences[i]);
+        }
       }
-      else {
-        sousExigencesCopy[i].color = 0
-      }
-    }
-    for (let i = 0; i < exigences.length; i++) {
-      if (exigences[i].Id === UneExigence[0].Id) {
-        Copy.push({
-          exigenceid: exigences[i].exigenceid,
-          Id: exigences[i].Id,
-          Nom: exigences[i].Nom,
-          Exigence: exigences[i].Exigence,
-          GuideComplet: exigences[i].GuideComplet,
-          GuideAbrege: exigences[i].GuideAbrege,
-          Obj: exigences[i].Obj,
-          Observation: exigences[i].Observation,
-          SousExigences: sousExigencesCopy,
-          Note: exigences[i].Note,
-          Maturite: valeur,
-        });
-      } else {
-        Copy.push(exigences[i]);
-      }
-    }
-    Copy2.push({
-      exigenceid: UneExigence[0].exigenceid,
-      Id: UneExigence[0].Id,
-      Nom: UneExigence[0].Nom,
-      Exigence: UneExigence[0].Exigence,
-      GuideComplet: UneExigence[0].GuideComplet,
-      GuideAbrege: UneExigence[0].GuideAbrege,
-      Obj: UneExigence[0].Obj,
-      Observation: UneExigence[0].Observation,
-      SousExigences: sousExigencesCopy,
-      Note: UneExigence[0].Note,
-      Maturite: valeur,
-    });
-    setUneExigence(Copy2);
-    setExigences(Copy);
-    const UpdateMaturity = async () => {
-      try {
+      Copy2.push({
+        exigenceid: UneExigence[0].exigenceid,
+        Id: UneExigence[0].Id,
+        Nom: UneExigence[0].Nom,
+        Exigence: UneExigence[0].Exigence,
+        GuideComplet: UneExigence[0].GuideComplet,
+        GuideAbrege: UneExigence[0].GuideAbrege,
+        Obj: UneExigence[0].Obj,
+        Observation: UneExigence[0].Observation,
+        SousExigences: sousExigencesCopy,
+        Note: UneExigence[0].Note,
+        Maturite: valeur,
+      });
+      setUneExigence(Copy2);
+      setExigences(Copy);
+      const UpdateMaturity = async () => {
+        try {
 
-        await axios.patch(`${baseUrl}`, {
-          exigenceid: UneExigence[0].exigenceid,
-          maturite: valeur,
-        }, {
-          'Content-Type': 'application/json'
-        })
+          await axios.patch(`${baseUrl}`, {
+            exigenceid: UneExigence[0].exigenceid,
+            maturite: valeur,
+          }, {
+            'Content-Type': 'application/json'
+          })
+        }
+        catch (error) {
+          console.log(error)
+        }
       }
-      catch (error) {
-        console.log(error)
-      }
+      UpdateMaturity()
+
     }
-    UpdateMaturity()
+
 
   };
   const ChangeExigence = (iter, ID) => {
@@ -464,7 +500,7 @@ const Exigences = () => {
     }
   };
   const Sendmesures = (id, test) => {
-    if (test) {
+    if (test && statutP !== "Terminé") {
       const EnvoyerMesures = async () => {
 
         for (let i = 0; i < UneExigence[0].SousExigences.length; i++) {

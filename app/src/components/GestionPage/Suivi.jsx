@@ -172,6 +172,9 @@ const Suivi = () => {
                     <button className="Addauditeur">Nouvel auditeur</button>
 
                 </form>
+                <div className='TexteAuditeur'>
+                    <p>Vous pouvez soit ajouter un auditeur déjà existant soit en créer un en tapant son adresse mail.</p>
+                </div>
 
 
             </div>

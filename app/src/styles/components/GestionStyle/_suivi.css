@@ -21,6 +21,7 @@
 
     margin-left: 10%;
     height: 10em;
+    margin-bottom: 2%;
 }
 
 .AuditeurInput {
@@ -58,4 +59,13 @@
 .BtnSupress:hover {
     background-color: #d62828;
     color: white;
+}
+
+.TexteAuditeur {
+    margin-top: 2%;
+    width: 71.6%;
+    background-color: whitesmoke;
+    color: rgb(90, 87, 87);
+    border-radius: 10px;
+    padding: 2%;
 }
