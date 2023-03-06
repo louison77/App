@@ -49,7 +49,6 @@ const Accueil = () => {
                     if (user != null && element.mail === user.userDetails) {
 
                         setrole(element.role)
-                        console.log(role)
 
 
                     }
@@ -79,8 +78,8 @@ const Accueil = () => {
     if (isAuthenticated && role === "Admin") {
         return (
             <div>
-                <Navbar user={user} Changeuser={setUser} ChangeAuth={userHasAuthenticated} />
-                <Admin />
+                <Navbar user={user.userDetails} Changeuser={setUser} ChangeAuth={userHasAuthenticated} />
+                <Admin username={user} />
 
             </div>
         );

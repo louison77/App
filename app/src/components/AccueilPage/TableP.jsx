@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/components/AccueilStyle/_tableP.css";
 import axios from 'axios'
+import Confirmation from "./Confirmation";
 
 
 function TableP(props) {
@@ -15,6 +16,23 @@ function TableP(props) {
   //tableau tampon pour pouvoir ajouter un projet dans le tableau au dessuss
   const [newProjet, setNewProjet] = useState("");
   const [maxId, setmaxID] = useState(0);
+
+  //Code pour le popup de confirmation de suppression
+
+  const [confirmation, setconfirmation] = useState({
+    message: "",
+    isLoading: false,
+    NameConfirmation: ""
+  })
+  const HandleConfirmation = (message, isLoading, NameConfirmation) => {
+    setconfirmation({
+      message, isLoading, NameConfirmation
+    })
+  }
+  const handleDelete = (id) => {
+    HandleConfirmation("Est-ce que vous voulez supprimer ce Projet?", true, id);
+
+  }
 
 
 
@@ -56,15 +74,11 @@ function TableP(props) {
       }
     }
     getBDD();
-  }, [props.user.userDetails, maxId, newProjet]);
+  }, [props.user.userDetails, maxId, newProjet, confirmation]);
   //comportement/evenenement lors de la soumission du formulaire
   const handleSubmit = (event) => {
     //pour ne pas que la page se réactualise quand on appuie sur le bouton
     event.preventDefault();
-
-
-
-
     if (newProjet !== "") {
       //copie du state
       const ProjetCopy = [...projets];
@@ -81,6 +95,8 @@ function TableP(props) {
         StatutPA: StatutPA,
         Manager: props.user.userDetails,
       });
+
+
 
       const sendProject = async () => {
 
@@ -116,9 +132,35 @@ function TableP(props) {
     setNewProjet(event.target.value);
   };
 
+  const DeleteProjet = (id, test) => {
+    console.log(id)
+    if (test) {
+      const DeleteOne = async () => {
+        try {
+          await axios.delete(`${baseUrl}`, {
+            data: {
+              projetid: id,
+            }
+          }, {
+            'Content-Type': 'application/json'
+          })
+        }
+        catch (error) {
+          console.log(error)
+        }
+      }
+      DeleteOne()
+      HandleConfirmation("", false);
+    }
+    else {
+      HandleConfirmation("", false);
+    }
+  }
+
   if (role === "Manager") {
     return (
       <div>
+
         <div className="boutons">
           <form action="submit" onSubmit={handleSubmit}>
             <input
@@ -155,10 +197,16 @@ function TableP(props) {
                 <td>{project.Manager}</td>
                 <td>{project.StatutAudit}</td>
                 <td>{project.StatutPA}</td>
+                <div><button onClick={() => handleDelete(project.Code)} className="Boutondeleted">X</button></div>
               </tr>
             ))}
           </tbody>
         </table>
+        {confirmation.isLoading && (
+          <Confirmation OnConfirmation={DeleteProjet} message={confirmation.message} NameConfirmation={confirmation.NameConfirmation} />
+        )
+
+        }
       </div>
     );
   }
@@ -188,6 +236,7 @@ function TableP(props) {
                 <td>{project.StatutAudit}</td>
                 <td>{project.StatutPA}</td>
               </tr>
+
             ))}
           </tbody>
         </table>

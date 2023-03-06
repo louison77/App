@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/components/GestionStyle/_exigences.css";
+import Confirmation from "../AccueilPage/Confirmation";
 
 const Exigences = () => {
   const baseUrl = '/api/Exigence';
@@ -37,6 +38,23 @@ const Exigences = () => {
   const [open, setOpen] = useState(false);
   //Id représentant l'exigence active
   const [activeID, setactiveID] = useState("");
+
+  //Confirmation
+
+  const [confirmation, setconfirmation] = useState({
+    message: "",
+    isLoading: false,
+    NameConfirmation: ""
+  })
+  const HandleConfirmation = (message, isLoading, NameConfirmation) => {
+    setconfirmation({
+      message, isLoading, NameConfirmation
+    })
+  }
+  const handleDelete = (id) => {
+    HandleConfirmation("Est-ce que vous voulez bien les ajouter au plan d'action?", true, id);
+
+  }
 
 
   useEffect(() => {
@@ -445,76 +463,82 @@ const Exigences = () => {
       setOpen(false);
     }
   };
-  const Sendmesures = () => {
+  const Sendmesures = (id, test) => {
+    if (test) {
+      const EnvoyerMesures = async () => {
 
-    const EnvoyerMesures = async () => {
+        for (let i = 0; i < UneExigence[0].SousExigences.length; i++) {
 
-      for (let i = 0; i < UneExigence[0].SousExigences.length; i++) {
+          if (UneExigence[0].SousExigences[i].color === 2) {
+            try {
+              await axios.post(`${baseUrl3}`,
+                {
+                  mesureid: UneExigence[0].exigenceid + "." + (i + 1).toString(),
+                  projetid: id,
+                  priorite: "",
+                  complexite: "",
+                  cout: 0,
+                  porteur: "",
+                  debut: "",
+                  fin: "",
+                  statut: "",
+                }, {
+                'Content-Type': 'application/json'
+              },).then(function (response) {
+                console.log(response);
+              })
 
-        if (UneExigence[0].SousExigences[i].color === 2) {
-          try {
-            await axios.post(`${baseUrl3}`,
-              {
-                mesureid: UneExigence[0].exigenceid + "." + (i + 1).toString(),
-                projetid: code,
-                priorite: "",
-                complexite: "",
-                cout: 0,
-                porteur: "",
-                debut: "",
-                fin: "",
-                statut: "",
-              }, {
-              'Content-Type': 'application/json'
-            },).then(function (response) {
-              console.log(response);
-            })
+            }
+            catch (error) {
+              console.log(error)
+            }
 
           }
-          catch (error) {
-            console.log(error)
-          }
-
         }
       }
-    }
-    EnvoyerMesures()
-    const MesureEncours = async () => {
-      try {
+      EnvoyerMesures()
+      const MesureEncours = async () => {
+        try {
 
-        await axios.patch(`${baseUrl2}`,
-          {
-            projetid: code,
-            statutplanaction: "En cours"
+          await axios.patch(`${baseUrl2}`,
+            {
+              projetid: code,
+              statutplanaction: "En cours"
+            }, {
+            'Content-Type': 'application/json'
+          })
+        }
+        catch (error) {
+          console.log(error)
+        }
+      }
+      MesureEncours()
+      const Updatecolor = async () => {
+        var colortab = [];
+        for (let i = 0; i < UneExigence[0].SousExigences.length; i++) {
+          colortab.push(UneExigence[0].SousExigences[i].color)
+        }
+        try {
+          await axios.patch(`${baseUrl}`, {
+            exigenceid: UneExigence[0].exigenceid,
+            color: colortab,
           }, {
-          'Content-Type': 'application/json'
-        })
+            'Content-Type': 'application/json'
+          },).then(function (response) {
+            console.log(response);
+          })
+        }
+        catch (error) {
+          console.log(error)
+        }
       }
-      catch (error) {
-        console.log(error)
-      }
+      Updatecolor()
+      HandleConfirmation("", false);
     }
-    MesureEncours()
-    const Updatecolor = async () => {
-      var colortab = [];
-      for (let i = 0; i < UneExigence[0].SousExigences.length; i++) {
-        colortab.push(UneExigence[0].SousExigences[i].color)
-      }
-      try {
-        await axios.patch(`${baseUrl}`, {
-          exigenceid: UneExigence[0].exigenceid,
-          color: colortab,
-        }, {
-          'Content-Type': 'application/json'
-        },).then(function (response) {
-          console.log(response);
-        })
-      }
-      catch (error) {
-        console.log(error)
-      }
+    else {
+      HandleConfirmation("", false);
     }
-    Updatecolor()
+
   }
   if (isSeen) {
     return (
@@ -775,7 +799,7 @@ const Exigences = () => {
                     </div>
                   </div>
                   <div className="ButtonSendMesures">
-                    <btn className="MesureButton" onClick={Sendmesures}>
+                    <btn className="MesureButton" onClick={() => handleDelete(code)}>
                       Envoyer mesures au plan d'action
                     </btn>
                   </div>
@@ -784,6 +808,11 @@ const Exigences = () => {
             </div>
           ))}
         </div>
+        {confirmation.isLoading && (
+          <Confirmation OnConfirmation={Sendmesures} message={confirmation.message} NameConfirmation={confirmation.NameConfirmation} />
+        )
+
+        }
       </div>
     );
   } else {

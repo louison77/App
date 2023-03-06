@@ -118,3 +118,15 @@ td {
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
 }
+
+.Boutondeleted {
+    position: absolute;
+    transform: translate(50%, 50%);
+    background-color: white;
+    border: 2px solid black;
+}
+
+.Boutondeleted:hover {
+    background-color: black;
+    color: white;
+}

@@ -37,9 +37,9 @@ module.exports = async function (context, req) {
         case 'PATCH':
             await updateOne(context);
             break;
-        /*case 'DELETE':
+        case 'DELETE':
             await deleteOne(context);
-            break;*/
+            break;
     }
 };
 
@@ -79,6 +79,7 @@ async function updateOne(context) {
 
 async function deleteOne(context) {
     const mail = context.req.body.mail;
-    const result = await User.deleteOne({ mail: mail });
+    const user = context.req.body;
+    await User.deleteOne({ mail: mail, user });
     context.res.status = 204;
 }

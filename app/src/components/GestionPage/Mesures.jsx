@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import "../../styles/components/GestionStyle/_mesures.css";
 import axios from 'axios'
+import Confirmation from "../AccueilPage/Confirmation";
 
 const Mesures = () => {
 
@@ -26,6 +27,21 @@ const Mesures = () => {
   const baseUrl2 = '/api/Exigence'
   const [code] = useOutletContext();
   const [change, setchange] = useState("")
+  const [confirmation, setconfirmation] = useState({
+    message: "",
+    isLoading: false,
+    NameConfirmation: ""
+  })
+  const HandleConfirmation = (message, isLoading, NameConfirmation) => {
+    setconfirmation({
+      message, isLoading, NameConfirmation
+    })
+  }
+  const handleDelete = (id) => {
+
+    HandleConfirmation("Est-ce que vous voulez supprimer cette mesure?", true, id);
+
+  }
 
 
 
@@ -571,52 +587,60 @@ const Mesures = () => {
     }
     sendelement()
   }
-  const DeleteMesure = (id) => {
-    const DeleteOne = async () => {
-      try {
-        await axios.delete(`${baseUrl}`, {
-          data: {
+  const DeleteMesure = (id, test) => {
+    if (test) {
+      const DeleteOne = async () => {
+        try {
+          await axios.delete(`${baseUrl}`, {
+            data: {
 
 
-            mesureid: id,
-          }
-        }, {
-          'Content-Type': 'application/json'
-        })
-      }
-      catch (error) {
-        console.log(error)
-      }
-      const exigenceid = id.split(".")[0]
-      console.log(exigenceid)
-      const index = id.split(".")[1]
-      const response = (await axios.get(`${baseUrl2}`)).data.exigence;
-      var tab = []
-      response.forEach(exigence => {
-        if (exigence.exigenceid === exigenceid) {
-          tab = exigence.color;
-          tab[index - 1] = 0
+              mesureid: id,
+            }
+          }, {
+            'Content-Type': 'application/json'
+          })
         }
-      })
-      console.log(tab)
-      try {
-        await axios.patch(`${baseUrl2}`, {
-          exigenceid: exigenceid,
-          color: tab
+        catch (error) {
+          console.log(error)
+        }
+        const exigenceid = id.split(".")[0]
+        console.log(exigenceid)
+        const index = id.split(".")[1]
+        const response = (await axios.get(`${baseUrl2}`)).data.exigence;
+        var tab = []
+        response.forEach(exigence => {
+          if (exigence.exigenceid === exigenceid) {
+            tab = exigence.color;
+            tab[index - 1] = 0
+          }
         })
+        console.log(tab)
+        try {
+          await axios.patch(`${baseUrl2}`, {
+            exigenceid: exigenceid,
+            color: tab
+          })
+        }
+        catch (error) {
+          console.log(error)
+        }
       }
-      catch (error) {
-        console.log(error)
-      }
+      DeleteOne()
+      setchange("3")
+      HandleConfirmation("", false)
     }
-    DeleteOne()
-    setchange("3")
+    else {
+      HandleConfirmation("", false)
+    }
+
   }
 
 
   if (Type === 1) {
     return (
       <div>
+
         <h1 className="TITLEMESURE">Plan d'actions</h1>
         <form>
           <input id="Filtre" type="text" name="Thing" onChange={Filtre} />
@@ -702,12 +726,13 @@ const Mesures = () => {
                   <td id="CelluleMesure">
                     <div contentEditable="true" className='TextMacro' id='Case'>{mesure.Macro}</div>
                   </td>
-                  <div><btn onClick={() => DeleteMesure(mesure.MesureID)} className="BtnDelete">Delete</btn></div>
+                  <div><btn onClick={() => handleDelete(mesure.MesureID)} className="BtnDelete">Delete</btn></div>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+
       </div>
     );
 
@@ -800,12 +825,17 @@ const Mesures = () => {
                   <td id="CelluleMesure">
                     <div contentEditable="true" className='TextMacro' id='Case'>{mesure.Macro}</div>
                   </td>
-                  <div><btn onClick={() => DeleteMesure(mesure.MesureID)} className="BtnDelete">Delete</btn></div>
+                  <div><btn onClick={() => handleDelete(mesure.MesureID)} className="BtnDelete">Delete</btn></div>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+        {confirmation.isLoading && (
+          <Confirmation OnConfirmation={DeleteMesure} message={confirmation.message} NameConfirmation={confirmation.NameConfirmation} />
+        )
+
+        }
       </div>
     );
   }

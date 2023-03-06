@@ -1,16 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import "../../styles/components/AccueilStyle/_Admin.css";
+import Confirmation from './Confirmation';
 
-const Admin = () => {
+const Admin = (props) => {
     const baseUrl = '/api/Utilisateur'
     const [newmanager, setmanager] = useState("");
     const [Users, setUsers] = useState([])
     const [newadmin, setadmin] = useState("")
     const [Adminstab, setAdmintab] = useState([])
 
+    //Code pour le popup de confirmation de suppression
+
+    const [confirmation, setconfirmation] = useState({
+        message: "",
+        isLoading: false,
+        NameConfirmation: ""
+    })
+    const HandleConfirmation = (message, isLoading, NameConfirmation) => {
+        setconfirmation({
+            message, isLoading, NameConfirmation
+        })
+    }
+    const handleDelete = (id, Msg) => {
+        HandleConfirmation(Msg, true, id);
+
+    }
+
     useEffect(() => {
         const getUser = async () => {
+
             const response = await axios.get(`${baseUrl}`)
             const retrievedUser = response.data.users;
             const tab = []
@@ -33,7 +52,7 @@ const Admin = () => {
         }
         getUser()
 
-    }, [newmanager, newadmin])
+    }, [newmanager, newadmin, confirmation])
     const handleChange = (event) => {
         setmanager(event.target.value);
     };
@@ -88,6 +107,30 @@ const Admin = () => {
 
 
     }
+    const DeleteUser = (name, test) => {
+        if (test && props.username.userDetails != name) {
+            const DeleteOne = async () => {
+                try {
+                    await axios.delete(`${baseUrl}`, {
+                        data: {
+                            mail: name,
+                        }
+                    }, {
+                        'Content-Type': 'application/json'
+                    })
+                }
+                catch (error) {
+                    console.log(error)
+                }
+            }
+            DeleteOne()
+            HandleConfirmation("", false);
+
+        }
+        else {
+            HandleConfirmation("", false);
+        }
+    }
 
     return (
         <div>
@@ -134,6 +177,7 @@ const Admin = () => {
                                     <td>
                                         {user.Mail}
                                     </td>
+                                    <div><button onClick={() => handleDelete(user.Mail, "Est-ce que vous voulez supprimer ce Chef de projet")} className="Boutondeleted">X</button></div>
                                 </tr>
                             ))}
 
@@ -151,13 +195,18 @@ const Admin = () => {
                                     <td>
                                         {admin.Mail}
                                     </td>
+                                    <div><button onClick={() => handleDelete(admin.Mail, "Est-ce que vous voulez supprimer cet admin")} className="Boutondeleted">X</button></div>
                                 </tr>
                             ))}
 
                     </tbody>
                 </table>
             </div>
+            {confirmation.isLoading && (
+                <Confirmation OnConfirmation={DeleteUser} message={confirmation.message} NameConfirmation={confirmation.NameConfirmation} />
+            )
 
+            }
         </div>
     );
 };

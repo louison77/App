@@ -4,6 +4,7 @@ import { useOutletContext } from "react-router-dom";
 import "../../styles/components/GestionStyle/_suivi.css";
 import Combobox from "react-widgets/Combobox";
 import "react-widgets/styles.css"
+import Confirmation from '../AccueilPage/Confirmation';
 
 const Suivi = () => {
     const [code] = useOutletContext();
@@ -13,7 +14,20 @@ const Suivi = () => {
     const [newauditeur, setauditeur] = useState("");
     const [auditeursprojet, setauditeursprojet] = useState([]);
     const [Refresh, setRefresh] = useState("");
+    const [confirmation, setconfirmation] = useState({
+        message: "",
+        isLoading: false,
+        NameConfirmation: ""
+    })
+    const HandleConfirmation = (message, isLoading, NameConfirmation) => {
+        setconfirmation({
+            message, isLoading, NameConfirmation
+        })
+    }
+    const handleDelete = (id) => {
+        HandleConfirmation("Est-ce que vous voulez supprimer cet auditeur?", true, id);
 
+    }
 
     useEffect(() => {
         const getProject = async () => {
@@ -99,37 +113,43 @@ const Suivi = () => {
         setauditeur("")
 
     }
-    const deleteAuditeurs = (Aname) => {
-
-        const deleteA = async () => {
-            const response = await axios.get(`${baseUrl}`)
-            const retrievedProject = response.data.projets;
-            var tab = []
-            for (const element of retrievedProject) {
-                if (element.projetid === code) {
-                    tab = element.auditeur;
+    const deleteAuditeurs = (Aname, test) => {
+        if (test) {
+            const deleteA = async () => {
+                const response = await axios.get(`${baseUrl}`)
+                const retrievedProject = response.data.projets;
+                var tab = []
+                for (const element of retrievedProject) {
+                    if (element.projetid === code) {
+                        tab = element.auditeur;
+                    }
                 }
-            }
-            const index = tab.indexOf(Aname);
-            tab.splice(index, 1)
-            try {
-                axios.patch(`${baseUrl}`, {
-                    projetid: code,
-                    auditeur: tab,
+                const index = tab.indexOf(Aname);
+                tab.splice(index, 1)
+                try {
+                    axios.patch(`${baseUrl}`, {
+                        projetid: code,
+                        auditeur: tab,
 
-                }, {
-                    'Content-Type': 'application/json'
-                },).then(function (response) {
-                    console.log(response);
-                })
-            }
-            catch (error) {
-                console.log()
-            }
-            setRefresh("2")
+                    }, {
+                        'Content-Type': 'application/json'
+                    },).then(function (response) {
+                        console.log(response);
+                    })
+                }
+                catch (error) {
+                    console.log()
+                }
+                setRefresh("2")
 
+            }
+            deleteA()
+            HandleConfirmation("", false);
         }
-        deleteA()
+        else {
+            HandleConfirmation("", false);
+        }
+
     }
 
     return (
@@ -170,7 +190,7 @@ const Suivi = () => {
                                     {auditeur}
                                 </td>
                                 <div>
-                                    <btn onClick={() => deleteAuditeurs(auditeur)} className="BtnSupress">X</btn>
+                                    <btn onClick={() => handleDelete(auditeur)} className="BtnSupress">X</btn>
                                 </div>
                             </tr>
                         )}
@@ -178,6 +198,11 @@ const Suivi = () => {
 
                 </table>
             </div>
+            {confirmation.isLoading && (
+                <Confirmation OnConfirmation={deleteAuditeurs} message={confirmation.message} NameConfirmation={confirmation.NameConfirmation} />
+            )
+
+            }
 
 
         </div>)

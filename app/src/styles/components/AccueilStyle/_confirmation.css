@@ -1,0 +1,56 @@
+.Box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+
+.Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 2px 9px grey;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.ButtonsSelect {
+    display: flex;
+    align-items: center;
+}
+
+.BoutonYes {
+    background-color: white;
+    border: 2px solid black;
+    padding: 10px;
+    margin-right: 4px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.BoutonYes:hover {
+    background-color: orange;
+    color: white;
+}
+
+.BoutonNo {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+.BoutonNo:hover {
+    background-color: black;
+    color: white;
+}

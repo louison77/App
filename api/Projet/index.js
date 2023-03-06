@@ -43,9 +43,9 @@ module.exports = async function (context, req) {
         case 'PATCH':
             await updateOne(context);
             break;
-        /*case 'DELETE':
+        case 'DELETE':
             await deleteOne(context);
-            break;*/
+            break;
     }
 };
 
@@ -83,10 +83,11 @@ async function updateOne(context) {
     }
 
 }
-/*
-async function deleteOne(id) {
-    const id = context.bindingData.id;
+
+async function deleteOne(context) {
+    const id = context.req.body.projetid;
     const projet = context.req.body;
-    const result = await Projet.deleteOne({ _id: id });
+    await Projet.deleteOne({ projetid: id, projet });
     context.res.status = 204;
-}*/
+
+}
