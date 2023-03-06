@@ -108,7 +108,7 @@ const Admin = (props) => {
 
     }
     const DeleteUser = (name, test) => {
-        if (test && props.username.userDetails != name) {
+        if (test && props.username.userDetails !== name) {
             const DeleteOne = async () => {
                 try {
                     await axios.delete(`${baseUrl}`, {
