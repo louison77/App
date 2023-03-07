@@ -14,6 +14,7 @@ const MesureSchema = new mongoose.Schema({
     priorite: String,
     complexite: String,
     cout: Number,
+    coutrun: Number,
     porteur: String,
     debut: String,
     fin: String,

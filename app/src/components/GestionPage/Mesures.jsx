@@ -33,6 +33,7 @@ const Mesures = () => {
     NameConfirmation: ""
   })
   const HandleConfirmation = (message, isLoading, NameConfirmation) => {
+
     setconfirmation({
       message, isLoading, NameConfirmation
     })
@@ -120,7 +121,7 @@ const Mesures = () => {
       }
     }
     GetMesure()
-  }, [code, change])
+  }, [code, change, confirmation])
   const [modifMesures, setModifMesures] = useState([{}])
 
   const [colonne, setColonne] = useState("Libellé");
@@ -586,6 +587,7 @@ const Mesures = () => {
     sendelement()
   }
   const DeleteMesure = (id, test) => {
+
     if (test) {
       const DeleteOne = async () => {
         try {
@@ -724,13 +726,17 @@ const Mesures = () => {
                   <td id="CelluleMesure">
                     <div contentEditable="true" className='TextMacro' id='Case'>{mesure.Macro}</div>
                   </td>
-                  <div><btn onClick={() => handleDelete(mesure.MesureID)} className="BtnDelete">X</btn></div>
+                  <div><button onClick={() => handleDelete(mesure.MesureID)} className="BtnDelete">Delete</button></div>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+        {confirmation.isLoading && (
+          <Confirmation OnConfirmation={DeleteMesure} message={confirmation.message} NameConfirmation={confirmation.NameConfirmation} />
+        )
 
+        }
       </div>
     );
 
@@ -823,7 +829,7 @@ const Mesures = () => {
                   <td id="CelluleMesure">
                     <div contentEditable="true" className='TextMacro' id='Case'>{mesure.Macro}</div>
                   </td>
-                  <div><btn onClick={() => handleDelete(mesure.MesureID)} className="BtnDelete">X</btn></div>
+                  <div><button onClick={() => handleDelete(mesure.MesureID)} className="BtnDelete">X</button></div>
                 </tr>
               ))}
             </tbody>

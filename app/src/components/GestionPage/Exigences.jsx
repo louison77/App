@@ -60,7 +60,6 @@ const Exigences = () => {
 
   }
 
-
   useEffect(() => {
     const excel = require('./iso27001-exigences.json')
 
@@ -511,9 +510,10 @@ const Exigences = () => {
                 {
                   mesureid: UneExigence[0].exigenceid + "." + (i + 1).toString(),
                   projetid: id,
-                  priorite: "",
+                  priorite: "P1",
                   complexite: "",
                   cout: 0,
+                  coutrun: 0,
                   porteur: "",
                   debut: "",
                   fin: "",
