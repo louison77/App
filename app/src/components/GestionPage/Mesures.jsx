@@ -121,7 +121,6 @@ const Mesures = () => {
       }
     }
     GetMesure()
-    console.log(mesures)
   }, [code, change, confirmation])
   const [modifMesures, setModifMesures] = useState([{}])
 
