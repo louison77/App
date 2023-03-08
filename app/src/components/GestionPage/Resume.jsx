@@ -10,8 +10,13 @@ import { useOutletContext } from "react-router-dom";
 
 
 const Resume = () => {
+  //code du projet
   const [code] = useOutletContext();
+  //url api projet
   const baseUrl = "/api/Projet"
+  /*
+  const baseUrl2="/api/Mesure";
+  const baseUrl3="/api/Exigence";*/
   const [refresh, setrefresh] = useState(true)
   const [valueAudit, setValueAudit] = useState("")
   const [valuePA, setvaluePA] = useState("")

@@ -7,7 +7,7 @@ import axios from 'axios'
 
 const Accueil = () => {
 
-    const [isAuthenticated, userHasAuthenticated] = useState(false);
+    const [isAuthenticated, userHasAuthenticated] = useState(true);
     const [user, setUser] = useState(null);
     const [role, setrole] = useState("");
     const baseUrl = '/api/Utilisateur'
