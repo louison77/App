@@ -58,7 +58,7 @@ const Mesures = () => {
       Complexite: "",
       CoutProjet: "",
       CoutRun: "",
-      AideChiffrage:"​",
+      AideChiffrage: "​",
       Porteur: "",
       DateDebut: "",
       DateFin: "",
@@ -157,9 +157,8 @@ const Mesures = () => {
 
 
         for (let i = 0; i < mesures.length; i++) {
-          console.log("coucou")
           if ((mesures[i].Id).toLowerCase().search(event.target.value) !== -1) {
-            console.log("nice")
+
             Copy.push(mesures[i]);
           }
         }
