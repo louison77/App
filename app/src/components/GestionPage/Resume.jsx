@@ -15,9 +15,8 @@ const Resume = () => {
   const [code] = useOutletContext();
   //url api projet
   const baseUrl = "/api/Projet"
-  /*
   const baseUrl2="/api/Mesure";
-  const baseUrl3="/api/Exigence";*/
+  const baseUrl3="/api/Exigence";
   const [refresh, setrefresh] = useState(true)
   const [valueAudit, setValueAudit] = useState("")
   const [valuePA, setvaluePA] = useState("")
@@ -39,12 +38,26 @@ const Resume = () => {
     }
   ]
   )
+  const [localmesures,setlocalmesures]=useState([{
+    Priorite:"",
+    Complexite:"",
+    Cout:"",
+    Coutrun:"",
+    Maturite:"",
+    DateDebut:"",
+    DateFin:"",
+    Statut:"",
+  }])
+
+  const [localexigences,setlocalexigences]=useState([{
+    Exigenceid: "",
+    Note: "",
+    Maturite: "",
+  }])
   
   useEffect(() => {
     const getProject = async () => {
       try {
-
-
         const response = await axios.get(`${baseUrl}`);
         const retrievedProject = response.data.projets;
         retrievedProject.forEach(projet => {
@@ -57,9 +70,63 @@ const Resume = () => {
       catch (error) {
         console.log(error)
       }
-
     }
+    
     getProject()
+    const getMesure = async ()=>{
+      try{
+        const response =await axios.get (`${baseUrl2}`);
+        const retrievedMesure=response.data.mesures;
+        var tab=[]
+        retrievedMesure.forEach(mesure=>{
+          if(mesure.mesureid.split(' ')[0]===code)
+          {
+            tab.push({
+              Priorite:mesure.priorite,
+              Complexite:mesure.complexite,
+              Cout:mesure.cout,
+              Coutrun:mesure.coutrun,
+              Maturite:mesure.mesureid('.')[1],
+              DateDebut:mesure.debut,
+              DateFin:mesure.fin,
+              Statut:mesure.statut,
+            })
+          }
+        })
+        setlocalmesures(tab)
+      }
+      catch(error)
+      {
+        console.log(error)
+      }
+    }
+    getMesure()
+    
+    
+    const getExigence = async () =>{
+      var tab2=[]
+      try{
+        const response =await axios.get (`${baseUrl3}`);
+        const retrievedExigence=response.data.exigences;
+        retrievedExigence.forEach(exigence=>{
+          if(exigence.projetid===code)
+          {
+            tab2.push({
+              //domaine: exigence.Domaine,
+              Exigenceid: exigence.exigenceid,
+              Note: exigence.note,
+              Maturite: exigence.maturite,
+          })
+          }
+        })
+      }
+      catch(error)  
+      {
+        console.log(error)
+      }
+    }
+    getExigence()
+    
   }, [refresh, code])
   const changeToggle = (type, id) => {
     if (type) {
