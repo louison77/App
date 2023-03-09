@@ -175,7 +175,7 @@ function TableP(props) {
             <button className="Button1">Nouveau projet</button>
           </form>
         </div>
-        <table className="TableProjects">
+        <table style={{ width: "60%" }} className="TableProjects">
           <thead>
             <tr>
               <th style={{ textAlign: "left" }}>Nom</th>

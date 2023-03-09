@@ -42,6 +42,8 @@ a:hover {
   outline: none;
 }
 
+
+
 /*Changement visuel quand on passe la souris dessus*/
 #CelluleMesure:hover {
   background-color: peachpuff;
@@ -66,17 +68,21 @@ tbody td:nth-child(1) {
 
 /*Libellé*/
 thead th:nth-child(2) {
-  width: 140px;
+  text-align: center;
+  width: 20%;
 }
 
 /*Action détaillée*/
 thead th:nth-child(3) {
+  text-align: center;
   width: 180px;
   height: auto;
+  width: 15%;
 }
 
 /*Maturité*/
 thead th:nth-child(4) {
+  text-align: center;
   width: 70px;
 }
 
@@ -86,6 +92,7 @@ tbody td:nth-child(4) {
 
 /*Priorité*/
 thead th:nth-child(5) {
+  text-align: center;
   width: 65px;
 }
 
@@ -95,6 +102,7 @@ tbody td:nth-child(5) {
 
 /*Complexité*/
 thead th:nth-child(6) {
+  text-align: center;
   width: 95px;
 }
 
@@ -104,6 +112,7 @@ tbody td:nth-child(6) {
 
 /*Coût Projet (k€)*/
 thead th:nth-child(7) {
+  text-align: center;
   width: 95px;
 }
 
@@ -113,6 +122,7 @@ tbody td:nth-child(7) {
 
 /*Coût Run (k€/an)*/
 thead th:nth-child(8) {
+  text-align: center;
   width: 75px;
 }
 
@@ -122,31 +132,30 @@ tbody td:nth-child(8) {
 
 /*Aide au chiffrage*/
 thead th:nth-child(9) {
+  text-align: center;
   width: 170px;
 }
 
 /*Porteur*/
 thead th:nth-child(10) {
+  text-align: center;
   width: 70px;
 }
 
 /*Date début*/
 thead th:nth-child(11) {
-  width: 70px;
+  text-align: center;
+  width: 7%;
 }
 
-tbody td:nth-child(11) {
-  text-align: center;
-}
 
 /*Date fin */
 thead th:nth-child(12) {
-  width: 65px;
-}
-
-tbody td:nth-child(12) {
+  width: 7%;
   text-align: center;
 }
+
+
 
 /*Statut*/
 thead th:nth-child(13) {
@@ -157,6 +166,17 @@ thead th:nth-child(13) {
 thead th:nth-child(14) {
   width: 95px;
 }
+
+tbody tr td:nth-child(2) {
+  text-align: center;
+  text-justify: inter-word;
+}
+
+tbody tr td:nth-child(3) {
+  text-align: center;
+  text-justify: inter-word;
+}
+
 
 #Filtre {
   width: 15%;

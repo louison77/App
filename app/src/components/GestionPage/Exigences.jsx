@@ -511,7 +511,7 @@ const Exigences = () => {
                   mesureid: UneExigence[0].exigenceid + "." + (i + 1).toString(),
                   projetid: id,
                   priorite: "P1",
-                  complexite: "",
+                  complexite: "+",
                   cout: 0,
                   coutrun: 0,
                   porteur: "",
