@@ -1,20 +1,22 @@
-.Navbar{
+.Navbar {
     height: 100px;
     background-color: black;
     display: flex;
     align-items: center;
 }
 
-.Home{
-    width:100%;
-    height:35vw;
+.Home {
+    width: 100%;
+    height: 35vw;
 }
-.ConnexionArea{
+
+.ConnexionArea {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: orange;
-    width:25%;
+    width: 25%;
     height: 50%;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -23,14 +25,19 @@
     -o-border-radius: 5px;
 }
 
-.pageHome{
+.pageHome {
     display: flex;
     align-items: center;
     justify-content: center;
-    width:100%;
-    height:45vw;
+    width: 100%;
+    height: 45vw;
 }
-.ConnexionBtn{
+
+.ConnexionBtn {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 80%;
+    height: 20%;
     border: none;
     border-radius: 5px;
     -webkit-border-radius: 5px;

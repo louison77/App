@@ -25,7 +25,9 @@ const Mesures = () => {
   const [TriMacro, setTriMacro] = useState("");
   const baseUrl = '/api/Mesure'
   const baseUrl2 = '/api/Exigence'
+  const baseUrl3 = '/api/Projet'
   const [code] = useOutletContext();
+  const [statutP, setstatutP] = useState("")
   const [change, setchange] = useState("")
   const [confirmation, setconfirmation] = useState({
     message: "",
@@ -39,8 +41,10 @@ const Mesures = () => {
     })
   }
   const handleDelete = (id) => {
+    if (statutP !== "Terminé") {
+      HandleConfirmation("Est-ce que vous voulez supprimer cette mesure?", true, id);
+    }
 
-    HandleConfirmation("Est-ce que vous voulez supprimer cette mesure?", true, id);
 
   }
 
@@ -54,7 +58,7 @@ const Mesures = () => {
       Complexite: "",
       CoutProjet: "",
       CoutRun: "",
-      AideChiffrage:"​",
+      AideChiffrage: "​",
       Porteur: "",
       DateDebut: "",
       DateFin: "",
@@ -96,7 +100,7 @@ const Mesures = () => {
                   Priorite: mesure.priorite,
                   Complexite: mesure.complexite,
                   CoutProjet: mesure.cout,
-                  CoutRun: "",
+                  CoutRun: mesure.coutrun,
                   AideChiffrage: BaseMesure[i].AideChiffrage,
                   Porteur: mesure.porteur,
                   DateDebut: "",
@@ -120,6 +124,23 @@ const Mesures = () => {
       }
     }
     GetMesure()
+    const getStatuAudit = async () => {
+      try {
+        const response = await axios.get(`${baseUrl3}`);
+        const retrievedProject = response.data.projets;
+        retrievedProject.forEach(projet => {
+          if (projet.projetid === code) {
+            setstatutP(projet.statutplanaction)
+
+          }
+        })
+      }
+      catch (error) {
+        console.log(error)
+      }
+
+    }
+    getStatuAudit()
   }, [code, change, confirmation])
   const [modifMesures, setModifMesures] = useState([{}])
 
@@ -136,9 +157,8 @@ const Mesures = () => {
 
 
         for (let i = 0; i < mesures.length; i++) {
-          console.log("coucou")
           if ((mesures[i].Id).toLowerCase().search(event.target.value) !== -1) {
-            console.log("nice")
+
             Copy.push(mesures[i]);
           }
         }
@@ -601,103 +621,119 @@ const Mesures = () => {
   const SendContent = (e, id, number) => {
 
     var valuetoChange = e.currentTarget.textContent;
-    const sendelement = async () => {
-      try {
-        if (number === 1) {
-          valuetoChange = e.target.value
-          setchange("1")
-          axios.patch(`${baseUrl}`,
-            {
-              mesureid: id,
-              priorite: valuetoChange
+    if (statutP !== "Terminé") {
 
-            }, {
-            'Content-Type': 'application/json'
-          })
+
+      const sendelement = async () => {
+        try {
+          if (number === 1) {
+            valuetoChange = e.target.value
+            setchange("1")
+            axios.patch(`${baseUrl}`,
+              {
+                mesureid: id,
+                priorite: valuetoChange
+
+              }, {
+              'Content-Type': 'application/json'
+            })
+          }
+
+          if (number === 2) {
+            valuetoChange = e.target.value
+            setchange("2")
+            axios.patch(`${baseUrl}`,
+              {
+                mesureid: id,
+                complexite: valuetoChange,
+
+              }, {
+              'Content-Type': 'application/json'
+            })
+          }
+
+          if (number === 3) {
+            setchange("3")
+            axios.patch(`${baseUrl}`,
+              {
+                mesureid: id,
+                cout: valuetoChange
+
+              }, {
+              'Content-Type': 'application/json'
+            })
+
+          }
+
+          if (number === 4) {
+            setchange("4")
+            axios.patch(`${baseUrl}`,
+              {
+                mesureid: id,
+                porteur: valuetoChange
+
+              }, {
+              'Content-Type': 'application/json'
+            })
+          }
+
+          if (number === 5) {
+            setchange("5")
+            axios.patch(`${baseUrl}`,
+              {
+                mesureid: id,
+                statut: valuetoChange
+
+              }, {
+              'Content-Type': 'application/json'
+            })
+          }
+
+          if (number === 6) {
+            setchange("6")
+            axios.patch(`${baseUrl}`,
+              {
+                mesureid: id,
+                debut: valuetoChange
+
+              }, {
+              'Content-Type': 'application/json'
+            })
+          }
+
+          if (number === 7) {
+            setchange("7")
+            axios.patch(`${baseUrl}`,
+              {
+                mesureid: id,
+                fin: valuetoChange
+
+              }, {
+              'Content-Type': 'application/json'
+            })
+          }
+          if (number === 8) {
+            setchange("8")
+            axios.patch(`${baseUrl}`,
+              {
+                mesureid: id,
+                coutrun: valuetoChange
+
+              }, {
+              'Content-Type': 'application/json'
+            })
+          }
+
         }
 
-        if (number === 2) {
-          setchange("2")
-          axios.patch(`${baseUrl}`,
-            {
-              mesureid: id,
-              complexite: valuetoChange,
 
-            }, {
-            'Content-Type': 'application/json'
-          })
+        catch (error) {
+          console.log(error)
         }
-
-        if (number === 3) {
-          setchange("3")
-          axios.patch(`${baseUrl}`,
-            {
-              mesureid: id,
-              cout: valuetoChange
-
-            }, {
-            'Content-Type': 'application/json'
-          })
-
-        }
-
-        if (number === 4) {
-          setchange("4")
-          axios.patch(`${baseUrl}`,
-            {
-              mesureid: id,
-              porteur: valuetoChange
-
-            }, {
-            'Content-Type': 'application/json'
-          })
-        }
-
-        if (number === 5) {
-          setchange("5")
-          axios.patch(`${baseUrl}`,
-            {
-              mesureid: id,
-              statut: valuetoChange
-
-            }, {
-            'Content-Type': 'application/json'
-          })
-        }
-
-        if (number === 6) {
-          setchange("6")
-          axios.patch(`${baseUrl}`,
-            {
-              mesureid: id,
-              debut: valuetoChange
-
-            }, {
-            'Content-Type': 'application/json'
-          })
-        }
-
-        if (number === 7) {
-          setchange("7")
-          axios.patch(`${baseUrl}`,
-            {
-              mesureid: id,
-              fin: valuetoChange
-
-            }, {
-            'Content-Type': 'application/json'
-          })
-        }
-
       }
-
-
-      catch (error) {
-        console.log(error)
-      }
+      sendelement()
+      setchange(valuetoChange)
     }
-    sendelement()
-    setchange(valuetoChange)
   }
   const DeleteMesure = (id, test) => {
 
@@ -760,9 +796,9 @@ const Mesures = () => {
           <table className='ListeMesures'>
             <thead>
               <tr>
-                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='IdMesure' onClick={(e) => Tri(e, "Id")}>ID interne</th>
-                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='NomMesure' onClick={(e) => Tri(e, "Nom")}>Libellé</th>
-                <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='ActionMesure' onClick={(e) => Tri(e, "Action")}>Action détaillée</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Whitesmoke" }} className='IdMesure' onClick={(e) => Tri(e, "Id")}>ID interne</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Grey" }} className='NomMesure' onClick={(e) => Tri(e, "Nom")}>Libellé</th>
+                <th id="TitreMesure" style={{ backgroundColor: "Lightgrey" }} className='ActionMesure' onClick={(e) => Tri(e, "Action")}>Action détaillée</th>
                 <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='MaturiteMEsure' onClick={(e) => Tri(e, "Maturite")}>Maturité</th>
                 <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='PrioriteMesure' onClick={(e) => Tri(e, "Priorite")}>Priorité</th>
                 <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='ComplexiteMesure' onClick={(e) => Tri(e, "Complexite")}>Complexité</th>
@@ -781,7 +817,12 @@ const Mesures = () => {
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Action")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Maturité")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Priorité")} /></th>
-                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Complexité")} /></th>
+                <th>
+                  <select onChange={(e) => Filtre(e, "Complexité")} defaultValue="+">
+                    <option value="+">+</option>
+                    <option value="++">++</option>
+                    <option value="+++">+++</option>
+                    <option value="++++">++++</option></select></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Coût Projet (k€)")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Coût Run (k€/an)")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Aide au chiffrage")} /></th>
@@ -799,7 +840,7 @@ const Mesures = () => {
                   <td id="CelluleMesure">
                     <div contentEditable="false" className='TextId' id='Case'>{mesure.Id}</div>
                   </td>
-                  <td id="CelluleMesure">
+                  <td id="CelluleMesure ">
                     <div contentEditable="false" className='TextNom' id='Case'>{mesure.Nom}</div>
                   </td>
                   <td id="CelluleMesure">
@@ -809,43 +850,50 @@ const Mesures = () => {
                     <div contentEditable="false" className='TextMaturite' id='Case'>{mesure.Maturite}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextPriorite' id='Case'>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} className='TextPriorite' id='Case'>
                       <select onChange={e => SendContent(e, mesure.MesureID, 1)} value={mesure.Priorite}>
                         <option value="P0">P0</option>
                         <option value="P1">P1</option>
                         <option value="P2">P2</option>
                         <option value="P3">P3</option>
                         <option value="P4">P4</option>
-                      </select>{mesure.Priorite}</div>
+                      </select></div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 2)} className='TextComplexite' id='Case'>{mesure.Complexite}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} className='TextComplexite' id='Case'>
+                      <select onChange={e => SendContent(e, mesure.MesureID, 2)} value={mesure.Complexite}>
+                        <option value="+">+</option>
+                        <option value="++">++</option>
+                        <option value="+++">+++</option>
+                        <option value="++++">++++</option>
+                      </select>
+                    </div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 3)} className='TextCoutProjet' id='Case'>{mesure.CoutProjet}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 3)} className='TextCoutProjet' id='Case'>{mesure.CoutProjet}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextCoutRun' id='Case'>{mesure.CoutRun}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 8)} className='TextCoutRun' id='Case'>{mesure.CoutRun}</div>
                   </td>
                   <td id="CelluleMesure">
                     <div contentEditable="false" className='TextAideChiffrafe' id='Case'>{mesure.AideChiffrage}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 4)} className='TextPorteur' id='Case'>{mesure.Porteur}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 4)} className='TextPorteur' id='Case'>{mesure.Porteur}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 6)} className='TextDateDebut' id='Case'>{mesure.DateDebut}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 6)} className='TextDateDebut' id='Case'>{mesure.DateDebut}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 7)} className='TextDateFin' id='Case'>{mesure.DateFin}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 7)} className='TextDateFin' id='Case'>{mesure.DateFin}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 5)} className='TextStatut' id='Case'>{mesure.Statut}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 5)} className='TextStatut' id='Case'>{mesure.Statut}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextMacro' id='Case'>{mesure.Macro}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} className='TextMacro' id='Case'>{mesure.Macro}</div>
                   </td>
-                  <div><button onClick={() => handleDelete(mesure.MesureID)} className="BtnDelete">Delete</button></div>
+                  <div><button onClick={() => handleDelete(mesure.MesureID)} className="BtnDelete">X</button></div>
                 </tr>
               ))}
             </tbody>
@@ -890,7 +938,11 @@ const Mesures = () => {
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Action")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Maturité")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Priorité")} /></th>
-                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Complexité")} /></th>
+                <th><select onChange={(e) => Filtre(e, "Complexité")} defaultValue="+">
+                  <option value="+">+</option>
+                  <option value="++">++</option>
+                  <option value="+++">+++</option>
+                  <option value="++++">++++</option></select></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Coût Projet (k€)")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Coût Run (k€/an)")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Aide au chiffrage")} /></th>
@@ -918,41 +970,47 @@ const Mesures = () => {
                     <div contentEditable="false" className='TextMaturite' id='Case'>{mesure.Maturite}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextPriorite' id='Case'>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} className='TextPriorite' id='Case'>
                       <select onChange={e => SendContent(e, mesure.MesureID, 1)} value={mesure.Priorite}>
                         <option value="P0">P0</option>
                         <option value="P1">P1</option>
                         <option value="P2">P2</option>
                         <option value="P3">P3</option>
                         <option value="P4">P4</option>
-                      </select>{mesure.Priorite}</div>
+                      </select></div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 2)} className='TextComplexite' id='Case'>{mesure.Complexite}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} className='TextComplexite' id='Case'>
+                      <select onChange={e => SendContent(e, mesure.MesureID, 2)} value={mesure.Complexite}>
+                        <option value="+">+</option>
+                        <option value="++">++</option>
+                        <option value="+++">+++</option>
+                        <option value="++++">++++</option>
+                      </select></div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 3)} className='TextCoutProjet' id='Case'>{mesure.CoutProjet}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 3)} className='TextCoutProjet' id='Case'>{mesure.CoutProjet}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextCoutRun' id='Case'>{mesure.CoutRun}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} className='TextCoutRun' id='Case'>{mesure.CoutRun}</div>
                   </td>
                   <td id="CelluleMesure">
                     <div contentEditable="false" className='TextAideChiffrafe' id='Case'>{mesure.AideChiffrage}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 4)} className='TextPorteur' id='Case'>{mesure.Porteur}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 4)} className='TextPorteur' id='Case'>{mesure.Porteur}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 6)} className='TextDateDebut' id='Case'>{mesure.DateDebut}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 6)} className='TextDateDebut' id='Case'>{mesure.DateDebut}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 7)} className='TextDateFin' id='Case'>{mesure.DateFin}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 7)} className='TextDateFin' id='Case'>{mesure.DateFin}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 5)} className='TextStatut' id='Case'>{mesure.Statut}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 5)} className='TextStatut' id='Case'>{mesure.Statut}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" className='TextMacro' id='Case'>{mesure.Macro}</div>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} className='TextMacro' id='Case'>{mesure.Macro}</div>
                   </td>
                   <div><button onClick={() => handleDelete(mesure.MesureID)} className="BtnDelete">X</button></div>
                 </tr>

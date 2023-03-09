@@ -60,7 +60,7 @@ const Accueil = () => {
             }
         }
         getAuthorizeduser()
-        console.log(role)
+
     }, [role, user])
 
 
