@@ -244,7 +244,28 @@ const Resume = () => {
 
       <div class="tile_one-third_right">
         <h3>Coûts</h3>
-        <CostBarChart />
+        <CostBarChart array={[{
+              Cout: 2000,
+              Coutrun: 1200,
+            },
+            {
+              Cout: 3000,
+              Coutrun: 2000,
+            },
+            {
+              Cout: 4000,
+              Coutrun: 3000,
+            },
+            {
+              Cout: 5000,
+              Coutrun: 4000,
+            },
+            { 
+              Cout: 6000,
+              Coutrun: 5000,
+            }            
+          ]}
+          />
       </div>
 
       <div class="tile_full">
