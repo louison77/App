@@ -838,7 +838,8 @@ const Mesures = () => {
               {mesures.map((mesure) => (
                 <tr className="Cellule">
                   <td id="CelluleMesure">
-                    <div contentEditable="false" className='TextId' id='Case'>{mesure.Id}</div>
+                    <div contentEditable="false" className='TextId' id='Case'>{mesure.Id}
+                      <button onClick={() => handleDelete(mesure.MesureID)} className="BtnDelete">X</button></div>
                   </td>
                   <td id="CelluleMesure ">
                     <div contentEditable="false" className='TextNom' id='Case'>{mesure.Nom}</div>
@@ -893,7 +894,7 @@ const Mesures = () => {
                   <td id="CelluleMesure">
                     <div contentEditable={statutP === "Terminé" ? "false" : "true"} className='TextMacro' id='Case'>{mesure.Macro}</div>
                   </td>
-                  <div><button onClick={() => handleDelete(mesure.MesureID)} className="BtnDelete">X</button></div>
+                  <div></div>
                 </tr>
               ))}
             </tbody>

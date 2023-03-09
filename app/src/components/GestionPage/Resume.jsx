@@ -127,6 +127,7 @@ const Resume = () => {
   }, [refresh, code])
 
   const changeToggle = (type, id) => {
+    console.log(localexigences)
     if (type) {
       const patchStatutProjet = async () => {
         try {

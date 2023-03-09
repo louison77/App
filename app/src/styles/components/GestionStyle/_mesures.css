@@ -32,15 +32,19 @@ a:hover {
   color: orange;
 }
 
-.Cellule {}
+
 
 /*Toutes les cases modifiables*/
 #Case {
   width: auto;
-  display: inline-table;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border: none;
   outline: none;
 }
+
 
 
 
@@ -201,8 +205,8 @@ tbody tr td:nth-child(3) {
 .BtnDelete {
   border: 1px solid black;
   padding: 2px 8px;
-  position: absolute;
-  transform: translate(10%, 5em);
+  background-color: lightcoral;
+
 
 }
 
@@ -210,6 +214,7 @@ tbody tr td:nth-child(3) {
   background-color: #d62828;
   color: white;
   cursor: pointer;
+
 }
 
 #ResetFiltre {
