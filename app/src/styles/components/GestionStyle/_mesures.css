@@ -191,3 +191,13 @@ thead th:nth-child(14) {
   color: white;
   cursor: pointer;
 }
+
+#ResetFiltre {
+  margin-left: 50px;
+  margin-bottom: 10px;
+  width: 100px;
+}
+
+#FiltreC {
+  width: 100%;
+}

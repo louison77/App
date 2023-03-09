@@ -124,39 +124,43 @@ const Mesures = () => {
   }, [code, change, confirmation])
   const [modifMesures, setModifMesures] = useState([{}])
 
-  const [colonne, setColonne] = useState("Libellé");
+
 
   /* function */
-  const Filtre = (event) => {
-    /* Valeur dans le champ du filtre : event.target.value */
+  const Filtre = (event, colonne) => {
 
-    if (event.target.value === "") {
-      setType(1); /* On fait réapparaître le tableau non filtré qui ne change jamais (car il sert de database locale)*/
-    } else {
-      const Copy = [];
+    /* Valeur dans le champ du filtre : event.target.value */
+    const Copy = [];
+    if (Type === 1) {
+
       if (colonne === "ID Interne") {
+
+
         for (let i = 0; i < mesures.length; i++) {
+          console.log("coucou")
           if ((mesures[i].Id).toLowerCase().search(event.target.value) !== -1) {
+            console.log("nice")
             Copy.push(mesures[i]);
           }
         }
       }
       if (colonne === "Libellé") {
         for (let i = 0; i < mesures.length; i++) {
-          if ((mesures[i].Nom).toLowerCase().search(event.target.value) !== -1) {
+          if ((mesures[i].Nom).toLowerCase().search((event.target.value).toLowerCase()) !== -1) {
             Copy.push(mesures[i]);
           }
         }
       }
       if (colonne === "Action") {
         for (let i = 0; i < mesures.length; i++) {
-          if ((mesures[i].Action).toLowerCase().search(event.target.value) !== -1) {
+          if ((mesures[i].Action).toLowerCase().search((event.target.value).toLowerCase()) !== -1) {
             Copy.push(mesures[i]);
           }
         }
       }
       if (colonne === "Maturité") {
         for (let i = 0; i < mesures.length; i++) {
+          console.log(event.target.value)
           if ((mesures[i].Maturite).toLowerCase().search(event.target.value) !== -1) {
             Copy.push(mesures[i]);
           }
@@ -192,14 +196,14 @@ const Mesures = () => {
       }
       if (colonne === "Aide au chiffrage") {
         for (let i = 0; i < mesures.length; i++) {
-          if ((mesures[i].AideChiffrage).toLowerCase().search(event.target.value) !== -1) {
+          if ((mesures[i].AideChiffrage).toLowerCase().search((event.target.value).toLowerCase()) !== -1) {
             Copy.push(mesures[i]);
           }
         }
       }
       if (colonne === "Porteur") {
         for (let i = 0; i < mesures.length; i++) {
-          if ((mesures[i].Porteur).toLowerCase().search(event.target.value) !== -1) {
+          if ((mesures[i].Porteur).toLowerCase().search((event.target.value).toLowerCase()) !== -1) {
             Copy.push(mesures[i]);
           }
         }
@@ -227,21 +231,130 @@ const Mesures = () => {
       }
       if (colonne === "Macro projet") {
         for (let i = 0; i < mesures.length; i++) {
-          if ((mesures[i].Macro).toLowerCase().search(event.target.value) !== -1) {
+          if ((mesures[i].Macro).toLowerCase().search((event.target.value).toLowerCase()) !== -1) {
             Copy.push(mesures[i]);
           }
         }
       }
-
-      setModifMesures(Copy);
-      setType(2); /*On fait apparaître le tableau modifié */
     }
 
-  };
 
-  const ChangeColonne = (event) => {
-    setColonne(event.target.value);
+    else if (Type === 2) {
+      if (colonne === "ID Interne") {
+        for (let i = 0; i < modifMesures.length; i++) {
+          if ((modifMesures[i].Id).toLowerCase().search(event.target.value) !== -1) {
+            Copy.push(modifMesures[i]);
+          }
+        }
+      }
+      if (colonne === "Libellé") {
+        for (let i = 0; i < modifMesures.length; i++) {
+          if ((modifMesures[i].Nom).toLowerCase().search((event.target.value).toLowerCase()) !== -1) {
+            Copy.push(modifMesures[i]);
+          }
+        }
+      }
+      if (colonne === "Action") {
+        for (let i = 0; i < modifMesures.length; i++) {
+          if ((modifMesures[i].Action).toLowerCase().search((event.target.value).toLowerCase()) !== -1) {
+            Copy.push(modifMesures[i]);
+          }
+        }
+      }
+      if (colonne === "Maturité") {
+        for (let i = 0; i < modifMesures.length; i++) {
+          console.log(event.target.value)
+          if ((modifMesures[i].Maturite).toLowerCase().search(event.target.value) !== -1) {
+            Copy.push(modifMesures[i]);
+          }
+        }
+      }
+      if (colonne === "Priorité") {
+        for (let i = 0; i < modifMesures.length; i++) {
+          if (modifMesures[i].Priorite.search((event.target.value).toUpperCase()) !== -1) {
+            Copy.push(modifMesures[i]);
+          }
+        }
+      }
+      if (colonne === "Complexité") {
+        for (let i = 0; i < modifMesures.length; i++) {
+          if (modifMesures[i].Complexite === event.target.value) {
+            Copy.push(modifMesures[i]);
+          }
+        }
+      }
+      if (colonne === "Coût Projet (k€)") {
+        for (let i = 0; i < modifMesures.length; i++) {
+          if ((modifMesures[i].CoutProjet).toLowerCase().search(event.target.value) !== -1) {
+            Copy.push(modifMesures[i]);
+          }
+        }
+      }
+      if (colonne === "Coût Run (k€/an)") {
+        for (let i = 0; i < modifMesures.length; i++) {
+          if ((modifMesures[i].CoutRun).toLowerCase().search(event.target.value) !== -1) {
+            Copy.push(modifMesures[i]);
+          }
+        }
+      }
+      if (colonne === "Aide au chiffrage") {
+        for (let i = 0; i < modifMesures.length; i++) {
+          if ((modifMesures[i].AideChiffrage).toLowerCase().search((event.target.value).toLowerCase()) !== -1) {
+            Copy.push(modifMesures[i]);
+          }
+        }
+      }
+      if (colonne === "Porteur") {
+        for (let i = 0; i < modifMesures.length; i++) {
+          if ((modifMesures[i].Porteur).toLowerCase().search((event.target.value).toLowerCase()) !== -1) {
+            Copy.push(modifMesures[i]);
+          }
+        }
+      }
+      if (colonne === "Date début") {
+        for (let i = 0; i < modifMesures.length; i++) {
+          if ((modifMesures[i].DateDebut).toLowerCase().search(event.target.value) !== -1) {
+            Copy.push(modifMesures[i]);
+          }
+        }
+      }
+      if (colonne === "Date fin") {
+        for (let i = 0; i < modifMesures.length; i++) {
+          if ((modifMesures[i].DateFin).toLowerCase().search(event.target.value) !== -1) {
+            Copy.push(modifMesures[i]);
+          }
+        }
+      }
+      if (colonne === "Statut") {
+        for (let i = 0; i < modifMesures.length; i++) {
+          if ((modifMesures[i].Statut).toLowerCase().search(event.target.value) !== -1) {
+            Copy.push(modifMesures[i]);
+          }
+        }
+      }
+      if (colonne === "Macro projet") {
+        for (let i = 0; i < modifMesures.length; i++) {
+          if ((modifMesures[i].Macro).toLowerCase().search((event.target.value).toLowerCase()) !== -1) {
+            Copy.push(modifMesures[i]);
+          }
+        }
+      }
+
+      /*On fait apparaître le tableau modifié */
+    }
+    setModifMesures(Copy);
+    setType(2);
+
+  };
+  const ResetFiltre = (event) => {
+    var items = document.getElementsByClassName("FiltreCol")
+    for (var i = 0; i < items.length; i++) {
+      items[i].value = '';
+    }
+    //document.getElementById('FiltreC').value=''; 
+    setType(1);
   }
+
 
   const sortCroissant = (arr, prop) => {
     arr.sort(
@@ -488,11 +601,11 @@ const Mesures = () => {
   }
   const SendContent = (e, id, number) => {
 
-    const valuetoChange = e.currentTarget.textContent;
+    var valuetoChange = e.currentTarget.textContent;
     const sendelement = async () => {
       try {
         if (number === 1) {
-
+          valuetoChange = e.target.value
           setchange("1")
           axios.patch(`${baseUrl}`,
             {
@@ -585,6 +698,7 @@ const Mesures = () => {
       }
     }
     sendelement()
+    setchange(valuetoChange)
   }
   const DeleteMesure = (id, test) => {
 
@@ -642,25 +756,7 @@ const Mesures = () => {
       <div>
 
         <h1 className="TITLEMESURE">Plan d'actions</h1>
-        <form>
-          <input id="Filtre" type="text" name="Thing" onChange={Filtre} />
-          <select id="ChoixFiltre" value={colonne} onChange={ChangeColonne}>
-            <option>ID Interne</option>
-            <option>Libellé</option>
-            <option>Action</option>
-            <option>Maturité</option>
-            <option>Priorité</option>
-            <option>Complexité</option>
-            <option>Coût Projet (k€)</option>
-            <option>Coût Run (k€/an)</option>
-            <option>Aide au chiffrage</option>
-            <option>Porteur</option>
-            <option>Date début</option>
-            <option>Date fin</option>
-            <option>Statut</option>
-            <option>Macro projet</option>
-          </select>
-        </form>
+        <button classname="BoutonResetFiltre" id="ResetFiltre" onClick={ResetFiltre}>Réinitialiser les filtres</button>
         <div className='pageMesure'>
           <table className='ListeMesures'>
             <thead>
@@ -680,6 +776,23 @@ const Mesures = () => {
                 <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='StatutMesure' onClick={(e) => Tri(e, "Statut")}>Statut</th>
                 <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='MacroMesure' onClick={(e) => Tri(e, "Macro")}>Macro projet</th>
               </tr>
+              <tr>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "ID Interne")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Libellé")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Action")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Maturité")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Priorité")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Complexité")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Coût Projet (k€)")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Coût Run (k€/an)")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Aide au chiffrage")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Porteur")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Date début")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Date fin")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Statut")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Macro projet")} /></th>
+
+              </tr>
             </thead>
             <tbody>
               {mesures.map((mesure) => (
@@ -697,7 +810,14 @@ const Mesures = () => {
                     <div contentEditable="false" className='TextMaturite' id='Case'>{mesure.Maturite}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 1)} className='TextPriorite' id='Case'>{mesure.Priorite}</div>
+                    <div contentEditable="true" className='TextPriorite' id='Case'>
+                      <select onChange={e => SendContent(e, mesure.MesureID, 1)} value={mesure.Priorite}>
+                        <option value="P0">P0</option>
+                        <option value="P1">P1</option>
+                        <option value="P2">P2</option>
+                        <option value="P3">P3</option>
+                        <option value="P4">P4</option>
+                      </select>{mesure.Priorite}</div>
                   </td>
                   <td id="CelluleMesure">
                     <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 2)} className='TextComplexite' id='Case'>{mesure.Complexite}</div>
@@ -745,25 +865,7 @@ const Mesures = () => {
     return (
       <div>
         <h1 className="TITLEMESURE">Plan d'actions</h1>
-        <form>
-          <input id="Filtre" type="text" name="Thing" onChange={Filtre} />
-          <select id="ChoixFiltre" value={colonne} onChange={ChangeColonne}>
-            <option>ID Interne</option>
-            <option>Libellé</option>
-            <option>Action</option>
-            <option>Maturité</option>
-            <option>Priorité</option>
-            <option>Complexité</option>
-            <option>Coût Projet (k€)</option>
-            <option>Coût Run (k€/an)</option>
-            <option>Aide au chiffrage</option>
-            <option>Porteur</option>
-            <option>Date début</option>
-            <option>Date fin</option>
-            <option>Statut</option>
-            <option>Macro projet</option>
-          </select>
-        </form>
+        <button classname="BoutonResetFiltre" id="ResetFiltre" onClick={ResetFiltre}>Réinitialiser les filtres</button>
         <div className='pageMesure'>
           <table className='ListeMesures'>
             <thead>
@@ -783,6 +885,23 @@ const Mesures = () => {
                 <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='StatutMesure' onClick={(e) => Tri(e, "Statut")}>Statut <span id="Triangle">{TriStatut}</span></th>
                 <th id="TitreMesure" style={{ backgroundColor: "Black" }} className='MacroMesure' onClick={(e) => Tri(e, "Macro")}>Macro projet <span id="Triangle">{TriMacro}</span></th>
               </tr>
+              <tr>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "ID Interne")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Libellé")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Action")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Maturité")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Priorité")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Complexité")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Coût Projet (k€)")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Coût Run (k€/an)")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Aide au chiffrage")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Porteur")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Date début")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Date fin")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Statut")} /></th>
+                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Macro projet")} /></th>
+
+              </tr>
             </thead>
             <tbody>
               {modifMesures.map((mesure) => (
@@ -800,7 +919,14 @@ const Mesures = () => {
                     <div contentEditable="false" className='TextMaturite' id='Case'>{mesure.Maturite}</div>
                   </td>
                   <td id="CelluleMesure">
-                    <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 1)} className='TextPriorite' id='Case'>{mesure.Priorite}</div>
+                    <div contentEditable="true" className='TextPriorite' id='Case'>
+                      <select onChange={e => SendContent(e, mesure.MesureID, 1)} value={mesure.Priorite}>
+                        <option value="P0">P0</option>
+                        <option value="P1">P1</option>
+                        <option value="P2">P2</option>
+                        <option value="P3">P3</option>
+                        <option value="P4">P4</option>
+                      </select>{mesure.Priorite}</div>
                   </td>
                   <td id="CelluleMesure">
                     <div contentEditable="true" onBlur={e => SendContent(e, mesure.MesureID, 2)} className='TextComplexite' id='Case'>{mesure.Complexite}</div>

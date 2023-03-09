@@ -62,19 +62,19 @@ async function createOne(context) {
 
 async function updateOne(context) {
     // Grab the id from the URL (stored in bindingData)
-    const mail = context.req.body.mail;
-    // Get the categorie from the body
-    const user = context.req.body;
-    // Update the item in the database
-    const result = await User.findOneAndUpdate({ mail: mail }, user);
-    // Check to ensure an item was modified
-    if (result.nModified === 1) {
-        // Updated an item, status 204 (empty update)
+    try {
+        const mail = context.req.body.mail;
+        // Get the categorie from the body
+        const user = context.req.body;
+        // Update the item in the database
+        await User.findOneAndUpdate({ mail: mail }, user);
         context.res.status = 204;
-    } else {
-        // Item not found, status 404
+    }
+    catch (error) {
         context.res.status = 404;
     }
+
+
 }
 
 async function deleteOne(context) {
