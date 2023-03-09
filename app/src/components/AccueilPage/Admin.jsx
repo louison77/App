@@ -11,7 +11,6 @@ const Admin = (props) => {
     const [Adminstab, setAdmintab] = useState([])
 
     //Code pour le popup de confirmation de suppression
-
     const [confirmation, setconfirmation] = useState({
         message: "",
         isLoading: false,
@@ -177,7 +176,7 @@ const Admin = (props) => {
                                     <td>
                                         {user.Mail}
                                     </td>
-                                    <div><button onClick={() => handleDelete(user.Mail, "Est-ce que vous voulez supprimer ce Chef de projet")} className="Boutondeleted">X</button></div>
+                                    <div><button onClick={() => handleDelete(user.Mail, "Voulez-vous supprimer ce Chef de projet")} className="Boutondeleted">X</button></div>
                                 </tr>
                             ))}
 
@@ -195,7 +194,7 @@ const Admin = (props) => {
                                     <td>
                                         {admin.Mail}
                                     </td>
-                                    <div><button onClick={() => handleDelete(admin.Mail, "Est-ce que vous voulez supprimer cet admin")} className="Boutondeleted">X</button></div>
+                                    <div><button onClick={() => handleDelete(admin.Mail, "Voulez-vous supprimer cet admin")} className="Boutondeleted">X</button></div>
                                 </tr>
                             ))}
 

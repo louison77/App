@@ -193,13 +193,17 @@ tbody tr td:nth-child(3) {
 }
 
 #TitreMesure:hover {
-  color: orange;
+  color: white;
   cursor: pointer;
+}
+
+#TitreMesure {
+  color: black;
 }
 
 #Triangle {
   font-style: bold;
-  color: orange;
+  color: white;
 }
 
 .BtnDelete {
