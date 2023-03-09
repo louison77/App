@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/components/GestionStyle/_resume.css";
 import RadarChart from "./Graphs/ProgressRadar.jsx";
-import PolarAreaChart from "./Graphs/CostPolarArea.jsx";
+import CostBarChart from "./Graphs/CostBarChart.jsx";
 //import { ProgressBar } from "react-bootstrap";
 import ProgressBar from "./Graphs/ProgressBar";
 import ToggleButton from 'react-bootstrap/ToggleButton';
@@ -14,9 +14,8 @@ const Resume = () => {
   const [code] = useOutletContext();
   //url api projet
   const baseUrl = "/api/Projet"
-  /*
   const baseUrl2="/api/Mesure";
-  const baseUrl3="/api/Exigence";*/
+  const baseUrl3="/api/Exigence";
   const [refresh, setrefresh] = useState(true)
   const [valueAudit, setValueAudit] = useState("")
   const [valuePA, setvaluePA] = useState("")
@@ -38,11 +37,26 @@ const Resume = () => {
     }
   ]
   )
+  const [localmesures,setlocalmesures]=useState([{
+    Priorite:"",
+    Complexite:"",
+    Cout:"",
+    Coutrun:"",
+    Maturite:"",
+    DateDebut:"",
+    DateFin:"",
+    Statut:"",
+  }])
+
+  const [localexigences,setlocalexigences]=useState([{
+    Exigenceid: "",
+    Note: "",
+    Maturite: "",
+  }])
+  
   useEffect(() => {
     const getProject = async () => {
       try {
-
-
         const response = await axios.get(`${baseUrl}`);
         const retrievedProject = response.data.projets;
         retrievedProject.forEach(projet => {
@@ -55,10 +69,68 @@ const Resume = () => {
       catch (error) {
         console.log(error)
       }
-
     }
+    
     getProject()
-  }, [refresh, code])
+    const getMesure = async ()=>{
+      try{
+        const response =await axios.get (`${baseUrl2}`);
+        const retrievedMesure=response.data.mesures;
+        var tab=[]
+        retrievedMesure.forEach(mesure=>{
+          if(mesure.mesureid.split(' ')[0]===code)
+          {
+            tab.push({
+              Priorite:mesure.priorite,
+              Complexite:mesure.complexite,
+              Cout:mesure.cout,
+              Coutrun:mesure.coutrun,
+              Maturite:mesure.mesureid('.')[1],
+              DateDebut:mesure.debut,
+              DateFin:mesure.fin,
+              Statut:mesure.statut,
+            })
+          }
+        })
+        setlocalmesures(tab)
+      }
+      catch(error)
+      {
+        console.log(error)
+      }
+    }
+    getMesure()
+    
+    
+    const getExigence = async () =>{
+      
+      try{
+        var tab2=[]
+        const response =await axios.get (`${baseUrl3}`);
+        const retrievedExigence=response.data.exigences;
+        retrievedExigence.forEach(exigence=>{
+          if(exigence.projetid===code)
+          {
+            tab2.push({
+              //domaine: exigence.Domaine,
+              Exigenceid: exigence.exigenceid,
+              Note: exigence.note,
+              Maturite: exigence.maturite,
+          })
+          }
+        })
+        setlocalexigences(tab2)
+      }
+      catch(error)  
+      {
+        console.log(error)
+      }
+    }
+    getExigence()
+    console.log(localexigences)
+    console.log(localmesures)
+  }, [refresh, code,localexigences,localmesures])
+  
   const changeToggle = (type, id) => {
     if (type) {
       const patchStatutProjet = async () => {
@@ -172,7 +244,7 @@ const Resume = () => {
 
       <div class="tile_one-third_right">
         <h3>Coûts</h3>
-        <PolarAreaChart />
+        <CostBarChart />
       </div>
 
       <div class="tile_full">
