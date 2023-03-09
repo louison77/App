@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/components/GestionStyle/_resume.css";
 import RadarChart from "./Graphs/ProgressRadar.jsx";
-import PolarAreaChart from "./Graphs/CostPolarArea.jsx";
 import CostBarChart from "./Graphs/CostBarChart.jsx";
 //import { ProgressBar } from "react-bootstrap";
 import ProgressBar from "./Graphs/ProgressBar";
@@ -104,8 +103,9 @@ const Resume = () => {
     
     
     const getExigence = async () =>{
-      var tab2=[]
+      
       try{
+        var tab2=[]
         const response =await axios.get (`${baseUrl3}`);
         const retrievedExigence=response.data.exigences;
         retrievedExigence.forEach(exigence=>{
@@ -119,6 +119,7 @@ const Resume = () => {
           })
           }
         })
+        setlocalexigences(tab2)
       }
       catch(error)  
       {
@@ -126,8 +127,10 @@ const Resume = () => {
       }
     }
     getExigence()
-    
-  }, [refresh, code])
+    console.log(localexigences)
+    console.log(localmesures)
+  }, [refresh, code,localexigences,localmesures])
+  
   const changeToggle = (type, id) => {
     if (type) {
       const patchStatutProjet = async () => {
