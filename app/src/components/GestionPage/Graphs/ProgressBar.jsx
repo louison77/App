@@ -77,7 +77,7 @@ const data = {
     {
       label: 'Dataset 0',
       data:  backdrop_values,
-      backgroundColor: 'rgba(200, 200, 200, 0.2)',
+      backgroundColor: 'rgba(200, 200, 200, 0.4)',
     },
   ],
 };
