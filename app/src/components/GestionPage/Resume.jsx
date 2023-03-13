@@ -128,7 +128,7 @@ const Resume = () => {
     const getMesure = async () => {
       try {
         const response = await axios.get(`${baseUrl2}`);
-        const retrievedMesure = response.data.mesures;
+        const retrievedMesure = response.data.mesure;
         var tab = []
         retrievedMesure.forEach(mesure => {
           if (mesure.mesureid.split(' ')[0] === code) {
@@ -137,7 +137,7 @@ const Resume = () => {
               Complexite: mesure.complexite,
               Cout: mesure.cout,
               Coutrun: mesure.coutrun,
-              Maturite: mesure.mesureid('.')[1],
+              Maturite: mesure.mesureid.split('.')[1],
               DateDebut: mesure.debut,
               DateFin: mesure.fin,
               Statut: mesure.statut,
@@ -158,7 +158,7 @@ const Resume = () => {
       try {
         var tab2 = []
         const response = await axios.get(`${baseUrl3}`);
-        const retrievedExigence = response.data.exigences;
+        const retrievedExigence = response.data.exigence;
         retrievedExigence.forEach(exigence => {
           if (exigence.projetid === code) {
             tab2.push({
@@ -176,11 +176,11 @@ const Resume = () => {
       }
     }
     getExigence()
-    console.log(localexigences)
-    console.log(localmesures)
-  }, [refresh, code, localexigences, localmesures])
+
+  }, [refresh, code])
 
   const changeToggle = (type, id) => {
+    console.log(localexigences)
     if (type) {
       const patchStatutProjet = async () => {
         try {

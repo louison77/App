@@ -25,7 +25,7 @@ const Suivi = () => {
         })
     }
     const handleDelete = (id) => {
-        HandleConfirmation("Est-ce que vous voulez supprimer cet auditeur?", true, id);
+        HandleConfirmation("Voulez-vous supprimer cet auditeur?", true, id);
 
     }
 

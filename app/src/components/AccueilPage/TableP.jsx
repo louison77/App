@@ -29,8 +29,8 @@ function TableP(props) {
       message, isLoading, NameConfirmation
     })
   }
-  const handleDelete = (id) => {
-    HandleConfirmation("Est-ce que vous voulez supprimer ce Projet?", true, id);
+  const handleDelete = (id, nom) => {
+    HandleConfirmation("Voulez-vous supprimer ce Projet?", true, (nom + " - " + id));
 
   }
 
@@ -178,8 +178,8 @@ function TableP(props) {
         <table style={{ width: "60%" }} className="TableProjects">
           <thead>
             <tr>
-              <th style={{ textAlign: "left" }}>Nom</th>
-              <th>Code</th>
+              <th style={{ textAlign: "left" }}>Nom Client</th>
+              <th>Code Projet</th>
               <th>Chef de Projet</th>
               <th>Statut Audit</th>
               <th>Statut PA</th>
@@ -197,7 +197,7 @@ function TableP(props) {
                 <td>{project.Manager}</td>
                 <td>{project.StatutAudit}</td>
                 <td>{project.StatutPA}</td>
-                <div><button onClick={() => handleDelete(project.Code)} className="Boutondeleted">X</button></div>
+                <div><button onClick={() => handleDelete(project.Code, project.Nom)} className="Boutondeleted">X</button></div>
               </tr>
             ))}
           </tbody>

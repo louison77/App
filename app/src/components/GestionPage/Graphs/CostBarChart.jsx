@@ -1,31 +1,30 @@
 import React from 'react';
-import { 
-  Chart as ChartJS, 
-  CategoryScale, 
-  LinearScale, 
-  BarElement, 
-  Title, 
-  Tooltip, 
-  Legend 
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(
-  CategoryScale, 
-  LinearScale, 
-  BarElement, 
-  Title, 
-  Tooltip, 
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
   Legend
-  );
+);
 
 export default function CostBarChart(props) {
   const array = props.array
-  const Cout = array.map((item) => item.Cout)
-  const Coutrun = array.map((item) => item.Coutrun)
-  console.log(array)
-  console.log(Cout)
-  console.log(Coutrun)
+  const Cout = [0, 0, 0, 0]
+  const Coutrun = [0, 0, 0, 0]
+  array.map((item) => Cout[parseInt(item.Priorite[1])] += item.Cout)
+  array.map((item) => Coutrun[parseInt(item.Priorite[1])] += item.Coutrun)
 
   const labels = ['P0', 'P1', 'P2', 'P3', 'P4'];
 
