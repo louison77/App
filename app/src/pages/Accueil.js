@@ -24,10 +24,7 @@ const Accueil = () => {
                 if (clientPrincipal) {
                     setUser(clientPrincipal);
                     userHasAuthenticated(true);
-
                 }
-
-
 
             } catch (error) {
                 console.error('No profile could be found ' + error?.message?.toString());
