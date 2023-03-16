@@ -33,28 +33,28 @@ const TESTcostarray = [{
 }]
 
 const TESTprogressarray = [{
-  Priorite: 0,
+  Priorite: "P0",
   Complexite: 0,
   Cout: 0,
   Coutrun: 0,
   Maturite: 0,
 },
 {
-  Priorite: 1,
+  Priorite: "P1",
   Complexite: 1,
   Cout: 1,
   Coutrun: 1,
   Maturite: 1,
 },
 {
-  Priorite: 2,
+  Priorite: "P2",
   Complexite: 2,
   Cout: 2,
   Coutrun: 2,
   Maturite: 2,
 },
 {
-  Priorite: 3,
+  Priorite: "P3",
   Complexite: 3,
   Cout: 3,
   Coutrun: 3,
@@ -290,7 +290,7 @@ const Resume = () => {
           <div class="radar"><RadarChart array={TESTprogressarray} /></div>
           <div class="kpi">KPI</div>
         </div>
-        <div class="costs"><CostBarChart array={TESTcostarray} /></div>
+        <div class="costs"><CostBarChart array={TESTprogressarray} /></div>
         <div class="settings">
           <div class="audit_status"></div>
           <div class="action_plan_status"></div>
@@ -298,7 +298,7 @@ const Resume = () => {
         </div>
       </div>
 
-      <br /><br /><br /><br /><br /><br /><br /><p>WIP</p>
+
       <div class="tile_two-third_left">
         <h3>Avancement</h3>
         <div class="tile_half_left">
