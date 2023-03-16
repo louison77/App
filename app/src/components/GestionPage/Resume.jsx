@@ -9,6 +9,59 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 import axios from 'axios'
 import { useOutletContext } from "react-router-dom";
 
+//Debug
+
+const TESTcostarray = [{
+  Cout: 2000,
+  Coutrun: 1200,
+},
+{
+  Cout: 3000,
+  Coutrun: 2000,
+},
+{
+  Cout: 4000,
+  Coutrun: 3000,
+},
+{
+  Cout: 5000,
+  Coutrun: 4000,
+},
+{
+  Cout: 6000,
+  Coutrun: 5000,
+}]
+
+const TESTprogressarray = [{
+  Priorite: 0,
+  Complexite: 0,
+  Cout: 0,
+  Coutrun: 0,
+  Maturite: 0,
+},
+{
+  Priorite: 1,
+  Complexite: 1,
+  Cout: 1,
+  Coutrun: 1,
+  Maturite: 1,
+},
+{
+  Priorite: 2,
+  Complexite: 2,
+  Cout: 2,
+  Coutrun: 2,
+  Maturite: 2,
+},
+{
+  Priorite: 3,
+  Complexite: 3,
+  Cout: 3,
+  Coutrun: 3,
+  Maturite: 3,
+}]
+
+// Importation des données de l'API
 
 const Resume = () => {
   //code du projet
@@ -199,7 +252,7 @@ const Resume = () => {
 
   }
   return (
-    <div class="container">
+    <div>
       <div className="StatutGestion">
         <div className="StatutAudit">
           <h3>Statut de l'audit</h3>
@@ -231,6 +284,21 @@ const Resume = () => {
 
         </div>
       </div>
+      <div class="container">
+        <div class="advances">
+          <div class="progress_bar"><ProgressBar array={TESTprogressarray} /></div>
+          <div class="radar"><RadarChart array={TESTprogressarray} /></div>
+          <div class="kpi">KPI</div>
+        </div>
+        <div class="costs"><CostBarChart array={TESTcostarray} /></div>
+        <div class="settings">
+          <div class="audit_status"></div>
+          <div class="action_plan_status"></div>
+          <div class="info"></div>
+        </div>
+      </div>
+
+      <br /><br /><br /><br /><br /><br /><br /><p>WIP</p>
       <div class="tile_two-third_left">
         <h3>Avancement</h3>
         <div class="tile_half_left">
@@ -248,16 +316,6 @@ const Resume = () => {
       <div class="tile_full">
         <h3>Options</h3>
       </div>
-
-      {/*
-      <div class="tile_full"> full </div>
-      <div class="tile_half_left"> half left </div>
-      <div class="tile_half_right"> half right </div>
-      <div class="tile_two-third_left"> two-third left </div>
-      <div class="tile_one-third_right"> one-third right </div>
-      <div class="tile_one-third_left"> one-third left </div>
-      <div class="tile_two-third_right"> two-third right </div>
-      */}
     </div>
   );
 };
