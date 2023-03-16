@@ -1,9 +1,11 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/components/AccueilStyle/_tableP.css";
 import axios from 'axios'
 import Confirmation from "./Confirmation";
+import { CSVLink } from "react-csv";
+
 
 
 function TableP(props) {
@@ -33,6 +35,7 @@ function TableP(props) {
     HandleConfirmation("Voulez-vous supprimer ce Projet?", true, (nom + " - " + id));
 
   }
+  const tableRef = useRef(null)
 
 
 
@@ -161,8 +164,8 @@ function TableP(props) {
     return (
       <div>
 
-        <div className="boutons">
-          <form action="submit" onSubmit={handleSubmit}>
+        <div className="Inputpart">
+          <form className="boutons" action="submit" onSubmit={handleSubmit}>
             <input
               className="InputProjet"
               value={newProjet}
@@ -170,12 +173,11 @@ function TableP(props) {
               placeholder="Ajouter un projet"
               onChange={handleChange}
             />
-
-
             <button className="Button1">Nouveau projet</button>
           </form>
         </div>
-        <table style={{ width: "60%" }} className="TableProjects">
+
+        <table ref={tableRef} style={{ width: "60%" }} className="TableProjects">
           <thead>
             <tr>
               <th style={{ textAlign: "left" }}>Nom Client</th>
@@ -202,6 +204,7 @@ function TableP(props) {
             ))}
           </tbody>
         </table>
+        <CSVLink data={projets} filename={"Projets"} separator=";">Download me</CSVLink>
         {confirmation.isLoading && (
           <Confirmation OnConfirmation={DeleteProjet} message={confirmation.message} NameConfirmation={confirmation.NameConfirmation} />
         )

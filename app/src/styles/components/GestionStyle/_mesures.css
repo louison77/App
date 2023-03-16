@@ -224,7 +224,15 @@ tbody tr td:nth-child(3) {
 #ResetFiltre {
   margin-left: 50px;
   margin-bottom: 10px;
-  width: 100px;
+  width: 10%;
+  height: 50px;
+  background-color: white;
+  border: 2px solid black;
+}
+
+#ResetFiltre:hover {
+  background-color: black;
+  color: white;
 }
 
 #FiltreC {

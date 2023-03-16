@@ -4,6 +4,7 @@ import { useOutletContext } from "react-router-dom";
 import "../../styles/components/GestionStyle/_mesures.css";
 import axios from 'axios'
 import Confirmation from "../AccueilPage/Confirmation";
+import { CSVLink } from "react-csv";
 
 const Mesures = () => {
 
@@ -91,7 +92,7 @@ const Mesures = () => {
           if (mesure.projetid === code) {
             for (let i = 0; i < BaseMesure.length; i++) {
               if (BaseMesure[i].Ref === mesure.mesureid.split(' ')[1]) {
-
+                console.log(mesure.statut)
                 tab.push({
                   Id: BaseMesure[i].Ref,
                   Nom: BaseMesure[i].Exigence,
@@ -243,7 +244,7 @@ const Mesures = () => {
       }
       if (colonne === "Statut") {
         for (let i = 0; i < mesures.length; i++) {
-          if ((mesures[i].Statut).toLowerCase().search(event.target.value) !== -1) {
+          if ((mesures[i].Statut).search(event.target.value) !== -1) {
             Copy.push(mesures[i]);
           }
         }
@@ -346,7 +347,7 @@ const Mesures = () => {
       }
       if (colonne === "Statut") {
         for (let i = 0; i < modifMesures.length; i++) {
-          if ((modifMesures[i].Statut).toLowerCase().search(event.target.value) !== -1) {
+          if ((modifMesures[i].Statut).search(event.target.value) !== -1) {
             Copy.push(modifMesures[i]);
           }
         }
@@ -678,11 +679,13 @@ const Mesures = () => {
           }
 
           if (number === 5) {
+            valuetoChange = e.target.value
             setchange("5")
+
             axios.patch(`${baseUrl}`,
               {
                 mesureid: id,
-                statut: valuetoChange
+                statut: valuetoChange,
 
               }, {
               'Content-Type': 'application/json'
@@ -801,8 +804,8 @@ const Mesures = () => {
     return (
       <div>
 
-        <h1 className="TITLEMESURE">Plan d'actions</h1>
         <button classname="BoutonResetFiltre" id="ResetFiltre" onClick={ResetFiltre}>Réinitialiser les filtres</button>
+        <CSVLink data={mesures} filename={"Plan d'action " + code} separator=";">Exporter plan d'action au format csv</CSVLink>
         <div className='pageMesure'>
           <table className='ListeMesures'>
             <thead>
@@ -827,7 +830,12 @@ const Mesures = () => {
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Libellé")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Action")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Maturité")} /></th>
-                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Priorité")} /></th>
+                <th><select onChange={(e) => Filtre(e, "Priorité")} defaultValue="P0">
+                  <option value="P0">P0</option>
+                  <option value="P1">P1</option>
+                  <option value="P2">P2</option>
+                  <option value="P3">P3</option>
+                </select></th>
                 <th>
                   <select onChange={(e) => Filtre(e, "Complexité")} defaultValue="+">
                     <option value="+">+</option>
@@ -840,7 +848,11 @@ const Mesures = () => {
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Porteur")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Date début")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Date fin")} /></th>
-                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Statut")} /></th>
+                <th><select onChange={(e) => Filtre(e, "Statut")} defaultValue="Pas démarré">
+                  <option value="Pas démarré">Pas démarré</option>
+                  <option value="En cours">En cours</option>
+                  <option value="En cours">Terminé</option>
+                </select></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Macro projet")} /></th>
 
               </tr>
@@ -902,8 +914,15 @@ const Mesures = () => {
                   <td id="CelluleMesure">
                     <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 7)} className='TextDateFin' id='Case'>{mesure.DateFin}</div>
                   </td>
-                  <td id="CelluleMesure">
-                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 5)} className='TextStatut' id='Case'>{mesure.Statut}</div>
+                  <td id="CelluleMesure" style={{
+                    backgroundColor: mesure.Statut === "Pas démarré" ? "#CD3C14" : mesure.Statut === "En cours" ? "#527EDB" : mesure.Statut === "Terminé" ? "#32C832" : "White",
+                  }}>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} className='TextStatut' id='Case'>
+                      <select onChange={e => SendContent(e, mesure.MesureID, 5)} value={mesure.Statut}>
+                        <option value="Pas démarré">Pas démarré</option>
+                        <option value="En cours">En cours</option>
+                        <option value="Terminé">Terminé</option>
+                      </select></div>
                   </td>
                   <td id="CelluleMesure">
                     <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 9)} className='TextMacro' id='Case'>{mesure.Macro}</div>
@@ -926,7 +945,7 @@ const Mesures = () => {
   if (Type === 2) {
     return (
       <div>
-        <h1 className="TITLEMESURE">Plan d'actions</h1>
+
         <button classname="BoutonResetFiltre" id="ResetFiltre" onClick={ResetFiltre}>Réinitialiser les filtres</button>
         <div className='pageMesure'>
           <table className='ListeMesures'>
@@ -952,7 +971,12 @@ const Mesures = () => {
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Libellé")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Action")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Maturité")} /></th>
-                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Priorité")} /></th>
+                <th><select onChange={(e) => Filtre(e, "Priorité")} defaultValue="P0">
+                  <option value="P0">P0</option>
+                  <option value="P1">P1</option>
+                  <option value="P2">P2</option>
+                  <option value="P3">P3</option>
+                </select></th>
                 <th><select onChange={(e) => Filtre(e, "Complexité")} defaultValue="+">
                   <option value="+">+</option>
                   <option value="++">++</option>
@@ -964,7 +988,11 @@ const Mesures = () => {
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Porteur")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Date début")} /></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Date fin")} /></th>
-                <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Statut")} /></th>
+                <th><select onChange={(e) => Filtre(e, "Statut")} defaultValue="Pas démarré">
+                  <option value="Pas démarré">Pas démarré</option>
+                  <option value="En cours">En cours</option>
+                  <option value="En cours">Terminé</option>
+                </select></th>
                 <th><input id="FiltreC" type="text" className="FiltreCol" placeholder="Filtre..." onChange={(e) => Filtre(e, "Macro projet")} /></th>
 
               </tr>
@@ -1025,8 +1053,15 @@ const Mesures = () => {
                   <td id="CelluleMesure">
                     <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 7)} className='TextDateFin' id='Case'>{mesure.DateFin}</div>
                   </td>
-                  <td id="CelluleMesure">
-                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 5)} className='TextStatut' id='Case'>{mesure.Statut}</div>
+                  <td id="CelluleMesure" style={{
+                    backgroundColor: mesure.Statut === "Pas démarré" ? "#CD3C14" : mesure.Statut === "En cours" ? "#527EDB" : mesure.Statut === "Terminé" ? "#32C832" : "White",
+                  }}>
+                    <div contentEditable={statutP === "Terminé" ? "false" : "true"} className='TextStatut' id='Case'>
+                      <select onChange={e => SendContent(e, mesure.mesureid, 5)} value={mesure.Statut}>
+                        <option value="Pas démarré">Pas démarré</option>
+                        <option value="En cours">En cours</option>
+                        <option value="Terminé">Terminé</option>
+                      </select></div>
                   </td>
                   <td id="CelluleMesure">
                     <div contentEditable={statutP === "Terminé" ? "false" : "true"} onBlur={e => SendContent(e, mesure.MesureID, 9)} className='TextMacro' id='Case'>{mesure.Macro}</div>

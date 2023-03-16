@@ -107,24 +107,35 @@ const Admin = (props) => {
 
     }
     const DeleteUser = (name, test) => {
-        if (test && props.username.userDetails !== name) {
-            const DeleteOne = async () => {
-                try {
-                    await axios.delete(`${baseUrl}`, {
-                        data: {
-                            mail: name,
-                        }
-                    }, {
-                        'Content-Type': 'application/json'
-                    })
-                }
-                catch (error) {
-                    console.log(error)
-                }
+        var isadmin = false
+        Adminstab.forEach(element => {
+            if (element.Mail === name) {
+                isadmin = true
             }
+        })
+        const DeleteOne = async () => {
+            try {
+                await axios.delete(`${baseUrl}`, {
+                    data: {
+                        mail: name,
+                    }
+                }, {
+                    'Content-Type': 'application/json'
+                })
+            }
+            catch (error) {
+                console.log(error)
+            }
+        }
+        if (test && isadmin && props.username.userDetails !== name && Adminstab.length > 2) {
+
             DeleteOne()
             HandleConfirmation("", false);
 
+        }
+        else if (test && isadmin === false) {
+            DeleteOne()
+            HandleConfirmation("", false);
         }
         else {
             HandleConfirmation("", false);
@@ -182,7 +193,7 @@ const Admin = (props) => {
 
                     </tbody>
                 </table>
-                <table className='tableManager' >
+                <table className='tableAdmin' >
                     <thead>
                         <th style={{ textAlign: "center" }}> Mail Admin</th>
                     </thead>
@@ -191,6 +202,7 @@ const Admin = (props) => {
                             Adminstab.map((admin) => (
 
                                 <tr>
+
                                     <td>
                                         {admin.Mail}
                                     </td>

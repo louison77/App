@@ -68,6 +68,7 @@ body,
 }
 
 .StatutGestion {
+    margin: 5%;
     display: flex;
     flex-direction: row;
     width: 50%;
