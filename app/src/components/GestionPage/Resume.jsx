@@ -11,7 +11,7 @@ import { useOutletContext } from "react-router-dom";
 
 //Debug
 
-const TESTcostarray = [{
+/*const TESTcostarray = [{
   Cout: 2000,
   Coutrun: 1200,
 },
@@ -30,7 +30,7 @@ const TESTcostarray = [{
 {
   Cout: 6000,
   Coutrun: 5000,
-}]
+}]*/
 
 const TESTprogressarray = [{
   Priorite: "P0",
