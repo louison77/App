@@ -255,6 +255,7 @@ const Resume = () => {
     <div>
       <div className="StatutGestion">
         <div className="StatutAudit">
+          <h2>WIP</h2>
           <h3>Statut de l'audit</h3>
           <buttongroup>
             {checked1.map((radio) => (
