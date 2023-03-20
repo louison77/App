@@ -285,11 +285,11 @@ const Resume = () => {
       </div>
       <div class="container">
         <div class="advances">
-          <div class="progress_bar"><ProgressBar array={TESTprogressarray} /></div>
-          <div class="radar"><RadarChart array={TESTprogressarray}/></div>
+          <div class="progress_bar"><ProgressBar /></div>
+          <div class="radar"><RadarChart /></div>
           <div class="kpi">KPI</div>
         </div>
-        <div class="costs"><CostBarChart array={TESTcostarray}/></div>
+        <div class="costs"><CostBarChart array={TESTcostarray} /></div>
         <div class="settings">
           <div class="audit_status"></div>
           <div class="action_plan_status"></div>

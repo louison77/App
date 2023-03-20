@@ -6,9 +6,7 @@ import {
   BarElement,
   Title,
   Tooltip,
-  Legend,
-  //GridLineOptions,
-  //scales,
+  Legend
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
@@ -18,70 +16,71 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend,
+  Legend
 );
 
-// Imported Values (must be converted to %)
-const build_cost = [50, 50, 60, 26];
-const run_cost = [65, 79, 80, 56];
+export default function CostBarChart(props) {
+  const array = props.array
+  const Cout = [0, 0, 0, 0]
+  const Coutrun = [0, 0, 0, 0]
+  array.map((item) => Cout[parseInt(item.Priorite[1])] += item.Cout)
+  array.map((item) => Coutrun[parseInt(item.Priorite[1])] += item.Coutrun)
 
-// converted in rolling sum
-
-const rolling_datasets = [];
-for (let i = 0; i < build_cost.length; i++) {
-  rolling_dataset.push(100 - goal_values[i]);
-}
-const improvement_values = [];
-for (let i = 0; i < current_values.length; i++) {
-  improvement_values.push(goal_values[i] - current_values[i]);
-}
+  const Cout0 = [1,0,0,0]
+  const Cout1 = Cout0 + [0,1,0,0]
+  const Cout2 = Cout1 + [0,0,1,0]
 
 
-// Chart Setup
 
-const labels = ["P0","P1","P2","P3"];
+  const labels = ['P0', 'P1', 'P2', 'P3'];
 
-const options = {
-  indexAxis: 'x',
-  responsive: true,
-  scales: {
-    x: {
-      stacked: false,
-      grid: {display:false},
-      border: {display: false}
+  const options = {
+    indexAxis: 'x',
+    responsive: true,
+    maintainAspectRatio: true,
+    scales: {
+      x: {
+        stacked: false,
+        grid: { display: false },
+        border: { display: false },
+      },
+      y: {
+        stacked: false,
+        grid: { display: true },
+        border: { display: false },
+      },
     },
-    y: {
-      stacked: false,
-      grid: {display:true},
-      border: {display: false},
+    plugins: {
+      legend: { display: true },
+      tooltip: { enabled: true },
     },
-  },
-  plugins: {
-    title: {
-      display: true,
-      text: 'Coûts par Priorité'
-    },
-    legend: {display: true},
-    tooltip: {enabled: true}, 
-  }
-};
+  };
 
-const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Build Cost',
-      data:  build_cost,
-      backgroundColor: 'rgb(0, 0, 150)',
-    },
-    {
-      label: 'Run Cost',
-      data: run_cost,
-      backgroundColor: 'rgb(0, 150, 0)',
-    },
-  ],
-};
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'P0',
+        data: RollCost[0],
+        backgroundColor: 'rgb(0, 0, 150)',
+      },
+      {
+        label: '-> P1',
+        data: RollCost[1],
+        backgroundColor: 'rgb(0, 0, 150)',
+      },
+      {
+        label: '-> P2',
+        data: RollCost[2],
+        backgroundColor: 'rgb(0, 0, 150)',
+      },
+      {
+        label: '-> P3',
+        data: RollCost[3],
+        backgroundColor: 'rgb(0, 0, 150)',
+      },
+    ],
+  };
 
-export default function CostBarChart() {
   return <Bar options={options} data={data} />;
 }

@@ -26,7 +26,8 @@ export default function CostBarChart(props) {
   array.map((item) => Cout[parseInt(item.Priorite[1])] += item.Cout)
   array.map((item) => Coutrun[parseInt(item.Priorite[1])] += item.Coutrun)
 
-  const labels = ['P0', 'P1', 'P2', 'P3', 'P4'];
+  
+  const labels = ['P0', 'P1', 'P2', 'P3'];
 
   const options = {
     indexAxis: 'x',
