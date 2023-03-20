@@ -7,6 +7,7 @@ import Collapse from "react-bootstrap/Collapse";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/components/GestionStyle/_exigences.css";
 import Confirmation from "../AccueilPage/Confirmation";
+import { CSVLink } from "react-csv";
 
 const Exigences = () => {
   const baseUrl = '/api/Exigence';
@@ -579,6 +580,7 @@ const Exigences = () => {
   if (isSeen) {
     return (
       <div className="page">
+        <CSVLink data={exigences} filename={"Exigences " + code} separator=";">Exporter les exigences au format csv</CSVLink>
         <div className="BarreDéroulé">
           {exigences.map((exige) => (
             <h5

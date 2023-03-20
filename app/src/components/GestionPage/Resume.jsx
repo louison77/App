@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../styles/components/GestionStyle/_resume.css";
 import RadarChart from "./Graphs/ProgressRadar.jsx";
 import CostBarChart from "./Graphs/CostBarChart.jsx";
+import CostRollingBarChart from "./Graphs/CostRollingBarChart";
 //import { ProgressBar } from "react-bootstrap";
 import ProgressBar from "./Graphs/ProgressBar";
 import ToggleButton from 'react-bootstrap/ToggleButton';
@@ -10,7 +11,7 @@ import { useOutletContext } from "react-router-dom";
 
 //Debug
 
-const TESTcostarray = [{
+/*const TESTcostarray = [{
   Cout: 2000,
   Coutrun: 1200,
 },
@@ -26,34 +27,34 @@ const TESTcostarray = [{
   Cout: 5000,
   Coutrun: 4000,
 },
-{ 
+{
   Cout: 6000,
   Coutrun: 5000,
-}]
+}]*/
 
 const TESTprogressarray = [{
-  Priorite: 0,
+  Priorite: "P0",
   Complexite: 0,
   Cout: 0,
   Coutrun: 0,
   Maturite: 0,
 },
 {
-  Priorite: 1,
+  Priorite: "P1",
   Complexite: 1,
   Cout: 1,
   Coutrun: 1,
   Maturite: 1,
 },
 {
-  Priorite: 2,
+  Priorite: "P2",
   Complexite: 2,
   Cout: 2,
   Coutrun: 2,
   Maturite: 2,
 },
 {
-  Priorite: 3,
+  Priorite: "P3",
   Complexite: 3,
   Cout: 3,
   Coutrun: 3,
@@ -285,11 +286,11 @@ const Resume = () => {
       </div>
       <div class="container">
         <div class="advances">
-          <div class="progress_bar"><ProgressBar /></div>
-          <div class="radar"><RadarChart /></div>
+          <div class="progress_bar"><ProgressBar array={TESTprogressarray} /></div>
+          <div class="radar"><RadarChart array={TESTprogressarray} /></div>
           <div class="kpi">KPI</div>
         </div>
-        <div class="costs"><CostBarChart array={TESTcostarray} /></div>
+        <div class="costs"><CostBarChart array={TESTprogressarray} /></div>
         <div class="settings">
           <div class="audit_status"></div>
           <div class="action_plan_status"></div>
@@ -297,7 +298,7 @@ const Resume = () => {
         </div>
       </div>
 
-<br/><br/><br/><br/><br/><br/><br/><p>WIP</p>
+
       <div class="tile_two-third_left">
         <h3>Avancement</h3>
         <div class="tile_half_left">
@@ -308,29 +309,8 @@ const Resume = () => {
 
       <div class="tile_one-third_right">
         <h3>Coûts</h3>
-        <CostBarChart array={[{
-              Cout: 2000,
-              Coutrun: 1200,
-            },
-            {
-              Cout: 3000,
-              Coutrun: 2000,
-            },
-            {
-              Cout: 4000,
-              Coutrun: 3000,
-            },
-            {
-              Cout: 5000,
-              Coutrun: 4000,
-            },
-            { 
-              Cout: 6000,
-              Coutrun: 5000,
-            }            
-          ]}
-          //array={localmesures}
-          />
+        <CostRollingBarChart array={localmesures}
+        />
       </div>
 
       <div class="tile_full">

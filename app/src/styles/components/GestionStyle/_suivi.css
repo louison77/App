@@ -59,6 +59,7 @@
 .BtnSupress:hover {
     background-color: #d62828;
     color: white;
+    cursor: pointer;
 }
 
 .TexteAuditeur {

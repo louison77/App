@@ -43,12 +43,67 @@ Quelques conseils et explications.
 React est une bibliothèque JavaScript utilisée pour la construction d'interfaces utilisateur. Il est important de comprendre quelques concepts tels que les composants ou  les "state" qui réferent à l'état d'un composant.
 
 L'utilisation de l'état est importante car elle permet aux composants React de répondre aux interactions de l'utilisateur et de changer leur apparence en temps réel sans avoir besoin de recharger toute la page.  
-L'état est généralement modifié à l'aide de la méthode setState(). Cette méthode met à jour l'état actuel du composant et déclenche une nouvelle mise à jour du rendu du composant.
+L'état est généralement modifié à l'aide de la méthode setState(). Cette méthode met à jour l'état actuel du composant et déclenche une nouvelle mise à jour du rendu du composant.  
 
-# Azure
+# Azure - créer et installer le projet  
+[Aide pour créer une app](https://learn.microsoft.com/fr-fr/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli/create-react-app)
 
-## Azure functions
+### Télécharger node.js, node version management(nvm), gitbash, vs code  
+- [nodejs](https://nodejs.org/en)
+- [nvm-windows](https://github.com/coreybutler/nvm-windows/releases) --> download `nvm-setup.exe`
+- [git](https://git-scm.com/downloads)
+- [vs code](https://code.visualstudio.com/)
 
-## Azure Cosmos DB
+### Fork le repository pour avoir accès au code github du projet  
 
-## Deployement (with linked GitHub)
+### Créer application web statique azure  
+Créer un groupe de ressources dans lequel vous mettrez toutes les ressources de ce projet, donner un nom à votre app, cocher gratuit, mettre Europe-West pour la région, source Github, ensuite entrez votre compte github dans organisation puis choissisez le bon repository et branche.
+
+
+### Créer une base de données mango db sur azure  
+- Choisir API azure cosmo db pour mongodb
+- Pareil qu’avant choisir le groupe de ressource précemment créer, nommez, et mettre Europe-West en région, cochez serverless et valider la création
+
+### Associer base de données à l’application web statique  
+- Aller dans l’onglet chaine de connexion dans la bdd créée sur azure
+- Copier chaine de connexion principale  
+![image](https://user-images.githubusercontent.com/77882255/226189703-e5d3b901-ccfb-42e2-8ece-fe7fd0ba7c3c.png)  
+- Cette fois-ci aller dans l’application web statique et dans l’onglet configuration, faites ajouter, nommer la CONNECTION_STRING et coller la chaine de connexion.  
+![image](https://user-images.githubusercontent.com/77882255/226189739-9cb458d8-d135-4897-8298-241c683602ac.png)
+
+###  Extensions et console git  
+Sur visual studio code il va falloir installer toutes les extensions nécessaires, et initialiser la console gitlab sur votre pc.
+- Azure Acoount, Azure Cli tools, Azure App Service, Azure Functions, Azure tools, Git pull request and issues, Reactjs code snippets, et peut-être d’autres selon vos besoins
+- Identifiez vous sur le azure du vscode, pareil avec github
+- Dans le même temps vous ouvez faire les manipulations pour vous connecter sur la console git avec votre compte github sur votre pc si jamais vous ne l’avez jamais fait
+
+### Cloner votre repository github 
+- Créer un dossier vide et nommer le comme vous voulez
+- Entrez la commande `git clone -b master (lien de votre repo github)`
+- Faites `npm install` dans la racine de votre app pour installer toutes les dependencies
+- Installer l’émulateur [azure static web app cli](https://github.com/Azure/static-web-apps-cli) (permet de tester des nouveautés en local). Faites `npm install -g @azure/static-web-apps-cli` dans votre app
+- Changer votre version de nvm avec `nvm use 14.17.3` si cette version est préalablement installée
+- Entrez `npm install -g azure-functions-core-tools@2 --unsafe-perm true`  car l’émulateur azure static web app cli ne fonctionne qu’avec certaines versions de node et d’azure functions
+- A la racine de votre app si tout est bien configurer et qu’il ne manque pas de librairie utiliser la commande `npx @azure/static-web-apps-cli start` pour lancer votre app en local. Si toutes les librairies ne sont pas installées, il faut les installer à la main avec la commande `npm i` 
+
+### Finalement il ne reste qu’à coder et déployer votre code 
+Vous avez deux choix pour déployer votre code sur github, soit avec l’extension github et le source control de vscode, soit dans le terminal en tapant trois commandes de suite :
+```Bash
+git add .
+git commit –m “message à définir”
+git push
+```
+:warning: Il faut pull les modifications que les autres ont push avec la commande `git pull`
+
+### Commandes utiles
+```
+npx create-react-app [name] #Créer une app react
+npm start #Démarrer une app react dans la racine
+nvm i 14.17.3 #Installer la version 14.17.3 de node
+nvm use 14.17.3 #Changer la version de node pour la version 14.17.3
+npm install -g @azure/static-web-apps-cli #Installer l’émulateur
+npm install -g azure-functions-core-tools@2 --unsafe-perm true #Changer la version de azure-function-core-tools vers la version 2
+npx @azure/static-web-apps-cli start #Lancer l’app et l’api connectées ensemble
+```
+
+## Azure functions  

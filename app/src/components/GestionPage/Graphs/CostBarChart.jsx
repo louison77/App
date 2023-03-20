@@ -21,12 +21,12 @@ ChartJS.register(
 
 export default function CostBarChart(props) {
   const array = props.array
+  console.log(array)
   const Cout = [0, 0, 0, 0]
   const Coutrun = [0, 0, 0, 0]
   array.map((item) => Cout[parseInt(item.Priorite[1])] += item.Cout)
   array.map((item) => Coutrun[parseInt(item.Priorite[1])] += item.Coutrun)
 
-  
   const labels = ['P0', 'P1', 'P2', 'P3'];
 
   const options = {

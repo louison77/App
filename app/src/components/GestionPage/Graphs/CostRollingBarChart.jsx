@@ -19,18 +19,18 @@ ChartJS.register(
   Legend
 );
 
-export default function CostBarChart(props) {
+export default function CostRollingBarChart(props) {
   const array = props.array
+
+  //const Cout = [0, 0, 0, 0]
+  //const Coutrun = [0, 0, 0, 0]
+  //array.map((item) => Cout[parseInt(item.Priorite[1])] += item.Cout)
+  //array.map((item) => Coutrun[parseInt(item.Priorite[1])] += item.Coutrun)
+
   const Cout = [0, 0, 0, 0]
   const Coutrun = [0, 0, 0, 0]
   array.map((item) => Cout[parseInt(item.Priorite[1])] += item.Cout)
   array.map((item) => Coutrun[parseInt(item.Priorite[1])] += item.Coutrun)
-
-  const Cout0 = [1,0,0,0]
-  const Cout1 = Cout0 + [0,1,0,0]
-  const Cout2 = Cout1 + [0,0,1,0]
-
-
 
   const labels = ['P0', 'P1', 'P2', 'P3'];
 
@@ -60,24 +60,14 @@ export default function CostBarChart(props) {
     labels,
     datasets: [
       {
-        label: 'P0',
-        data: RollCost[0],
+        label: 'Build Cost',
+        data: Cout,
         backgroundColor: 'rgb(0, 0, 150)',
       },
       {
-        label: '-> P1',
-        data: RollCost[1],
-        backgroundColor: 'rgb(0, 0, 150)',
-      },
-      {
-        label: '-> P2',
-        data: RollCost[2],
-        backgroundColor: 'rgb(0, 0, 150)',
-      },
-      {
-        label: '-> P3',
-        data: RollCost[3],
-        backgroundColor: 'rgb(0, 0, 150)',
+        label: 'Run Cost',
+        data: Coutrun,
+        backgroundColor: 'rgb(0, 150, 0)',
       },
     ],
   };
