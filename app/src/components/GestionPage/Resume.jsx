@@ -100,12 +100,15 @@ const Resume = () => {
     DateDebut: "",
     DateFin: "",
     Statut: "",
+    Domaine: "",
+    Note: 0,
   }])
 
   const [localexigences, setlocalexigences] = useState([{
     Exigenceid: "",
     Note: "",
     Maturite: "",
+    Domaine: ""
   }])
 
   useEffect(() => {
@@ -142,6 +145,8 @@ const Resume = () => {
               DateDebut: mesure.debut,
               DateFin: mesure.fin,
               Statut: mesure.statut,
+              Domaine: mesure.domaine,
+              Note: mesure.note
             })
           }
         })
@@ -167,6 +172,7 @@ const Resume = () => {
               Exigenceid: exigence.exigenceid,
               Note: exigence.note,
               Maturite: exigence.maturite,
+              Domaine: exigence.domaine,
             })
           }
         })
@@ -255,7 +261,6 @@ const Resume = () => {
     <div>
       <div className="StatutGestion">
         <div className="StatutAudit">
-          <h2>WIP</h2>
           <h3>Statut de l'audit</h3>
           <buttongroup>
             {checked1.map((radio) => (
@@ -285,25 +290,25 @@ const Resume = () => {
 
         </div>
       </div>
-      
+
       <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
         <div>
           Content1
           <div className="grid-container-two-elem">
             <div>
-  		        <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg" alt="this is alt text."/>
+              <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg" alt="this is alt text." />
             </div>
             <div>
-  		        <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg" alt="this is alt text." />
+              <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg" alt="this is alt text." />
             </div>
           </div>
         </div>
-        <hr/>
+        <hr />
         <div>
           Content2
           <div className="grid-container-one-elem">
             <div>
-  		        <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg" alt="this is alt text."/>
+              <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg" alt="this is alt text." />
             </div>
           </div>
         </div>
@@ -312,13 +317,13 @@ const Resume = () => {
 
 
 
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br />
       <p>Work In Progress</p>
-      <br/>
-        <div class="container">
+      <br />
+      <div class="container">
         <div class="advances">
           <div class="progress_bar"><ProgressBar array={TESTprogressarray} /></div>
-          <div class="radar"><RadarChart array={TESTprogressarray} /></div>
+          <div class="radar"><RadarChart array={localexigences} arraymesure={localmesures} /></div>
           <div class="kpi">KPI</div>
         </div>
         <div class="costs"><CostBarChart array={TESTprogressarray} /></div>
@@ -333,7 +338,7 @@ const Resume = () => {
       <div class="tile_two-third_left">
         <h3>Avancement</h3>
         <div class="tile_half_left">
-          <RadarChart />
+          <RadarChart array={localexigences} arraymesure={localmesures} />
         </div>
         <div class="tile_half_right"><ProgressBar /></div>
       </div>

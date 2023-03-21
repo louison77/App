@@ -188,6 +188,7 @@ const Exigences = () => {
           observations: "Observations",
           maturite: "0",
           note: "0",
+          domaine: "",
           color: [0, 0, 0, 0]
         }
         )
@@ -386,6 +387,7 @@ const Exigences = () => {
           await axios.patch(`${baseUrl}`, {
             exigenceid: UneExigence[0].exigenceid,
             note: event.target.value,
+            domaine: UneExigence[0].Nom
           }, {
             'Content-Type': 'application/json'
           })
@@ -519,6 +521,8 @@ const Exigences = () => {
                   debut: "",
                   fin: "",
                   statut: "",
+                  domaine: UneExigence[0].Nom,
+                  note: UneExigence[0].Note,
                 }, {
                 'Content-Type': 'application/json'
               },).then(function (response) {
@@ -579,278 +583,284 @@ const Exigences = () => {
   }
   if (isSeen) {
     return (
-      <div className="page">
-        <CSVLink data={exigences} filename={"Exigences " + code} separator=";">Exporter les exigences au format csv</CSVLink>
-        <div className="BarreDéroulé">
-          {exigences.map((exige) => (
-            <h5
-              className={
-                activeID === exige.Id ? "OrangeExigence" : "BlackExigences"
-              }
-              onClick={(e) => toggleVisibility(e, exige.Id)}
-            >
-              {exige.Id}
-            </h5>
-          ))}
-        </div>
+      <div className="Window">
 
-        <div className="ExigenceDescription">
-          <div className="FirstLine">
-            <h1 className="TITLE">Exigences</h1>
-            <div className="Arrows">
-              <button
-                className="ArrowLeft"
-                onClick={() => ChangeExigence(-1, UneExigence[0].Id)}
-              >
-                <ion-icon size="large" name="chevron-back-outline"></ion-icon>
-              </button>
+        <CSVLink className="Textedownload" data={exigences} filename={"Exigences " + code} separator=";">Exporter les exigences au format csv</CSVLink>
 
-              <button
-                className="ArrowRight"
-                onClick={() => ChangeExigence(1, UneExigence[0].Id)}
+        <div className="page">
+
+          <div className="BarreDéroulé">
+
+            {exigences.map((exige) => (
+              <h5
+                className={
+                  activeID === exige.Id ? "OrangeExigence" : "BlackExigences"
+                }
+                onClick={(e) => toggleVisibility(e, exige.Id)}
               >
-                <ion-icon
-                  size="large"
-                  name="chevron-forward-outline"
-                ></ion-icon>
-              </button>
-            </div>
+                {exige.Id}
+              </h5>
+            ))}
           </div>
 
-          {UneExigence.map((exige) => (
-            <div>
-              <h3>
-                {exige.Id} | {exige.Nom}
-              </h3>
-              <div className="Exigences_parties">
-                <div className="Part1">
-                  <h4 className="NamePart">
-                    Macro-Exigence
-                    <br />
-                  </h4>
-                  <span className="TexteParties">
-                    {exige.Exigence}
-                    <br />
-                  </span>
-                  <div className="GuidePart">
-                    <Button
-                      className="GuideBtn"
-                      onClick={() => setOpen(!open)}
-                      aria-controls="example-collapse-text"
-                      aria-expanded={open}
-                    >
-                      +
-                    </Button>
-                    <h4 className="NamePart">
-                      Guide Complet
-                      <br />
-                    </h4>
-                  </div>
-                  <Collapse in={open}>
-                    <div className="CollapseText" id="example-collapse-text">
-                      {exige.GuideComplet}
-                    </div>
-                  </Collapse>
+          <div className="ExigenceDescription">
+            <div className="FirstLine">
+              <h1 className="TITLE">Exigences</h1>
+              <div className="Arrows">
+                <button
+                  className="ArrowLeft"
+                  onClick={() => ChangeExigence(-1, UneExigence[0].Id)}
+                >
+                  <ion-icon size="large" name="chevron-back-outline"></ion-icon>
+                </button>
 
-                  <h4 className="NamePart">
-                    Guide Abrégé
-                    <br />
-                  </h4>
-                  <div className="TexteGuideAbregee">
-                    <span>{exige.GuideAbrege}</span>
-                  </div>
-                </div>
+                <button
+                  className="ArrowRight"
+                  onClick={() => ChangeExigence(1, UneExigence[0].Id)}
+                >
+                  <ion-icon
+                    size="large"
+                    name="chevron-forward-outline"
+                  ></ion-icon>
+                </button>
+              </div>
+            </div>
 
-                <div className="Part2">
-                  <div>
+            {UneExigence.map((exige) => (
+              <div>
+                <h3>
+                  {exige.Id} | {exige.Nom}
+                </h3>
+                <div className="Exigences_parties">
+                  <div className="Part1">
                     <h4 className="NamePart">
-                      Objectif
+                      Macro-Exigence
                       <br />
                     </h4>
                     <span className="TexteParties">
-                      {exige.Obj}
+                      {exige.Exigence}
                       <br />
                     </span>
-
-                    <h4 className="NamePart">Observations de l'auditeur</h4>
-                    <div className="FormObserv">
-                      <form action="" accept="sentences">
-                        <textarea
-                          className="TextArea"
-                          bords="arrondis"
-                          value={exige.Observation}
-                          type="textarea"
-                          onChange={ModifyObserv}
-                        ></textarea>
-                        <button class="BoutonObserv" onClick={PatchObservations}>
-                          Ajouter Observations
-                        </button>
-                      </form>
+                    <div className="GuidePart">
+                      <Button
+                        className="GuideBtn"
+                        onClick={() => setOpen(!open)}
+                        aria-controls="example-collapse-text"
+                        aria-expanded={open}
+                      >
+                        +
+                      </Button>
+                      <h4 className="NamePart">
+                        Guide Complet
+                        <br />
+                      </h4>
                     </div>
-                    <h4 className="NamePart">Note de conformité</h4>
+                    <Collapse in={open}>
+                      <div className="CollapseText" id="example-collapse-text">
+                        {exige.GuideComplet}
+                      </div>
+                    </Collapse>
+
+                    <h4 className="NamePart">
+                      Guide Abrégé
+                      <br />
+                    </h4>
+                    <div className="TexteGuideAbregee">
+                      <span>{exige.GuideAbrege}</span>
+                    </div>
+                  </div>
+
+                  <div className="Part2">
                     <div>
-                      <form>
-                        <select value={exige.Note} onChange={SubmitNote}>
-                          <option value="0">0</option>
-                          <option value="0.5">0.5</option>
-                          <option value="1">1</option>
-                        </select>
-                      </form>
+                      <h4 className="NamePart">
+                        Objectif
+                        <br />
+                      </h4>
+                      <span className="TexteParties">
+                        {exige.Obj}
+                        <br />
+                      </span>
+
+                      <h4 className="NamePart">Observations de l'auditeur</h4>
+                      <div className="FormObserv">
+                        <form action="" accept="sentences">
+                          <textarea
+                            className="TextArea"
+                            bords="arrondis"
+                            value={exige.Observation}
+                            type="textarea"
+                            onChange={ModifyObserv}
+                          ></textarea>
+                          <button class="BoutonObserv" onClick={PatchObservations}>
+                            Ajouter Observations
+                          </button>
+                        </form>
+                      </div>
+                      <h4 className="NamePart">Note de conformité</h4>
+                      <div>
+                        <form>
+                          <select value={exige.Note} onChange={SubmitNote}>
+                            <option value="0">0</option>
+                            <option value="0.5">0.5</option>
+                            <option value="1">1</option>
+                          </select>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="SelectionMesures">
+                  <h4 className="NamePart">Evaluation de la maturité </h4>
+                  <table className="ChoixNiveaux">
+                    <thead class="labelLevels">
+                      <tr>
+                        <th className="Basique">Basique</th>
+                        <th className="Moyenne">Moyenne</th>
+                        <th className="Elevee">Elevée</th>
+                        <th className="Televee">Très élevée</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="Case">
+                          <div className="CaseTable">
+                            <input
+                              type="checkbox"
+                              onClick={() => ChangeMaturity("1")}
+                              checked={exige.Maturite === "1" ? true : false}
+                            />
+
+                            {" " + exige.SousExigences[0].sousId}
+                          </div>
+                        </td>
+                        <td className="Case">
+                          <div className="CaseTable">
+                            <label style={{ display: "inline-block" }}>
+                              <input
+                                type="checkbox"
+                                onClick={() => ChangeMaturity("2")}
+                                checked={exige.Maturite === "2" ? true : false}
+                                style={{ verticalAlign: "middle" }}
+                              />
+                              <span style={{ verticalAlign: "middle" }}>
+
+                                {" " + exige.SousExigences[1].sousId}
+                              </span>
+                            </label>
+                          </div>
+                        </td>
+                        <td className="Case">
+                          <div className="CaseTable">
+                            <label style={{ display: "inline-block" }}>
+                              <input
+                                type="checkbox"
+                                onClick={() => ChangeMaturity("3")}
+                                checked={exige.Maturite === "3" ? true : false}
+                                style={{ verticalAlign: "middle" }}
+                              />
+                              <span style={{ verticalAlign: "middle" }}>
+
+                                {" " + exige.SousExigences[2].sousId}
+                              </span>
+                            </label>
+                          </div>
+                        </td>
+                        <td className="Case">
+                          <div className="CaseTable">
+                            <label style={{ display: "inline-block" }}>
+                              <input
+                                type="checkbox"
+                                onClick={() => ChangeMaturity("4")}
+                                checked={exige.Maturite === "4" ? true : false}
+                                style={{ verticalAlign: "middle" }}
+                              />
+                              <span style={{ verticalAlign: "middle" }}>
+
+                                {" " + exige.SousExigences[3].sousId}
+                              </span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h4 className="NamePart">Aide à la sélection de mesures</h4>
+                  <div className="Mesurepart">
+                    <div className="AffectationMesures">
+                      <div className="ChoixSousExigences">
+                        {exige.SousExigences.map((sentence) => (
+                          <div className="SousExigenceRow">
+                            <text
+                              className="CategorieSousId"
+                              style={{
+                                color:
+                                  sentence.categorie === 1
+                                    ? "red"
+                                    : sentence.categorie === 2
+                                      ? "gold"
+                                      : sentence.categorie === 3
+                                        ? "pink"
+                                        : "lightgreen",
+                              }}
+                            >
+                              ({sentence.categorie})
+                            </text>
+                            <text className="DescriptifSE">
+                              {" "}
+                              Descriptif {" "}
+                            </text>
+                            <button
+                              className="BoutonOk"
+                              onClick={() => ChangeColor(1, sentence.index)}
+                              style={{
+                                backgroundColor:
+                                  sentence.color === 1 ? "Green" : "lightgray",
+                              }}
+                            >
+                              OK
+                            </button>
+                            <button
+                              className="BoutonNok"
+                              onClick={() => ChangeColor(2, sentence.index)}
+                              value={sentence.color}
+                              style={{
+                                backgroundColor:
+                                  sentence.color === 2 ? "Red" : "lightgray",
+                              }}
+                            >
+                              NOk
+                            </button>
+                            <button
+                              className="BoutonNA"
+                              onClick={() => ChangeColor(3, sentence.index)}
+                              style={{
+                                backgroundColor:
+                                  sentence.color === 3 ? "Gray" : "lightgray",
+                              }}
+                            >
+                              N/A
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="ButtonSendMesures">
+                      <btn className="MesureButton" onClick={() => handleDelete(code)}>
+                        Envoyer mesures au plan d'action
+                      </btn>
                     </div>
                   </div>
                 </div>
               </div>
+            ))}
+          </div>
+          {confirmation.isLoading && (
+            <Confirmation OnConfirmation={Sendmesures} message={confirmation.message} NameConfirmation={confirmation.NameConfirmation} />
+          )
 
-              <div className="SelectionMesures">
-                <h4 className="NamePart">Evaluation de la maturité </h4>
-                <table className="ChoixNiveaux">
-                  <thead class="labelLevels">
-                    <tr>
-                      <th className="Basique">Basique</th>
-                      <th className="Moyenne">Moyenne</th>
-                      <th className="Elevee">Elevée</th>
-                      <th className="Televee">Très élevée</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="Case">
-                        <div className="CaseTable">
-                          <input
-                            type="checkbox"
-                            onClick={() => ChangeMaturity("1")}
-                            checked={exige.Maturite === "1" ? true : false}
-                          />
-
-                          {" " + exige.SousExigences[0].sousId}
-                        </div>
-                      </td>
-                      <td className="Case">
-                        <div className="CaseTable">
-                          <label style={{ display: "inline-block" }}>
-                            <input
-                              type="checkbox"
-                              onClick={() => ChangeMaturity("2")}
-                              checked={exige.Maturite === "2" ? true : false}
-                              style={{ verticalAlign: "middle" }}
-                            />
-                            <span style={{ verticalAlign: "middle" }}>
-
-                              {" " + exige.SousExigences[1].sousId}
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td className="Case">
-                        <div className="CaseTable">
-                          <label style={{ display: "inline-block" }}>
-                            <input
-                              type="checkbox"
-                              onClick={() => ChangeMaturity("3")}
-                              checked={exige.Maturite === "3" ? true : false}
-                              style={{ verticalAlign: "middle" }}
-                            />
-                            <span style={{ verticalAlign: "middle" }}>
-
-                              {" " + exige.SousExigences[2].sousId}
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td className="Case">
-                        <div className="CaseTable">
-                          <label style={{ display: "inline-block" }}>
-                            <input
-                              type="checkbox"
-                              onClick={() => ChangeMaturity("4")}
-                              checked={exige.Maturite === "4" ? true : false}
-                              style={{ verticalAlign: "middle" }}
-                            />
-                            <span style={{ verticalAlign: "middle" }}>
-
-                              {" " + exige.SousExigences[3].sousId}
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <h4 className="NamePart">Aide à la sélection de mesures</h4>
-                <div className="Mesurepart">
-                  <div className="AffectationMesures">
-                    <div className="ChoixSousExigences">
-                      {exige.SousExigences.map((sentence) => (
-                        <div className="SousExigenceRow">
-                          <text
-                            className="CategorieSousId"
-                            style={{
-                              color:
-                                sentence.categorie === 1
-                                  ? "red"
-                                  : sentence.categorie === 2
-                                    ? "gold"
-                                    : sentence.categorie === 3
-                                      ? "pink"
-                                      : "lightgreen",
-                            }}
-                          >
-                            ({sentence.categorie})
-                          </text>
-                          <text className="DescriptifSE">
-                            {" "}
-                            Descriptif {" "}
-                          </text>
-                          <button
-                            className="BoutonOk"
-                            onClick={() => ChangeColor(1, sentence.index)}
-                            style={{
-                              backgroundColor:
-                                sentence.color === 1 ? "Green" : "lightgray",
-                            }}
-                          >
-                            OK
-                          </button>
-                          <button
-                            className="BoutonNok"
-                            onClick={() => ChangeColor(2, sentence.index)}
-                            value={sentence.color}
-                            style={{
-                              backgroundColor:
-                                sentence.color === 2 ? "Red" : "lightgray",
-                            }}
-                          >
-                            NOk
-                          </button>
-                          <button
-                            className="BoutonNA"
-                            onClick={() => ChangeColor(3, sentence.index)}
-                            style={{
-                              backgroundColor:
-                                sentence.color === 3 ? "Gray" : "lightgray",
-                            }}
-                          >
-                            N/A
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="ButtonSendMesures">
-                    <btn className="MesureButton" onClick={() => handleDelete(code)}>
-                      Envoyer mesures au plan d'action
-                    </btn>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+          }
         </div>
-        {confirmation.isLoading && (
-          <Confirmation OnConfirmation={Sendmesures} message={confirmation.message} NameConfirmation={confirmation.NameConfirmation} />
-        )
-
-        }
       </div>
     );
   } else {
