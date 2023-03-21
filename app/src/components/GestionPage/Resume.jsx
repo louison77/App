@@ -285,7 +285,37 @@ const Resume = () => {
 
         </div>
       </div>
-      <div class="container">
+      
+      <div style="display:flex;">
+        <div style="margin-left: auto;margin-right: 0;">
+          Content1
+          <div class="grid-container-two-elem">
+            <div>
+  		        <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg"/>
+            </div>
+            <div>
+  		        <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg"/>
+            </div>
+          </div>
+        </div>
+        <hr/>
+        <div style="margin-left: 0;margin-right: auto;">
+          Content2
+          <div class="grid-container-one-elem">
+            <div>
+  		        <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <p>Work In Progress</p>
+      <br/>
+        <div class="container">
         <div class="advances">
           <div class="progress_bar"><ProgressBar array={TESTprogressarray} /></div>
           <div class="radar"><RadarChart array={TESTprogressarray} /></div>
