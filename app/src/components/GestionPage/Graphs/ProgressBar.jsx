@@ -21,22 +21,21 @@ ChartJS.register(
   Legend,
 );
 
-
 export default function ProgressBar(props) {
 
   const arrayexigences = props.arrayexigences;
 
   const arraymesures = props.arraymesure;
-
+  console.log(arraymesures)
   var count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   var countfinal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   const labels2 = ["Aspects de la sécurité de l'information dans la gestion de la continuité de l'activité", "Contrôle d'accès", "Politiques de sécurité de l'information", "Organisation de la sécurité de l'information", "Sécurité des ressources humaines", "Gestion des actifs", "Sécurité des communications", "Relations avec les fournisseurs", "Gestion des incidents liés à la sécurité de l'information", "Aspects de la sécurité de l'information dans la gestion de la continuité de l'activité", "Conformité", "Sécurité liée à l'exploitation", "Sécurité physique et environnementale", "Acquisition, développement et maintenance des systèmes d'information"]
   var datainit = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   var datafinal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  arrayexigences.map((item) => datainit[labels2.indexOf(item.Domaine)] += parseFloat(item.Note))
-  arrayexigences.map((item) => count[labels2.indexOf(item.Domaine)] += 1)
-  arraymesures.map((item) => datafinal[labels2.indexOf(item.Domaine)] += item.Note)
-  arraymesures.map((item) => countfinal[labels2.indexOf(item.Domaine)] += 1)
+  arrayexigences?.map((item) => datainit[labels2.indexOf(item.Domaine)] += parseFloat(item.Note))
+  arrayexigences?.map((item) => count[labels2.indexOf(item.Domaine)] += 1)
+  arraymesures?.map((item) => datafinal[labels2.indexOf(item.Domaine)] += item.Note)
+  arraymesures?.map((item) => countfinal[labels2.indexOf(item.Domaine)] += 1)
 
   for (let i = 0; i < datainit.length; i++) {
     if (datainit[i] !== 0) {
