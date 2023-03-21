@@ -259,9 +259,13 @@ const Resume = () => {
   }
   return (
     <div>
+      <div className="Title-and-Buttons-Area">
+        <h1>Synthèse du Projet</h1>
+        <button className="Button-Chart-Export">Exporter synthèse au format PNG</button> 
+      </div>
       <div className="big_container">
         <div className="left_pannel">
-          Content1
+          <h3>Actions </h3>
           <div className="grid-container-two-elem">
             <div>
               <RadarChart array={localexigences} arraymesure={localmesures} />
@@ -271,8 +275,9 @@ const Resume = () => {
             </div>
           </div>
         </div>
+        <hr className="separator"></hr>
         <div className="right_pannel">
-          Content2
+          <h3>Coûts</h3>
           <div className="grid-container-one-elem">
             <div>
               <CostBarChart className="chart" array={localmesures} />
@@ -280,14 +285,9 @@ const Resume = () => {
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-      <h3>Options</h3>
+      <div className="Title-and-Buttons-Area">
+        <h1>Options</h1>
+      </div>
       <div className="StatutGestion">
         <div className="StatutAudit">
           <h3>Statut de l'audit</h3>

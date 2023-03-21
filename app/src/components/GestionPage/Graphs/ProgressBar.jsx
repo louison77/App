@@ -83,6 +83,7 @@ export default function ProgressBar(props) {
   const options = {
     indexAxis: 'y',
     responsive: true,
+    maintainAspectRatio: true,
     scales: {
       x: {
         stacked: true,
@@ -98,6 +99,7 @@ export default function ProgressBar(props) {
     },
     plugins: {
       legend: { display: true },
+      title: { display: true, text: 'Progression des mesures' },
       tooltip: { enabled: false }
     }
   };
@@ -123,5 +125,5 @@ export default function ProgressBar(props) {
       },
     ],
   };
-  return <Bar options={options} data={data} />;
+  return <Bar options={options} data={data} width={500} height={500} />;
 }

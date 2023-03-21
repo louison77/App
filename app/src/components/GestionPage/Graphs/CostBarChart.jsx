@@ -66,5 +66,5 @@ export default function CostBarChart(props) {
     ],
   };
 
-  return <Bar options={options} data={data} />;
+  return <Bar options={options} data={data} width={500} height={300} />;
 }
