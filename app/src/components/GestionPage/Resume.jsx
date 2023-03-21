@@ -259,38 +259,10 @@ const Resume = () => {
   }
   return (
     <div>
-      <div className="StatutGestion">
-        <div className="StatutAudit">
-          <h3>Statut de l'audit</h3>
-          <buttongroup>
-            {checked1.map((radio) => (
-              <ToggleButton style={{
-                backgroundColor:
-                  valueAudit === radio.name ? "Orange" : "Whitesmoke", color: "Black", border: "none"
-              }} type="radio" checked={valueAudit === radio.name} onClick={() => changeToggle(true, radio.id)}>
-                {radio.name}
-              </ToggleButton>
-            ))
 
-            }</buttongroup>
-        </div>
-        <div className="StatutPA">
-          <h3>Statut du plan d'action</h3>
-          <buttongroup>
-            {checked2.map((radio) => (
-              <ToggleButton style={{
-                backgroundColor:
-                  valuePA === radio.name ? "Orange" : "Whitesmoke", color: "Black", border: "none"
-              }} type="radio" checked={valuePA === radio.name} onClick={() => changeToggle(false, radio.id)}>
-                {radio.name}
-              </ToggleButton>
-            ))
 
-            }</buttongroup>
 
-        </div>
-      </div>
-      
+
       <div className="big_container">
         <div className="left_pannel">
           Content1
@@ -307,7 +279,7 @@ const Resume = () => {
           Content2
           <div className="grid-container-one-elem">
             <div>
-             <CostBarChart className="chart" array={TESTprogressarray} />
+              <CostBarChart className="chart" array={TESTprogressarray} />
             </div>
           </div>
         </div>
@@ -321,7 +293,7 @@ const Resume = () => {
       <br />
       <div class="container">
         <div class="advances">
-          <div class="progress_bar"><ProgressBar array={TESTprogressarray} /></div>
+          <div class="progress_bar"><ProgressBar arrayexigences={localexigences} arraymesure={localmesures} /></div>
           <div class="radar"><RadarChart array={localexigences} arraymesure={localmesures} /></div>
           <div class="kpi">KPI</div>
         </div>
@@ -339,7 +311,7 @@ const Resume = () => {
         <div class="tile_half_left">
           <RadarChart array={localexigences} arraymesure={localmesures} />
         </div>
-        <div class="tile_half_right"><ProgressBar /></div>
+        <div class="tile_half_right"><ProgressBar arrayexigences={localexigences} arraymesure={localmesures} /></div>
       </div>
 
       <div class="tile_one-third_right">
@@ -350,6 +322,37 @@ const Resume = () => {
 
       <div class="tile_full">
         <h3>Options</h3>
+        <div className="StatutGestion">
+          <div className="StatutAudit">
+            <h3>Statut de l'audit</h3>
+            <buttongroup>
+              {checked1.map((radio) => (
+                <ToggleButton style={{
+                  backgroundColor:
+                    valueAudit === radio.name ? "Orange" : "Whitesmoke", color: "Black", border: "none"
+                }} type="radio" checked={valueAudit === radio.name} onClick={() => changeToggle(true, radio.id)}>
+                  {radio.name}
+                </ToggleButton>
+              ))
+
+              }</buttongroup>
+          </div>
+          <div className="StatutPA">
+            <h3>Statut du plan d'action</h3>
+            <buttongroup>
+              {checked2.map((radio) => (
+                <ToggleButton style={{
+                  backgroundColor:
+                    valuePA === radio.name ? "Orange" : "Whitesmoke", color: "Black", border: "none"
+                }} type="radio" checked={valuePA === radio.name} onClick={() => changeToggle(false, radio.id)}>
+                  {radio.name}
+                </ToggleButton>
+              ))
+
+              }</buttongroup>
+
+          </div>
+        </div>
       </div>
     </div>
   );
