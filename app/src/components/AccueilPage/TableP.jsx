@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../../styles/components/AccueilStyle/_tableP.css";
 import axios from 'axios'
 import Confirmation from "./Confirmation";
-import { CSVLink } from "react-csv";
+
 
 
 
@@ -32,7 +32,7 @@ function TableP(props) {
     })
   }
   const handleDelete = (id, nom) => {
-    HandleConfirmation("Voulez-vous supprimer ce Projet?", true, (nom + " - " + id));
+    HandleConfirmation("Voulez-vous supprimer ce Projet?", true, (nom + " / " + id));
 
   }
   const tableRef = useRef(null)
@@ -136,22 +136,25 @@ function TableP(props) {
   };
 
   const DeleteProjet = (id, test) => {
-    console.log(id)
+
     if (test) {
       const DeleteOne = async () => {
         try {
           await axios.delete(`${baseUrl}`, {
             data: {
-              projetid: id,
+              projetid: id.split("/ ")[1],
             }
           }, {
             'Content-Type': 'application/json'
+          },).then(function (response) {
+            console.log(response);
           })
         }
         catch (error) {
           console.log(error)
         }
       }
+
       DeleteOne()
       HandleConfirmation("", false);
     }
@@ -204,7 +207,6 @@ function TableP(props) {
             ))}
           </tbody>
         </table>
-        <CSVLink data={projets} filename={"Projets"} separator=";">Download me</CSVLink>
         {confirmation.isLoading && (
           <Confirmation OnConfirmation={DeleteProjet} message={confirmation.message} NameConfirmation={confirmation.NameConfirmation} />
         )

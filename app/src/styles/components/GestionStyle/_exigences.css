@@ -69,7 +69,7 @@
 }
 
 h4 {
-    color:#ee970a;
+    color: #ee970a;
     margin-top: 10px;
 
 }
@@ -82,7 +82,7 @@ h4 {
     margin-bottom: 10px;
     color: black;
     background: rgb(243, 243, 243);
-    border: transparent ;
+    border: transparent;
 
 }
 
@@ -90,7 +90,7 @@ h4 {
     display: flex;
     flex-direction: column;
     width: 50%;
-    
+
 
 }
 
@@ -101,7 +101,7 @@ h4 {
     margin-left: 5%;
     display: flex;
     flex-direction: column;
-width: max-content;
+    width: max-content;
 
 }
 
@@ -123,18 +123,18 @@ width: max-content;
     width: 1000px;
 }
 
-.labelLevels{
+.labelLevels {
     height: 15px;
 }
 
 .CaseTable {
-    
+
     align-items: left;
     width: auto;
     text-align: top;
     text-align: left;
 
-    
+
 }
 
 
@@ -261,7 +261,7 @@ width: max-content;
 
 .BoutonNA {
     background-color: lightgrey;
-    border:transparent;
+    border: transparent;
     border-radius: 8px;
     height: 30px;
 }
@@ -342,4 +342,26 @@ width: max-content;
 .BtnISO:hover {
     cursor: pointer;
     padding: 5px;
+}
+
+.Window {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.Textedownload {
+    border: 2px solid black;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5%;
+    padding: 10px;
+
+}
+
+.Textedownload:hover {
+    color: white;
+    background-color: black;
 }

@@ -681,15 +681,28 @@ const Mesures = () => {
           if (number === 5) {
             valuetoChange = e.target.value
             setchange("5")
+            if (valuetoChange === "Terminé") {
+              axios.patch(`${baseUrl}`,
+                {
+                  mesureid: id,
+                  statut: valuetoChange,
+                  note: (0.5 + 0.125 * (id.split(" ")[1].split(".")[1])),
 
-            axios.patch(`${baseUrl}`,
-              {
-                mesureid: id,
-                statut: valuetoChange,
+                }, {
+                'Content-Type': 'application/json'
+              })
+            }
+            else {
+              axios.patch(`${baseUrl}`,
+                {
+                  mesureid: id,
+                  statut: valuetoChange,
 
-              }, {
-              'Content-Type': 'application/json'
-            })
+                }, {
+                'Content-Type': 'application/json'
+              })
+            }
+
           }
 
           if (number === 6) {
@@ -768,7 +781,6 @@ const Mesures = () => {
           console.log(error)
         }
         const exigenceid = id.split(".")[0]
-        console.log(exigenceid)
         const index = id.split(".")[1]
         const response = (await axios.get(`${baseUrl2}`)).data.exigence;
         var tab = []
@@ -803,9 +815,10 @@ const Mesures = () => {
   if (Type === 1) {
     return (
       <div>
-
-        <button classname="BoutonResetFiltre" id="ResetFiltre" onClick={ResetFiltre}>Réinitialiser les filtres</button>
-        <CSVLink data={mesures} filename={"Plan d'action " + code} separator=";">Exporter plan d'action au format csv</CSVLink>
+        <div className="BoutonArea">
+          <button classname="BoutonResetFiltre" id="ResetFiltre" onClick={ResetFiltre}>Réinitialiser les filtres</button>
+          <CSVLink className="Downloadmesures" data={mesures} filename={"Plan d'action " + code} separator=";">Exporter plan d'action au format csv</CSVLink>
+        </div>
         <div className='pageMesure'>
           <table className='ListeMesures'>
             <thead>

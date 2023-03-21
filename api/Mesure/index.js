@@ -19,7 +19,9 @@ const MesureSchema = new mongoose.Schema({
     debut: String,
     fin: String,
     statut: String,
-    macro: String
+    macro: String,
+    domaine: String,
+    note: Number,
 });
 
 const Mesure = mongoose.model("Mesure", MesureSchema);

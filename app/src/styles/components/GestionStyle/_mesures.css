@@ -238,3 +238,25 @@ tbody tr td:nth-child(3) {
 #FiltreC {
   width: 100%;
 }
+
+.BoutonArea {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.Downloadmesures {
+  border: 2px solid black;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5%;
+  margin-bottom: 12px;
+
+}
+
+.Downloadmesures:hover {
+  color: white;
+  background-color: black;
+}

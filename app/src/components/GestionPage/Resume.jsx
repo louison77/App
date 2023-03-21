@@ -100,12 +100,15 @@ const Resume = () => {
     DateDebut: "",
     DateFin: "",
     Statut: "",
+    Domaine: "",
+    Note: 0,
   }])
 
   const [localexigences, setlocalexigences] = useState([{
     Exigenceid: "",
     Note: "",
     Maturite: "",
+    Domaine: ""
   }])
 
   useEffect(() => {
@@ -142,6 +145,8 @@ const Resume = () => {
               DateDebut: mesure.debut,
               DateFin: mesure.fin,
               Statut: mesure.statut,
+              Domaine: mesure.domaine,
+              Note: mesure.note
             })
           }
         })
@@ -167,6 +172,7 @@ const Resume = () => {
               Exigenceid: exigence.exigenceid,
               Note: exigence.note,
               Maturite: exigence.maturite,
+              Domaine: exigence.domaine,
             })
           }
         })
@@ -310,13 +316,13 @@ const Resume = () => {
 
 
 
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br />
       <p>Work In Progress</p>
-      <br/>
-        <div class="container">
+      <br />
+      <div class="container">
         <div class="advances">
           <div class="progress_bar"><ProgressBar array={TESTprogressarray} /></div>
-          <div class="radar"><RadarChart array={TESTprogressarray} /></div>
+          <div class="radar"><RadarChart array={localexigences} arraymesure={localmesures} /></div>
           <div class="kpi">KPI</div>
         </div>
         <div class="costs"><CostBarChart array={TESTprogressarray} /></div>
@@ -331,7 +337,7 @@ const Resume = () => {
       <div class="tile_two-third_left">
         <h3>Avancement</h3>
         <div class="tile_half_left">
-          <RadarChart />
+          <RadarChart array={localexigences} arraymesure={localmesures} />
         </div>
         <div class="tile_half_right"><ProgressBar /></div>
       </div>
