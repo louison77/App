@@ -291,10 +291,10 @@ const Resume = () => {
           Content1
           <div class="grid-container-two-elem">
             <div>
-  		        <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg"/>
+            Test
             </div>
             <div>
-  		        <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg"/>
+            Test
             </div>
           </div>
         </div>
@@ -303,7 +303,7 @@ const Resume = () => {
           Content2
           <div class="grid-container-one-elem">
             <div>
-  		        <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg"/>
+  		        Test
             </div>
           </div>
         </div>
