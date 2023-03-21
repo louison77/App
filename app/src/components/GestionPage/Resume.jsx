@@ -286,24 +286,24 @@ const Resume = () => {
         </div>
       </div>
       
-      <div style="display:flex;">
-        <div style="margin-left: auto;margin-right: 0;">
+      <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+        <div>
           Content1
-          <div class="grid-container-two-elem">
+          <div className="grid-container-two-elem">
             <div>
-            Test
+  		        <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg"/>
             </div>
             <div>
-            Test
+  		        <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg"/>
             </div>
           </div>
         </div>
         <hr/>
-        <div style="margin-left: 0;margin-right: auto;">
+        <div>
           Content2
-          <div class="grid-container-one-elem">
+          <div className="grid-container-one-elem">
             <div>
-  		        Test
+  		        <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg"/>
             </div>
           </div>
         </div>
