@@ -255,7 +255,6 @@ const Resume = () => {
     <div>
       <div className="StatutGestion">
         <div className="StatutAudit">
-          <h2>WIP</h2>
           <h3>Statut de l'audit</h3>
           <buttongroup>
             {checked1.map((radio) => (
@@ -286,24 +285,23 @@ const Resume = () => {
         </div>
       </div>
       
-      <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-        <div>
+      <div className="big_container">
+        <div className="left_pannel">
           Content1
           <div className="grid-container-two-elem">
             <div>
-  		        <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg" alt="this is alt text."/>
+              <RadarChart array={TESTprogressarray} />
             </div>
             <div>
-  		        <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg" alt="this is alt text." />
+              <ProgressBar className="chart" array={TESTprogressarray} />
             </div>
           </div>
         </div>
-        <hr/>
-        <div>
+        <div className="right_pannel">
           Content2
           <div className="grid-container-one-elem">
             <div>
-  		        <img src="https://d2ph5fj80uercy.cloudfront.net/05/cat480.jpg" alt="this is alt text."/>
+             <CostBarChart className="chart" array={TESTprogressarray} />
             </div>
           </div>
         </div>
