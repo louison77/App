@@ -25,7 +25,6 @@ ChartJS.register(
 export default function RadarChart(props) {
 
   const arrayexigences = props.array;
-
   const arraymesures = props.arraymesure;
   var count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   var countfinal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -38,10 +37,19 @@ export default function RadarChart(props) {
   arraymesures.map((item) => countfinal[labels2.indexOf(item.Domaine)] += 1)
 
   for (let i = 0; i < datainit.length; i++) {
-    datainit[i] /= count[i];
+    if (count[i] !== 0) {
+      datainit[i] /= count[i];
+    }
+
   }
   for (let i = 0; i < datafinal.length; i++) {
-    datafinal[i] /= countfinal[i];
+    if (datafinal[i] !== 0) {
+      datafinal[i] /= countfinal[i];
+      if (datafinal[i] < datainit[i]) {
+        datafinal[i] = datainit[i]
+      }
+    }
+
   }
 
 
