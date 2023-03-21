@@ -2,64 +2,14 @@ import React, { useEffect, useState } from "react";
 import "../../styles/components/GestionStyle/_resume.css";
 import RadarChart from "./Graphs/ProgressRadar.jsx";
 import CostBarChart from "./Graphs/CostBarChart.jsx";
-import CostRollingBarChart from "./Graphs/CostRollingBarChart";
+//import CostRollingBarChart from "./Graphs/CostRollingBarChart";
 //import { ProgressBar } from "react-bootstrap";
 import ProgressBar from "./Graphs/ProgressBar";
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import axios from 'axios'
 import { useOutletContext } from "react-router-dom";
 
-//Debug
 
-/*const TESTcostarray = [{
-  Cout: 2000,
-  Coutrun: 1200,
-},
-{
-  Cout: 3000,
-  Coutrun: 2000,
-},
-{
-  Cout: 4000,
-  Coutrun: 3000,
-},
-{
-  Cout: 5000,
-  Coutrun: 4000,
-},
-{
-  Cout: 6000,
-  Coutrun: 5000,
-}]*/
-
-const TESTprogressarray = [{
-  Priorite: "P0",
-  Complexite: 0,
-  Cout: 0,
-  Coutrun: 0,
-  Maturite: 0,
-},
-{
-  Priorite: "P1",
-  Complexite: 1,
-  Cout: 1,
-  Coutrun: 1,
-  Maturite: 1,
-},
-{
-  Priorite: "P2",
-  Complexite: 2,
-  Cout: 2,
-  Coutrun: 2,
-  Maturite: 2,
-},
-{
-  Priorite: "P3",
-  Complexite: 3,
-  Cout: 3,
-  Coutrun: 3,
-  Maturite: 3,
-}]
 
 // Importation des données de l'API
 
@@ -96,7 +46,7 @@ const Resume = () => {
     Complexite: "",
     Cout: "",
     Coutrun: "",
-    Maturite: "",
+    Maturite: "P0",
     DateDebut: "",
     DateFin: "",
     Statut: "",
@@ -291,31 +241,31 @@ const Resume = () => {
       <div className="StatutGestion">
         <div className="StatutAudit">
           <h3>Statut de l'audit</h3>
-          <buttongroup>
-            {checked1.map((radio) => (
-              <ToggleButton style={{
-                backgroundColor:
-                  valueAudit === radio.name ? "Orange" : "Whitesmoke", color: "Black", border: "none"
-              }} type="radio" checked={valueAudit === radio.name} onClick={() => changeToggle(true, radio.id)}>
-                {radio.name}
-              </ToggleButton>
-            ))
 
-            }</buttongroup>
+          {checked1.map((radio) => (
+            <ToggleButton style={{
+              backgroundColor:
+                valueAudit === radio.name ? "Orange" : "Whitesmoke", color: "Black", border: "none"
+            }} type="radio" checked={valueAudit === radio.name} onClick={() => changeToggle(true, radio.id)}>
+              {radio.name}
+            </ToggleButton>
+          ))
+
+          }
         </div>
         <div className="StatutPA">
           <h3>Statut du plan d'action</h3>
-          <buttongroup>
-            {checked2.map((radio) => (
-              <ToggleButton style={{
-                backgroundColor:
-                  valuePA === radio.name ? "Orange" : "Whitesmoke", color: "Black", border: "none"
-              }} type="radio" checked={valuePA === radio.name} onClick={() => changeToggle(false, radio.id)}>
-                {radio.name}
-              </ToggleButton>
-            ))
 
-            }</buttongroup>
+          {checked2.map((radio) => (
+            <ToggleButton style={{
+              backgroundColor:
+                valuePA === radio.name ? "Orange" : "Whitesmoke", color: "Black", border: "none"
+            }} type="radio" checked={valuePA === radio.name} onClick={() => changeToggle(false, radio.id)}>
+              {radio.name}
+            </ToggleButton>
+          ))
+
+          }
 
         </div>
       </div>
