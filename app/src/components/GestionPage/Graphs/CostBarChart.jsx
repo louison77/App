@@ -31,7 +31,7 @@ export default function CostBarChart(props) {
   const options = {
     indexAxis: 'x',
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     scales: {
       x: {
         stacked: false,
@@ -47,6 +47,7 @@ export default function CostBarChart(props) {
     plugins: {
       legend: { display: true },
       tooltip: { enabled: true },
+      title: { display: true, text: 'Coûts par priorité des mesures' },
     },
   };
 
@@ -66,5 +67,5 @@ export default function CostBarChart(props) {
     ],
   };
 
-  return <Bar options={options} data={data} width={500} height={300} />;
+  return <Bar options={options} data={data}/>;
 }

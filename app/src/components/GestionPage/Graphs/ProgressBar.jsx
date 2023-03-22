@@ -30,6 +30,21 @@ export default function ProgressBar(props) {
   var count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   var countfinal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   const labels2 = ["Aspects de la sécurité de l'information dans la gestion de la continuité de l'activité", "Contrôle d'accès", "Politiques de sécurité de l'information", "Organisation de la sécurité de l'information", "Sécurité des ressources humaines", "Gestion des actifs", "Sécurité des communications", "Relations avec les fournisseurs", "Gestion des incidents liés à la sécurité de l'information", "Aspects de la sécurité de l'information dans la gestion de la continuité de l'activité", "Conformité", "Sécurité liée à l'exploitation", "Sécurité physique et environnementale", "Acquisition, développement et maintenance des systèmes d'information"]
+  const labels_display = [
+    "Sécurité liée à la Gestion", 
+    "Contrôle d'accès", 
+    "Politiques de sécurité de l'information", 
+    "Organisation de la sécurité de l'information",  
+    "Sécurité des ressources humaines", 
+    "Gestion des actifs", 
+    "Sécurité des communications", 
+    "Relations avec les fournisseurs", 
+    "Gestion des incidents", 
+    "Sécurité liée à la Gestion", 
+    "Conformité", 
+    "Sécurité liée à l'exploitation", 
+    "Sécurité physique et environnementale", 
+    "Gestion des systèmes d'information"]
   var datainit = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   var datafinal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   arrayexigences?.map((item) => datainit[labels2.indexOf(item.Domaine)] += parseFloat(item.Note))
@@ -83,22 +98,22 @@ export default function ProgressBar(props) {
   const options = {
     indexAxis: 'y',
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     scales: {
       x: {
         stacked: true,
         grid: { display: false },
-        display: true,
+        display: false,
       },
       y: {
         stacked: true,
-        grid: { display: true },
-        border: { display: true },
+        grid: { display: false},
+        border: { display: false },
 
       },
     },
     plugins: {
-      legend: { display: true },
+      legend: { display: false},
       title: { display: true, text: 'Progression des mesures' },
       tooltip: { enabled: false }
     }
@@ -106,7 +121,7 @@ export default function ProgressBar(props) {
 
 
   const data = {
-    labels: labels2,
+    labels: labels_display,
     datasets: [
       {
         label: 'Niveau actuel',
@@ -125,5 +140,5 @@ export default function ProgressBar(props) {
       },
     ],
   };
-  return <Bar options={options} data={data} width={500} height={500} />;
+  return <Bar options={options} data={data}/>;
 }

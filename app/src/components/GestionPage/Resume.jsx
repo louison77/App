@@ -218,10 +218,29 @@ const Resume = () => {
           <h3>Actions </h3>
           <div className="grid-container-two-elem">
             <div>
-              <RadarChart array={localexigences} arraymesure={localmesures} />
+              <div style={{ width: '400px', height: '400px' }}>
+                <RadarChart array={localexigences} arraymesure={localmesures} width={400} height={400}  />
+              </div>
+              <div id="scrollbox" className="RadarLegend">  
+                "GEST": Aspects de la sécurité de l'information dans la gestion de la continuité de l'activité <br />
+                "ACCS": Contrôle d'accès <br />
+                "POLI": Politiques de sécurité de l'information <br />
+                "ORGA": Organisation de la sécurité de l'information <br />
+                "RH": Sécurité des ressources humaines <br />
+                "ACTF": Gestion des actifs <br />
+                "COMM": Sécurité des communications <br />
+                "FRNI": Relations avec les fournisseurs <br />
+                "INCD": Gestion des incidents liés à la sécurité de l'information <br />
+                "GEST": Aspects de la sécurité de l'information dans la gestion de la continuité de l'activité <br />
+                "CONF": Conformité <br />
+                "EXPL": Sécurité liée à l'exploitation  <br />
+                "P&E": Sécurité physique et environnementale  <br />
+                "SYS": Acquisition, développement et maintenance des systèmes d'information <br />
             </div>
-            <div>
-              <ProgressBar className="chart" arrayexigences={localexigences} arraymesure={localmesures} />
+            </div>
+            
+            <div style={{ width: '500px', height: '500px' }}>
+              <ProgressBar className="chart" arrayexigences={localexigences} arraymesure={localmesures} width={500} height={500}/>
             </div>
           </div>
         </div>
@@ -229,8 +248,11 @@ const Resume = () => {
         <div className="right_pannel">
           <h3>Coûts</h3>
           <div className="grid-container-one-elem">
-            <div>
-              <CostBarChart className="chart" array={localmesures} />
+            <div  style={{ width: '500px', height: '300px' }}>
+              <CostBarChart className="chart" array={localmesures}  width={500} height={300}/>
+            </div>
+            <div  style={{ width: '500px', height: '300px' }}>
+              <CostRollingBarChart className="chart" array={localmesures}  width={500} height={300}/>
             </div>
           </div>
         </div>
@@ -269,7 +291,9 @@ const Resume = () => {
 
         </div>
       </div>
-      <CostRollingBarChart className="chart" array={localmesures} />
+      <div style={{ width: '600px', height: '300px' }}>
+        <CostRollingBarChart className="chart" array={localmesures} width={600} height={300} />
+      </div>
     </div>
 
   );

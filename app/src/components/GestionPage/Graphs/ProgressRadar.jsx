@@ -30,6 +30,21 @@ export default function RadarChart(props) {
   var count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   var countfinal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   const labels2 = ["Aspects de la sécurité de l'information dans la gestion de la continuité de l'activité", "Contrôle d'accès", "Politiques de sécurité de l'information", "Organisation de la sécurité de l'information", "Sécurité des ressources humaines", "Gestion des actifs", "Sécurité des communications", "Relations avec les fournisseurs", "Gestion des incidents liés à la sécurité de l'information", "Aspects de la sécurité de l'information dans la gestion de la continuité de l'activité", "Conformité", "Sécurité liée à l'exploitation", "Sécurité physique et environnementale", "Acquisition, développement et maintenance des systèmes d'information"]
+  const labels_display = [
+    "GEST", 
+    "ACCS",
+    "POLI", 
+    "ORGA", 
+    "RH", 
+    "ACTF", 
+    "COMM", 
+    "FRNI",
+    "INCD", 
+    "GEST", 
+    "CONF", 
+    "EXPL", 
+    "P&E", 
+    "SYS"]
   var datainit = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   var datafinal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   arrayexigences.map((item) => datainit[labels2.indexOf(item.Domaine)] += parseFloat(item.Note))
@@ -63,7 +78,7 @@ export default function RadarChart(props) {
 
 
   const data = {
-    labels: labels2,
+    labels: labels_display,
     datasets: [
       {
         backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -93,5 +108,5 @@ export default function RadarChart(props) {
 
     ],
   };
-  return <Radar options={options} data={data} width={400} height={400} />;
+  return <Radar options={options} data={data} />;
 }
