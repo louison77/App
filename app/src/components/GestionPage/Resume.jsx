@@ -291,9 +291,6 @@ const Resume = () => {
 
         </div>
       </div>
-      <div style={{ width: '600px', height: '300px' }}>
-        <CostRollingBarChart className="chart" array={localmesures} width={600} height={300} />
-      </div>
     </div>
 
   );
