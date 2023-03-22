@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../styles/components/GestionStyle/_resume.css";
 import RadarChart from "./Graphs/ProgressRadar.jsx";
 import CostBarChart from "./Graphs/CostBarChart.jsx";
-//import CostRollingBarChart from "./Graphs/CostRollingBarChart";
+import CostRollingBarChart from "./Graphs/CostRollingBarChart";
 //import { ProgressBar } from "react-bootstrap";
 import ProgressBar from "./Graphs/ProgressBar";
 import ToggleButton from 'react-bootstrap/ToggleButton';
@@ -269,6 +269,7 @@ const Resume = () => {
 
         </div>
       </div>
+      <CostRollingBarChart className="chart" array={localmesures} />
     </div>
 
   );
