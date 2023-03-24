@@ -564,7 +564,7 @@ const Exigences = () => {
                   porteur: "",
                   debut: "",
                   fin: "",
-                  statut: "",
+                  statut: "Pas démarré",
                   domaine: UneExigence[0].Nom,
                   note: UneExigence[0].Note,
                 }, {
