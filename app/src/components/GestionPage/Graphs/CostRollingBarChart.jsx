@@ -26,7 +26,7 @@ export default function CostRollingBarChart(props) {
   const Coutrun = [0, 0, 0, 0]
   array.map((item) => Cout[parseInt(item.Priorite[1])] += item.Cout)
   array.map((item) => Coutrun[parseInt(item.Priorite[1])] += item.Coutrun)
-
+  
   //DEBUG
   //const Cout = [2, 6, 8, 3]
   //const Coutrun = [1, 3, 1, 10]
@@ -66,12 +66,12 @@ export default function CostRollingBarChart(props) {
     maintainAspectRatio: false,
     scales: {
       x: {
-        stacked: false,
+        stacked: true,
         grid: { display: false },
         border: { display: false },
       },
       y: {
-        stacked: false,
+        stacked: true,
         grid: { display: true },
         border: { display: false },
       },
