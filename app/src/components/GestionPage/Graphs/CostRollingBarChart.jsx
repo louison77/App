@@ -87,10 +87,10 @@ export default function CostRollingBarChart(props) {
         //},
       },
     },
-    //interaction: {
-    //  intersect: true,
+    interaction: {
+      intersect: false,
     //  mode: 'index',
-    //},
+    },
   };
 
   const data = {
