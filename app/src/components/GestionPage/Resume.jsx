@@ -8,6 +8,7 @@ import ProgressBar from "./Graphs/ProgressBar";
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import axios from 'axios'
 import { useOutletContext } from "react-router-dom";
+import KpiDisplay from "./Graphs/KpiDisplay";
 
 
 
@@ -240,7 +241,12 @@ const Resume = () => {
             </div>
             
             <div style={{ width: '500px', height: '500px' }}>
-              <ProgressBar className="chart" arrayexigences={localexigences} arraymesure={localmesures} width={500} height={500}/>
+                <div>
+                  <ProgressBar className="chart" arrayexigences={localexigences} arraymesure={localmesures} width={500} height={500}/>
+                </div>
+                <div>
+                  <KpiDisplay arrayexigences={localexigences} arraymesure={localmesures} />
+                </div>
             </div>
           </div>
         </div>
