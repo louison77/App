@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/components/GestionStyle/_exigences.css";
 import Confirmation from "../AccueilPage/Confirmation";
 import { CSVLink } from "react-csv";
+import ToggleButton from 'react-bootstrap/ToggleButton';
 
 const Exigences = () => {
   const baseUrl = '/api/Exigence';
@@ -15,6 +16,7 @@ const Exigences = () => {
   const baseUrl3 = '/api/Mesure';
   const [isposted, setposted] = useState(false)
   const [statutP, setstatutP] = useState("")
+  const [refresh, setrefresh] = useState(true)
   //Tableau général de toutes les exigences
   const [code] = useOutletContext();
 
@@ -32,6 +34,48 @@ const Exigences = () => {
     Obj: "",
     Exigence: "",
   }]);
+  const [checked1] = useState([
+    {
+      name: "En cours", id: 0
+    },
+    {
+      name: "Terminé", id: 1
+    }
+  ]
+  )
+  const changeToggle = (id) => {
+    const patchStatutProjet = async () => {
+      try {
+        if (id === 0 && statutP !== "En cours") {
+          await axios.patch(`${baseUrl2}`,
+            {
+              projetid: code,
+              statutaudit: "En cours"
+            }, {
+            'Content-Type': 'application/json'
+          })
+        }
+        else if (id === 1 && statutP !== "Terminé") {
+          await axios.patch(`${baseUrl2}`,
+            {
+              projetid: code,
+              statutaudit: "Terminé"
+            }, {
+            'Content-Type': 'application/json'
+          })
+
+        }
+
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+
+    patchStatutProjet();
+    setrefresh(!refresh)
+
+  }
   //valeur tampon de l'exigence
   const [UneExigence, setUneExigence] = useState("");
   //booléen pour afficher la partie de droite
@@ -150,7 +194,7 @@ const Exigences = () => {
 
     }
     getStatuAudit()
-  }, [code, isposted]);
+  }, [code, isposted, refresh]);
   //comportements
   const toggleVisibility = (event, ID) => {
     const Copy = [];
@@ -520,7 +564,7 @@ const Exigences = () => {
                   porteur: "",
                   debut: "",
                   fin: "",
-                  statut: "",
+                  statut: "Pas démarré",
                   domaine: UneExigence[0].Nom,
                   note: UneExigence[0].Note,
                 }, {
@@ -584,9 +628,23 @@ const Exigences = () => {
   if (isSeen) {
     return (
       <div className="Window">
+        <div className="OptionArea">
+          <CSVLink className="Textedownload" data={exigences} filename={code + " Exigences/" + new Date().toDateString()} separator=";">Exporter les exigences au format csv</CSVLink>
+          <div className="StatutAudit">
+            <h3>Statut de l'audit</h3>
 
-        <CSVLink className="Textedownload" data={exigences} filename={"Exigences " + code} separator=";">Exporter les exigences au format csv</CSVLink>
+            {checked1.map((radio) => (
+              <ToggleButton style={{
+                backgroundColor:
+                  statutP === radio.name ? "Orange" : "Whitesmoke", color: "Black", border: "none"
+              }} type="radio" checked={statutP === radio.name} onClick={() => changeToggle(radio.id)}>
+                {radio.name}
+              </ToggleButton>
+            ))
 
+            }
+          </div>
+        </div>
         <div className="page">
 
           <div className="BarreDéroulé">

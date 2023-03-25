@@ -5,7 +5,6 @@ import CostBarChart from "./Graphs/CostBarChart.jsx";
 import CostRollingBarChart from "./Graphs/CostRollingBarChart";
 //import { ProgressBar } from "react-bootstrap";
 import ProgressBar from "./Graphs/ProgressBar";
-import ToggleButton from 'react-bootstrap/ToggleButton';
 import axios from 'axios'
 import { useOutletContext } from "react-router-dom";
 import KpiDisplay from "./Graphs/KpiDisplay";
@@ -18,30 +17,11 @@ const Resume = () => {
   //code du projet
   const [code] = useOutletContext();
   //url api projet
-  const baseUrl = "/api/Projet"
+  //const baseUrl = "/api/Projet"
   const baseUrl2 = "/api/Mesure";
   const baseUrl3 = "/api/Exigence";
-  const [refresh, setrefresh] = useState(true)
-  const [valueAudit, setValueAudit] = useState("")
-  const [valuePA, setvaluePA] = useState("")
-  const [checked1] = useState([
-    {
-      name: "En cours", id: 0
-    },
-    {
-      name: "Terminé", id: 1
-    }
-  ]
-  )
-  const [checked2] = useState([
-    {
-      name: "En cours", id: 0
-    },
-    {
-      name: "Terminé", id: 1
-    }
-  ]
-  )
+
+
   const [localmesures, setlocalmesures] = useState([{
     Priorite: "",
     Complexite: "",
@@ -63,23 +43,7 @@ const Resume = () => {
   }])
 
   useEffect(() => {
-    const getProject = async () => {
-      try {
-        const response = await axios.get(`${baseUrl}`);
-        const retrievedProject = response.data.projets;
-        retrievedProject.forEach(projet => {
-          if (projet.projetid === code) {
-            setValueAudit(projet.statutaudit)
-            setvaluePA(projet.statutplanaction)
-          }
-        })
-      }
-      catch (error) {
-        console.log(error)
-      }
-    }
 
-    getProject()
     const getMesure = async () => {
       try {
         const response = await axios.get(`${baseUrl2}`);
@@ -135,94 +99,25 @@ const Resume = () => {
     }
     getExigence()
 
-  }, [refresh, code])
-
-  const changeToggle = (type, id) => {
-    console.log(localexigences)
-    if (type) {
-      const patchStatutProjet = async () => {
-        try {
-          if (id === 0 && valueAudit !== "En cours") {
-            await axios.patch(`${baseUrl}`,
-              {
-                projetid: code,
-                statutaudit: "En cours"
-              }, {
-              'Content-Type': 'application/json'
-            })
-          }
-          else if (id === 1 && valueAudit !== "Terminé") {
-            await axios.patch(`${baseUrl}`,
-              {
-                projetid: code,
-                statutaudit: "Terminé"
-              }, {
-              'Content-Type': 'application/json'
-            })
-
-          }
-
-        }
-        catch (error) {
-          console.log(error)
-        }
-
-      }
-
-      //sendexigences()
-      patchStatutProjet();
-      setrefresh(!refresh)
-    }
-    else {
-
-      const patchStatutPA = async () => {
-        try {
-          if (id === 0 && valuePA !== "En cours") {
-            await axios.patch(`${baseUrl}`,
-              {
-                projetid: code,
-                statutplanaction: "En cours"
-              }, {
-              'Content-Type': 'application/json'
-            })
-          }
-          else if (id === 1 && valuePA !== "Terminé") {
-            await axios.patch(`${baseUrl}`,
-              {
-                projetid: code,
-                statutplanaction: "Terminé"
-              }, {
-              'Content-Type': 'application/json'
-            })
-
-          }
-
-        }
-        catch (error) {
-          console.log(error)
-        }
-      }
-      patchStatutPA()
-      setrefresh(!refresh)
-    }
+  }, [code])
 
 
-  }
+
+
+
   return (
     <div>
       <div className="Title-and-Buttons-Area">
-        <h1>Synthèse du Projet</h1>
-        <button className="Button-Chart-Export">Exporter synthèse au format PNG</button> 
       </div>
       <div className="big_container">
         <div className="left_pannel">
-          <h3>Actions </h3>
+          <h3>Conformité </h3>
           <div className="grid-container-two-elem">
             <div>
               <div style={{ width: '400px', height: '400px' }}>
-                <RadarChart array={localexigences} arraymesure={localmesures} width={400} height={400}  />
+                <RadarChart array={localexigences} arraymesure={localmesures} width={400} height={400} />
               </div>
-              <div id="scrollbox" className="RadarLegend">  
+              <div id="scrollbox" className="RadarLegend">
                 "GEST": Aspects de la sécurité de l'information dans la gestion de la continuité de l'activité <br />
                 "ACCS": Contrôle d'accès <br />
                 "POLI": Politiques de sécurité de l'information <br />
@@ -237,9 +132,9 @@ const Resume = () => {
                 "EXPL": Sécurité liée à l'exploitation  <br />
                 "P&E": Sécurité physique et environnementale  <br />
                 "SYS": Acquisition, développement et maintenance des systèmes d'information <br />
+              </div>
             </div>
-            </div>
-            
+
             <div style={{ width: '500px', height: '500px' }}>
                 <div>
                   <ProgressBar className="chart" arrayexigences={localexigences} arraymesure={localmesures} width={500} height={500}/>
@@ -254,49 +149,19 @@ const Resume = () => {
         <div className="right_pannel">
           <h3>Coûts</h3>
           <div className="grid-container-one-elem">
-            <div  style={{ width: '500px', height: '300px' }}>
-              <CostBarChart className="chart" array={localmesures}  width={500} height={300}/>
+            <div style={{ width: '500px', height: '300px' }}>
+              <CostBarChart className="chart" array={localmesures} width={500} height={300} />
             </div>
-            <div  style={{ width: '500px', height: '300px' }}>
-              <CostRollingBarChart className="chart" array={localmesures}  width={500} height={300}/>
+            <div style={{ width: '500px', height: '300px' }}>
+              <CostRollingBarChart className="chart" array={localmesures} width={500} height={300} />
             </div>
           </div>
         </div>
       </div>
       <div className="Title-and-Buttons-Area">
-        <h1>Options</h1>
+
       </div>
-      <div className="StatutGestion">
-        <div className="StatutAudit">
-          <h3>Statut de l'audit</h3>
 
-          {checked1.map((radio) => (
-            <ToggleButton style={{
-              backgroundColor:
-                valueAudit === radio.name ? "Orange" : "Whitesmoke", color: "Black", border: "none"
-            }} type="radio" checked={valueAudit === radio.name} onClick={() => changeToggle(true, radio.id)}>
-              {radio.name}
-            </ToggleButton>
-          ))
-
-          }
-        </div>
-        <div className="StatutPA">
-          <h3>Statut du plan d'action</h3>
-
-          {checked2.map((radio) => (
-            <ToggleButton style={{
-              backgroundColor:
-                valuePA === radio.name ? "Orange" : "Whitesmoke", color: "Black", border: "none"
-            }} type="radio" checked={valuePA === radio.name} onClick={() => changeToggle(false, radio.id)}>
-              {radio.name}
-            </ToggleButton>
-          ))
-
-          }
-
-        </div>
-      </div>
     </div>
 
   );

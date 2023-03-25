@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Exigences from './components/GestionPage/Exigences';
-import Export from './components/GestionPage/Export';
 import Mesures from './components/GestionPage/Mesures';
 import Suivi from './components/GestionPage/Suivi';
 import Accueil from './pages/Accueil';
@@ -30,7 +29,6 @@ function App() {
           <Route path="/Gestion/:name/Exigences" element={<Exigences />} />
           <Route path="/Gestion/:name/Mesures" element={<Mesures />} />
           <Route path="/Gestion/:name/Suivi" element={<Suivi />} />
-          <Route path="/Gestion/:name/Export" element={<Export />} />
           <Route path="/Gestion/:name/" element={<Resume />} />
         </Route>
 

@@ -5,6 +5,7 @@ import "../../styles/components/GestionStyle/_mesures.css";
 import axios from 'axios'
 import Confirmation from "../AccueilPage/Confirmation";
 import { CSVLink } from "react-csv";
+import ToggleButton from 'react-bootstrap/ToggleButton';
 
 const Mesures = () => {
 
@@ -35,6 +36,51 @@ const Mesures = () => {
     isLoading: false,
     NameConfirmation: ""
   })
+  const [checked2] = useState([
+    {
+      name: "En cours", id: 0
+    },
+    {
+      name: "Terminé", id: 1
+    }
+  ]
+  )
+  const changeToggle = (id) => {
+
+
+
+    const patchStatutPA = async () => {
+      try {
+        if (id === 0 && statutP !== "En cours") {
+          await axios.patch(`${baseUrl3}`,
+            {
+              projetid: code,
+              statutplanaction: "En cours"
+            }, {
+            'Content-Type': 'application/json'
+          })
+        }
+        else if (id === 1 && statutP !== "Terminé") {
+          await axios.patch(`${baseUrl3}`,
+            {
+              projetid: code,
+              statutplanaction: "Terminé"
+            }, {
+            'Content-Type': 'application/json'
+          })
+
+        }
+
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+    patchStatutPA()
+    setchange("0")
+  }
+
+
   const HandleConfirmation = (message, isLoading, NameConfirmation) => {
 
     setconfirmation({
@@ -817,7 +863,22 @@ const Mesures = () => {
       <div>
         <div className="BoutonArea">
           <button classname="BoutonResetFiltre" id="ResetFiltre" onClick={ResetFiltre}>Réinitialiser les filtres</button>
-          <CSVLink className="Downloadmesures" data={mesures} filename={"Plan d'action " + code} separator=";">Exporter plan d'action au format csv</CSVLink>
+          <CSVLink className="Downloadmesures" data={mesures} filename={code + " Plan d'action/" + new Date().toDateString()} separator=";">Exporter plan d'action au format csv</CSVLink>
+          <div className="StatutPA">
+            <h3>Statut du plan d'action</h3>
+
+            {checked2.map((radio) => (
+              <ToggleButton style={{
+                backgroundColor:
+                  statutP === radio.name ? "Orange" : "Whitesmoke", color: "Black", border: "none"
+              }} type="radio" checked={statutP === radio.name} onClick={() => changeToggle(radio.id)}>
+                {radio.name}
+              </ToggleButton>
+            ))
+
+            }
+
+          </div>
         </div>
         <div className='pageMesure'>
           <table className='ListeMesures'>
@@ -958,8 +1019,25 @@ const Mesures = () => {
   if (Type === 2) {
     return (
       <div>
+        <div className="BoutonArea">
+          <button classname="BoutonResetFiltre" id="ResetFiltre" onClick={ResetFiltre}>Réinitialiser les filtres</button>
+          <CSVLink className="Downloadmesures" data={mesures} filename={code + " Plan d'action/" + new Date().toDateString()} separator=";">Exporter plan d'action au format csv</CSVLink>
+          <div className="StatutPA">
+            <h3>Statut du plan d'action</h3>
 
-        <button classname="BoutonResetFiltre" id="ResetFiltre" onClick={ResetFiltre}>Réinitialiser les filtres</button>
+            {checked2.map((radio) => (
+              <ToggleButton style={{
+                backgroundColor:
+                  statutP === radio.name ? "Orange" : "Whitesmoke", color: "Black", border: "none"
+              }} type="radio" checked={statutP === radio.name} onClick={() => changeToggle(radio.id)}>
+                {radio.name}
+              </ToggleButton>
+            ))
+
+            }
+
+          </div>
+        </div>
         <div className='pageMesure'>
           <table className='ListeMesures'>
             <thead>

@@ -102,9 +102,7 @@ const Nav2 = (props) => {
               <Link to={"/Gestion/" + nom + "/Suivi"} className="Menu-link">
                 <li>Suivi</li>
               </Link>
-              <Link to={"/Gestion/" + nom + "/Export"} className="Menu-link">
-                <li>Export</li>
-              </Link>
+
             </ul>
           </div>
           <div className="rightpart">

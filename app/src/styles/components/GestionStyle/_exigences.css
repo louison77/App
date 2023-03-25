@@ -352,11 +352,11 @@ h4 {
 
 .Textedownload {
     border: 2px solid black;
-    width: 20%;
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 5%;
+    margin-left: 10%;
     padding: 10px;
 
 }
@@ -364,4 +364,11 @@ h4 {
 .Textedownload:hover {
     color: white;
     background-color: black;
+}
+
+.OptionArea {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-between;
 }
