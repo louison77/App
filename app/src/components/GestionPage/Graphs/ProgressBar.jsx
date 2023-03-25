@@ -140,7 +140,7 @@ export default function ProgressBar(props) {
       {
         label: 'Terminées',
         data: countTerminé,
-        backgroundColor: 'rgba(200, 200, 200, 0.4)',
+        backgroundColor: "red",
       },
     ],
   };

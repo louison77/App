@@ -107,8 +107,6 @@ const Resume = () => {
   return (
     <div>
       <div className="Title-and-Buttons-Area">
-        <h1>Synthèse du Projet</h1>
-        <button className="Button-Chart-Export">Exporter synthèse au format PNG</button>
       </div>
       <div className="big_container">
         <div className="left_pannel">
@@ -155,7 +153,7 @@ const Resume = () => {
         </div>
       </div>
       <div className="Title-and-Buttons-Area">
-        <h1>Options</h1>
+
       </div>
 
     </div>
