@@ -68,8 +68,8 @@ export default function KpiDisplay(props) {
   }
 
   //Calculating the average grades
-  const CurrentGrade = datainit.reduce((a, b) => a + b, 0) / datainit.length;
-  const PredictedGrade = datafinal.reduce((a, b) => a + b, 0) / datafinal.length;
+  const CurrentGrade = Math.round(datainit.reduce((a, b) => a + b, 0) / datainit.length);
+  const PredictedGrade = Math.round(datafinal.reduce((a, b) => a + b, 0) / datafinal.length);
 
   //DEBUG
   //const CurrentGrade = 3;
