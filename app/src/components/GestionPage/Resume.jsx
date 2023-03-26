@@ -115,7 +115,7 @@ const Resume = () => {
           <div className="grid-container-two-elem">
             <div>
               <div style={{ width: '400px', height: '400px' }}>
-                <RadarChart array={localexigences} arraymesure={localmesures} width={400} height={400} />
+                <RadarChart array={localexigences} arraymesure={localmesures} />
               </div>
               <div id="scrollbox" className="RadarLegend">
                 "GEST": Aspects de la sécurité de l'information dans la gestion de la continuité de l'activité <br />
