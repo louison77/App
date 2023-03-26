@@ -1,5 +1,9 @@
 import React from 'react';
-import KpiColorScale from './KpiColorScale.jsx';
+
+/* This code is the first version of the KpiDisplay component. 
+It provides a simple display of the KPIs, with a fixed color for each one.
+The current grade is always displayed in green, and the predicted grade is always displayed in orange.
+*/
 
 
 export default function KpiDisplay(props) {
@@ -9,7 +13,7 @@ export default function KpiDisplay(props) {
   //array.map((item) => Coutrun[parseInt(item.Priorite[1])] += item.Coutrun)
 
   //DEBUG
-  const CurrentGrade = 3;
+  const CurrentGrade = 5;
   const PredictedGrade = 6;
 
   
@@ -18,16 +22,15 @@ export default function KpiDisplay(props) {
   const gridStyle = {
     display: 'grid',
     gridTemplateColumns: 'auto auto',
-    gap: '20px',
-    justifyContent: 'center',
+    gap: '10px',
+    border: '1px solid black',
   };
 
   const kpiStyle = {
     textAlign: 'center',
     fontSize: '30px',
     justifyContent: 'center',
-    borderRadius: '50px',
-    width : '100px',
+    borderRadius: '5px',
   };
 
   //Render
