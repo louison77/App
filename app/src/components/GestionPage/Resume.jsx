@@ -115,7 +115,7 @@ const Resume = () => {
           <div className="grid-container-two-elem">
             <div>
               <div style={{ width: '400px', height: '400px' }}>
-                <RadarChart array={localexigences} arraymesure={localmesures} width={400} height={400} />
+                <RadarChart array={localexigences} arraymesure={localmesures}/>
               </div>
               <div id="scrollbox" className="RadarLegend">
                 "GEST": Aspects de la sécurité de l'information dans la gestion de la continuité de l'activité <br />
@@ -135,13 +135,11 @@ const Resume = () => {
               </div>
             </div>
 
-            <div style={{ width: '500px', height: '500px' }}>
-                <div>
+            <div>
+                <div style={{ width: '500px', height: '500px' }}>
                   <ProgressBar className="chart" arrayexigences={localexigences} arraymesure={localmesures} width={500} height={500}/>
                 </div>
-                <div>
-                  <KpiDisplay arrayexigences={localexigences} arraymesure={localmesures} />
-                </div>
+                <KpiDisplay arrayexigences={localexigences} arraymesure={localmesures} />
             </div>
           </div>
         </div>
