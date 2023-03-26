@@ -567,6 +567,7 @@ const Exigences = () => {
                   statut: "Pas démarré",
                   domaine: UneExigence[0].Nom,
                   note: UneExigence[0].Note,
+
                 }, {
                 'Content-Type': 'application/json'
               },).then(function (response) {

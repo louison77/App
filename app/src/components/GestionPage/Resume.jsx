@@ -7,6 +7,7 @@ import CostRollingBarChart from "./Graphs/CostRollingBarChart";
 import ProgressBar from "./Graphs/ProgressBar";
 import axios from 'axios'
 import { useOutletContext } from "react-router-dom";
+import KpiDisplay from "./Graphs/KpiDisplay";
 
 
 
@@ -133,9 +134,11 @@ const Resume = () => {
                 "SYS": Acquisition, développement et maintenance des systèmes d'information <br />
               </div>
             </div>
-
-            <div style={{ width: '500px', height: '500px' }}>
-              <ProgressBar className="chart" arrayexigences={localexigences} arraymesure={localmesures} width={500} height={500} />
+            <div>
+              <div style={{ width: '500px', height: '500px' }}>
+                <ProgressBar className="chart" arrayexigences={localexigences} arraymesure={localmesures} width={500} height={500} />
+              </div>
+              <KpiDisplay arrayexigences={localexigences} arraymesure={localmesures} />
             </div>
           </div>
         </div>
