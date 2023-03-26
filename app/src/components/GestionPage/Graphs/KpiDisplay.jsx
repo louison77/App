@@ -1,5 +1,12 @@
 import React from 'react';
-import KpiColorScale from './KpiColorScale.jsx';
+import KpiElement from './KpiElement.jsx';
+
+/* This component provides a display of some Key Point Indicators (KPIs), namely the current average grade and the predicted average grade.
+The current average grade is calculated from the grades of the measures that have already been taken.
+The predicted average grade is calculated from the grades of the measures that have been planned, but not yet taken.
+Those values are then passed to the KpiElement component, which displays them in colored tiles.
+*/
+
 
 
 export default function KpiDisplay(props) {
@@ -12,8 +19,6 @@ export default function KpiDisplay(props) {
   const CurrentGrade = 3;
   const PredictedGrade = 6;
 
-  
-
   //Style config
   const gridStyle = {
     display: 'grid',
@@ -22,24 +27,12 @@ export default function KpiDisplay(props) {
     justifyContent: 'center',
   };
 
-  const kpiStyle = {
-    textAlign: 'center',
-    fontSize: '30px',
-    justifyContent: 'center',
-    borderRadius: '50px',
-    width : '100px',
-  };
-
   //Render
 
   return (
     <div style={gridStyle}>
-      <div style={kpiStyle}>
-        <KpiColorScale value={CurrentGrade} maxValue={6} />
-      </div>
-      <div style={kpiStyle}>
-        <KpiColorScale value={PredictedGrade} maxValue={6} />
-      </div>
+        <KpiElement name={'Current Grade'} value={CurrentGrade} maxValue={6} />
+        <KpiElement name={'Predicted Grade'} value={PredictedGrade} maxValue={6} />
     </div>
   );
 }
