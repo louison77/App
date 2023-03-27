@@ -130,7 +130,7 @@ export default function ProgressBar(props) {
       {
         label: 'Pas commencées',
         data: countNotStart,
-        backgroundColor: 'rgb(11, 163, 11)',
+        backgroundColor: "red",
       },
       {
         label: 'En cours',
@@ -140,7 +140,7 @@ export default function ProgressBar(props) {
       {
         label: 'Terminées',
         data: countTerminé,
-        backgroundColor: "red",
+        backgroundColor: 'rgb(11, 163, 11)',
       },
     ],
   };
