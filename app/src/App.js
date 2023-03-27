@@ -18,6 +18,7 @@ import '@fontsource/roboto/700.css';
 
 function App() {
 
+  //Routes est un système de routage où l'on spécifie chaque path avec un composant Route
 
   return (
     <div>

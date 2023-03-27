@@ -8,6 +8,7 @@ mongoose.connect(
 }
 );
 
+//Se référer à index.js du dossier Exigence où tout est expliquer
 const UserSchema = new mongoose.Schema({
     mail: { type: String, unique: true },
     role: String,

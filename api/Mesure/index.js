@@ -7,7 +7,7 @@ mongoose.connect(
     useUnifiedTopology: true,
 }
 );
-
+//Se référer à index.js du dossier Exigence où tout est expliquer
 const MesureSchema = new mongoose.Schema({
     mesureid: { type: String, unique: true },
     projetid: String,

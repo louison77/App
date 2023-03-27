@@ -4,10 +4,15 @@ import "../../styles/components/AccueilStyle/_Admin.css";
 import Confirmation from './Confirmation';
 
 const Admin = (props) => {
+    //Url de l'api contenant les utilsateurs de l'application web
     const baseUrl = '/api/Utilisateur'
+    //Variable contenant la chaine de caractère du nouveau manager, initialisée vide, setmanager est une fonction permettant de changer cette valeur avec usestate
     const [newmanager, setmanager] = useState("");
+    //Tableau contenant les managers de l'app, initialisé vide
     const [Users, setUsers] = useState([])
+    //Variable contenant la chaine de caractère du nouvel admin, initialisée vide
     const [newadmin, setadmin] = useState("")
+    //Tableau contenant les admin de l'app, initialisé vide
     const [Adminstab, setAdmintab] = useState([])
 
     //Code pour le popup de confirmation de suppression
@@ -16,16 +21,19 @@ const Admin = (props) => {
         isLoading: false,
         NameConfirmation: ""
     })
+    //Fonction changeant les paramètres de confirmation, message est le message à afficher, isLoading un booléen (true le popup est affiché et false non) NameConfirmation est le "nom" de l'utilisateur
     const HandleConfirmation = (message, isLoading, NameConfirmation) => {
         setconfirmation({
             message, isLoading, NameConfirmation
         })
     }
+    //Fonction réalisant le changement avec id qui est l'id de l'user, Msg un message à afficher et true pour permettre d'afficher le popup
     const handleDelete = (id, Msg) => {
         HandleConfirmation(Msg, true, id);
 
     }
-
+    //Dans ce UseEffect on récupère les infos de la bdd Utilisateur à l'aide d'une fonction asynchrone qui sélectionne que les admin et les Manager
+    //Le UseEffect se réactualise à chque fois que newmanager, newadmin ou confirmation est modifié
     useEffect(() => {
         const getUser = async () => {
 
@@ -52,12 +60,18 @@ const Admin = (props) => {
         getUser()
 
     }, [newmanager, newadmin, confirmation])
+    //Modifie la valeur de newmanager à chaque entrée dans le form
     const handleChange = (event) => {
         setmanager(event.target.value);
     };
+    //Modifie la valeur de newmadmin à chaque entrée dans le form
     const handleChange2 = (event) => {
         setadmin(event.target.value)
     }
+
+    //Fonction qui créée un nouveau mananger ou admin à l'aide d'une requête post vers l'api Utilisateur
+    //Si number est égal à 1 on crée un manager et 2 un admin
+    //On reset la valeur de newmanager ou newadmin à la fin de cette fonction
     const handleSubmit = (event, number) => {
         if (number === 1) {
             event.preventDefault();
@@ -106,6 +120,11 @@ const Admin = (props) => {
 
 
     }
+
+    //Fonction qui va delete un Utilisateur depuis les arguments du pop up
+    //name correspond est un mail d'un admin contenu dans admintab, on peut supprimer un admin que si l'utilisateur n'est pas cet admin et qu'il y a toujours plus de 2 admin après suppression
+    //Dans les autres cas cela signifie qu'on supprime un manager et on appelle alors la fonction DeleteOne
+    //On appelle la fonction HandleConfirmation pour réinitialiser l'objet confirmation et ne faire disparaitre le popup
     const DeleteUser = (name, test) => {
         var isadmin = false
         Adminstab.forEach(element => {

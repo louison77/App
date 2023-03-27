@@ -4,7 +4,9 @@ import "../../styles/components/NavbarsStyle/_navbar.css";
 import BoutonProfil from "./BoutonProfil";
 
 const Navbar = (props) => {
+  //Nom de l'utilsateur
   const [name, setName] = React.useState("");
+  //On le set avec la propriete props qu'on a passé dans un attribut lors de l'appel de Navbar, il est modifié qu'en cas de modification de l'utilsiateur
   useEffect(() => {
     if (props.user && props.user?.userDetails) {
       setName(props.user?.userDetails);
@@ -25,7 +27,7 @@ const Navbar = (props) => {
 
           <span className="MailID">{name}</span>
         </div>
-        
+
 
         <div className="rightpart">
           <div className="profil">

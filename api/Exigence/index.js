@@ -1,5 +1,5 @@
+
 const mongoose = require('mongoose');
-console.log(mongoose)
 // Connect to the database
 mongoose.connect(
     process.env.CONNECTION_STRING, { // boiler plate values
@@ -7,7 +7,7 @@ mongoose.connect(
     useUnifiedTopology: true,
 }
 );
-
+//Schema d'une Exigence avec mongoose.Schema, les différentes colonnes/attributs possibles
 const ExigenceSchema = new mongoose.Schema({
     exigenceid: String,
     exigencenom: String,
@@ -18,10 +18,11 @@ const ExigenceSchema = new mongoose.Schema({
     color: [Number],
     domaine: String,
 });
-
+//Création d'un modèle avec le schéma définis précédemment
 const Exigencemodel = mongoose.model("Exigence", ExigenceSchema);
 
 // Export our function
+//Selon le type de method (post,patch,delete,get) ce module va appeler une des fonctions défini en desous pour pouvoir communiquer avec la bdd mongodb
 module.exports = async function (context, req) {
     // setup our default content type (we always return JSON)
     context.res = {
@@ -49,13 +50,14 @@ module.exports = async function (context, req) {
             break;*/
     }
 };
-
+//cette fonction va chercher et récupérer toutes les exigences correspondants au model dans le bdd, on y accède avec la valeur exigence dans le body
 async function findAll(context) {
     const exigence = await Exigencemodel.find();
     // return all exigences
     context.res.body = { exigence: exigence };
 }
 
+//Cette fonction va créer une Exigence selon les valeurs de context.req.body avec insertMany qu'on a spécifiè lors de la requête post
 async function createOne(context) {
 
     /*const body = context.req.body;
@@ -67,7 +69,6 @@ async function createOne(context) {
     try {
         const body = context.req.body;
         const exigence = await Exigencemodel.insertMany(body);
-        console.log("imported successfully");
         context.res.status = 201;
         context.res.body = exigence
     }
@@ -76,6 +77,7 @@ async function createOne(context) {
     }
 }
 
+//Update une Exigence en cherchant la bonne exigence dans la bdd avec la fonction findOneAndUpdate selon son exigenceid présent dans le body et le body en question qu'on a passé en paramètre dans la requête patch
 async function updateOne(context) {
     // Grab the id from the URL (stored in bindingData)
     try {

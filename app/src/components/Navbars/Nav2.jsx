@@ -6,14 +6,19 @@ import axios from 'axios'
 
 
 const Nav2 = (props) => {
+  //code du projet
   const nom = props.name;
+  //valeur du rôle, soit auditeur soit manager
   const user = props.user;
+  //value qui est soit 0 soit 1, 1 on affiche l'affichage de l'auditeur (pas de page suivi), 0 celui de manager(chef de projet)
+  //Initialisé de base à 0
   const [value, setvalue] = useState(0)
+  //Url de l'api Projet
   const baseUrl = '/api/Projet';
 
+  //on va récupérer le bon projet à l'aide de la varirable nom (projetid de la bdd) et si user(l'utilisateur) correspond au manager on modifie la valeur de value à 1
   useEffect(() => {
     const setProject = async () => {
-
       const response = await axios.get(`${baseUrl}`);
       const retrievedProject = response.data.projets;
       retrievedProject.forEach(element => {
@@ -56,9 +61,7 @@ const Nav2 = (props) => {
               <Link to={"/Gestion/" + nom + "/Mesures"} className="Menu-link">
                 <li>Plan d'actions</li>
               </Link>
-              <Link to={"/Gestion/" + nom + "/Export"} className="Menu-link">
-                <li>Export</li>
-              </Link>
+
             </ul>
           </div>
           <div className="rightpart">
@@ -70,6 +73,7 @@ const Nav2 = (props) => {
       </div>
     );
   }
+  // La seule différence avec l'affichage du dessus est le lien vers suivi qui est possible uniquement pour les chefs de projet
   else {
 
 

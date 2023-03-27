@@ -11,16 +11,23 @@ import { CSVLink } from "react-csv";
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
 const Exigences = () => {
+  //Url de l'api Exigence
   const baseUrl = '/api/Exigence';
+  //Url de l'api Projet
   const baseUrl2 = '/api/Projet';
+  //Url de l'api Mesure
   const baseUrl3 = '/api/Mesure';
+  //Booléen qui teste si on a déja créer les exigences du projet
   const [isposted, setposted] = useState(false)
+  //Statut de l'audit du projet
   const [statutP, setstatutP] = useState("")
+  //Variable permettant de rafraichir la page
   const [refresh, setrefresh] = useState(true)
-  //Tableau général de toutes les exigences
+  //code du projet que l'on récupére avec la fonction useOutletContext
   const [code] = useOutletContext();
-
+  //Longueur du tableau d'exigences
   const [length, setLength] = useState(0)
+  //Tableau général de toutes les exigences
   const [exigences, setExigences] = useState([{
     exigenceid: "",
     Note: "",
@@ -34,6 +41,7 @@ const Exigences = () => {
     Obj: "",
     Exigence: "",
   }]);
+  //Variable qui est utilisé pour le toggle de changement d'état de l'audit 
   const [checked1] = useState([
     {
       name: "En cours", id: 0
@@ -43,6 +51,11 @@ const Exigences = () => {
     }
   ]
   )
+  //id correspond à l'id dans la variable checked1
+  //Si on est à 1 on modifie vers En cours en faisant une requête patch pour modifier la bdd
+  //Dans l'autre sens on modifie vers Terminé
+  //Quand le statut de l'audit est à Terminé on ne peut plus modifier l'audit
+  //On change la valeur de refresh pour pouvoir actualiser la page lorsqu'on appuie sur le toggle
   const changeToggle = (id) => {
     const patchStatutProjet = async () => {
       try {
@@ -85,8 +98,7 @@ const Exigences = () => {
   //Id représentant l'exigence active
   const [activeID, setactiveID] = useState("");
 
-  //Confirmation
-
+  //Confirmation comme sur les autres pages
   const [confirmation, setconfirmation] = useState({
     message: "",
     isLoading: false,
@@ -97,17 +109,23 @@ const Exigences = () => {
       message, isLoading, NameConfirmation
     })
   }
+  //On rajoute le test !==Terminé pour ne pas faire l'action si le statut est Terminé
   const handleDelete = (id) => {
     if (statutP !== "Terminé") {
       HandleConfirmation("Est-ce que vous voulez bien les ajouter au plan d'action?", true, id);
     }
-
-
   }
 
+  //Ce UseEffect va construire le tableau d'objet exigences à l'aide du fichier excel contenant toutes les exigences et ses différentes valeurs
+  //getExigences va parcourir cet excel et mettre les valeurs dans un tableau baseExigences ce sont les attributs d'exigences qui n'ont pas besoin des valeurs de la bdd mais du fichier excel
+  //On set la longueur de length au nombre d'exigences dans l'excel
+  //Ensuite on va faire une requête get à l'api Exigences pour récupérer les informations du projet en particulier avec le test sur projetid
+  //On va mettre toutes ces valeurs dans une valeur tampons tab, où l'on va les push dedans à chaque itération
+  //Une fois arriver à la fin on va trier le tab et set la varible exigences en local avec la fonction setExigences
+  //On récupère le statut de l'audit en faisant une requête get vers l'api Projet dans la fonction getStatuAudit
+  //Ce UseEffect est appelé lors de la modification de code, isposted ou refresh
   useEffect(() => {
     const excel = require('./iso27001-exigences.json')
-
 
     const getExigences = async () => {
       var baseExigences = []
@@ -195,7 +213,12 @@ const Exigences = () => {
     }
     getStatuAudit()
   }, [code, isposted, refresh]);
-  //comportements
+  //Cette fonction va permettre d'afficher une exigence en particulier
+  //Elle prend en paramètre un ID (Exigence +nombre)
+  //on prend les valeurs de la bonne exigence que l'on push dans Copy et on set UneExigence avec ce dernier
+  //On change la valeur de isSeen a true pour faire apparaitre l'affichage de l'exigence
+  //on change aciveID pour changer le css de la barre déroulée des exigences
+  //Si le bouton guide complet était ouvert, on le ferme en mettant open à false
   const toggleVisibility = (event, ID) => {
     const Copy = [];
     for (let i = 0; i < exigences.length; i++) {
@@ -221,6 +244,11 @@ const Exigences = () => {
     setactiveID(ID);
     setOpen(false);
   };
+  //Cette fonction va effectuer une requêtes post vers l'api Exigence avec autant d'exigences que la longueur du Excel
+  //On va créer un id différent pur chaque exigence, cet id sera dépendant du code projet et du numéro de la mesure
+  //On modifie la valeur de isPosted à true pour changer l'affichage
+  //On effectue aussi une requête post vers l'api Projet pour modifier le statut de l'audit de "pas commencé" à "en cours"
+
   const CreateExigences = () => {
     const EnvoyerMesures = async () => {
       var tab = []
@@ -272,7 +300,8 @@ const Exigences = () => {
     patchStatutProjet();
 
   }
-  //Changer valeur Observation
+  //On modifie la valeur d'observations dans exigences et UneExigence[0] à l'aide de tampon Copy et Copy2
+  //On récupère la valeur d'observation avec event.target.value
   const ModifyObserv = (event) => {
     if (statutP !== "Terminé") {
       const Copy = [];
@@ -315,6 +344,8 @@ const Exigences = () => {
     }
 
   };
+  //Cette fonction est appelée lors de l'appui du bouton ajouter observations
+  //Si le statut n'est pas terminé, on peut effectuer une requêtes patch vers l'api Exigence qui modifie le champ observation avec le valeur d'observation de UneExigence[0]
   const PatchObservations = (e) => {
     e.preventDefault();
     if (statutP !== "Terminé") {
@@ -337,7 +368,10 @@ const Exigences = () => {
     }
 
   }
-
+  //Index est l'index de la sous-exigence
+  //Count le numéro de la couleur de 0 à 4
+  //On  modifie la couleur du champ sous-exigences au bon index
+  //On fait les mêmes manipulations que pour lesfonctions précédentes ensuite pour modifier exigence et UneExigence
   const ChangeColor = (count, Index) => {
     if (statutP !== "Terminé") {
       //On créer deux variable tampon pour les futures UneExigence et exigences
@@ -387,6 +421,10 @@ const Exigences = () => {
       setExigences(Copy);
     }
   };
+  //Pareil que la fonction modify observ mais avec note
+  //Il y a juste une requête patch vers l'api Exigence pour modifier la note dans la bdd
+  //event.prevent.default permet de ne pas recharger la page
+  //On effectue cette fonction que si le statut n'est pas terminé
   const SubmitNote = (event) => {
     if (statutP !== "Terminé") {
       const Copy = [];
@@ -445,6 +483,10 @@ const Exigences = () => {
     }
 
   };
+  //Cette fonction va modifier les valeurs en local de la couleur des sous-exigences selon une valeur de 1 à 4
+  //Pour chaque index<=value on met la couleur à 1(vert) sinon à 2(rouge)
+  //On Copy ensuite la nouvelle valeur de sous-exigences dans exigences et UneExigence[0]
+  //On effectue une requête patch vers l'api Exigence pour modifier la valeur de maturite dans la bdd
   const ChangeMaturity = (value) => {
     if (statutP !== "Terminé") {
       const Copy = [];
@@ -517,6 +559,12 @@ const Exigences = () => {
 
 
   };
+  //Permet de passer d'une exigence à l'autre avec les flèches
+  //ID étant l'ID de l'exigence
+  //iter est soit 1 soit -1 pour soit aller vers la prochaine ou précédente exigence
+  //On veut que l'index soit toujours >=0 et < exigences.length pour ne pas avoir d'erreur
+  //On modifie UneExigence[0] avec les valeurs de l'index voulu de exigences
+  //On ferme le bouton guidecomplet avec setOpen(false)
   const ChangeExigence = (iter, ID) => {
     let index = 0;
     const Copy = [];
@@ -545,6 +593,10 @@ const Exigences = () => {
       setOpen(false);
     }
   };
+  //On va effectuer des requêtes post vers l'api Mesure pour créer des nouvelles mesures si la couleur de la sous mesures est rouge(valeur 2)
+  //On initialise les valeurs d'une mesure avec des valeurs de base 
+  //On effectue une requête vers l'api Projet pour modifier le statut du plan d'action à en cours
+  //On effectue aussi une requête vers l'api Exigences pour modifier les valeurs du tableau de couleur. Lorsqu'on crée une mesure on veut garder en mémoire les valeurs des couleurs 
   const Sendmesures = (id, test) => {
     if (test && statutP !== "Terminé") {
       const EnvoyerMesures = async () => {
@@ -626,6 +678,10 @@ const Exigences = () => {
     }
 
   }
+  //Trois affichages possible
+  //le premier celui avec la barre de sélection d'exigence et une exigence en particulier si isSeen est true
+  //le deuxième si on le tableau d'exigences est vide, c'est-à-dire qu'on a pas encore créer d'exigences pour ce projet, on a qu'un bouton créer Exigences avec l'iso 27001
+  //le troisième lorsque l'on arrive sur la page exigences et qu'on a pas encore sélectionner d'exigences, on a simplement une barre de sélection d'exigence, c'est l'affichage par défaut
   if (isSeen) {
     return (
       <div className="Window">

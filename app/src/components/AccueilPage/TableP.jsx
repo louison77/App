@@ -9,17 +9,19 @@ import Confirmation from "./Confirmation";
 
 
 function TableP(props) {
+  //role de l'utilisateur
   const role = props.role
-  //state
+  //Url de l'api projet
   const baseUrl = '/api/Projet';
   //tableau contenant informations différents projets
   const [projets, setprojets] = useState([
   ]);
-  //tableau tampon pour pouvoir ajouter un projet dans le tableau au dessuss
+  //tableau tampon pour pouvoir ajouter un projet dans le tableau au dessus
   const [newProjet, setNewProjet] = useState("");
+  //Id maximum pour le code du projet
   const [maxId, setmaxID] = useState(0);
 
-  //Code pour le popup de confirmation de suppression
+  //Code pour le popup de confirmation de suppression, se référer à la page admin
 
   const [confirmation, setconfirmation] = useState({
     message: "",
@@ -39,7 +41,8 @@ function TableP(props) {
 
 
 
-  //comportements
+  //Récupération à l'aide d'une fonction asynchrone des informations des projets selon les auditeurs ou le manager du projet
+  //Il est réactualisé à chaque modification de maxId, props.userDetails, newProjet et confirmation
   useEffect(() => {
     const getBDD = async () => {
 
@@ -78,7 +81,8 @@ function TableP(props) {
     }
     getBDD();
   }, [props.user.userDetails, maxId, newProjet, confirmation]);
-  //comportement/evenenement lors de la soumission du formulaire
+
+  //Ajout du projet en local et création d'un nouveau projet avec une requête post(fonction sendProject)
   const handleSubmit = (event) => {
     //pour ne pas que la page se réactualise quand on appuie sur le bouton
     event.preventDefault();
@@ -87,7 +91,6 @@ function TableP(props) {
       const ProjetCopy = [...projets];
       //manipulation copie du state, on génère un id aléatoire
       const Code = newProjet[0].toUpperCase() + "-" + (new Date().getFullYear()).toString() + "-" + maxId.toString();
-      console.log(Code)
       const nom = newProjet;
       const StatutAudit = "Pas démarré";
       const StatutPA = "Pas démarré";
@@ -123,18 +126,19 @@ function TableP(props) {
         }
       }
       sendProject()
-      //modifier state setter
+      //modifier state projet
 
       setprojets(ProjetCopy);
+      //réinitialise variable tampon du nom du projet
       setNewProjet("");
     }
   };
 
-  //permet de taper dans la zone de texte
+  //permet de taper dans la zone de texte en récupérant la chaine de caractères à chaque entrée d'une touche dans le formulaire
   const handleChange = (event) => {
     setNewProjet(event.target.value);
   };
-
+  //Effectue une requête delete vers l'api Projet, cette fonction nécessite l'id du projet et l'attribut test est true on delete sinon on réinitialise les paramètres de confirmation pour faire partir le popup
   const DeleteProjet = (id, test) => {
 
     if (test) {
@@ -163,6 +167,8 @@ function TableP(props) {
     }
   }
 
+  //Il y a différents affichage selon le rôle de l'utilisateur soit Manager, soit Auditeur
+  //La seule différence réside dans la possibilité de créer un projet
   if (role === "Manager") {
     return (
       <div>

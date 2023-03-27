@@ -1,6 +1,7 @@
 import React from 'react';
 import "../../styles/components/AccueilStyle/_confirmation.css";
 
+//Ce compposant est le popup de confirmation, il prend un message, une fonction, et un nom 
 const Confirmation = ({ message, OnConfirmation, NameConfirmation }) => {
     return (
         <div onClick={() => OnConfirmation(NameConfirmation, false)} className='Box'>

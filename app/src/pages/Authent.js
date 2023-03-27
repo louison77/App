@@ -2,9 +2,14 @@ import React from 'react';
 import "../styles/components/AccueilStyle/_authent.css";
 
 const Authent = () => {
+    //premier moyen de s'identifier, azure ad
     const provider = "aad";
+    //deucième github, optionnel il peut être supprimer
     const provider2 = "github"
+    //chemin de redirection
     const redirect = window.location.pathname;
+
+    //`/.auth/login/${provider}?post_login_redirect_uri=${redirect}` permet d'afficher la page de connexion du provider choisi, on est redirigé vers le même url
     return (
         <div className='Home'>
             <div div className='Navbar'>

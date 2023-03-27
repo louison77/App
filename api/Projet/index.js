@@ -8,6 +8,7 @@ mongoose.connect(
 }
 );
 
+//Se référer à index.js du dossier Exigence où tout est expliquer
 const ProjetSchema = new mongoose.Schema({
 
     nom: String,
